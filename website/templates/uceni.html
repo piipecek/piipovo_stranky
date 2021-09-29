@@ -1,0 +1,42 @@
+{% extends "base.html"%}
+{% block content %}
+
+    <form method="post">
+
+    {% if typ=="showcase" %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1">definice</div>
+                <div class="col-md-1">překlad</div>
+            </div>
+            {% for word in display_info %}
+                <div class="row">
+                    <div class="col-md-1">{{ word.pretty("czech") }}</div>
+                    <div class="col-md-1">{{ word.pretty("german") }}</div>
+                </div>
+            {% endfor %}
+        </div>
+        <button type="submit" name="dalsi" value="1">Dál</button>
+    {% elif typ =="choose" %}
+        vyber správný překlad pro {{ display_info[0].pretty("czech") }}
+        <select name="moznosti">
+            {% for slovicko in display_info[1] %}
+                <option value="{{ slovicko.datum }}">{{ slovicko.pretty(jazyk) }}</option>
+            {% endfor %}
+        </select>
+        <input type="text" hidden name="datum_puvodniho" value="{{ display_info[0].datum }}"/>
+        <button type="submit" name="vybrat" value="1">Vybrat tuhle možnost</button>
+    {% elif typ =="write" %}
+        napis preklad k slovicku {{ display_info.pretty("czech") }}
+        <input type="text" name="string"/>
+        <input type="text" hidden name="datum_puvodniho" value="{{ display_info.datum }}"/>
+        <button type="submit" name="zkontrolovat" value="1">Zkontrolovat</button>
+    {% else %}
+        {{ typ }}, nevim jak jsem se sem dostal
+    {% endif %}
+
+    <button type="submit" name="ukoncit"  value="1">Ukončit učení teď</button>
+
+    </form>
+
+{% endblock %}

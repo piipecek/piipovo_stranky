@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Overview</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1 w1">česky</div>
+            <div class="col-md-1 w1">{{ jazyk }}</div>
+        </div>
+        <hr>
+        {% for word in setik %}
+            <div class="row">
+                <div class="col-md-1 w1">{{ word.pretty("czech") }}</div>
+                <div class="col-md-1 w1">{{ word.pretty(jazyk) }}</div>
+            </div>
+        {% endfor %}
+    </div>
+    <form method="post">
+    <button type="submit" name="zkouseni" value="zkouseni">Začít zkoušení</button>
+    <button type="submit" name="uceni" value="uceni">Začít učení</button>
+    </form>
+{% endblock %}

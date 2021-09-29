@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2> Konec zkoušení. Výsledky:</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1 w1">česky</div>
+            <div class="col-md-1 w1">moje odověď</div>
+            <div class="col-md-1 w1">správná odpověď</div>
+            <div class="col-md-1 w1">správně</div>
+        </div>
+    <hr>
+    {% for i in indexes %}
+        <div class="row">
+            <div class="col-md-1 w1">{{ zkousena_slovicka[i].pretty("czech") }}</div>
+            <div class="col-md-1 w1">{{ zkouseni.seznam_odpovedi[i] }}</div>
+            <div class="col-md-1 w1">{{ zkousena_slovicka[i].pretty(zkouseni.jazyk) }}</div>
+            <div class="col-md-1 w1">{{ seznam_yesno[i] }}</div>
+        </div>
+    {% endfor %}
+    </div>
+    <h2> Úspěšnost: {{ zkouseni.get_uspesnost() }}. Odešli záznam tlačítkem níže.</h2>
+    <form method="post">
+    <label for="poznamka">Přidat poznámku ke zkoušení: </label>
+    <input type="text" name="poznamka" id="poznamka" value="{{ zkouseni.poznamka }}"/>
+    <button type="submit">Uložit a domů</button>
+    </form>
+{% endblock %}

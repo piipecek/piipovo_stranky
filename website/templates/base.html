@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for("static",filename="static.css")}}">
+
+</head>
+
+<body>
+    <nav>
+        {% if current_user.is_authenticated %}
+        <ul>
+            <li><a href="{{url_for("auth_views.logout")}}">Logout</a></li>
+            <li><a href="{{url_for("default_views.dashboard")}}">Dashboard</a></li>
+            <li><a href="{{url_for("slovnik_views.slovnik_home")}}">Slovník </a></li>
+        </ul>    
+
+        {% else %}
+        <ul>
+            <li><a href="{{url_for("auth_views.login")}}">Login</a></li>
+            <li><a href="{{url_for("auth_views.register")}}">Register</a></li>
+        </ul>
+
+        {% endif %}
+    </nav>
+
+
+{% for category, message in get_flashed_messages(with_categories=True) %}
+    <div class="alert-{{category}}">{{ message }}</div>
+{% endfor %}
+
+
+<br>
+<br>
+
+{% block content %}
+
+{% endblock %}
+
+
+</body>
+</html>

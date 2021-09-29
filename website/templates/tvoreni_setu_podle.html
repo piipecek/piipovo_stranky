@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Navol si parametry setu:</h2>
+    <form method="post">
+    <div>
+        <label for="dropdown1">Podle čeho?</label>
+        <select id="dropdown1" name="typ">
+            <option value="datum">Mezi dvěma daty</option>
+            <option value="kategorie">Podle kategorií</option>
+            <option value="neuspesne">Neúspěšné slovíčka</option>
+            <option value="vse">ze všeho</option>
+            <option value="least">Nejméně zkoušená slovíčka</option>
+            <option value="druh">Podle slovního druhu</option>
+            <option value="skupina">Podle char. skupiny písmen</option>
+        </select>
+    </div>
+    <button type="submit">Dál</button>
+    </form>
+{% endblock %}

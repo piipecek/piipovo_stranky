@@ -1,0 +1,77 @@
+[
+   {
+      "czech": [
+         "a"
+      ],
+      "german": [
+         "b",
+         "a"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "ok",
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 1,
+      "times_known": 1,
+      "times_learned": 0,
+      "datum": "2021-09-27 21:33:47.600045",
+      "kategorie": [
+         "test",
+         "-"
+      ]
+   },
+   {
+      "czech": [
+         "a"
+      ],
+      "german": [
+         "-"
+      ],
+      "english": [
+         "j"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 5,
+      "times_known": 3,
+      "times_learned": 0,
+      "datum": "2021-09-28 20:50:57.139576",
+      "kategorie": [
+         "-"
+      ]
+   },
+   {
+      "czech": [
+         "ok"
+      ],
+      "german": [
+         "-"
+      ],
+      "english": [
+         "ok"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 5,
+      "times_known": 4,
+      "times_learned": 0,
+      "datum": "2021-09-28 20:51:45.338069",
+      "kategorie": [
+         "test"
+      ]
+   }
+]

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Přidat čj - {{ jazyk }} slovíčka</h2>
+    <form method="post">
+
+        <label for="input">"definice - význam, druhý význam ".
+            Slovíčka oddělovat enterem.
+            možnost zapsat slovíčko s prefixem "zde:", při zkoušení to nedělá bordel.</label>
+        <br>
+        <textarea id="input" name="input" rows="10" cols="50"></textarea>
+        <br>
+
+        <label for="asociace">pridat vsem stejnou asociaci?</label>
+        <input type="text" name="asociace" id="asociace"/>
+
+        <br>
+        <label for="druh">pridat vsem stejny druh?</label>
+        <input type="text" name="druh" id="druh"/>
+
+        <br>
+        <label for="kategorie">pridat vsem stejnou kategorii?</label>
+        <input type="text" name="kategorie" id="kategorie"/>
+
+
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

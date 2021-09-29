@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Co to je, tenhle slovník?</h2>
+<br>
+<p>
+Ve slovníku můžeš přidávat slovíčka a potom se je učit, nebo se z nich nechat vyzkoušet. Přidávání slovíček je dělaný tak, aby bylo jednoduchý přidat víc slovíček naráz.
+</p>
+<p>
+	Každé slovíčko po vytvoření drží několik informací: 
+	<ul>
+		<li>svou českou definici</li>
+		<li>německý překlad</li>
+		<li>anglický překlad</li>
+		<li>kategorii</li>
+		<li>slovní druh</li>
+		<li>asociaci</li>
+		<li>statistiky o tom, kolikrát a jak dobře jste ho uměli při zkoušení</li>
+		<li>statistiky o tom, kolikrát jste se ho učili</li>
+	</ul>
+	Kategorie, slovní druh a asociace jsou nepovinné. Když se ale rozhodnete je slovíčku přidat, může potom být jednodušší výběr slovíček k učení či zkoušení. Statistiky ani upravovat nemůžete.
+</p>
+<p>
+	Při zadávání slovíček je potřeba dodržovat jistá pravidla:
+	<ul>
+		<li>Zadávat jde vždy jen česko-anglická nebo česko-německá slovíčka. Myslím totiř, že tak to většinou je potřeba. Vždycky ale můžete existujícímu slovíčku později přidat překlad i do třetího jazyka.</li>
+		<li>česká definice a cizojazyčný překlad se oddělují pomlčkou "-". Když kolem ní uděláte mezery, nic by se nemělo stát.</li>
+		<li>v rámci české definice nebo cizojazyčného překladu můžete čárkou "," oddělit synonyma, druhé významy a tak podobně. Pokud při učení/zkoušení napíšete jeden z možných překladů, bude to vyhodnoceno jako správně.</li>
+		<li>slovíčka mezi sebou se oddělují jedním enterem</li>
+	</ul>
+	Před odesláním všech nových slovíček se můžete rozhodnout, zda chcete všem přidat společnou kategorii, slovní druh nebo asociaci.
+</p>	
+<p>
+	Při vybírání setu slovíček k učení/zkoušení projdete dvěma fázemi: V první vyberete, podle čeho chcete set vybrat (prostě to zkuste, jsou tam možnosti jako "podle kategorie", "nejméně zkoušená" nebo "podle data přidání"). V té druhé specifikujete, jak přesně se má set vytvořit (výběr kategorie, zvolení počtu slovíček atd.).
+</p>
+<p>
+	Po dokončení zkoušení se dá v historii zkoušení nahlédnout, co jste podělali a případně se nechat přezkoušet :)
+</p>
+{% endblock %}

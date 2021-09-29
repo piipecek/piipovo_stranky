@@ -1,0 +1,33 @@
+.datecolumn {
+    width: auto;
+}
+
+.container {
+    margin: 20px;
+}
+hr {
+    margin: 5px;
+}
+
+.alert-info {
+    background-color: burlywood;
+}
+.alert-error  {
+    background-color: red;
+}
+.alert-correct {
+    background-color: limegreen;
+}
+
+.col-md-1 {
+    width: 130px;
+}
+.w1 {
+    width: 220px;
+}
+.w2 {
+    width: 1500px;
+}
+body {
+    background-color: white;
+}

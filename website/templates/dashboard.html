@@ -1,0 +1,9 @@
+{%extends "base.html"%}
+{%block content%}
+
+Vítej. Na týhle stránce by byly nějaký novinky, nastavení účtu nebo třeba seznam dostupnejch výtvorů. 
+<br>
+<a href="{{url_for("default_views.nahlasit_bug")}}">Nahlásit bug, připomínku</a>
+<br>
+<a href="{{url_for("default_views.known_bugs")}}">seznam známých bugů</a>
+{%endblock%}

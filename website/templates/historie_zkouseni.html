@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Historie zkoušení</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1 w1">datum</div>
+            <div class="col-md-1 w1">jazyk</div>
+            <div class="col-md-1 w1">podle</div>
+            <div class="col-md-1 w1">podle - meta</div>
+            <div class="col-md-1 w1">uspesnost</div>
+            <div class="col-md-1 w1">akce</div>
+        </div>
+    <hr>
+    <form method="post">
+    {% for z in historie %}
+        <div class="row">
+            <div class="col-md-1 w1">{{ z.pretty_date() }}</div>
+            <div class="col-md-1 w1">{{ z.jazyk }}</div>
+            <div class="col-md-1 w1">{{ z.podle }}</div>
+            <div class="col-md-1 w1">{{ z.podle_meta }}</div>
+            <div class="col-md-1 w1">{{ z.get_uspesnost() }}</div>
+            <div class="col-md-1 w1">
+                <button type="submit" name="detail" value="{{ z.datum }}">Detail</button>
+            </div>
+        </div>
+    {% endfor %}
+    </form>
+    </div>
+
+{% endblock %}

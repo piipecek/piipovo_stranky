@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>editing {{ word.pretty("czech") }}</h2>
+    <form method="post">
+    <div>
+        <label for="czech">česky:</label>
+        <input id = "czech" type="text" name="czech" value="{{ word.pretty("czech") }}">
+    </div>
+    <div>
+        <label for="german">německy:</label>
+        <input id="german" type="text" name="german" value="{{ word.pretty("german") }}">
+    </div>
+    <div>
+        <label for="english">anglicky:</label>
+        <input id="english" type="text" name="english" value="{{ word.pretty("english") }}">
+    </div>
+    <div>
+        <label for="druh">slovní druh:</label>
+        <input id="druh" type="text" name="druh" value="{{ word.pretty("druh") }}">
+    </div>
+    <div>
+        <label for="asociace">asociace:</label>
+        <input id="asociace" type="text" name="asociace" value="{{ word.pretty("asociace") }}">
+    </div>
+    <div>
+        <label for="kategorie">kategorie</label>
+        <input id="kategorie" type="text" name="kategorie" value="{{ word.pretty("kategorie") }}">
+    </div>
+    <div>
+        <button type="submit" value="potvrdit" name="potvrdit">Potvrdit</button>
+        <button type="submit" value="delete" name="delete">Smazat slovíčko</button>
+    </div>
+
+    </form>
+{% endblock %}

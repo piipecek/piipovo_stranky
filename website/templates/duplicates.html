@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2> Úprava slovíček, co se zdá, že jsou dvakrát</h2>
+    {% if duplicates %}
+        {% for d in duplicates %}
+                {{ d["string"] }}
+                {{ [d["slova"][0]["datum"],d["slova"][1]["datum"]] }}
+            <form method="post">
+                <input type="text" name="dat1" value="{{d["slova"][0]["datum"]}}" hidden>
+                <input type="text" name="dat2" value="{{d["slova"][1]["datum"]}}" hidden>
+                <button type="submit" name="sjednotit" value="1">Sjednotit</button>
+            </form>
+            {% for slovo in d["slova"] %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-1 w2">
+                            {{ slovo }}
+                        </div>
+                        <div class="col-md-1">
+                            <form method="post">
+                                <button type="submit" name="edit" value="{{ slovo.datum }}">Edit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% else %}
+        žádné duplikáty!
+    {% endif %}
+{% endblock %}
