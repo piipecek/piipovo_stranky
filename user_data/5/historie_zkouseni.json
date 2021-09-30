@@ -1,0 +1,48 @@
+[
+   {
+      "datum": "2021-09-29 17:17:55.052349",
+      "podle": "neuspesne",
+      "podle_meta": 6,
+      "seznam_dat_slovicek": [
+         "2021-09-06 13:27:15.756196",
+         "2021-09-06 13:27:15.727234",
+         "2021-09-06 13:20:57.003559",
+         "2021-09-06 13:21:52.736047",
+         "2021-09-06 13:16:24.825091",
+         "2021-09-06 13:28:39.021383"
+      ],
+      "seznam_odpovedi": [
+         "s Grab",
+         "e Grube",
+         "e Bluse",
+         "e Schl\u00e4use",
+         "e Sternkunde",
+         "s Nilpferd"
+      ],
+      "poznamka": "works",
+      "jazyk": "german"
+   },
+   {
+      "datum": "2021-09-29 17:18:57.552827",
+      "podle": "neuspesne",
+      "podle_meta": 6,
+      "seznam_dat_slovicek": [
+         "2021-09-06 13:27:15.756196",
+         "2021-09-06 13:27:15.727234",
+         "2021-09-06 13:20:57.003559",
+         "2021-09-06 13:21:52.736047",
+         "2021-09-06 13:16:24.825091",
+         "2021-09-06 13:28:39.021383"
+      ],
+      "seznam_odpovedi": [
+         "s Grab",
+         "e Grube",
+         "e Bluse",
+         "e Schleuse",
+         "e Sternkunde",
+         "s Nilpferd"
+      ],
+      "poznamka": "works, p\u0159ezkou\u0161en\u00ed z 2021-09-29 17:17:55.052349",
+      "jazyk": "german"
+   }
+]

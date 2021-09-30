@@ -13,7 +13,6 @@ def save_to_user_zkouseni_historie(data):
 def pridat_zkouseni_do_historie(data):
     file = get_user_zkouseni_historie()
     file.append(data)
-    print(file)
     save_to_user_zkouseni_historie(file)
     
 

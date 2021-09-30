@@ -1,4 +1,5 @@
 import datetime
+from os import replace
 from website.models.slovicko import Slovicko
 from random import sample
 
@@ -41,7 +42,7 @@ def pairse_cj_x_and_insert(data, jazyk, asociace, druh, kategorie):
         try:
             cz, x = line.split("-")
         except ValueError:
-            return False, f"Chyba v zadaném textu, konkrétně na lince: {line}. Na řádku je povolena právě jedna pomlčka.", data
+            return line, data
         cz = cz.split(",")
         x = x.split(",")
         while "" in cz:
@@ -69,16 +70,14 @@ def pairse_cj_x_and_insert(data, jazyk, asociace, druh, kategorie):
                                 asociace=asociace,
                                 datum=str(datetime.datetime.utcnow()))
             new_word.insert_slovicko()
-    return [True]
 
 
 def vyhodnot(jazyk, predloha, string):
     if jazyk == "german":
-        for predloha in predloha.german:
-            if string == predloha.replace("zde:", ""):
-                return True
-            else:
-                return False
+        if string in [p.replace("zde:","") for p in predloha.german]:
+            return True
+        else:
+            return False
     elif jazyk == "english":
         for predloha in predloha.english:
             if string == predloha.replace("zde:", ""):

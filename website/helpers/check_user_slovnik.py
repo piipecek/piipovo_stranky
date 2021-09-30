@@ -7,7 +7,6 @@ def check_user_slovnik_or_create(user):
 	user_data_path = cwd / "user_data"
 	p = user_data_path / f"{user.id}"
 
-	print(cwd, user_data_path, p, p.exists())
 
 	if p.exists():
 		print("This user already has initialised Slovnik, so I am not creating new files in userdata")
@@ -26,7 +25,6 @@ def check_user_slovnik_or_create(user):
 
 		with open(database_path,"w") as file:
 			file.write(json.dumps([]))
-			print(file)
 		with open(historie_path, "w") as file:
 			file.write(json.dumps([]))
 		with open(set_slovicek_path, "w") as file:

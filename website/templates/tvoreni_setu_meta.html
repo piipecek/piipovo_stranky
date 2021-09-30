@@ -14,7 +14,7 @@
         <button type="submit">Dál</button>
         </form>
     {% elif typ=="kategorie" %}
-        <h2>Vyber si, ze které kategorie chceš zkoušet:</h2>
+        <h2>Vyber si, ze které kategorie chceš vytvořit set:</h2>
         <form method="post">
         <select name="kategorie">
         {% for kat in kategorie %}
@@ -24,7 +24,7 @@
         <button type="submit">Dál</button>
         </form>
     {% elif typ=="neuspesne"%}
-        <h2>Neuspesne: napis, kolik max slovicek chces zkouset:</h2>
+        <h2>Podle neúspěšných: Napiš, z kolika slovíček maximálně chceš vytvořit set</h2>
         <div>
         <form method="post">
         <label for="neuspesne">sem</label>
@@ -33,14 +33,14 @@
         </form>
         </div>
     {% elif typ== "vse" %}
-        <h2> Vsechny: vyber, kolik chces zkouset slovicek</h2>
+        <h2> Ze všech: Napiš, z kolika slovíček maximálně chceš vytvořit set</h2>
         <form method="post">
         <label for="vse">sem</label>
         <input type="text" name="vse" id="vse"/>
         <button type="submit">Dál</button>
         </form>
     {% elif typ== "least" %}
-        <h2> Nejmene zkousene: vyber, kolik chces zkouset slovicek</h2>
+        <h2> Nejméně zkloušené: Napiš, z kolika slovíček maximálně chceš vytvořit set/h2>
         <form method="post">
         <label for="least">sem</label>
         <input type="text" name="least" id="least"/>

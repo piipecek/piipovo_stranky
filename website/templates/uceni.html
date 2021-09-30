@@ -1,14 +1,16 @@
 {% extends "base.html"%}
 {% block content %}
 
-    <form method="post">
+    <form method="post" autocomplete="off">
 
     {% if typ=="showcase" %}
+        Na tyhle slovíčka se podívej a zkus si je zapamatovat.
         <div class="container">
             <div class="row">
                 <div class="col-md-1">definice</div>
                 <div class="col-md-1">překlad</div>
             </div>
+            <hr>
             {% for word in display_info %}
                 <div class="row">
                     <div class="col-md-1">{{ word.pretty("czech") }}</div>
@@ -18,8 +20,8 @@
         </div>
         <button type="submit" name="dalsi" value="1">Dál</button>
     {% elif typ =="choose" %}
-        vyber správný překlad pro {{ display_info[0].pretty("czech") }}
-        <select name="moznosti">
+        vyber správný překlad pro <b>{{ display_info[0].pretty("czech") }}</b>
+        <select name="datum_vybraneho">
             {% for slovicko in display_info[1] %}
                 <option value="{{ slovicko.datum }}">{{ slovicko.pretty(jazyk) }}</option>
             {% endfor %}
@@ -27,8 +29,8 @@
         <input type="text" hidden name="datum_puvodniho" value="{{ display_info[0].datum }}"/>
         <button type="submit" name="vybrat" value="1">Vybrat tuhle možnost</button>
     {% elif typ =="write" %}
-        napis preklad k slovicku {{ display_info.pretty("czech") }}
-        <input type="text" name="string"/>
+        napiš překlad ke slovíčku <b>{{ display_info.pretty("czech") }}</b>
+        <input type="text" name="string" autofocus autocomplete="off"/>
         <input type="text" hidden name="datum_puvodniho" value="{{ display_info.datum }}"/>
         <button type="submit" name="zkontrolovat" value="1">Zkontrolovat</button>
     {% else %}

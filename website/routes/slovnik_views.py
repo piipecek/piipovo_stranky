@@ -40,11 +40,12 @@ def pridej_cjx(jazyk):
                                                      asociace=request.form.get("asociace"),
                                                      druh=request.form.get("druh"),
                                                      kategorie=request.form.get("kategorie"))
-            if not output_pairseru[0]:
-                return render_template("returned_text.html", hlaska=output_pairseru[1], text=output_pairseru[2])
+            if output_pairseru:
+                return render_template("returned_text.html", line=output_pairseru[0], text=output_pairseru[1])
 
             flash("pridano!", category="info")
         return redirect(url_for("slovnik_views.slovnik_home"))
+
 
 
 @slovnik_views.route("/slovnik", methods=["GET", "POST"])
@@ -245,17 +246,19 @@ def uceni():
         next_display_info = u.get_next_data()
         if next_display_info:
             typ, data = next_display_info
-            return render_template("slovnik_views.uceni.html", display_info=data, typ=typ, jazyk=u.jazyk)
+            return render_template("uceni.html", display_info=data, typ=typ, jazyk=u.jazyk)
         else:
             return redirect(url_for("slovnik_views.konec_uceni"))
     elif request.method == "POST":
         if request.form.get("dalsi"):
             return redirect(url_for("slovnik_views.uceni"))
         elif request.form.get("vybrat"):
-            u.check_choose(request.form.get("datum_puvodniho"), request.form.get("moznosti"))
+            message, category = u.check_choose(request.form.get("datum_puvodniho"), request.form.get("datum_vybraneho"))
+            flash(message,  category=category)
             return redirect(url_for("slovnik_views.uceni"))
         elif request.form.get("zkontrolovat"):
-            u.check_write(request.form.get("datum_puvodniho"), request.form.get("string"))
+            message, category = u.check_write(request.form.get("datum_puvodniho"), request.form.get("string"))
+            flash(message,category=category)
             return redirect(url_for("slovnik_views.uceni"))
         elif request.form.get("ukoncit"):
             return redirect(url_for("slovnik_views.konec_uceni"))
@@ -266,7 +269,11 @@ def uceni():
 @slovnik_views.route("/konec_uceni", methods=["GET", "POST"])
 @login_required
 def konec_uceni():
-   ##increment learned atribute slovicek
+    u = UceniManager.nacist_ze_souboru()
+    for zaznam in u.data_o_zkouseni:
+        s = Slovicko.get_by_timestamp(zaznam["datum"])
+        s.times_learned += 1
+        s.put_in_db(s.datum)
     if request.method == "GET":
         return render_template("konec_uceni.html")
     elif request.method == "POST":

@@ -1,5 +1,7 @@
+from math import log
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
+from website.models.chyba import Chyba
 
 
 default_views = Blueprint("default_views",__name__)
@@ -22,9 +24,23 @@ def dashboard():
 @default_views.route("/known_bugs")
 @login_required
 def known_bugs():
-	return "not implemented yet"
+	chyby  = Chyba.get_all()
+	return render_template("zname_chyby.html", chyby=chyby)
 
-@default_views.route("/nahlasit_bug")
+@default_views.route("/nahlasit_bug", methods=["GET","POST"])
 @login_required
 def nahlasit_bug():
-	return "not implemented yet"
+	if request.method == "GET":
+		return render_template("nahlasit_chybu.html")
+	else:
+		c = Chyba(
+		autor = current_user.email if request.form.get("include_name") else "Anonym",
+		popis = request.form.get("popis")
+		)
+		c.pridat_do_chyb()
+		return redirect(url_for("default_views.known_bugs"))
+
+@default_views.route("/planovane_featury")
+@login_required
+def planovane_featury():
+	return render_template("planovane_featury.html")
