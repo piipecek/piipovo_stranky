@@ -1,4 +1,5 @@
 import json
+
 from flask_login import current_user
 from dateutil import parser
 from website.helpers.db_handling import sort_slovnik, get_user_database
@@ -69,14 +70,12 @@ def least(kolik, jazyk):
     sort_slovnik(sestupne=True, key="least")
     file = jazykovej_filtr(jazyk)
     result = []
-    nejnizsi_pocet_zkouseni = file[0]["times_tested"]
-    for word in file:
-        if word["times_tested"] == nejnizsi_pocet_zkouseni:
-            result.append(word)
-    try:
-        result = sample(result, kolik)
-    except ValueError:
-        result = result
+    if len(file) <= kolik:
+        result = file
+    else:
+        for i in range(kolik):
+            result.append(file[i])
+    result = smart_sample(result, kolik)
     return result
 
 
