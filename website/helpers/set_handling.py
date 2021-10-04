@@ -1,4 +1,5 @@
 import json
+from types import resolve_bases
 
 from flask_login import current_user
 from dateutil import parser
@@ -67,7 +68,7 @@ def vse(kolik, jazyk):
 
 
 def least(kolik, jazyk):
-    sort_slovnik(sestupne=True, key="least")
+    sort_slovnik(sestupne="True", key="least")
     file = jazykovej_filtr(jazyk)
     result = []
     if len(file) <= kolik:
@@ -95,4 +96,15 @@ def skupina(string, jazyk):
         for german_w in w["german"]:
             if string in german_w:
                 result.append(w)
+    return result
+
+def nejmene_ucene(kolik: int, jazyk: str):
+    sort_slovnik(sestupne="False", key="nejmene_ucene")
+    file = jazykovej_filtr(jazyk)
+    result = []
+    if len(file) <= kolik:
+        result = file
+    else:
+        for i in range(kolik):
+            result.append(file[i])
     return result

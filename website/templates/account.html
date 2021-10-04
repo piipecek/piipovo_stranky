@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Vítej, {{current_user.email}}</h2>
+<h3> Nastavení a statistiky týkající se aplikace Slovník</h3>
+Počet slovíček: {{pocet_slovicek}}
+<br>
+<a href="{{url_for("slovnik_views.prejmenovat_kategorii")}}">Přejmenovat kategorii</a>
+<form method="post">
+    <p>
+        Při vybírání ze čtyř překladů při učení použít 
+        <input type="radio" name="uceni_choose" value="dropdown" id="1"/>
+        <label for="1">Dropdown možností</label>
+
+        <input type="radio" name="uceni_choose" value="four_buttons" id="2"/>
+        <label for="2">Čtyři tlačítka</label>
+    
+        <button type="submit">Vybrat</button>
+    </p>
+</form>
+<br>
+<a href="{{url_for("slovnik_views.natahnout_od_pipa")}}">Natáhnout kus slovníku od Pípa</a>
+<br>
+<h3> Nastavení týkající se ostatních aplikací </h3>
+nejsou
+{% endblock %}

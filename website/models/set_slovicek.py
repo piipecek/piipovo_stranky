@@ -74,6 +74,11 @@ class SetSlovicek:
         data = set_handling.skupina(string, jazyk=self.jazyk)
         self.podle_meta = string
         self.nacist_data(data)
+    
+    def pripravit_set_nejmene_ucene(self, kolik):
+        data = set_handling.nejmene_ucene(kolik=kolik, jazyk=self.jazyk)
+        self.podle_meta = kolik
+        self.nacist_data(data)
 
     def nacist_data(self, data):
         for word in data:

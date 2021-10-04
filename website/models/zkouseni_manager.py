@@ -9,7 +9,7 @@ from website.helpers import historie_handling
 
 class ZkouseniManager:
     def __init__(self,
-                 seznam_dat_slovicek: list,
+                 seznam_dat_slovicek: list = None,
                  podle=None,
                  podle_meta=None,
                  datum=None,
@@ -29,6 +29,10 @@ class ZkouseniManager:
             self.seznam_odpovedi = []
         else:
             self.seznam_odpovedi = seznam_odpovedi
+        if seznam_dat_slovicek is None:
+            self.seznam_dat_slovicek = []
+        else:
+            self.seznam_dat_slovicek = seznam_dat_slovicek
 
     def pretty_date(self):
         return pretty_date(self.datum)
@@ -143,5 +147,15 @@ class ZkouseniManager:
     @staticmethod
     def delete_by_timestamp(datum):
         historie_handling.smazat_podle_data(datum)
+    
+
+    def nacist_z_dat_o_uceni(self, data_o_uceni, podle, podle_meta):
+        self.podle = podle
+        self.podle_meta = podle_meta
+        self.poznamka = "Zkoušeno po učení."
+        self.seznam_dat_slovicek = [zaznam["datum"] for zaznam in data_o_uceni]
+        self.zapsat_do_souboru()
+        
+
 
 

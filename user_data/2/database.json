@@ -1,0 +1,2360 @@
+[
+   {
+      "czech": [
+         "racek"
+      ],
+      "german": [
+         "e M\u00f6we"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:28:39.226273",
+      "kategorie": [
+         "zv\u00ed\u0159e"
+      ]
+   },
+   {
+      "czech": [
+         "sedlo"
+      ],
+      "german": [
+         "r Sattel"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-06-09 13:28:39.254868",
+      "kategorie": [
+         "ostatni z Tinycards",
+         "zv\u00ed\u0159e"
+      ]
+   },
+   {
+      "czech": [
+         "seno"
+      ],
+      "german": [
+         "s Heu"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-06-09 13:28:39.285258",
+      "kategorie": [
+         "ostatni z Tinycards",
+         "zv\u00ed\u0159e"
+      ]
+   },
+   {
+      "czech": [
+         "st\u016fl"
+      ],
+      "german": [
+         "r Tisch"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:17:45.073933",
+      "kategorie": [
+         "dom\u00e1cnost"
+      ]
+   },
+   {
+      "czech": [
+         "tisk\u00e1rna"
+      ],
+      "german": [
+         "r Drucker"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:17:45.083748",
+      "kategorie": [
+         "dom\u00e1cnost"
+      ]
+   },
+   {
+      "czech": [
+         "traktor"
+      ],
+      "german": [
+         "r Traktor"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:17:45.093274",
+      "kategorie": [
+         "dom\u00e1cnost"
+      ]
+   },
+   {
+      "czech": [
+         "triedr"
+      ],
+      "german": [
+         "r Feldstecher"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-06-09 13:17:45.102911",
+      "kategorie": [
+         "dom\u00e1cnost",
+         "astronomie"
+      ]
+   },
+   {
+      "czech": [
+         "vosa"
+      ],
+      "german": [
+         "e Wespe"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:28:39.315116",
+      "kategorie": [
+         "zv\u00ed\u0159e"
+      ]
+   },
+   {
+      "czech": [
+         "v\u010dela"
+      ],
+      "german": [
+         "e Biene"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:28:39.347039",
+      "kategorie": [
+         "zv\u00ed\u0159e"
+      ]
+   },
+   {
+      "czech": [
+         "zubr"
+      ],
+      "german": [
+         "r Wisent"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:28:39.378324",
+      "kategorie": [
+         "zv\u00ed\u0159e"
+      ]
+   },
+   {
+      "czech": [
+         "\u017eivo\u010dich"
+      ],
+      "german": [
+         "s Lebewesen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:28:39.409798",
+      "kategorie": [
+         "zv\u00ed\u0159e"
+      ]
+   },
+   {
+      "czech": [
+         "\u017e\u00e1rovka"
+      ],
+      "german": [
+         "s Gl\u00fchbirne"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:17:45.114319",
+      "kategorie": [
+         "dom\u00e1cnost"
+      ]
+   },
+   {
+      "czech": [
+         "bic\u00ed"
+      ],
+      "german": [
+         "s Schlagzeug"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:19:02.362569",
+      "kategorie": [
+         "hudba"
+      ]
+   },
+   {
+      "czech": [
+         "fl\u00e9tna"
+      ],
+      "german": [
+         "e Fl\u00f6te"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:19:02.374560",
+      "kategorie": [
+         "hudba"
+      ]
+   },
+   {
+      "czech": [
+         "housle"
+      ],
+      "german": [
+         "e Geige"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:19:02.387534",
+      "kategorie": [
+         "hudba"
+      ]
+   },
+   {
+      "czech": [
+         "hudba"
+      ],
+      "german": [
+         "e Musik"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:19:02.399687",
+      "kategorie": [
+         "hudba"
+      ]
+   },
+   {
+      "czech": [
+         "klarinet"
+      ],
+      "german": [
+         "e Klarinette"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:19:02.411400",
+      "kategorie": [
+         "hudba"
+      ]
+   },
+   {
+      "czech": [
+         "klav\u00edr"
+      ],
+      "german": [
+         "s Klavier"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:19:02.423199",
+      "kategorie": [
+         "hudba"
+      ]
+   },
+   {
+      "czech": [
+         "metronom"
+      ],
+      "german": [
+         "s Metronom"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:19:02.435546",
+      "kategorie": [
+         "hudba"
+      ]
+   },
+   {
+      "czech": [
+         "soubor"
+      ],
+      "german": [
+         "s Ensemble"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:19:02.446981",
+      "kategorie": [
+         "hudba"
+      ]
+   },
+   {
+      "czech": [
+         "trumpeta"
+      ],
+      "german": [
+         "e Trompette"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:19:02.459020",
+      "kategorie": [
+         "hudba"
+      ]
+   },
+   {
+      "czech": [
+         "t\u00f3n"
+      ],
+      "german": [
+         "r Klang"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:19:02.470663",
+      "kategorie": [
+         "hudba"
+      ]
+   },
+   {
+      "czech": [
+         "varhany"
+      ],
+      "german": [
+         "e Orgel"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:19:02.482482",
+      "kategorie": [
+         "hudba"
+      ]
+   },
+   {
+      "czech": [
+         "zn\u00edt"
+      ],
+      "german": [
+         "lauten"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "5",
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-06-09 13:25:48.271560",
+      "kategorie": [
+         "-",
+         "hudba"
+      ]
+   },
+   {
+      "czech": [
+         "zvuk"
+      ],
+      "german": [
+         "Laut"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 1,
+      "datum": "2021-09-06 13:19:02.507037",
+      "kategorie": [
+         "hudba"
+      ]
+   },
+   {
+      "czech": [
+         "bud\u00edc\u00ed rozruch"
+      ],
+      "german": [
+         "aufsehenerregend"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.140567",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "bu\u010f a nebo"
+      ],
+      "german": [
+         "entweder oder"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.148996",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "b\u00fdt n\u00e1padn\u00fd"
+      ],
+      "german": [
+         "auffallen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.159705",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "b\u00fdt po ruce"
+      ],
+      "german": [
+         "vorhanden sein"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.169926",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "b\u00fdt za jedno"
+      ],
+      "german": [
+         "einig sein"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.180761",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "b\u00fdt za vodou"
+      ],
+      "german": [
+         "auf der sicheren Seite sein"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.190980",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "b\u00fdt zat\u011bzko"
+      ],
+      "german": [
+         "schwerfallen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.200934",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "cel\u00e1 \u0159ada"
+      ],
+      "german": [
+         "eine ganze Reihe"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.211776",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "co si mysl\u00edte o"
+      ],
+      "german": [
+         "was haltet ihr davon"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.221614",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "c\u00edtit se dob\u0159e"
+      ],
+      "german": [
+         "wohl f\u00fchlen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.232182",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "dle autora"
+      ],
+      "german": [
+         "laut Autor"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.242549",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "dle o\u010dek\u00e1v\u00e1n\u00ed"
+      ],
+      "german": [
+         "erwartungsgema\u00df"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.252405",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "domluveno"
+      ],
+      "german": [
+         "einverstanden"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.263080",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "d\u0159\u00edve ne\u017e"
+      ],
+      "german": [
+         "ehe"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.273434",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "fakt m\u00e1lo"
+      ],
+      "german": [
+         "noch nicht einmal"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.283467",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "i kdy\u017e"
+      ],
+      "german": [
+         "obwohl"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.294496",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "je na \u010dase"
+      ],
+      "german": [
+         "es ist schon so weit"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.304419",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "je to na hran\u011b"
+      ],
+      "german": [
+         "grenzwertig"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.314400",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "m\u00e1 se za samoz\u0159ejm\u00e9"
+      ],
+      "german": [
+         "es scheint \u00fcblich zu sein"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.324895",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "na druhou stranu"
+      ],
+      "german": [
+         "auf ser anderen seite"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.337758",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "na m\u00edsto"
+      ],
+      "german": [
+         "statt"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.348907",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "navzdory v\u0161em obav\u00e1m"
+      ],
+      "german": [
+         "entgegen aller Bef\u00fcrchtungen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.359274",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "n\u011bkomu sta\u010dit"
+      ],
+      "german": [
+         "mithalten k\u00f6nnen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.370165",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "od nepam\u011bti"
+      ],
+      "german": [
+         "seit jeher"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.380820",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "p\u0159edstavit teorii"
+      ],
+      "german": [
+         "e These aufstellen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.395283",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "smysl celku"
+      ],
+      "german": [
+         "die Idee des ganzen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.410279",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "stopem"
+      ],
+      "german": [
+         "per Anhalter"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.421266",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "st\u00e1t se"
+      ],
+      "german": [
+         "geschehen",
+         "passieren"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.432935",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "t\u011b\u0161\u00ed se to oblib\u011b"
+      ],
+      "german": [
+         "es erfreut sich gro\u00dfer beliebigkeit"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.445067",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "ud\u011blat dojem"
+      ],
+      "german": [
+         "beeindrucken"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "5",
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-06-09 13:25:46.074913",
+      "kategorie": [
+         "-",
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "uk\u00e1zat se"
+      ],
+      "german": [
+         "sich erweisen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.468408",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "urazit vzd\u00e1lenost"
+      ],
+      "german": [
+         "e Strecke zur\u00fccktreten"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.480373",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "usm\u00ed\u0159it se"
+      ],
+      "german": [
+         "sich vers\u00f6hnen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "5",
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-06-09 13:25:46.314381",
+      "kategorie": [
+         "-",
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "u\u010dinit opat\u0159en\u00ed"
+      ],
+      "german": [
+         "e Ma\u00dfnahmen treffen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.503497",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "vr\u00e1tit se do star\u00fdch kolej\u00ed"
+      ],
+      "german": [
+         "in den alten trott verfallen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.514729",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "vyjasnit"
+      ],
+      "german": [
+         "auseinander setzen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "5",
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-06-09 13:25:46.609378",
+      "kategorie": [
+         "-",
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "vyj\u00edt vst\u0159\u00edc"
+      ],
+      "german": [
+         "entgegenkommen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "5",
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-06-09 13:25:46.634379",
+      "kategorie": [
+         "-",
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "vysta\u010dit si bez"
+      ],
+      "german": [
+         "auskommen ohne",
+         "zurechtkommen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-",
+         "5"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-06-09 13:25:46.932739",
+      "kategorie": [
+         "fr\u00e1ze",
+         "-"
+      ]
+   },
+   {
+      "czech": [
+         "vyznat se v"
+      ],
+      "german": [
+         "auskommen mit"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "5",
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-06-09 13:25:47.074284",
+      "kategorie": [
+         "-",
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "vyzvednout pen\u00edze"
+      ],
+      "german": [
+         "s Geld abheben"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.573708",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "v\u00fd\u010ditky sv\u011bdom\u00ed"
+      ],
+      "german": [
+         "e Gewissensbisse"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-06-09 13:18:21.585724",
+      "kategorie": [
+         "fr\u00e1ze",
+         "abstraktn\u00ed"
+      ]
+   },
+   {
+      "czech": [
+         "zakl\u00e1dat na"
+      ],
+      "german": [
+         "beruhen auf"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "5",
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-06-09 13:25:47.538044",
+      "kategorie": [
+         "-",
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "zaujmout postoj"
+      ],
+      "german": [
+         "stellung nehmen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.609895",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "za\u010d\u00edn\u00e1 to v\u00e1znout"
+      ],
+      "german": [
+         "in Stocken geraten"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.621656",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "zd\u00e1n\u00ed klame"
+      ],
+      "german": [
+         "r Schein tr\u00fcgt"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.633774",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "zest\u00e1rnout"
+      ],
+      "german": [
+         "in die Jahre kommen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.645900",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "zp\u0159\u00edstupnit"
+      ],
+      "german": [
+         "zur verf\u00fcgung stellen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.657791",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "zvl\u00e1dnout bez probl\u00e9mu"
+      ],
+      "german": [
+         "locker schaffen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.670155",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "z\u016fstat v obraze"
+      ],
+      "german": [
+         "am Ball bleiben"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.682039",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "\u010dasov\u00e1 n\u00e1ro\u010dnost"
+      ],
+      "german": [
+         "r Zeitaufwand"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-06-09 13:18:21.694538",
+      "kategorie": [
+         "fr\u00e1ze",
+         "abstraktn\u00ed"
+      ]
+   },
+   {
+      "czech": [
+         "\u0161it\u00e9 na m\u00edru"
+      ],
+      "german": [
+         "ma\u00dfgeschneidert"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:18:21.706593",
+      "kategorie": [
+         "fr\u00e1ze"
+      ]
+   },
+   {
+      "czech": [
+         "andulka"
+      ],
+      "german": [
+         "r Wellensittich"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:28:38.953296",
+      "kategorie": [
+         "zv\u00ed\u0159e"
+      ]
+   },
+   {
+      "czech": [
+         "domov"
+      ],
+      "german": [
+         "s Heim"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-06-09 13:27:15.660676",
+      "kategorie": [
+         "budovy",
+         "dom\u00e1cnost"
+      ]
+   },
+   {
+      "czech": [
+         "drak"
+      ],
+      "german": [
+         "r Drache"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:28:38.981371",
+      "kategorie": [
+         "zv\u00ed\u0159e"
+      ]
+   },
+   {
+      "czech": [
+         "dve\u0159e"
+      ],
+      "german": [
+         "e T\u00fcr"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:17:44.955663",
+      "kategorie": [
+         "dom\u00e1cnost"
+      ]
+   },
+   {
+      "czech": [
+         "fotoalbum"
+      ],
+      "german": [
+         "r Bildband"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:17:44.966724",
+      "kategorie": [
+         "dom\u00e1cnost"
+      ]
+   },
+   {
+      "czech": [
+         "hadr"
+      ],
+      "german": [
+         "r Lumpen"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:17:44.976910",
+      "kategorie": [
+         "dom\u00e1cnost"
+      ]
+   },
+   {
+      "czech": [
+         "hrnec"
+      ],
+      "german": [
+         "r Topf"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:17:44.986186",
+      "kategorie": [
+         "dom\u00e1cnost"
+      ]
+   },
+   {
+      "czech": [
+         "hroch"
+      ],
+      "german": [
+         "s Nilpferd"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:28:39.021383",
+      "kategorie": [
+         "zv\u00ed\u0159e"
+      ]
+   },
+   {
+      "czech": [
+         "husa"
+      ],
+      "german": [
+         "e Gans"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:28:39.051264",
+      "kategorie": [
+         "zv\u00ed\u0159e"
+      ]
+   },
+   {
+      "czech": [
+         "h\u0159eben"
+      ],
+      "german": [
+         "r Kamm"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:17:45.005636",
+      "kategorie": [
+         "dom\u00e1cnost"
+      ]
+   },
+   {
+      "czech": [
+         "h\u0159eb\u00edk"
+      ],
+      "german": [
+         "r N\u00e4gel"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-06-09 13:21:52.439496",
+      "kategorie": [
+         "ostatni z Tinycards",
+         "dom\u00e1cnost"
+      ]
+   },
+   {
+      "czech": [
+         "jehn\u011b"
+      ],
+      "german": [
+         "s Lamm"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:28:39.080672",
+      "kategorie": [
+         "zv\u00ed\u0159e"
+      ]
+   },
+   {
+      "czech": [
+         "kachna"
+      ],
+      "german": [
+         "e Ente"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:28:39.110143",
+      "kategorie": [
+         "zv\u00ed\u0159e"
+      ]
+   },
+   {
+      "czech": [
+         "los"
+      ],
+      "german": [
+         "r Elch"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:28:39.138427",
+      "kategorie": [
+         "zv\u00ed\u0159e"
+      ]
+   },
+   {
+      "czech": [
+         "n\u00e1bytek"
+      ],
+      "german": [
+         "e M\u00f6bel"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:17:45.025507",
+      "kategorie": [
+         "dom\u00e1cnost"
+      ]
+   },
+   {
+      "czech": [
+         "n\u00e1\u0159ad\u00ed"
+      ],
+      "german": [
+         "s Werkzeug"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-06-09 13:21:52.631136",
+      "kategorie": [
+         "dom\u00e1cnost",
+         "ostatni z Tinycards"
+      ]
+   },
+   {
+      "czech": [
+         "parapet"
+      ],
+      "german": [
+         "r Fensterbrett"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-06-09 13:27:15.871985",
+      "kategorie": [
+         "budovy",
+         "dom\u00e1cnost"
+      ]
+   },
+   {
+      "czech": [
+         "parazit"
+      ],
+      "german": [
+         "r Schmarotzer"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-09-06 13:28:39.168319",
+      "kategorie": [
+         "zv\u00ed\u0159e"
+      ]
+   },
+   {
+      "czech": [
+         "pastvina"
+      ],
+      "german": [
+         "e Alm"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-06-09 13:28:39.197407",
+      "kategorie": [
+         "p\u0159\u00edroda",
+         "zv\u00ed\u0159e"
+      ]
+   },
+   {
+      "czech": [
+         "pila"
+      ],
+      "german": [
+         "e S\u00e4ge"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-06-09 13:21:52.684354",
+      "kategorie": [
+         "ostatni z Tinycards",
+         "dom\u00e1cnost"
+      ]
+   },
+   {
+      "czech": [
+         "p\u0159eds\u00ed\u0148"
+      ],
+      "german": [
+         "e Diele"
+      ],
+      "english": [
+         "-"
+      ],
+      "druh": [
+         "-"
+      ],
+      "asociace": [
+         "-"
+      ],
+      "times_tested": 0,
+      "times_known": 0,
+      "times_learned": 2,
+      "datum": "2021-06-09 13:27:15.969015",
+      "kategorie": [
+         "dom\u00e1cnost",
+         "budovy"
+      ]
+   }
+]
