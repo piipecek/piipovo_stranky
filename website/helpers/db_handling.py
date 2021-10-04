@@ -1,15 +1,22 @@
 import json
+from types import resolve_bases
 from dateutil import parser
 from flask_login import current_user
+from typing import List
 
-def get_user_database():
+def get_user_database() -> List[dict]:
     with open(f"user_data/{current_user.id}/database.json") as file:
         file = json.load(file)
     return file
 
-def save_to_user_database(data):
+def save_to_user_database(data: dict) -> None:
     with open(f"user_data/{current_user.id}/database.json", "w") as file:
         file.write(json.dumps(data, indent=3))
+
+def get_pipuv_omnislovnik() -> List[dict]:
+    with open("piipuv_omnislovnik_k_3_10_2021.json") as file:
+        file = json.load(file)
+    return file
 
 
 def pretty_date(date):
@@ -60,20 +67,30 @@ def sort_slovnik(key, sestupne):
         file.sort(reverse=rev, key=lambda word: word["times_tested"]-word["times_known"])
     elif key == "least":
         file.sort(reverse=rev, key=lambda word: word["times_tested"])
+    elif key == "nejmene_ucene":
+        file.sort(reverse=rev, key=lambda word: word["times_learned"])
 
     save_to_user_database(file)
 
 
-def get_kategorie(jazyk):
+def get_kategorie(jazyk=None):
     file = get_user_database()
     kat = []
-    for word in file:
-        if word[jazyk] != ["-"]:
+    if jazyk is None:
+        for word in file:
             for one_kat in word["kategorie"]:
                 if one_kat in kat:
                     continue
                 else:
                     kat.append(one_kat)
+    else:
+        for word in file:
+            if word[jazyk] != ["-"]:
+                for one_kat in word["kategorie"]:
+                    if one_kat in kat:
+                        continue
+                    else:
+                        kat.append(one_kat)
     return kat
 
 
@@ -181,3 +198,33 @@ def get_duplicates_raw():
         return None
     else:
         return result
+
+
+def get_kategorie_od_piipa() -> List[str]:
+    result = []
+    for word in get_pipuv_omnislovnik():
+        for one_kat in word["kategorie"]:
+            if one_kat in result:
+                pass
+            else:
+                result.append(one_kat)
+    return result
+
+def natahnout_od_pipa(kategorie: list = None) -> None:
+    piipuv_omnislovnik = get_pipuv_omnislovnik()
+    user_slovnik = get_user_database()
+    for word in piipuv_omnislovnik:
+        word["times_tested"] = 0
+        word["times_known"] = 0
+        word["times_learned"] = 0
+
+    if kategorie is None:
+        save_to_user_database(user_slovnik + piipuv_omnislovnik)
+    else:
+        result = []
+        for word in piipuv_omnislovnik:
+            for one_kat in word["kategorie"]:
+                if one_kat in kategorie:
+                    result.append(word)
+        save_to_user_database(user_slovnik + result)
+

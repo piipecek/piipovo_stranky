@@ -39,7 +39,8 @@ def pridej_cjx(jazyk):
                                                      jazyk=jazyk,
                                                      asociace=request.form.get("asociace"),
                                                      druh=request.form.get("druh"),
-                                                     kategorie=request.form.get("kategorie"))
+                                                     kategorie=request.form.get("kategorie"),
+                                                     obratit=request.form.get("jsem_hloupej"))
             if output_pairseru:
                 return render_template("returned_text.html", line=output_pairseru[0], text=output_pairseru[1])
 
@@ -157,6 +158,8 @@ def tvoreni_setu_meta():
             s.pripravit_set_druhy(request.form.get("druhy"))
         elif s.podle == "skupina":
             s.pripravit_set_skupina(request.form.get("skupina"))
+        elif s.podle == "nejmene_ucene":
+            s.pripravit_set_nejmene_ucene(int(request.form.get("nejmene_ucene")))
         else:
             return "not implemented yet"
         return redirect(url_for("slovnik_views.set_overview"))
@@ -182,7 +185,10 @@ def set_overview():
                 z.zapsat_do_souboru()
                 return redirect(url_for("slovnik_views.zkouseni", index=0))
             elif request.form.get("uceni"):
-                u = UceniManager(seznam_dat_slovicek=s.seznam_dat_slovicek, jazyk=s.jazyk)
+                u = UceniManager(seznam_dat_slovicek=s.seznam_dat_slovicek, 
+                                 jazyk=s.jazyk,
+                                 podle=s.podle,
+                                 podle_meta=s.podle_meta)
                 u.zapsat_do_souboru()
                 return redirect(url_for("slovnik_views.uceni"))
 
@@ -270,7 +276,7 @@ def uceni():
 @login_required
 def konec_uceni():
     u = UceniManager.nacist_ze_souboru()
-    for zaznam in u.data_o_zkouseni:
+    for zaznam in u.data_o_uceni:
         s = Slovicko.get_by_timestamp(zaznam["datum"])
         s.times_learned += 1
         s.put_in_db(s.datum)
@@ -278,11 +284,14 @@ def konec_uceni():
         return render_template("konec_uceni.html")
     elif request.method == "POST":
         if request.form.get("retake"):
-            return "retaking uceni not implemented yet"
+            u.retake()
+            return redirect(url_for("slovnik_views.uceni"))
         elif request.form.get("nove"):
             return redirect(url_for("slovnik_views.slovnik_home"))
         elif request.form.get("vyzkouset"):
-            return "zkouseni z prave nauceneho setu not implemented yet"
+            z = ZkouseniManager(jazyk=u.jazyk)
+            z.nacist_z_dat_o_uceni(data_o_uceni=u.data_o_uceni, podle=u.podle, podle_meta=u.podle_meta)
+            return redirect(url_for("slovnik_views.zkouseni", index=0))
 
 
 @slovnik_views.route("/historie_zkouseni", methods=["GET", "POST"])
@@ -321,10 +330,34 @@ def detail_zkouseni(datum):
             flash("Záznam o zkoušení smazán.", category="info")
             return redirect(url_for("slovnik_views.historie_zkouseni"))
 
+
 @slovnik_views.route("/about")
 @login_required
 def about():
     return render_template("about.html")
+
+
+@slovnik_views.route("/prejmenovat_kategorii", methods=["GET","POST"])
+@login_required
+def prejmenovat_kategorii():
+    if request.method == "GET":
+        return render_template("prejmenovat_kategorii.html", kategorie = db_handling.get_kategorie())
+    else:
+        return "Not implemented yet"
+
+
+@slovnik_views.route("/natahnout_od_pipa", methods=["GET","POST"])
+@login_required
+def natahnout_od_pipa():
+    if request.method == "GET":
+        return render_template("natahnout_od_pipa.html", kategorie = db_handling.get_kategorie_od_piipa())
+    else:
+        if request.form.get("all"):
+            db_handling.natahnout_od_pipa()
+        else:
+            db_handling.natahnout_od_pipa(request.form.getlist("kategorie"))
+        return redirect(url_for("slovnik_views.slovnik"))
+
 
 
 

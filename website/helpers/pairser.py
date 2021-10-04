@@ -4,7 +4,7 @@ from website.models.slovicko import Slovicko
 from random import sample
 
 
-def pairse_cj_x_and_insert(data, jazyk, asociace, druh, kategorie):
+def pairse_cj_x_and_insert(data, jazyk, asociace, druh, kategorie, obratit: bool):
     asociace = asociace.replace(", ", ",")
     druh = druh.replace(", ", ",")
     kategorie = kategorie.replace(", ", ",")
@@ -37,12 +37,20 @@ def pairse_cj_x_and_insert(data, jazyk, asociace, druh, kategorie):
         return text
 
     data = predpripravit(data)
+
     lines = data.split("\n")
     for line in lines:
-        try:
-            cz, x = line.split("-")
-        except ValueError:
+        if list(line).count("-") == 1:
+            continue
+        else:
             return line, data
+
+    for line in lines:
+        if obratit:
+            x, cz = line.split("-")
+        else:
+            cz, x = line.split("-")
+
         cz = cz.split(",")
         x = x.split(",")
         while "" in cz:
