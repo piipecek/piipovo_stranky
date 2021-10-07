@@ -1,6 +1,7 @@
 import datetime
 from os import replace
 from website.models.slovicko import Slovicko
+from website.models.slovnik import Slovnik
 from random import sample
 
 
@@ -45,6 +46,7 @@ def pairse_cj_x_and_insert(data, jazyk, asociace, druh, kategorie, obratit: bool
         else:
             return line, data
 
+    slovnik = Slovnik()
     for line in lines:
         if obratit:
             x, cz = line.split("-")
@@ -63,21 +65,25 @@ def pairse_cj_x_and_insert(data, jazyk, asociace, druh, kategorie, obratit: bool
             x = ["-"]
 
         if jazyk == "english":
-            new_word = Slovicko(czech=cz,
+            new_word = Slovicko(id=Slovnik.get_next_id(),
+                                czech=cz,
                                 english=x,
                                 kategorie=kategorie,
                                 druh=druh,
                                 asociace=asociace,
                                 datum=str(datetime.datetime.utcnow()))
-            new_word.insert_slovicko()
         elif jazyk == "german":
-            new_word = Slovicko(czech=cz,
+            new_word = Slovicko(id=Slovnik.get_next_id(),
+                                czech=cz,
                                 german=x,
                                 kategorie=kategorie,
                                 druh=druh,
                                 asociace=asociace,
                                 datum=str(datetime.datetime.utcnow()))
-            new_word.insert_slovicko()
+        slovnik.slovicka.append(new_word)
+    slovnik.ulozit_do_db()
+
+        
 
 
 def vyhodnot(jazyk, predloha, string):

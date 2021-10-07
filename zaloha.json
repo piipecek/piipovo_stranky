@@ -67,7 +67,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 2,
       "datum": "2021-09-06 13:29:30.060882",
       "kategorie": [
          "\u0161kola"
@@ -115,8 +115,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:29:29.964109",
       "kategorie": [
          "\u0161kola"
@@ -167,7 +167,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 3,
       "datum": "2021-09-06 13:29:29.835072",
       "kategorie": [
          "\u0161kola"
@@ -241,9 +241,9 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
-      "times_learned": 0,
+      "times_tested": 1,
+      "times_known": 1,
+      "times_learned": 1,
       "datum": "2021-09-06 13:29:07.880790",
       "kategorie": [
          "-",
@@ -270,7 +270,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 1,
       "datum": "2021-09-06 13:29:07.849767",
       "kategorie": [
          "\u010dlov\u011bk"
@@ -618,8 +618,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "times_learned": 0,
       "datum": "2021-09-06 13:29:07.296063",
       "kategorie": [
@@ -947,8 +947,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:29:06.737079",
       "kategorie": [
          "-",
@@ -1461,8 +1461,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:29:06.098289",
       "kategorie": [
          "\u010dlov\u011bk"
@@ -1616,7 +1616,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 3,
       "datum": "2021-09-06 13:29:05.832840",
       "kategorie": [
          "\u010dlov\u011bk"
@@ -1641,7 +1641,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 3,
       "datum": "2021-09-06 13:29:05.800538",
       "kategorie": [
          "\u010dlov\u011bk"
@@ -1664,7 +1664,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:28:39.409798",
       "kategorie": [
@@ -1689,7 +1689,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:28:39.378324",
       "kategorie": [
@@ -1714,9 +1714,9 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
-      "times_learned": 0,
+      "times_tested": 1,
+      "times_known": 1,
+      "times_learned": 2,
       "datum": "2021-09-06 13:28:39.347039",
       "kategorie": [
          "zv\u00ed\u0159e"
@@ -1739,8 +1739,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:28:39.315116",
       "kategorie": [
          "zv\u00ed\u0159e"
@@ -1764,7 +1764,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:28:39.226273",
       "kategorie": [
@@ -1789,7 +1789,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:28:39.168319",
       "kategorie": [
@@ -1814,7 +1814,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:28:39.138427",
       "kategorie": [
@@ -1839,8 +1839,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 2,
+      "times_known": 2,
       "datum": "2021-09-06 13:28:39.110143",
       "kategorie": [
          "zv\u00ed\u0159e"
@@ -1864,8 +1864,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 2,
+      "times_known": 1,
       "datum": "2021-09-06 13:28:39.080672",
       "kategorie": [
          "zv\u00ed\u0159e"
@@ -1889,7 +1889,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:28:39.051264",
       "kategorie": [
@@ -1914,8 +1914,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 3,
+      "times_known": 2,
       "times_learned": 0,
       "datum": "2021-09-06 13:28:39.021383",
       "kategorie": [
@@ -1939,8 +1939,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:28:38.981371",
       "kategorie": [
          "zv\u00ed\u0159e"
@@ -1964,8 +1964,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 2,
+      "times_known": 1,
       "datum": "2021-09-06 13:28:38.953296",
       "kategorie": [
          "zv\u00ed\u0159e"
@@ -1989,8 +1989,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 2,
+      "times_known": 1,
       "datum": "2021-09-06 13:28:18.178871",
       "kategorie": [
          "zem\u011b"
@@ -2093,7 +2093,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:27:46.955315",
       "kategorie": [
@@ -2145,7 +2145,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:27:16.176345",
       "kategorie": [
@@ -2172,7 +2172,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 3,
       "datum": "2021-09-06 13:27:16.140448",
       "kategorie": [
          "budovy"
@@ -2245,7 +2245,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:27:16.001679",
       "kategorie": [
@@ -2272,7 +2272,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 2,
       "datum": "2021-09-06 13:27:15.901188",
       "kategorie": [
          "budovy"
@@ -2370,8 +2370,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 3,
+      "times_known": 2,
       "times_learned": 0,
       "datum": "2021-09-06 13:27:15.756196",
       "kategorie": [
@@ -2395,8 +2395,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 3,
+      "times_known": 2,
       "times_learned": 0,
       "datum": "2021-09-06 13:27:15.727234",
       "kategorie": [
@@ -2447,7 +2447,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 3,
       "datum": "2021-09-06 13:27:15.604469",
       "kategorie": [
          "budovy"
@@ -2545,9 +2545,9 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
-      "times_learned": 0,
+      "times_tested": 1,
+      "times_known": 1,
+      "times_learned": 3,
       "datum": "2021-09-06 13:26:35.190982",
       "kategorie": [
          "-"
@@ -2670,7 +2670,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:26:35.056821",
       "kategorie": [
@@ -2720,8 +2720,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 3,
+      "times_known": 2,
       "datum": "2021-09-06 13:26:35.002695",
       "kategorie": [
          "-"
@@ -2745,8 +2745,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:26:34.976502",
       "kategorie": [
          "-"
@@ -2770,8 +2770,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:26:34.941067",
       "kategorie": [
          "-"
@@ -2797,7 +2797,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 1,
       "datum": "2021-09-06 13:26:34.913429",
       "kategorie": [
          "-"
@@ -2822,7 +2822,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 3,
       "datum": "2021-09-06 13:26:34.884382",
       "kategorie": [
          "-"
@@ -2845,7 +2845,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:25:48.720134",
       "kategorie": [
@@ -3120,9 +3120,9 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
-      "times_learned": 0,
+      "times_tested": 1,
+      "times_known": 1,
+      "times_learned": 3,
       "datum": "2021-09-06 13:25:48.380090",
       "kategorie": [
          "-"
@@ -3220,7 +3220,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:25:48.243891",
       "kategorie": [
@@ -3570,8 +3570,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 2,
+      "times_known": 2,
       "datum": "2021-09-06 13:25:47.869505",
       "kategorie": [
          "-"
@@ -3895,8 +3895,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:47.513800",
       "kategorie": [
          "-"
@@ -4271,8 +4271,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:47.145757",
       "kategorie": [
          "-"
@@ -4321,8 +4321,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:47.098028",
       "kategorie": [
          "-"
@@ -4421,8 +4421,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:46.980807",
       "kategorie": [
          "-"
@@ -4471,8 +4471,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 2,
+      "times_known": 2,
       "datum": "2021-09-06 13:25:46.909276",
       "kategorie": [
          "-"
@@ -4496,8 +4496,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:46.885829",
       "kategorie": [
          "-"
@@ -4596,8 +4596,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:46.791245",
       "kategorie": [
          "-"
@@ -4796,7 +4796,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "times_learned": 0,
       "datum": "2021-09-06 13:25:46.536625",
@@ -5022,8 +5022,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:46.252433",
       "kategorie": [
          "-"
@@ -5147,8 +5147,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:46.124691",
       "kategorie": [
          "-"
@@ -5199,7 +5199,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 3,
       "datum": "2021-09-06 13:25:46.052098",
       "kategorie": [
          "-"
@@ -5272,9 +5272,9 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
-      "times_learned": 0,
+      "times_tested": 1,
+      "times_known": 1,
+      "times_learned": 3,
       "datum": "2021-09-06 13:25:45.981028",
       "kategorie": [
          "-"
@@ -5722,8 +5722,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:45.511706",
       "kategorie": [
          "-"
@@ -5947,9 +5947,9 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
-      "times_learned": 0,
+      "times_tested": 1,
+      "times_known": 1,
+      "times_learned": 2,
       "datum": "2021-09-06 13:25:45.268327",
       "kategorie": [
          "-"
@@ -5972,7 +5972,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:25:45.244174",
       "kategorie": [
@@ -6325,7 +6325,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 1,
       "datum": "2021-09-06 13:25:44.887890",
       "kategorie": [
          "-"
@@ -6348,9 +6348,9 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
-      "times_learned": 0,
+      "times_tested": 1,
+      "times_known": 1,
+      "times_learned": 2,
       "datum": "2021-09-06 13:25:44.863524",
       "kategorie": [
          "-"
@@ -6398,8 +6398,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:44.806609",
       "kategorie": [
          "-"
@@ -6801,7 +6801,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 1,
       "datum": "2021-09-06 13:25:44.414563",
       "kategorie": [
          "-"
@@ -6849,8 +6849,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:44.366997",
       "kategorie": [
          "-"
@@ -6899,7 +6899,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:25:44.324547",
       "kategorie": [
@@ -6951,7 +6951,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 3,
       "datum": "2021-09-06 13:25:44.266422",
       "kategorie": [
          "-"
@@ -6974,8 +6974,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:44.244538",
       "kategorie": [
          "-"
@@ -7151,8 +7151,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:44.083206",
       "kategorie": [
          "-"
@@ -7276,8 +7276,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:43.971280",
       "kategorie": [
          "-"
@@ -7502,7 +7502,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:25:43.772128",
       "kategorie": [
@@ -7554,7 +7554,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 1,
       "datum": "2021-09-06 13:25:43.720151",
       "kategorie": [
          "-"
@@ -7702,8 +7702,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 2,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:43.570827",
       "kategorie": [
          "-"
@@ -8005,7 +8005,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 1,
       "datum": "2021-09-06 13:25:43.319294",
       "kategorie": [
          "-"
@@ -8130,7 +8130,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 4,
       "datum": "2021-09-06 13:25:43.208677",
       "kategorie": [
          "-"
@@ -8378,8 +8378,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:43.007176",
       "kategorie": [
          "-"
@@ -8453,7 +8453,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:25:42.943257",
       "kategorie": [
@@ -8753,8 +8753,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:42.675529",
       "kategorie": [
          "-"
@@ -8853,8 +8853,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:42.597929",
       "kategorie": [
          "-"
@@ -8928,8 +8928,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 2,
+      "times_known": 1,
       "datum": "2021-09-06 13:25:42.535701",
       "kategorie": [
          "-"
@@ -9130,7 +9130,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 3,
       "datum": "2021-09-06 13:25:42.376579",
       "kategorie": [
          "-"
@@ -9155,7 +9155,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 1,
       "datum": "2021-09-06 13:25:18.844743",
       "kategorie": [
          "rostlina"
@@ -9454,8 +9454,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "times_learned": 0,
       "datum": "2021-09-06 13:24:29.191296",
       "kategorie": [
@@ -9529,7 +9529,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:24:29.136101",
       "kategorie": [
@@ -9954,8 +9954,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "times_learned": 0,
       "datum": "2021-09-06 13:24:06.642516",
       "kategorie": [
@@ -9980,7 +9980,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "times_learned": 0,
       "datum": "2021-09-06 13:24:06.607889",
@@ -10430,8 +10430,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:22:43.560429",
       "kategorie": [
          "-"
@@ -10505,8 +10505,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "times_learned": 0,
       "datum": "2021-09-06 13:22:43.497041",
       "kategorie": [
@@ -10556,8 +10556,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:22:43.465284",
       "kategorie": [
          "-"
@@ -10682,7 +10682,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:22:43.338644",
       "kategorie": [
@@ -10807,8 +10807,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:22:43.260813",
       "kategorie": [
          "-"
@@ -11033,8 +11033,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:22:43.097617",
       "kategorie": [
          "-"
@@ -11083,8 +11083,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 3,
+      "times_known": 2,
       "datum": "2021-09-06 13:22:43.067589",
       "kategorie": [
          "-"
@@ -11208,8 +11208,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:22:42.989932",
       "kategorie": [
          "-"
@@ -11534,8 +11534,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:22:42.697412",
       "kategorie": [
          "-"
@@ -12261,7 +12261,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 3,
       "datum": "2021-09-06 13:22:12.920389",
       "kategorie": [
          "po\u010das\u00ed"
@@ -12284,8 +12284,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:22:12.894460",
       "kategorie": [
          "po\u010das\u00ed"
@@ -12409,8 +12409,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:21:52.961728",
       "kategorie": [
          "ostatni z Tinycards"
@@ -12659,8 +12659,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 4,
+      "times_known": 1,
       "times_learned": 0,
       "datum": "2021-09-06 13:21:52.736047",
       "kategorie": [
@@ -12909,7 +12909,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:21:52.580287",
       "kategorie": [
@@ -13134,8 +13134,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:20:57.031998",
       "kategorie": [
          "oble\u010den\u00ed"
@@ -13159,8 +13159,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 3,
+      "times_known": 2,
       "times_learned": 0,
       "datum": "2021-09-06 13:20:57.003559",
       "kategorie": [
@@ -13259,9 +13259,9 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
-      "times_learned": 0,
+      "times_tested": 2,
+      "times_known": 2,
+      "times_learned": 2,
       "datum": "2021-09-06 13:19:45.496109",
       "kategorie": [
          "j\u00eddlo"
@@ -13411,7 +13411,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 2,
       "datum": "2021-09-06 13:19:45.409998",
       "kategorie": [
          "j\u00eddlo"
@@ -13437,7 +13437,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 1,
       "datum": "2021-09-06 13:19:45.396874",
       "kategorie": [
          "j\u00eddlo"
@@ -13485,8 +13485,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 3,
+      "times_known": 2,
       "datum": "2021-09-06 13:19:45.360101",
       "kategorie": [
          "j\u00eddlo"
@@ -13610,7 +13610,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "times_learned": 0,
       "datum": "2021-09-06 13:19:02.446981",
@@ -13660,9 +13660,9 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
-      "times_learned": 0,
+      "times_tested": 1,
+      "times_known": 1,
+      "times_learned": 2,
       "datum": "2021-09-06 13:19:02.423199",
       "kategorie": [
          "hudba"
@@ -13735,8 +13735,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:19:02.387534",
       "kategorie": [
          "hudba"
@@ -13787,7 +13787,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 3,
       "datum": "2021-09-06 13:19:02.362569",
       "kategorie": [
          "hudba"
@@ -13860,7 +13860,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:18:21.670155",
       "kategorie": [
@@ -13885,8 +13885,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:18:21.657791",
       "kategorie": [
          "fr\u00e1ze"
@@ -14010,8 +14010,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:18:21.573708",
       "kategorie": [
          "fr\u00e1ze"
@@ -14135,9 +14135,9 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 1,
       "datum": "2021-09-06 13:18:21.445067",
       "kategorie": [
          "fr\u00e1ze"
@@ -14161,8 +14161,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 2,
+      "times_known": 2,
       "datum": "2021-09-06 13:18:21.432935",
       "kategorie": [
          "fr\u00e1ze"
@@ -14238,7 +14238,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 1,
       "datum": "2021-09-06 13:18:21.395283",
       "kategorie": [
          "fr\u00e1ze"
@@ -14261,8 +14261,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:18:21.380820",
       "kategorie": [
          "fr\u00e1ze"
@@ -14411,8 +14411,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:18:21.314400",
       "kategorie": [
          "fr\u00e1ze"
@@ -14461,8 +14461,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "times_learned": 0,
       "datum": "2021-09-06 13:18:21.294496",
       "kategorie": [
@@ -14811,9 +14811,9 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
-      "times_learned": 0,
+      "times_tested": 1,
+      "times_known": 1,
+      "times_learned": 3,
       "datum": "2021-09-06 13:18:21.148996",
       "kategorie": [
          "fr\u00e1ze"
@@ -14886,8 +14886,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "times_learned": 0,
       "datum": "2021-09-06 13:17:45.093274",
       "kategorie": [
@@ -15162,8 +15162,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:16:24.870507",
       "kategorie": [
          "astronomie"
@@ -15187,7 +15187,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:16:24.860905",
       "kategorie": [
@@ -15287,8 +15287,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 8,
+      "times_known": 3,
       "times_learned": 0,
       "datum": "2021-09-06 13:16:24.825091",
       "kategorie": [
@@ -15837,9 +15837,9 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
-      "times_learned": 0,
+      "times_tested": 1,
+      "times_known": 1,
+      "times_learned": 3,
       "datum": "2021-09-06 13:15:41.944896",
       "kategorie": [
          "abstraktn\u00ed"
@@ -15962,8 +15962,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "times_learned": 0,
       "datum": "2021-09-06 13:15:41.904790",
       "kategorie": [
@@ -16112,7 +16112,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:15:41.849144",
       "kategorie": [
@@ -16137,7 +16137,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:15:41.841750",
       "kategorie": [
@@ -16262,7 +16262,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:15:41.795277",
       "kategorie": [
@@ -16362,8 +16362,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:15:41.764625",
       "kategorie": [
          "abstraktn\u00ed"
@@ -16412,8 +16412,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "times_learned": 0,
       "datum": "2021-09-06 13:15:41.742538",
       "kategorie": [
@@ -16637,9 +16637,9 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 1,
       "datum": "2021-09-06 13:15:41.677501",
       "kategorie": [
          "abstraktn\u00ed"
@@ -16689,7 +16689,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 1,
       "datum": "2021-09-06 13:15:41.662774",
       "kategorie": [
          "abstraktn\u00ed"
@@ -17087,8 +17087,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:15:41.528188",
       "kategorie": [
          "abstraktn\u00ed"
@@ -17287,8 +17287,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "times_learned": 0,
       "datum": "2021-09-06 13:15:41.474545",
       "kategorie": [
@@ -17437,8 +17437,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 3,
+      "times_known": 3,
       "datum": "2021-09-06 13:15:41.435442",
       "kategorie": [
          "abstraktn\u00ed"
@@ -17513,8 +17513,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:15:41.417167",
       "kategorie": [
          "abstraktn\u00ed"
@@ -17738,7 +17738,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:15:41.361990",
       "kategorie": [
@@ -17841,7 +17841,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 3,
       "datum": "2021-09-06 13:15:41.338300",
       "kategorie": [
          "abstraktn\u00ed"
@@ -17939,7 +17939,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:15:41.309873",
       "kategorie": [
@@ -18114,8 +18114,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:15:41.270558",
       "kategorie": [
          "abstraktn\u00ed"
@@ -18139,7 +18139,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "times_learned": 0,
       "datum": "2021-09-06 13:15:41.259964",
@@ -18267,7 +18267,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 1,
       "datum": "2021-09-06 13:15:41.229066",
       "kategorie": [
          "abstraktn\u00ed"
@@ -18290,7 +18290,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:15:41.224212",
       "kategorie": [
@@ -18467,7 +18467,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:15:41.180061",
       "kategorie": [
@@ -18517,8 +18517,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:15:41.170914",
       "kategorie": [
          "abstraktn\u00ed"
@@ -18692,8 +18692,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:15:41.136487",
       "kategorie": [
          "abstraktn\u00ed"
@@ -18817,8 +18817,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:15:41.112364",
       "kategorie": [
          "abstraktn\u00ed"
@@ -18893,7 +18893,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:15:41.097114",
       "kategorie": [
@@ -19243,7 +19243,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-09-06 13:15:41.049934",
       "kategorie": [
@@ -19268,9 +19268,9 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
-      "times_learned": 0,
+      "times_tested": 1,
+      "times_known": 1,
+      "times_learned": 3,
       "datum": "2021-09-06 13:15:41.047313",
       "kategorie": [
          "abstraktn\u00ed"
@@ -19418,7 +19418,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "times_learned": 0,
       "datum": "2021-09-06 13:15:41.031624",
@@ -19769,8 +19769,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:15:41.005055",
       "kategorie": [
          "abstraktn\u00ed"
@@ -19844,8 +19844,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-09-06 13:15:41.000795",
       "kategorie": [
          "abstraktn\u00ed"
@@ -19896,7 +19896,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 2,
       "datum": "2021-09-06 13:15:40.998332",
       "kategorie": [
          "abstraktn\u00ed"
@@ -19997,7 +19997,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 3,
       "datum": "2021-09-06 13:15:40.990232",
       "kategorie": [
          "abstraktn\u00ed"
@@ -20022,7 +20022,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 3,
       "datum": "2021-09-06 13:15:40.989160",
       "kategorie": [
          "abstraktn\u00ed"
@@ -20099,8 +20099,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-06-09 13:29:29.997336",
       "kategorie": [
          "\u0161kola",
@@ -20284,7 +20284,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 1,
       "datum": "2021-06-09 13:29:07.390885",
       "kategorie": [
          "\u010dlov\u011bk",
@@ -20308,8 +20308,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-06-09 13:29:07.238198",
       "kategorie": [
          "abstraktn\u00ed",
@@ -20334,8 +20334,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-06-09 13:29:07.150227",
       "kategorie": [
          "abstraktn\u00ed",
@@ -20361,8 +20361,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 2,
+      "times_known": 1,
       "datum": "2021-06-09 13:29:07.056392",
       "kategorie": [
          "\u010dlov\u011bk",
@@ -20546,8 +20546,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-06-09 13:28:39.285258",
       "kategorie": [
          "ostatni z Tinycards",
@@ -20572,7 +20572,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-06-09 13:28:39.254868",
       "kategorie": [
@@ -20598,7 +20598,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-06-09 13:28:39.197407",
       "kategorie": [
@@ -20624,7 +20624,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-06-09 13:28:18.207271",
       "kategorie": [
@@ -20651,9 +20651,9 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
-      "times_learned": 0,
+      "times_tested": 1,
+      "times_known": 1,
+      "times_learned": 3,
       "datum": "2021-06-09 13:27:47.167982",
       "kategorie": [
          "vlastnost",
@@ -20680,7 +20680,7 @@
       ],
       "times_tested": 0,
       "times_known": 0,
-      "times_learned": 0,
+      "times_learned": 1,
       "datum": "2021-06-09 13:27:46.985853",
       "kategorie": [
          "vlastnost",
@@ -20810,8 +20810,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-06-09 13:27:16.112201",
       "kategorie": [
          "budovy",
@@ -20836,7 +20836,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-06-09 13:27:16.084655",
       "kategorie": [
@@ -20862,7 +20862,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-06-09 13:27:15.969015",
       "kategorie": [
@@ -20888,8 +20888,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-06-09 13:27:15.931023",
       "kategorie": [
          "abstraktn\u00ed",
@@ -20966,8 +20966,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 2,
+      "times_known": 1,
       "datum": "2021-06-09 13:27:15.632528",
       "kategorie": [
          "budovy",
@@ -21019,8 +21019,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-06-09 13:25:48.271560",
       "kategorie": [
          "-",
@@ -21101,9 +21101,9 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
-      "times_learned": 0,
+      "times_tested": 2,
+      "times_known": 2,
+      "times_learned": 2,
       "datum": "2021-06-09 13:25:46.932739",
       "kategorie": [
          "fr\u00e1ze",
@@ -21236,7 +21236,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-06-09 13:25:46.074913",
       "kategorie": [
@@ -21263,7 +21263,7 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
+      "times_tested": 1,
       "times_known": 0,
       "datum": "2021-06-09 13:25:45.148999",
       "kategorie": [
@@ -21418,8 +21418,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-06-09 13:21:53.029430",
       "kategorie": [
          "ostatni z Tinycards",
@@ -21470,8 +21470,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 2,
+      "times_known": 1,
       "datum": "2021-06-09 13:21:52.774614",
       "kategorie": [
          "ostatni z Tinycards",
@@ -21522,8 +21522,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-06-09 13:21:52.631136",
       "kategorie": [
          "dom\u00e1cnost",
@@ -21626,8 +21626,8 @@
       "asociace": [
          "-"
       ],
-      "times_tested": 0,
-      "times_known": 0,
+      "times_tested": 1,
+      "times_known": 1,
       "datum": "2021-06-09 13:17:45.102911",
       "kategorie": [
          "dom\u00e1cnost",

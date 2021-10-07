@@ -2,7 +2,7 @@ from math import log
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
 from website.models.chyba import Chyba
-from website.models.slovicko import Slovicko
+from website.models.slovnik import Slovnik
 
 
 default_views = Blueprint("default_views",__name__)
@@ -50,6 +50,7 @@ def planovane_featury():
 @login_required
 def account():
 	if request.method == "GET":
-		return render_template("account.html", current_user=current_user, pocet_slovicek = len(Slovicko.get_all()))
+		s = Slovnik()
+		return render_template("account.html", current_user=current_user, pocet_slovicek = len(s.slovicka))
 	else:
 		return "Not done yet" + request.form.get("uceni_choose")

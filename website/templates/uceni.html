@@ -21,17 +21,17 @@
         <button type="submit" name="dalsi" value="1">Dál</button>
     {% elif typ =="choose" %}
         vyber správný překlad pro <b>{{ display_info[0].pretty("czech") }}</b>
-        <select name="datum_vybraneho">
+        <select name="id_vybraneho">
             {% for slovicko in display_info[1] %}
-                <option value="{{ slovicko.datum }}">{{ slovicko.pretty(jazyk) }}</option>
+                <option value="{{ slovicko.id }}">{{ slovicko.pretty(jazyk) }}</option>
             {% endfor %}
         </select>
-        <input type="text" hidden name="datum_puvodniho" value="{{ display_info[0].datum }}"/>
+        <input type="text" hidden name="id_puvodniho" value="{{ display_info[0].id }}"/>
         <button type="submit" name="vybrat" value="1">Vybrat tuhle možnost</button>
     {% elif typ =="write" %}
         napiš překlad ke slovíčku <b>{{ display_info.pretty("czech") }}</b>
         <input type="text" name="string" autofocus autocomplete="off"/>
-        <input type="text" hidden name="datum_puvodniho" value="{{ display_info.datum }}"/>
+        <input type="text" hidden name="id_puvodniho" value="{{ display_info.id }}"/>
         <button type="submit" name="zkontrolovat" value="1">Zkontrolovat</button>
     {% else %}
         {{ typ }}, nevim jak jsem se sem dostal

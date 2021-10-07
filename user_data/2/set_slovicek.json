@@ -1,128 +1,41 @@
 {
-   "varka": 1,
    "jazyk": "german",
-   "podle": "nejmene_ucene",
-   "podle_meta": 20,
-   "data_o_uceni": [
-      {
-         "datum": "2021-06-09 13:27:15.660676",
-         "showcase": false,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-09-06 13:28:38.981371",
-         "showcase": false,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-09-06 13:17:44.955663",
-         "showcase": false,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-09-06 13:17:44.966724",
-         "showcase": false,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-09-06 13:17:44.976910",
-         "showcase": false,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-09-06 13:17:44.986186",
-         "showcase": false,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-09-06 13:28:39.021383",
-         "showcase": true,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-09-06 13:28:39.051264",
-         "showcase": false,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-09-06 13:17:45.005636",
-         "showcase": true,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-06-09 13:21:52.439496",
-         "showcase": true,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-09-06 13:28:39.080672",
-         "showcase": false,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-09-06 13:28:39.110143",
-         "showcase": false,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-09-06 13:28:39.138427",
-         "showcase": false,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-09-06 13:17:45.025507",
-         "showcase": false,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-06-09 13:21:52.631136",
-         "showcase": false,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-06-09 13:27:15.871985",
-         "showcase": false,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-09-06 13:28:39.168319",
-         "showcase": false,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-06-09 13:28:39.197407",
-         "showcase": false,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-06-09 13:21:52.684354",
-         "showcase": false,
-         "choose": false,
-         "write": false
-      },
-      {
-         "datum": "2021-06-09 13:27:15.969015",
-         "showcase": true,
-         "choose": false,
-         "write": false
-      }
-   ]
+   "datum": "2021-10-07 16:25:05.566048",
+   "podle": "kategorie",
+   "podle_meta": "zv\u00ed\u0159e",
+   "seznam_id_slovicek": [
+      8,
+      9,
+      84,
+      78,
+      87,
+      2,
+      10,
+      7,
+      83,
+      76,
+      88,
+      0,
+      93,
+      94,
+      89
+   ],
+   "seznam_odpovedi": [
+      "skipped",
+      "skipped",
+      "skipped",
+      "skipped",
+      "skipped",
+      "skipped",
+      "skipped",
+      "skipped",
+      "skipped",
+      "skipped",
+      "skipped",
+      "skipped",
+      "skipped",
+      "skipped",
+      "skipped"
+   ],
+   "poznamka": "None, p\u0159ezkou\u0161en\u00ed z 2021-10-07 01:02:09.468813"
 }

@@ -9,7 +9,7 @@ def get_user_database() -> List[dict]:
         file = json.load(file)
     return file
 
-def save_to_user_database(data: dict) -> None:
+def save_to_user_database(data: List[dict]) -> None:
     with open(f"user_data/{current_user.id}/database.json", "w") as file:
         file.write(json.dumps(data, indent=3))
 
@@ -33,22 +33,17 @@ def insert_to_db(data):
     save_to_user_database(file)
 
 
-def get_all_raw():
-    return get_user_database()
-
-
-def get_by_timestamp_raw(date):
+def get_by_id(id: int) -> dict:
     file = get_user_database()
     for word in file:
-        if parser.parse(word["datum"], dayfirst=True) == parser.parse(date, dayfirst=True):
+        if word["id"] == id:
             return word
     return None
 
-
-def delete_by_date(date):
+def delete_by_id(id: int) -> None:
     file = get_user_database()
     for i, word in enumerate(file):
-        if parser.parse(word["datum"], dayfirst=True) == parser.parse(date, dayfirst=True):
+        if word["id"] == id:
             file.pop(i)
     save_to_user_database(file)
 

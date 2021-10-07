@@ -9,14 +9,14 @@ from website.helpers import historie_handling
 
 class ZkouseniManager:
     def __init__(self,
-                 seznam_dat_slovicek: list = None,
+                 seznam_id_slovicek: list = None,
                  podle=None,
                  podle_meta=None,
                  datum=None,
                  jazyk=None,
                  poznamka=None,
                  seznam_odpovedi=None):
-        self.seznam_dat_slovicek = seznam_dat_slovicek
+        self.seznam_id_slovicek = seznam_id_slovicek
         self.jazyk = jazyk
         self.poznamka = poznamka
         self.podle = podle
@@ -29,10 +29,10 @@ class ZkouseniManager:
             self.seznam_odpovedi = []
         else:
             self.seznam_odpovedi = seznam_odpovedi
-        if seznam_dat_slovicek is None:
-            self.seznam_dat_slovicek = []
+        if seznam_id_slovicek is None:
+            self.seznam_id_slovicek = []
         else:
-            self.seznam_dat_slovicek = seznam_dat_slovicek
+            self.seznam_id_slovicek = seznam_id_slovicek
 
     def pretty_date(self):
         return pretty_date(self.datum)
@@ -43,9 +43,9 @@ class ZkouseniManager:
 
     def get_seznam_yesno(self):
         result = []
-        for i in range(len(self.seznam_dat_slovicek)):
+        for i in range(len(self.seznam_id_slovicek)):
             if vyhodnot(jazyk=self.jazyk,
-                        predloha=Slovicko.get_by_timestamp(self.seznam_dat_slovicek[i]),
+                        predloha=Slovicko.get_by_id(self.seznam_id_slovicek[i]),
                         string=self.seznam_odpovedi[i]):
                 result.append(1)
             else:
@@ -53,10 +53,10 @@ class ZkouseniManager:
         return result
 
     def objekty(self):
-        return [Slovicko.get_by_timestamp(date) for date in self.seznam_dat_slovicek]
+        return [Slovicko.get_by_id(id) for id in self.seznam_id_slovicek]
 
     def zamichat_slovicka(self):
-        random.shuffle(self.seznam_dat_slovicek)
+        random.shuffle(self.seznam_id_slovicek)
 
     def zapsat_do_souboru(self):
         result = {
@@ -64,7 +64,7 @@ class ZkouseniManager:
             "datum": self.datum,
             "podle": self.podle,
             "podle_meta": self.podle_meta,
-            "seznam_dat_slovicek": self.seznam_dat_slovicek,
+            "seznam_id_slovicek": self.seznam_id_slovicek,
             "seznam_odpovedi": self.seznam_odpovedi,
             "poznamka": self.poznamka
         }
@@ -78,7 +78,7 @@ class ZkouseniManager:
             datum=data["datum"],
             podle=data["podle"],
             podle_meta=data["podle_meta"],
-            seznam_dat_slovicek=data["seznam_dat_slovicek"],
+            seznam_id_slovicek=data["seznam_id_slovicek"],
             seznam_odpovedi=data["seznam_odpovedi"],
             poznamka=data["poznamka"]
         )
@@ -86,7 +86,7 @@ class ZkouseniManager:
 
     def nte_ze_setu(self, n):
         try:
-            return Slovicko.get_by_timestamp(self.seznam_dat_slovicek[n])
+            return Slovicko.get_by_id(self.seznam_id_slovicek[n])
         except IndexError:
             return False
 
@@ -95,7 +95,7 @@ class ZkouseniManager:
             "datum": self.datum,
             "podle": self.podle,
             "podle_meta": self.podle_meta,
-            "seznam_dat_slovicek": self.seznam_dat_slovicek,
+            "seznam_id_slovicek": self.seznam_id_slovicek,
             "seznam_odpovedi": self.seznam_odpovedi,
             "poznamka": self.poznamka,
             "jazyk": self.jazyk
@@ -110,7 +110,7 @@ class ZkouseniManager:
             obj = ZkouseniManager(datum=z["datum"],
                                   podle=z["podle"],
                                   podle_meta=z["podle_meta"],
-                                  seznam_dat_slovicek=z["seznam_dat_slovicek"],
+                                  seznam_id_slovicek=z["seznam_id_slovicek"],
                                   seznam_odpovedi=z["seznam_odpovedi"],
                                   poznamka=z["poznamka"],
                                   jazyk=z["jazyk"])
@@ -124,14 +124,14 @@ class ZkouseniManager:
         obj = ZkouseniManager(datum=data["datum"],
                               podle=data["podle"],
                               podle_meta=data["podle_meta"],
-                              seznam_dat_slovicek=data["seznam_dat_slovicek"],
+                              seznam_id_slovicek=data["seznam_id_slovicek"],
                               seznam_odpovedi=data["seznam_odpovedi"],
                               poznamka=data["poznamka"],
                               jazyk=data["jazyk"])
-        for date in obj.seznam_dat_slovicek:
-            slovicko = Slovicko.get_by_timestamp(date)
+        for id in obj.seznam_id_slovicek:
+            slovicko = Slovicko.get_by_id(id)
             if slovicko is None:
-                obj.seznam_dat_slovicek.pop(date)
+                obj.seznam_id_slovicek.pop(id)
                 message = "Některá slovíčka chybí, asi byla smazána z databáze."
 
         return obj, message
@@ -153,7 +153,7 @@ class ZkouseniManager:
         self.podle = podle
         self.podle_meta = podle_meta
         self.poznamka = "Zkoušeno po učení."
-        self.seznam_dat_slovicek = [zaznam["datum"] for zaznam in data_o_uceni]
+        self.seznam_id_slovicek = [zaznam["datum"] for zaznam in data_o_uceni]
         self.zapsat_do_souboru()
         
 
