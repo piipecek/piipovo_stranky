@@ -1,0 +1,56 @@
+:root {
+    --table-border-radius: 0.5em;
+    --table-bottom-border: 0.25em;
+    --separator-thickness: 0.05em;
+    --table-item-padding-ver: 0.5em;
+    --table-item-padding-hor: 0.5em;
+    --blue: #0d6efd;
+    --light-blue: #cfe2ff;
+    --light2-blue: #ecf4ff;
+    --light-gray: #f8f9fa;
+}
+
+.slovnik-wrapper {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: var(--table-border-radius) var(--table-border-radius) 0px 0px;
+}
+
+.slovnik-wrapper thead tr th:first-child {
+    border-radius: var(--table-border-radius) 0px 0px 0px;
+}
+
+.slovnik-wrapper thead tr th:last-child {
+    border-radius: 0px var(--table-border-radius) 0px 0px;
+}
+
+.slovnik-wrapper thead tr {
+    background-color: var(--blue);
+    color: white;
+    text-align: left;
+}
+
+.slovnik-wrapper th,
+.slovnik-wrapper td {
+    padding: var(--table-item-padding-ver) var(--table-item-padding-hor);
+    border-left: var(--separator-thickness) solid var(--light-blue);
+}
+
+.slovnik-wrapper tr th:nth-child(1),
+.slovnik-wrapper tr td:nth-child(1) {
+    border-left: 0;
+}
+
+.slovnik-wrapper tbody tr {
+    border-bottom: var(--separator-thickness) solid var(--light-blue);
+}
+
+.slovnik-wrapper tbody tr:nth-of-type(even) {
+    background-color: var(--light-gray);
+}
+
+.slovnik-wrapper tbody tr:last-of-type {
+    border-bottom: var(--table-bottom-border) solid var(--blue);
+}
