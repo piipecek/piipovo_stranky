@@ -1,30 +1,29 @@
-from warnings import resetwarnings
-
-from flask.helpers import make_response
+import typing
 from website.helpers import set_handling
 import random
 from website.models.slovicko import Slovicko
 from website.helpers.pairser import vyhodnot, smart_sample
+from typing import List, Tuple
 
 
 class UceniManager:
     def __init__(self, 
-                 seznam_dat_slovicek=None, 
+                 seznam_id_slovicek=None, 
                  data_o_uceni=None, 
                  varka=0, 
                  jazyk=None,
                  podle=None,
                  podle_meta=None):
-        self.seznam_dat_slovicek = seznam_dat_slovicek
+        self.seznam_id_slovicek = seznam_id_slovicek
         self.varka = varka
         self.jazyk = jazyk
         self.podle_meta = podle_meta
         self.podle = podle
         if data_o_uceni is None:
             self.data_o_uceni = []
-            for date in self.seznam_dat_slovicek:
+            for id in self.seznam_id_slovicek:
                 self.data_o_uceni.append({
-                    "datum": date,
+                    "id": id,
                     "showcase": False,
                     "choose": False,
                     "write": False
@@ -61,44 +60,44 @@ class UceniManager:
         if all([zaznam["write"] for zaznam in self.data_o_uceni]):
             return None
         else:
-            def get_showcase(data_o_uceni):
+            def get_showcase(data_o_uceni: List[dict]) -> List[int]:
                 kandidati = list(filter(lambda x: x["showcase"] is False, data_o_uceni))
                 if len(kandidati) == 0:
                     return None
                 else:
-                    return [zaznam["datum"] for zaznam in smart_sample(kandidati, 4)]
+                    return [zaznam["id"] for zaznam in smart_sample(kandidati, 4)]
 
-            def get_choose(data_o_uceni):
+            def get_choose(data_o_uceni: List[dict]) -> Tuple[Slovicko, List[Slovicko]]:
                 kandidati = list(filter(lambda x: x["showcase"] is True and x["choose"] is False, data_o_uceni))
                 if len(kandidati) == 0:
                     return None
                 else:
-                    vyvoleny_datum = random.choice(kandidati)["datum"]
-                    zaznamy_na_vyber = smart_sample(list(filter(lambda x: x["showcase"] is True and x["datum"] != vyvoleny_datum, data_o_uceni)),3)
-                    data_na_vyber = [zaznam["datum"] for zaznam in zaznamy_na_vyber]
-                    data_na_vyber.append(vyvoleny_datum)
-                    random.shuffle(data_na_vyber)
+                    vyvoleny_id = random.choice(kandidati)["id"]
+                    zaznamy_na_vyber = smart_sample(list(filter(lambda x: x["showcase"] is True and x["id"] != vyvoleny_id, data_o_uceni)),3)
+                    id_na_vyber = [zaznam["id"] for zaznam in zaznamy_na_vyber]
+                    id_na_vyber.append(vyvoleny_id)
+                    random.shuffle(id_na_vyber)
 
-                    vyvoleny = Slovicko.get_by_timestamp(vyvoleny_datum)
-                    slova_na_vyber = [Slovicko.get_by_timestamp(datum) for datum in data_na_vyber]
+                    vyvoleny = Slovicko.get_by_id(vyvoleny_id)
+                    slova_na_vyber = [Slovicko.get_by_id(id) for id in id_na_vyber]
                     return vyvoleny, slova_na_vyber
 
-            def get_write(data_o_uceni):
+            def get_write(data_o_uceni: List[dict]) -> int:
                 kandidati = list(filter(lambda x: x["showcase"] is True and x["choose"] is True and x["write"] is False,
                                 data_o_uceni))
                 if len(kandidati) == 0:
                     return None
                 else:
-                    return random.choice(kandidati)["datum"]
+                    return random.choice(kandidati)["id"]
 
             if self.varka % 9 == 0:
                 typ = "showcase"
-                datumy_vybranejch = get_showcase(self.data_o_uceni)
-                if datumy_vybranejch is None:
+                id_vybranejch = get_showcase(self.data_o_uceni)
+                if id_vybranejch is None:
                     data_k_odeslani = None
                 else:
-                    data_k_odeslani = [Slovicko.get_by_timestamp(datum) for datum in datumy_vybranejch]
-                    self.sign_as_showcased(datumy_vybranejch)
+                    data_k_odeslani = [Slovicko.get_by_id(id) for id in id_vybranejch]
+                    self.sign_as_showcased(id_vybranejch)
 
             elif self.varka % 9 in [1, 2, 3, 4]:
                 typ = "choose"
@@ -110,7 +109,7 @@ class UceniManager:
                 if data_k_odeslani is None:
                     data_k_odeslani = None
                 else:
-                    data_k_odeslani = Slovicko.get_by_timestamp(data_k_odeslani)
+                    data_k_odeslani = Slovicko.get_by_id(data_k_odeslani)
 
             else:
                 return "error lol"
@@ -123,37 +122,37 @@ class UceniManager:
             else:
                 return typ, data_k_odeslani
 
-    def sign_as_showcased(self, datumy):
+    def sign_as_showcased(self, ids):
         for i, zaznam in enumerate(self.data_o_uceni):
-            if zaznam["datum"] in datumy:
+            if zaznam["id"] in ids:
                 self.data_o_uceni[i]["showcase"] = True
         self.zapsat_do_souboru()
 
-    def check_choose(self, datum_puvodniho, datum_vybraneho):
+    def check_choose(self, id_puvodniho: int, id_vybraneho: int):
         for i, zaznam in enumerate(self.data_o_uceni):
-            if zaznam["datum"] == datum_puvodniho:
-                if datum_puvodniho == datum_vybraneho:
+            if zaznam["id"] == id_puvodniho:
+                if id_puvodniho == id_vybraneho:
                     self.data_o_uceni[i]["choose"] = True
                     message = "Správně!"
                     category = "correct"
                 else:
                     self.data_o_uceni[i]["showcase"] = False
-                    message = f"Špatně, správně by bylo {Slovicko.get_by_timestamp(datum_puvodniho).pretty(self.jazyk)}"
+                    message = f"Špatně, správně by bylo {Slovicko.get_by_id(id_puvodniho).pretty(self.jazyk)}"
                     category = "error"
         self.zapsat_do_souboru()
         return message, category
 
-    def check_write(self, datum, string):
-        result = vyhodnot(self.jazyk, Slovicko.get_by_timestamp(datum), string)
+    def check_write(self, id: int, string: str):
+        result = vyhodnot(self.jazyk, Slovicko.get_by_id(id), string)
         for i, zaznam in enumerate(self.data_o_uceni):
-            if zaznam["datum"]  == datum:
+            if zaznam["id"]  == id:
                 if result:
                     self.data_o_uceni[i]["write"] = True
                     message = "Správně!"
                     category = "correct"
                 else:
                     self.data_o_uceni[i]["choose"] = False
-                    message = f"Špatně, správně by bylo {Slovicko.get_by_timestamp(datum).pretty(self.jazyk)}"
+                    message = f"Špatně, správně by bylo {Slovicko.get_by_id(id).pretty(self.jazyk)}"
                     category = "error"
         self.zapsat_do_souboru()
         return message, category

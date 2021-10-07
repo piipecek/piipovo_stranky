@@ -7,9 +7,24 @@
     <a href="{{ url_for("slovnik_views.duplicates") }}">Najít duplicitní slovíčka</a>
     <br>
     <h2>Slovník</h2>
+    <form method="post">
+        
     <a href="{{ url_for("slovnik_views.natahnout_od_pipa") }}">Natáhnout si pár kategorií nebo celý slovník od Pípa</a>
+    
+    <div>
+        <label for="dropdown">S vybranými slovíčky: </label>
+        <select id="dropdown" name="dropdown">
+            <option value="smazat">Smazat</option>
+            <option value="add_category">Přidat kategorii</option>
+            <option value="delete_category">Odebrat kategorii</option>
+        </select>
+        <input type="text" name="dropdown_meta" value="Pokud mažeš, je jedno co sem napíšeš" size="40"/>
+        <button type="submit" name="dropdown_trigger" value="some_value">Budiž</button>
+    </div>
+
     <div class="container">
         <div class="row">
+            <div class="col-md-1">select</div>
             <div class="col-md-1">czech</div>
             <div class="col-md-1">german</div>
             <div class="col-md-1">english</div>
@@ -23,8 +38,9 @@
         </div>
     </div>
     <div class="container">
-        {% for word in data %}
+        {% for word in slovicka %}
             <div class="row">
+                <div class="col-md-1"> <input type="checkbox" value="{{word.id}}" name="checked"/> </div>
                 <div class="col-md-1">{{ word.pretty("czech") }}</div>
                 <div class="col-md-1">{{ word.pretty("german") }}</div>
                 <div class="col-md-1">{{ word.pretty("english") }}</div>
@@ -36,12 +52,12 @@
                 <div class="col-md-1">{{ word.times_learned }}</div>
                 <div class="col-md-1 datecolumn" >{{ word.datum_pretty }}</div>
                 <div class="col-md-1">
-                    <form method="post">
-                        <button type="submit" name="edit" value="{{ word["datum"] }}" >Upravit</button>
-                    </form>
+                        <button type="submit" name="edit" value="{{ word.id }}" >Upravit</button>
                 </div>
             </div>
             <hr>
         {% endfor %}
     </div>
+    </form>
+
 {% endblock %}

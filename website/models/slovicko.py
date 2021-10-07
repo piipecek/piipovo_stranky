@@ -1,19 +1,20 @@
 from website.helpers import db_handling
 from dateutil import parser
-
+from typing import List
 
 class Slovicko:
     def __init__(self,
-                 czech=None,
-                 german=None,
-                 english=None,
-                 druh=None,
+                 id: int=None,
+                 czech: List[str]=None,
+                 german: List[str]=None,
+                 english: List[str]=None,
+                 druh: List[str]=None,
                  datum=None,
-                 asociace=None,
-                 times_tested=0,
-                 times_known=0,
-                 times_learned=0,
-                 kategorie=None):
+                 asociace: List[str]=None,
+                 times_tested: int=0,
+                 times_known: int=0,
+                 times_learned: int=0,
+                 kategorie: List[str]=None):
         if kategorie is None:
             kategorie = ["-"]
         if asociace is None:
@@ -41,15 +42,17 @@ class Slovicko:
         self.times_tested = times_tested
         self.times_known = times_known
         self.times_learned = times_learned
+        self.id = id
 
     def __repr__(self):
-        return f"CZ: {self.czech} D: {self.german} EN: {self.english}, \n," \
+        return f"CZ: {self.czech} D: {self.german} EN: {self.english}, id: {self.id}, \n," \
                f"druh: {self.druh}, kategorie: {self.kategorie}, asociace: {self.asociace}, \n," \
                f"datum: {self.datum}, tested/known: {self.times_tested}/{self.times_known}, " \
                f"learned: {self.times_learned},"
 
-    def json_format(self):
+    def json_format(self) -> dict:
         data = {
+            "id": self.id,
             "czech": self.czech,
             "german": self.german,
             "english": self.english,
@@ -76,36 +79,26 @@ class Slovicko:
             return ", ".join(self.english)
         elif atribute == "german":
             return ", ".join(self.german)
+    
+    @staticmethod
+    def get_by_id(id: int):
+        w = db_handling.get_by_id(id)
+        if w is None:
+            return None
+        else:
+            return Slovicko(**w)
 
     def insert_slovicko(self):
         db_handling.insert_to_db(self.json_format())
 
-    def put_in_db(self, old_date):
-        Slovicko.delete_by_timestamp(old_date)
+    def put_in_db(self):
+        Slovicko.delete_by_id(self.id)
         self.insert_slovicko()
 
     @staticmethod
-    def get_by_timestamp(date):
-        w = db_handling.get_by_timestamp_raw(date)
-        if w is None:
-            return None
-        else:
-            obj = Slovicko.load(w)
-            return obj
-
-    @staticmethod
-    def delete_by_timestamp(date):
-        db_handling.delete_by_date(date)
-
-
-    @staticmethod
-    def get_all():
-        result = []
-        data = db_handling.get_all_raw()
-        for word in data:
-            obj = Slovicko.load(word)
-            result.append(obj)
-        return result
+    def delete_by_id(id):
+        db_handling.delete_by_id(id)
+    
 
     @staticmethod
     def get_singles():
@@ -136,24 +129,9 @@ class Slovicko:
             return result
 
     @staticmethod
-    def load(data_z_db):
-        d = data_z_db  # pro psani min znaku
-        obj = Slovicko(czech=d["czech"],
-                       german=d["german"],
-                       english=d["english"],
-                       druh=d["druh"],
-                       asociace=d["asociace"],
-                       kategorie=d["kategorie"],
-                       datum=d["datum"],
-                       times_known=d["times_known"],
-                       times_tested=d["times_tested"],
-                       times_learned=d["times_learned"])
-        return obj
-
-    @staticmethod
-    def sjednotit_dve(dat1, dat2):
-        obj1 = Slovicko.get_by_timestamp(dat1)
-        obj2 = Slovicko.get_by_timestamp(dat2)
+    def sjednotit_dve(id1, id2):
+        obj1 = Slovicko.get_by_id(id1)
+        obj2 = Slovicko.get_by_id(id2)
 
         new_datum = str(max(
             parser.parse(obj1.datum, dayfirst=True),
@@ -193,7 +171,7 @@ class Slovicko:
         new_obj.times_known = obj1.times_known + obj2.times_known
         new_obj.times_learned =obj1.times_learned + obj2.times_learned
 
-        Slovicko.delete_by_timestamp(dat1)
-        Slovicko.delete_by_timestamp(dat2)
+        Slovicko.delete_by_id(id1)
+        Slovicko.delete_by_id(id2)
         new_obj.insert_slovicko()
 
