@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+    <a href="{{ url_for("slovnik_views.sort") }}">Setřídit slovník</a>
+    <br>
+    <a href="{{ url_for("slovnik_views.singles") }}">Najít slovíčka jen s jedním záznamem</a>
+    <br>
+    <a href="{{ url_for("slovnik_views.duplicates") }}">Najít duplicitní slovíčka</a>
+    <br>
+    <h2>Slovník</h2>
+
+    <!-- FORM FOR SELECTION ACTIONS -->
+
+    <form id="selection-actions-form" method="post">
+        <a href="{{ url_for("slovnik_views.natahnout_od_pipa") }}">Natáhnout si pár kategorií nebo celý slovník od Pípa</a>
+        <div>
+            <label for="dropdown">S vybranými slovíčky: </label>
+            <select id="dropdown" name="dropdown">
+                <option value="smazat">Smazat</option>
+                <option value="add_category">Přidat kategorii</option>
+                <option value="delete_category">Odebrat kategorii</option>
+            </select>
+            <input style="position: fixed; visibility: hidden;" type="text" name="checked" value="0,1">
+            <input type="text" name="dropdown_meta" value="Pokud mažeš, je jedno co sem napíšeš" size="40"/>
+            <button type="button" data-type="submit" name="dropdown_trigger" value="some_value" onclick="handleClick2()">Budiž</button>
+        </div>
+    </form>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">select</div>
+            <div class="col-md-1">czech</div>
+            <div class="col-md-1">german</div>
+            <div class="col-md-1">english</div>
+            <div class="col-md-1">druh</div>
+            <div class="col-md-1">kategorie</div>
+            <div class="col-md-1">asociace</div>
+            <div class="col-md-1">tested</div>
+            <div class="col-md-1">known</div>
+            <div class="col-md-1">learned</div>
+            <div class="col-md-1 datecolumn">datum</div>
+        </div>
+    </div>
+    <div class="container">
+        {% for word in slovicka %}
+            <div class="row">
+                <div class="col-md-1"> <input type="checkbox" value="{{word.id}}" data-name="checked"/> </div>
+                <div class="col-md-1">{{ word.pretty("czech") }}</div>
+                <div class="col-md-1">{{ word.pretty("german") }}</div>
+                <div class="col-md-1">{{ word.pretty("english") }}</div>
+                <div class="col-md-1">{{ word.pretty("druh") }}</div>
+                <div class="col-md-1">{{ word.pretty("kategorie") }}</div>
+                <div class="col-md-1">{{ word.pretty("asociace") }}</div>
+                <div class="col-md-1">{{ word.times_tested }}</div>
+                <div class="col-md-1">{{ word.times_known }}</div>
+                <div class="col-md-1">{{ word.times_learned }}</div>
+                <div class="col-md-1 datecolumn" >{{ word.datum_pretty }}</div>
+                <div class="col-md-1">
+                        <button type="submit" name="edit" value="{{ word.id }}" >Upravit</button>
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+
+<!-- JS SCRIPT -->
+<script>
+    function handleClick2() {        
+        let formElement = document.getElementById("selection-actions-form");
+        if (!formElement) {
+            alert("(!formElement) Something's wrong, I can feel it!");
+        }
+
+
+
+        formElement.submit();
+    }
+</script>
+
+{% endblock %}
