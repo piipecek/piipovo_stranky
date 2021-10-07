@@ -1,63 +1,93 @@
 {% extends "base.html" %}
 {% block content %}
-    <a href="{{ url_for("slovnik_views.sort") }}">Setřídit slovník</a>
-    <br>
-    <a href="{{ url_for("slovnik_views.singles") }}">Najít slovíčka jen s jedním záznamem</a>
-    <br>
-    <a href="{{ url_for("slovnik_views.duplicates") }}">Najít duplicitní slovíčka</a>
-    <br>
+
+<!-- RYCHLEJ STYLE PRO PŘEVOD STYLU TLAČÍTKA NA LINK  -->
+<style>
+    /* https://stackoverflow.com/a/1368286/9318084 */
+    .btn-link {
+        background: none !important;
+        border: none;
+        padding: 0 !important;
+        /*optional*/
+        font-family: arial, sans-serif;
+        /*input has OS specific font-family*/
+        color: #069;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+</style>
+
+<div style="margin: 1em;">
+
+    <!-- NADPIS -->
     <h2>Slovník</h2>
+
+    <!-- MENU -->
+    <div class="mb-2">
+        <a class="btn btn-outline-primary" href="{{ url_for("slovnik_views.sort")}}">Setřídit slovník</a>
+        <a class="btn btn-outline-primary" href="{{ url_for("slovnik_views.singles")}}">Najít slovíčka jen s jedním záznamem</a>
+        <a class="btn btn-outline-primary" href="{{ url_for("slovnik_views.duplicates")}}">Najít duplicitní slovíčka</a>
+        <a class="btn btn-outline-primary" href="{{ url_for("slovnik_views.natahnout_od_pipa") }}">Natáhnout si pár kategorií nebo celý slovník od Pípa</a>
+    </div>
+
     <form method="post">
-        
-    <a href="{{ url_for("slovnik_views.natahnout_od_pipa") }}">Natáhnout si pár kategorií nebo celý slovník od Pípa</a>
-    
-    <div>
-        <label for="dropdown">S vybranými slovíčky: </label>
-        <select id="dropdown" name="dropdown">
-            <option value="smazat">Smazat</option>
-            <option value="add_category">Přidat kategorii</option>
-            <option value="delete_category">Odebrat kategorii</option>
-        </select>
-        <input type="text" name="dropdown_meta" value="Pokud mažeš, je jedno co sem napíšeš" size="40"/>
-        <button type="submit" name="dropdown_trigger" value="some_value">Budiž</button>
-    </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1">select</div>
-            <div class="col-md-1">czech</div>
-            <div class="col-md-1">german</div>
-            <div class="col-md-1">english</div>
-            <div class="col-md-1">druh</div>
-            <div class="col-md-1">kategorie</div>
-            <div class="col-md-1">asociace</div>
-            <div class="col-md-1">tested</div>
-            <div class="col-md-1">known</div>
-            <div class="col-md-1">learned</div>
-            <div class="col-md-1 datecolumn">datum</div>
+        <!-- PRVKY FORMULÁŘE PRO MANUPULACI S VYBRANÝMI SLOVÍČKY -->
+        <!-- Využití bootstrap tříd pro styling prvků formuláře => problémy (nutno opravit vlastním css): -->
+        <!-- 1) inputy musí mít definovanej width, jinak se roztáhnou na celou stránku -->
+        <!-- 2) shitty layout (možná to špatně používám, idk)  -->
+        <!-- Opraveno pomocí (width: ...), (display: inline) a (vertical-align: baseline) -->
+        <!-- Hlavně nepoužívat (float: left)! -->
+        <div class="mb-2">
+            <h5>Manipulace s vybranými slovíčky</h5>
+            <!-- <label class="form-label" for="dropdown">S vybranými slovíčky: </label> -->
+            <select class="form-select" style="width: 200px; display: inline;" id="dropdown" name="dropdown">
+                <option value="smazat">Smazat</option>
+                <option value="add_category">Přidat kategorii</option>
+                <option value="delete_category">Odebrat kategorii</option>
+            </select>
+            <input class="form-control" style="width: 400px; display: inline;" type="text" name="dropdown_meta" placeholder="Pokud mažeš, je jedno co sem napíšeš" value=""/>
+            <button class="btn btn-outline-primary" style="vertical-align: baseline;" type="submit" name="dropdown_trigger" value="some_value">Budiž</button>
         </div>
-    </div>
-    <div class="container">
-        {% for word in slovicka %}
-            <div class="row">
-                <div class="col-md-1"> <input type="checkbox" value="{{word.id}}" name="checked"/> </div>
-                <div class="col-md-1">{{ word.pretty("czech") }}</div>
-                <div class="col-md-1">{{ word.pretty("german") }}</div>
-                <div class="col-md-1">{{ word.pretty("english") }}</div>
-                <div class="col-md-1">{{ word.pretty("druh") }}</div>
-                <div class="col-md-1">{{ word.pretty("kategorie") }}</div>
-                <div class="col-md-1">{{ word.pretty("asociace") }}</div>
-                <div class="col-md-1">{{ word.times_tested }}</div>
-                <div class="col-md-1">{{ word.times_known }}</div>
-                <div class="col-md-1">{{ word.times_learned }}</div>
-                <div class="col-md-1 datecolumn" >{{ word.datum_pretty }}</div>
-                <div class="col-md-1">
-                        <button type="submit" name="edit" value="{{ word.id }}" >Upravit</button>
-                </div>
-            </div>
-            <hr>
-        {% endfor %}
-    </div>
-    </form>
 
+        <!-- TABULKA SLOVÍČEK -->
+        <table class="slovnik-wrapper">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Czech</th>
+                    <th>German</th>
+                    <th>English</th>
+                    <th>Druh</th>
+                    <th>Kategorie</th>
+                    <th>Asociace</th>
+                    <th>Tested</th>
+                    <th>Known</th>
+                    <th>Learned</th>
+                    <th>Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for word in slovicka %}
+                <tr>
+                    <td><input class="form-check-input" type="checkbox" value="{{word.id}}" name="checked"/></td>
+                    <td>{{word.pretty("czech")}}</td>
+                    <td>{{word.pretty("german")}}</td>
+                    <td>{{word.pretty("english")}}</td>
+                    <td>{{word.pretty("druh")}}</td>
+                    <td>{{word.pretty("kategorie")}}</td>
+                    <td>{{word.pretty("asociace")}}</td>
+                    <td>{{word.times_tested}}</td>
+                    <td>{{word.times_known}}</td>
+                    <td>{{word.times_learned}}</td>
+                    <td>{{word.datum_pretty}}</td>
+                    <td><button class="btn-link" type="submit" name="edit" value="{{word.id}}">Upravit</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </form>
+</div>
 {% endblock %}
