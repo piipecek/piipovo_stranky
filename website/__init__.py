@@ -32,7 +32,7 @@ def create_app():
 	check_if_database_exists_else_create(app)
 
 	login_manager = LoginManager()
-	login_manager.login_view = "auth.login"
+	login_manager.login_view = "auth_views.login"
 	login_manager.init_app(app)
 
 	@login_manager.user_loader

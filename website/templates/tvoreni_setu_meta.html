@@ -59,9 +59,16 @@
     {% elif typ == "skupina" %}
         <h2>Podle skupiny písmen. Zadej jí přesně:</h2>
         <form method="post">
-        <label for="skupina">sem:</label>
-        <input type="text" name="skupina" id="skupina"/>
-        <button type="submit">Dál</button>
+            <label for="skupina">sem: </label>
+            <input type="text" name="skupina" id="skupina"/>
+            <button type="submit">Dál</button>
+        </form>
+    {% elif typ == "nejmene_ucene" %}
+        <h2>Nejméně učená slovíčka. Zadej, kolik maximálně jich chceš do setu zahrnout:</h2>
+        <form method="post">
+            <label for="nejmene_ucene">sem: </label>
+            <input type="text" name="nejmene_ucene" id="nejmene_ucene"/>
+            <button type="submit">Dál</button>
         </form>
     {% else %}
         Not implemented yet

@@ -7,21 +7,21 @@ class SetSlovicek:
                  podle=None,
                  podle_meta=None,
                  jazyk=None,
-                 seznam_dat_slovicek: list = None):
+                 seznam_id_slovicek: list = None):
         self.podle = podle
         self.podle_meta = podle_meta
         self.jazyk = jazyk
-        if seznam_dat_slovicek is None:
-            self.seznam_dat_slovicek = []
+        if seznam_id_slovicek is None:
+            self.seznam_id_slovicek = []
         else:
-            self.seznam_dat_slovicek = seznam_dat_slovicek
+            self.seznam_id_slovicek = seznam_id_slovicek
 
     def zapsat_do_souboru(self):
         result = {
             "podle": self.podle,
             "podle_meta": self.podle_meta,
             "jazyk": self.jazyk,
-            "seznam_dat_slovicek": self.seznam_dat_slovicek,
+            "seznam_id_slovicek": self.seznam_id_slovicek,
             }
 
         set_handling.save_to_user_set_slovicek(result)
@@ -33,12 +33,12 @@ class SetSlovicek:
             podle=data["podle"],
             podle_meta=data["podle_meta"],
             jazyk=data["jazyk"],
-            seznam_dat_slovicek=data["seznam_dat_slovicek"]
+            seznam_id_slovicek=data["seznam_id_slovicek"]
         )
         return obj
 
     def objekty(self):
-        return [Slovicko.get_by_timestamp(date) for date in self.seznam_dat_slovicek]
+        return [Slovicko.get_by_id(id) for id in self.seznam_id_slovicek]
 
     def pripravit_set_od_do(self, od, do):
         data = set_handling.od_do(od, do, jazyk=self.jazyk)
@@ -74,8 +74,13 @@ class SetSlovicek:
         data = set_handling.skupina(string, jazyk=self.jazyk)
         self.podle_meta = string
         self.nacist_data(data)
+    
+    def pripravit_set_nejmene_ucene(self, kolik):
+        data = set_handling.nejmene_ucene(kolik=kolik, jazyk=self.jazyk)
+        self.podle_meta = kolik
+        self.nacist_data(data)
 
     def nacist_data(self, data):
         for word in data:
-            self.seznam_dat_slovicek.append(word["datum"])
+            self.seznam_id_slovicek.append(word["id"])
         self.zapsat_do_souboru()

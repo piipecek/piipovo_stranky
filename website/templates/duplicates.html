@@ -4,10 +4,10 @@
     {% if duplicates %}
         {% for d in duplicates %}
                 {{ d["string"] }}
-                {{ [d["slova"][0]["datum"],d["slova"][1]["datum"]] }}
+                {{ [d["slova"][0]["id"],d["slova"][1]["id"]] }}
             <form method="post">
-                <input type="text" name="dat1" value="{{d["slova"][0]["datum"]}}" hidden>
-                <input type="text" name="dat2" value="{{d["slova"][1]["datum"]}}" hidden>
+                <input type="text" name="dat1" value="{{d["slova"][0]["id"]}}" hidden>
+                <input type="text" name="dat2" value="{{d["slova"][1]["id"]}}" hidden>
                 <button type="submit" name="sjednotit" value="1">Sjednotit</button>
             </form>
             {% for slovo in d["slova"] %}
@@ -18,7 +18,7 @@
                         </div>
                         <div class="col-md-1">
                             <form method="post">
-                                <button type="submit" name="edit" value="{{ slovo.datum }}">Edit</button>
+                                <button type="submit" name="edit" value="{{ slovo.id }}">Edit</button>
                             </form>
                         </div>
                     </div>

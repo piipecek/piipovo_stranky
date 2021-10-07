@@ -1,9 +1,35 @@
 {%extends "base.html"%}
 {%block content%}
+<h2>Novinky</h2>
+<p>
+    <h3>7. 10. a update, který user vůbec nevidí</h3>
+    Dnes vyšel Minecraft 1.18 snapshot 21w40a a taky update ke slovníku. Každo slovíčko má teď unique ID, narozdíl od předchozích verzí, kdy tuto funkci zastával čas vytvoření. 
+    Také přibyly počátky očekávané feauty, tedy možnost vybrat více slovíček ve Slovníku naráz a něco s nimi udělat. Zatím to ale není v provozu.
+</p>
+<p>
+    <h3>4. 10. Přibyly další věci:</h3>
+    <ul>
+        <li> <b>Možnost natáhnout slovíčka z Pípova slovníku.</b> Píp, autor této aplikace, má slovník o cca 1800 slovíčkách, kde přibližně půlka je z hodin němčiny na střední a ta druhá je z knížky Deutsch im Maschinenbau. Tyto slovíčka má docela slušně roztřízené do kategorií a ty si teď můžeš ze Slovníku nebo ze stránky svého účtu nějaké z těch kategorií vybrat a uložit k sobě do slovníku.</li>
+        <li> <b>Možnost výběru setu podle nejméně učených slovíček.</b></li>
+    </ul>
+</p>
+<p>
+    <h3>3. 10. bylo přidáno hodně vlastností, které ulehčí život ve slovníku:</h3>
+    <ul>
+        <li> <b>Retake učení.</b>Po dokončení učení setu je možné podstoupit stejné učení znovu. Pokud vám to teda hodně nešlo.</li>
+        <li> <b>Vyzkoušet se z naučeného setu</b> Pokud se ale učení dařilo, byla také přidána možnost se z již vytvořeného setu nechat vyzkoušet.</li>
+        <li> <b>Obrácené pořadí při zadávání slovíček do slovníku</b> Pokud jste v půlce psaní slovíček do slovníku zjistili, že je píšete špatně (tj. nejdřív překlad a za pomlčkou definici), nemusíte to přepisovat. Stačí pod textovým oknem přiznat, že jste hloupí, a aplikace už si to přebere sama. Uloží vám slovíčka správně, tedy česká definice bude (výjimečně) ta část za pomlčkou.</li>
+        <li> <b>Opraven bug,</b> kdy při chybně zadaných slovíčkách by se do databáze uložila všechna slovíčka až do chybného řádku. Teď se nevloží žádná a uživatel je vyzván k opravení inputu.</li>
+        <li> <b>Opraveny některé pravopisné chyby a překlepy.</b></li>
+        <li> <b>Účet</b> je nová položka v navbaru, ale ještě tam nic nefunguje. Příště!</li>
+    </ul>
+    Pokud máte nějaký nápad na novou featuru nebo pokud jste nalezli chybu, prosím, dejte mi to vědět:
+</p>
 
-Vítej. Na týhle stránce by byly nějaký novinky, nastavení účtu nebo třeba seznam dostupnejch výtvorů. 
+
+Vítej. Na týhle stránce by bylo nastavení účtu nebo třeba seznam dostupnejch aplikací. 
 <br>
-<a href="{{url_for("default_views.nahlasit_bug")}}">Nahlásit bug, připomínku</a>
+<a href="{{url_for("default_views.nahlasit_bug")}}">Nahlásit bug, připomínku, nápads</a>
 <br>
 <a href="{{url_for("default_views.known_bugs")}}">seznam známých bugů</a>
 <br>
