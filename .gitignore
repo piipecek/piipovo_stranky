@@ -2,3 +2,4 @@
 website/database.db
 user_data/**
 testing/**
+*.pyc
