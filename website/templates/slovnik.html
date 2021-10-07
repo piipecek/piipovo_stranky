@@ -1,21 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- RYCHLEJ STYLE PRO PŘEVOD STYLU TLAČÍTKA NA LINK  -->
-<style>
-    /* https://stackoverflow.com/a/1368286/9318084 */
-    .btn-link {
-        background: none !important;
-        border: none;
-        padding: 0 !important;
-        /*optional*/
-        font-family: arial, sans-serif;
-        /*input has OS specific font-family*/
-        color: #069;
-        text-decoration: underline;
-        cursor: pointer;
-    }
-</style>
+<!-- STYLING PRO TABULKU -->
+<!-- Formulář by měl být definovanej třídama z bootstrapu a inline opravnýma stylama -->
+<link rel="stylesheet" type="text/css" href="{{url_for("static",filename="slovnik.table.css")}}">
 
 <div style="margin: 1em;">
 

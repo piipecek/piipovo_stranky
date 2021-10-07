@@ -54,3 +54,13 @@
 .slovnik-wrapper tbody tr:last-of-type {
     border-bottom: var(--table-bottom-border) solid var(--blue);
 }
+
+/* https://stackoverflow.com/a/1368286/9318084 */
+.btn-link {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+}
