@@ -2,3 +2,11 @@
 website/database.db
 user_data/**
 testing/**
+Pipfile
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+*.DS_Store
+=======
+testing/**
