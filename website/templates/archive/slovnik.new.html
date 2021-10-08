@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="margin: 1em;">
+
+    <!-- NADPIS -->
+    <h2 style="margin: 0.4em 0em;">Slovník</h2>
+
+    <!-- MENU -->
+    <div class="mb-2">
+        <a class="btn btn-outline-primary" href="{{ url_for("slovnik_views.sort")}}">Setřídit slovník</a>
+        <a class="btn btn-outline-primary" href="{{ url_for("slovnik_views.singles")}}">Najít slovíčka jen s jedním záznamem</a>
+        <a class="btn btn-outline-primary" href="{{ url_for("slovnik_views.duplicates")}}">Najít duplicitní slovíčka</a>
+    </div>
+
+    <!-- TABULKA SLOV -->
+    <table class="slovnik-wrapper">
+        <thead>
+            <tr>
+                <th>Czech</th>
+                <th>German</th>
+                <th>English</th>
+                <th>Druh</th>
+                <th>Kategorie</th>
+                <th>Asociace</th>
+                <th>Tested</th>
+                <th>Known</th>
+                <th>Learned</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for word in data %}
+            <tr>
+                <td>{{word.pretty("czech")}}</td>
+                <td>{{word.pretty("german")}}</td>
+                <td>{{word.pretty("english")}}</td>
+                <td>{{word.pretty("druh")}}</td>
+                <td>{{word.pretty("kategorie")}}</td>
+                <td>{{word.pretty("asociace")}}</td>
+                <td>{{word.times_tested}}</td>
+                <td>{{word.times_known}}</td>
+                <td>{{word.times_learned}}</td>
+                <td>{{word.datum_pretty}}</td>
+                <td><form data-form-value="{{word["datum"]}}" method="post">
+                    <a href="javascript:{}" onclick="handleClick( '{{word["datum"]}}' )">Upravit</a>
+                    <input style="position: fixed; visibility: hidden;" type="text" name="edit" value="{{word["datum"]}}">
+                </form></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+<!-- JS SCRIPT -->
+<script>
+    function handleClick(value) {        
+        let formElement = document.querySelectorAll("form[data-form-value='" + value + "']");
+        if (formElement.length != 1) {
+            alert("(formElement.length != 1) Something's wrong, I can feel it!");
+        }
+        formElement[0].submit();
+    }
+</script>
+
+{% endblock %}
