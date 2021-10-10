@@ -96,7 +96,7 @@ class Slovicko:
         self.insert_slovicko()
 
     @staticmethod
-    def delete_by_id(id):
+    def delete_by_id(id: int):
         db_handling.delete_by_id(id)
     
 
