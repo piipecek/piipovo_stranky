@@ -1,8 +1,18 @@
 import json
 from typing import List
+from pathlib import Path
 
 def get_chyby() -> List[dict]:
-	with open("known_bugs.json") as file:
+	c = Path.cwd()
+	bugs_path = c / "known_bugs.json"
+	if bugs_path.exists():
+		pass
+	else:
+		bugs_path.touch()
+		with open(bugs_path, "w") as file:
+			file.write(json.dumps([]))
+
+	with open(bugs_path) as file:
 		return json.load(file)
 
 def zapsat_do_known_bugs(data):
