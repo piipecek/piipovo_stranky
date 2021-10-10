@@ -44,7 +44,7 @@ class Slovicko:
         self.times_learned = times_learned
         self.id = id
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"CZ: {self.czech} D: {self.german} EN: {self.english}, id: {self.id}, \n," \
                f"druh: {self.druh}, kategorie: {self.kategorie}, asociace: {self.asociace}, \n," \
                f"datum: {self.datum}, tested/known: {self.times_tested}/{self.times_known}, " \
@@ -66,7 +66,7 @@ class Slovicko:
         }
         return data
 
-    def pretty(self, atribute):
+    def pretty(self, atribute: str) -> str:
         if atribute == "druh":
             return ", ".join(self.druh)
         elif atribute == "asociace":
@@ -81,7 +81,7 @@ class Slovicko:
             return ", ".join(self.german)
     
     @staticmethod
-    def get_by_id(id: int):
+    def get_by_id(id: int) -> "Slovicko":
         w = db_handling.get_by_id(id)
         if w is None:
             return None
@@ -96,7 +96,7 @@ class Slovicko:
         self.insert_slovicko()
 
     @staticmethod
-    def delete_by_id(id):
+    def delete_by_id(id: int):
         db_handling.delete_by_id(id)
     
 

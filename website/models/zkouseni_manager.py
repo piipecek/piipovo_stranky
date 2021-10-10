@@ -142,6 +142,7 @@ class ZkouseniManager:
         z.seznam_odpovedi = []
         z.datum = str(datetime.utcnow())
         z.poznamka += f", přezkoušení z {date}"
+        z.zamichat_slovicka()
         z.zapsat_do_souboru()
 
     @staticmethod
