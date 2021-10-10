@@ -1,8 +1,9 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from website.models.user import User
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import login_required, login_user, current_user, logout_user
+from flask_login import login_required, login_user, logout_user
 from website import db
+from website.helpers.check_files import check_files_or_create
 
 auth_views = Blueprint("auth_views",__name__, template_folder="auth")
 
@@ -17,6 +18,7 @@ def login():
 		if user and check_password_hash(user.password, password):
 			login_user(user, remember=True)
 			flash("úspěšné přihlášení", category="info")
+			check_files_or_create()
 			return redirect(url_for("default_views.dashboard"))
 		else:
 			flash("E-mail nebo heslo byly špatně", category="error")
