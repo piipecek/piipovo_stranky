@@ -28,7 +28,7 @@ class SetSlovicek:
         set_handling.save_to_user_set_slovicek(result)
 
     @staticmethod
-    def nacist_ze_souboru() -> SetSlovicek:
+    def nacist_ze_souboru() -> "SetSlovicek":
         data = set_handling.get_user_set_slovicek()
         obj = SetSlovicek(
             podle=data["podle"],

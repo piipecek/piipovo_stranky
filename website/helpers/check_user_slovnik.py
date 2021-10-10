@@ -7,6 +7,13 @@ from flask_login import current_user
 def check_user_slovnik_or_create():
 	cwd = Path.cwd()
 	user_data_path = cwd / "user_data"
+
+	if user_data_path.exists():
+		pass
+	else:
+		user_data_path.mkdir()
+
+
 	p = user_data_path / f"{current_user.id}"
 
 
