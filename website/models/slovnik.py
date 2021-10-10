@@ -15,17 +15,13 @@ class Slovnik:
 
     def json_format(self) -> List[dict]:
         return [word.json_format() for word in self.slovicka]
-
-    """def add_slovicko(self, slovicko: Slovicko) -> None:
-        self.slovicka.append(slovicko)
-        db_handling.save_to_user_database(self.json_format())"""
-
+    """
     def delete_slovicko(self, id: int) -> None:
         for i, word in enumerate(self.slovicka):
             if word.id == id:
                 self.slovicka.pop(i)
         db_handling.save_to_user_database(self.json_format())
-    
+    """
     def ulozit_do_db(self):
         db_handling.save_to_user_database(self.json_format())
 
