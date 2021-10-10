@@ -1,15 +1,6 @@
 {
-   "jazyk": "english",
-   "datum": "2021-09-28 21:04:41.249887",
-   "podle": "vse",
-   "podle_meta": 4,
-   "seznam_dat_slovicek": [
-      "2021-09-28 20:50:57.139576",
-      "2021-09-28 20:51:45.338069"
-   ],
-   "seznam_odpovedi": [
-      "j",
-      "ok"
-   ],
-   "poznamka": "ok, p\u0159ezkou\u0161en\u00ed z 2021-09-28 21:00:07.641944, p\u0159ezkou\u0161en\u00ed z 2021-09-28 21:04:25.448403"
+   "podle": null,
+   "podle_meta": null,
+   "jazyk": null,
+   "seznam_id_slovicek": []
 }
