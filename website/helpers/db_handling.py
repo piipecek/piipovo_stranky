@@ -19,7 +19,7 @@ def get_pipuv_omnislovnik() -> List[dict]:
     return file
 
 
-def pretty_date(date):
+def pretty_date(date: str) -> str:
     date, time = date.split(" ")
     year, month, day = date.split("-")
     time, milis = time.split(".")
@@ -27,7 +27,7 @@ def pretty_date(date):
     return f"{day}. {month}. {year}, {hour}:{minute}:{sec}"
 
 
-def insert_to_db(data):
+def insert_to_db(data: dict):
     file = get_user_database()
     file.append(data)
     save_to_user_database(file)
@@ -48,7 +48,7 @@ def delete_by_id(id: int) -> None:
     save_to_user_database(file)
 
 
-def sort_slovnik(key, sestupne):
+def sort_slovnik(key: str, sestupne):
     file = get_user_database()
     if sestupne == "True":
         rev = True

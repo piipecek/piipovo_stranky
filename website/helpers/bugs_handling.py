@@ -1,6 +1,7 @@
 import json
+from typing import List
 
-def get_chyby():
+def get_chyby() -> List[dict]:
 	with open("known_bugs.json") as file:
 		return json.load(file)
 
