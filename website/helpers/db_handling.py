@@ -1,20 +1,19 @@
 import json
-from types import resolve_bases
-from dateutil import parser
-from flask_login import current_user
 from typing import List
+import website.paths.paths as p
+
 
 def get_user_database() -> List[dict]:
-    with open(f"user_data/{current_user.id}/database.json") as file:
+    with open(p.user_database_path()) as file:
         file = json.load(file)
     return file
 
 def save_to_user_database(data: List[dict]) -> None:
-    with open(f"user_data/{current_user.id}/database.json", "w") as file:
+    with open(p.user_database_path(), "w") as file:
         file.write(json.dumps(data, indent=3))
 
 def get_pipuv_omnislovnik() -> List[dict]:
-    with open("piipuv_omnislovnik_k_3_10_2021.json") as file:
+    with open(p.piipuv_omnislovnik_path()) as file:
         file = json.load(file)
     return file
 

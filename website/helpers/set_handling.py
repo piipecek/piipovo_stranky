@@ -1,17 +1,15 @@
 import json
-from types import resolve_bases
-
-from flask_login import current_user
 from dateutil import parser
 from website.helpers.db_handling import sort_slovnik, get_user_database
 from website.helpers.pairser import smart_sample
+import website.paths.paths as p
 
 def get_user_set_slovicek():
-    with open(f"user_data/{current_user.id}/set_slovicek.json") as file:
+    with open(p.user_set_slovicek_path()) as file:
         return json.load(file)
 
 def save_to_user_set_slovicek(data):
-    with open(f"user_data/{current_user.id}/set_slovicek.json", "w") as file:
+    with open(p.user_set_slovicek_path(), "w") as file:
         file.write(json.dumps(data, indent=3))
 
 

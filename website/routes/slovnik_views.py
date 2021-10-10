@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from flask_login import login_required, current_user
-from website.helpers.check_user_slovnik import check_user_slovnik_or_create, check_if_slovnik_updated_or_update
+from flask_login import login_required
+from website.helpers.check_updated_slovnik import check_if_slovnik_updated_or_update
 from website.helpers.pairser import  pairse_cj_x_and_insert, vyhodnot
 from website.models.slovicko import Slovicko
 from website.models.set_slovicek import SetSlovicek
@@ -21,7 +21,6 @@ def restaurant_na_konci_slovniku():
 @slovnik_views.route("/slovnik_home")
 @login_required
 def slovnik_home():
-    check_user_slovnik_or_create()
     check_if_slovnik_updated_or_update()
     return render_template("slovnik_home.html")
 
