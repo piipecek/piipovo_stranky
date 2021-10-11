@@ -3,7 +3,7 @@ import website.paths.paths as p
 import json
 
 
-def check_files_or_create():
+def check_files_or_create() -> None:
     bugs_path = p.known_bugs_path()
     user_folder_path = p.user_folder_path()
     db_path = p.user_database_path()

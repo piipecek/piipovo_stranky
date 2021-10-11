@@ -1,4 +1,3 @@
-from math import log
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
 from website.models.chyba import Chyba

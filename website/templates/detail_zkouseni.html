@@ -21,8 +21,8 @@
         {% endfor %}
     </div>
     <form method="post">
-    <button type="submit" name="retake" value="{{ zkouseni.datum }}">Znovu</button>
-    <button type="submit" name="delete" value="{{ zkouseni.datum }}">Smazat záznam</button>
+    <button type="submit" name="retake" value="{{ zkouseni.id }}">Znovu</button>
+    <button type="submit" name="delete" value="{{ zkouseni.id }}">Smazat záznam</button>
     </form>
     <br>
     <a href="{{ url_for("slovnik_views.historie_zkouseni") }}">Zpět na seznam minulých zkoušení</a>

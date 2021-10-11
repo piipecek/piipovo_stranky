@@ -3,17 +3,18 @@ from dateutil import parser
 from website.helpers.db_handling import sort_slovnik, get_user_database
 from website.helpers.pairser import smart_sample
 import website.paths.paths as p
+from typing import List
 
-def get_user_set_slovicek():
+def get_user_set_slovicek() -> dict:
     with open(p.user_set_slovicek_path()) as file:
         return json.load(file)
 
-def save_to_user_set_slovicek(data):
+def save_to_user_set_slovicek(data: dict) -> None:
     with open(p.user_set_slovicek_path(), "w") as file:
         file.write(json.dumps(data, indent=3))
 
 
-def jazykovej_filtr(jazyk):
+def jazykovej_filtr(jazyk: str) -> List[dict]:
     file = get_user_database()
     result = []
     for word in file:
@@ -22,7 +23,7 @@ def jazykovej_filtr(jazyk):
     return result
 
 
-def od_do(od, do, jazyk):
+def od_do(od: str, do:str, jazyk:str) -> List[dict]:
     od = parser.parse(od, dayfirst=False)
     do = parser.parse(do, dayfirst=False)
 
@@ -35,7 +36,7 @@ def od_do(od, do, jazyk):
     return result
 
 
-def kategorie(katego, jazyk):
+def kategorie(katego: str, jazyk: str) -> List[dict]:
     file = jazykovej_filtr(jazyk)
     result = []
     for w in file:
@@ -44,7 +45,7 @@ def kategorie(katego, jazyk):
     return result
 
 
-def neuspesnych(kolik, jazyk):
+def neuspesnych(kolik: int, jazyk: str) -> List[dict]:
     sort_slovnik(key="neuspesne", sestupne="True")
     file = jazykovej_filtr(jazyk)
     result = []
@@ -60,12 +61,12 @@ def neuspesnych(kolik, jazyk):
     return result
 
 
-def vse(kolik, jazyk):
+def vse(kolik: int, jazyk: str) -> List[dict]:
     file = jazykovej_filtr(jazyk)
     return smart_sample(file, kolik)
 
 
-def least(kolik, jazyk):
+def least(kolik: int, jazyk: str) -> List[dict]:
     sort_slovnik(sestupne="True", key="least")
     file = jazykovej_filtr(jazyk)
     result = []
@@ -78,7 +79,7 @@ def least(kolik, jazyk):
     return result
 
 
-def druhy(dr, jazyk):
+def druhy(dr: str, jazyk: str) -> List[dict]:
     file = jazykovej_filtr(jazyk)
     result = []
     for w in file:
@@ -87,7 +88,7 @@ def druhy(dr, jazyk):
     return result
 
 
-def skupina(string, jazyk):
+def skupina(string: str, jazyk: str) -> List[dict]:
     file = jazykovej_filtr(jazyk)
     result = []
     for w in file:
@@ -96,7 +97,7 @@ def skupina(string, jazyk):
                 result.append(w)
     return result
 
-def nejmene_ucene(kolik: int, jazyk: str):
+def nejmene_ucene(kolik: int, jazyk: str) -> List[dict]:
     sort_slovnik(sestupne="False", key="nejmene_ucene")
     file = jazykovej_filtr(jazyk)
     result = []

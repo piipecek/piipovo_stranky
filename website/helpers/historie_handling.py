@@ -19,16 +19,16 @@ def pridat_zkouseni_do_historie(data: dict) -> None:
     save_to_user_zkouseni_historie(file)
 
 
-def najit_podle_data(date: str) -> None:
+def najit_podle_id(id: int) -> dict:
     file = get_user_zkouseni_historie()
     for zkouseni in file:
-        if zkouseni["datum"] == date:
+        if zkouseni["id"] == id:
             return zkouseni
 
 
-def smazat_podle_data(date):
+def smazat_podle_id(id: int) -> None: 
     file = get_user_zkouseni_historie()
     for i, zkouseni in enumerate(file):
-        if zkouseni["datum"] == date:
+        if zkouseni["id"] == id:
             file.pop(i)
     save_to_user_zkouseni_historie(file)
