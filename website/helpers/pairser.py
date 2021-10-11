@@ -46,7 +46,9 @@ def pairse_cj_x_and_insert(data, jazyk, asociace, druh, kategorie, obratit: bool
         else:
             return line, data
 
+
     slovnik = Slovnik()
+
     for line in lines:
         if obratit:
             x, cz = line.split("-")
@@ -65,7 +67,7 @@ def pairse_cj_x_and_insert(data, jazyk, asociace, druh, kategorie, obratit: bool
             x = ["-"]
 
         if jazyk == "english":
-            new_word = Slovicko(id=Slovnik.get_next_id(),
+            new_word = Slovicko(id=slovnik.get_next_id(),
                                 czech=cz,
                                 english=x,
                                 kategorie=kategorie,
@@ -73,7 +75,7 @@ def pairse_cj_x_and_insert(data, jazyk, asociace, druh, kategorie, obratit: bool
                                 asociace=asociace,
                                 datum=str(datetime.datetime.utcnow()))
         elif jazyk == "german":
-            new_word = Slovicko(id=Slovnik.get_next_id(),
+            new_word = Slovicko(id=slovnik.get_next_id(),
                                 czech=cz,
                                 german=x,
                                 kategorie=kategorie,

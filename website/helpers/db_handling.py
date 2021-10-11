@@ -8,7 +8,7 @@ def get_user_database() -> List[dict]:
         file = json.load(file)
     return file
 
-def save_to_user_database(data: List[dict]) -> None:
+def save_to_user_database(data: list) -> None:
     with open(p.user_database_path(), "w") as file:
         file.write(json.dumps(data, indent=3))
 
@@ -37,7 +37,6 @@ def get_by_id(id: int) -> dict:
     for word in file:
         if word["id"] == id:
             return word
-    return None
 
 def delete_by_id(id: int) -> None:
     file = get_user_database()
@@ -67,7 +66,7 @@ def sort_slovnik(key: str, sestupne):
     save_to_user_database(file)
 
 
-def get_kategorie(jazyk=None):
+def get_kategorie(jazyk: str=None) -> List[str]:
     file = get_user_database()
     kat = []
     if jazyk is None:
@@ -88,7 +87,7 @@ def get_kategorie(jazyk=None):
     return kat
 
 
-def get_druhy(jazyk):
+def get_druhy(jazyk: str) -> List[str]:
     file = get_user_database()
     dr = []
     for word in file:

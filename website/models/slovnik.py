@@ -6,6 +6,7 @@ class Slovnik:
     def __init__(self) -> None:
         self.slovicka = [Slovicko(**raw_word) for raw_word in db_handling.get_user_database()]    
     
+
     def get_next_id(self) -> int:
         id = 0
         for word in self.slovicka:
@@ -13,8 +14,11 @@ class Slovnik:
                 id = word.id
         return id + 1
 
+
     def json_format(self) -> List[dict]:
         return [word.json_format() for word in self.slovicka]
+
+
     """
     def delete_slovicko(self, id: int) -> None:
         for i, word in enumerate(self.slovicka):
