@@ -88,7 +88,7 @@ class ZkouseniManager:
         id = 0
         for zaznam in historie_handling.get_user_zkouseni_historie():
             if zaznam["id"] > id:
-                id = zaznam.id
+                id = zaznam["id"]
         return id + 1
         
 
