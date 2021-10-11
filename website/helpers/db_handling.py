@@ -8,7 +8,7 @@ def get_user_database() -> List[dict]:
         file = json.load(file)
     return file
 
-def save_to_user_database(data: list) -> None:
+def save_to_user_database(data: List[dict]) -> None:
     with open(p.user_database_path(), "w") as file:
         file.write(json.dumps(data, indent=3))
 

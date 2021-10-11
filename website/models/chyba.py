@@ -3,7 +3,7 @@ from typing import List
 
 
 class Chyba:
-	def __init__(self, autor, popis, stav="Zatím neřešeno"):
+	def __init__(self, autor: str, popis: str, stav: str = "Zatím neřešeno"):
 		self.autor = autor
 		self.popis = popis
 		self.stav = stav

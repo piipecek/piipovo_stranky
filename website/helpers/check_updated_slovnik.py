@@ -1,10 +1,8 @@
-from pathlib import Path
 import json
 from website.helpers.db_handling import get_user_database, save_to_user_database
-from flask_login import current_user
+from website.paths.paths import user_historie_path
 
-
-def check_if_slovnik_updated_or_update():
+def check_if_slovnik_updated_or_update() -> None:
 	file = get_user_database()
 	if len(file) == 0:
 		print("slovník je prázdnej, takže bude fungovat s novejma ID")
@@ -21,12 +19,12 @@ def check_if_slovnik_updated_or_update():
 				id += 1
 			save_to_user_database(file)
 
-	with open(f"user_data/{current_user.id}/historie_zkouseni.json") as historie:
+	with open(user_historie_path()) as historie:
 		historie = json.load(historie)
 	for zaznam in historie:
 		try:
 			x = zaznam["seznam_id_slovicek"]
 		except KeyError:
 			print("mazu historii zkouseni protoze i dont care")
-			with open(f"user_data/{current_user.id}/historie_zkouseni.json", "w") as opened:
+			with open(user_historie_path(), "w") as opened:
 				opened.write(json.dumps([]))

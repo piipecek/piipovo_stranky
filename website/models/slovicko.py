@@ -88,10 +88,10 @@ class Slovicko:
         else:
             return Slovicko(**w)
 
-    def insert_slovicko(self):
+    def insert_slovicko(self) -> None:
         db_handling.insert_to_db(self.json_format())
 
-    def put_in_db(self):
+    def put_in_db(self) -> None:
         Slovicko.delete_by_id(self.id)
         self.insert_slovicko()
 

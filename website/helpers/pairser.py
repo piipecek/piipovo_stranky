@@ -1,11 +1,11 @@
 import datetime
-from os import replace
 from website.models.slovicko import Slovicko
 from website.models.slovnik import Slovnik
 from random import sample
+from typing import Tuple, Sequence, List
 
 
-def pairse_cj_x_and_insert(data, jazyk, asociace, druh, kategorie, obratit: bool):
+def pairse_cj_x_and_insert(data: str, jazyk: str, asociace: str, druh: str, kategorie: str, obratit: bool) -> Tuple[str]:
     asociace = asociace.replace(", ", ",")
     druh = druh.replace(", ", ",")
     kategorie = kategorie.replace(", ", ",")
@@ -88,7 +88,7 @@ def pairse_cj_x_and_insert(data, jazyk, asociace, druh, kategorie, obratit: bool
         
 
 
-def vyhodnot(jazyk, predloha, string):
+def vyhodnot(jazyk: str, predloha: Slovicko, string: str) -> bool:
     if jazyk == "german":
         if string in [p.replace("zde:","") for p in predloha.german]:
             return True
@@ -102,7 +102,7 @@ def vyhodnot(jazyk, predloha, string):
                 return False
 
 
-def smart_sample(iterable, amount):
+def smart_sample(iterable: Sequence, amount: int) -> list:
     if len(iterable) <= amount:
         return sample(iterable, len(iterable))
     else:

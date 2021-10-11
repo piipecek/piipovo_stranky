@@ -4,6 +4,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_required, login_user, logout_user
 from website import db
 from website.helpers.check_files import check_files_or_create
+from website.helpers.check_updated_slovnik import check_if_slovnik_updated_or_update
+from website.helpers.check_updated_historie import check_if_historie_updated_or_update
 
 auth_views = Blueprint("auth_views",__name__, template_folder="auth")
 
@@ -19,6 +21,8 @@ def login():
 			login_user(user, remember=True)
 			flash("úspěšné přihlášení", category="info")
 			check_files_or_create()
+			check_if_slovnik_updated_or_update()
+			check_if_historie_updated_or_update()
 			return redirect(url_for("default_views.dashboard"))
 		else:
 			flash("E-mail nebo heslo byly špatně", category="error")

@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_required
-from website.helpers.check_updated_slovnik import check_if_slovnik_updated_or_update
 from website.helpers.pairser import  pairse_cj_x_and_insert, vyhodnot
 from website.models.slovicko import Slovicko
 from website.models.set_slovicek import SetSlovicek
@@ -21,7 +20,6 @@ def restaurant_na_konci_slovniku():
 @slovnik_views.route("/slovnik_home")
 @login_required
 def slovnik_home():
-    check_if_slovnik_updated_or_update()
     return render_template("slovnik_home.html")
 
 
@@ -130,7 +128,7 @@ def duplicates():
 
 @slovnik_views.route("/tvoreni_setu_podle/<string:jazyk>", methods=["GET", "POST"])
 @login_required
-def tvoreni_setu_podle(jazyk):
+def tvoreni_setu_podle(jazyk: str):
     if request.method == "GET":
         s = SetSlovicek()
         s.zapsat_do_souboru()
@@ -205,7 +203,7 @@ def set_overview():
 
 @slovnik_views.route("/zkouseni/<int:index>", methods=["GET", "POST"])
 @login_required
-def zkouseni(index):
+def zkouseni(index: int):
     z = ZkouseniManager.nacist_ze_souboru()
     word = z.nte_ze_setu(index)
     if request.method == "GET":
@@ -312,15 +310,15 @@ def historie_zkouseni():
     elif request.method == "POST":
         detail = request.form.get("detail")
         if detail:
-            return redirect(url_for("slovnik_views.detail_zkouseni", datum=detail))
+            return redirect(url_for("slovnik_views.detail_zkouseni", id=int(detail)))
         return redirect(url_for("slovnik_views.slovnik_home"))
 
 
-@slovnik_views.route("/detail/<string:datum>", methods=["GET", "POST"])
+@slovnik_views.route("/detail/<int:id>", methods=["GET", "POST"])
 @login_required
-def detail_zkouseni(datum):
+def detail_zkouseni(id):
     if request.method == "GET":
-        z, message = ZkouseniManager.get_by_timestamp(datum)
+        z, message = ZkouseniManager.get_by_id(id)
         if message == "":
             pass
         else:
@@ -333,10 +331,10 @@ def detail_zkouseni(datum):
         retake = request.form.get("retake")
         delete = request.form.get("delete")
         if retake:
-            ZkouseniManager.znovu(retake)
+            ZkouseniManager.znovu(int(retake))
             return redirect(url_for("slovnik_views.zkouseni", index=0))
         elif delete:
-            ZkouseniManager.delete_by_timestamp(datum)
+            ZkouseniManager.delete_by_id(int(delete))
             flash("Záznam o zkoušení smazán.", category="info")
             return redirect(url_for("slovnik_views.historie_zkouseni"))
 

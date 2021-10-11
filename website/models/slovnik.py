@@ -26,7 +26,7 @@ class Slovnik:
                 self.slovicka.pop(i)
         db_handling.save_to_user_database(self.json_format())
     """
-    def ulozit_do_db(self):
+    def ulozit_do_db(self) -> None:
         db_handling.save_to_user_database(self.json_format())
 
     
