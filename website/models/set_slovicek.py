@@ -29,7 +29,7 @@ class SetSlovicek:
 
     @staticmethod
     def nacist_ze_souboru() -> "SetSlovicek":
-        return SetSlovicek(**set_handling.get_user_set_slovicek)
+        return SetSlovicek(**set_handling.get_user_set_slovicek())
 
     def objekty(self) -> List[Slovicko]:
         return [Slovicko.get_by_id(id) for id in self.seznam_id_slovicek]

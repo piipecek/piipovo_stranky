@@ -68,7 +68,8 @@ class Slovnik:
 
     def sjednotit(self, ids: List[str]) -> None:
         matched_words = [Slovicko.get_by_id(int(id)) for id in ids]
-        new = Slovicko(self.get_next_id())
+        new = Slovicko(id=self.get_next_id())
+        new.datum = matched_words[0].datum 
         for word in matched_words:
             new.czech += word.czech
             new.german += word.german
