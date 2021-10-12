@@ -1,4 +1,4 @@
-from website.json_handlers.db_handling import pretty_date
+from website.helpers.pretty_date import pretty_date
 from website.helpers.pairser import vyhodnot
 from website.models.slovicko import Slovicko
 import random

@@ -116,14 +116,16 @@ def singles():
 @slovnik_views.route("/duplicates", methods=["GET", "POST"])
 @login_required
 def duplicates():
+    s = Slovnik()
     if request.method == "GET":
-        return render_template("duplicates.html", duplicates=Slovicko.get_duplicates())
+        duplicates = s.get_duplicates()
+        return render_template("duplicates.html", duplicates=duplicates)
     elif request.method == "POST":
         if request.form.get("sjednotit"):
-            Slovicko.sjednotit_dve(request.form.get("id1"), request.form.get("id2"))
+            s.sjednotit(request.form.getlist("id"))
             return redirect(url_for("slovnik_views.duplicates"))
         elif request.form.get("edit"):
-            return redirect(url_for("slovnik_views.edit", date=request.form.get("edit")))
+            return redirect(url_for("slovnik_views.edit", id=request.form.get("edit")))
 
 
 @slovnik_views.route("/tvoreni_setu_podle/<string:jazyk>", methods=["GET", "POST"])

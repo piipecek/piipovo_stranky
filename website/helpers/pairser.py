@@ -72,16 +72,14 @@ def pairse_cj_x_and_insert(data: str, jazyk: str, asociace: str, druh: str, kate
                                 english=x,
                                 kategorie=kategorie,
                                 druh=druh,
-                                asociace=asociace,
-                                datum=str(datetime.datetime.utcnow()))
+                                asociace=asociace)
         elif jazyk == "german":
             new_word = Slovicko(id=slovnik.get_next_id(),
                                 czech=cz,
                                 german=x,
                                 kategorie=kategorie,
                                 druh=druh,
-                                asociace=asociace,
-                                datum=str(datetime.datetime.utcnow()))
+                                asociace=asociace)
         slovnik.slovicka.append(new_word)
     slovnik.ulozit_do_db()
 
@@ -108,10 +106,3 @@ def smart_sample(iterable: Sequence, amount: int) -> list:
     else:
         return sample(iterable, amount)
 
-
-def pretty_date(date: str) -> str:
-    date, time = date.split(" ")
-    year, month, day = date.split("-")
-    time, milis = time.split(".")
-    hour, minute, sec = time.split(":")
-    return f"{day}. {month}. {year}, {hour}:{minute}:{sec}"
