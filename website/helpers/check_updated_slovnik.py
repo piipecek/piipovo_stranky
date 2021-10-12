@@ -1,5 +1,5 @@
 import json
-from website.helpers.db_handling import get_user_database, save_to_user_database
+from website.json_handlers.db_handling import get_user_database, save_to_user_database
 from website.paths.paths import user_historie_path
 
 def check_if_slovnik_updated_or_update() -> None:

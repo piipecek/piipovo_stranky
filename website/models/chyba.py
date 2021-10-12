@@ -1,4 +1,4 @@
-from website.helpers import bugs_handling
+from website.json_handlers import bugs_handling
 from typing import List
 
 

@@ -2,7 +2,7 @@ import datetime
 from website.models.slovicko import Slovicko
 from website.models.slovnik import Slovnik
 from random import sample
-from typing import Tuple, Sequence, List
+from typing import Tuple, Sequence
 
 
 def pairse_cj_x_and_insert(data: str, jazyk: str, asociace: str, druh: str, kategorie: str, obratit: bool) -> Tuple[str]:
@@ -72,16 +72,14 @@ def pairse_cj_x_and_insert(data: str, jazyk: str, asociace: str, druh: str, kate
                                 english=x,
                                 kategorie=kategorie,
                                 druh=druh,
-                                asociace=asociace,
-                                datum=str(datetime.datetime.utcnow()))
+                                asociace=asociace)
         elif jazyk == "german":
             new_word = Slovicko(id=slovnik.get_next_id(),
                                 czech=cz,
                                 german=x,
                                 kategorie=kategorie,
                                 druh=druh,
-                                asociace=asociace,
-                                datum=str(datetime.datetime.utcnow()))
+                                asociace=asociace)
         slovnik.slovicka.append(new_word)
     slovnik.ulozit_do_db()
 
@@ -107,3 +105,4 @@ def smart_sample(iterable: Sequence, amount: int) -> list:
         return sample(iterable, len(iterable))
     else:
         return sample(iterable, amount)
+

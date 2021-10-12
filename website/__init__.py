@@ -19,9 +19,9 @@ def create_app() -> Flask:
 			db.create_all(app=app)
 			print("created_db")
 
-	from .routes.default_views import default_views
-	from .routes.auth_views import auth_views
-	from .routes.slovnik_views import slovnik_views
+	from .views.default_views import default_views
+	from .views.auth_views import auth_views
+	from .views.slovnik_views import slovnik_views
 
 	app.register_blueprint(default_views, url_prefix="/")
 	app.register_blueprint(auth_views, url_prefix="/auth")

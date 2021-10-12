@@ -18,14 +18,6 @@ def get_pipuv_omnislovnik() -> List[dict]:
     return file
 
 
-def pretty_date(date: str) -> str:
-    date, time = date.split(" ")
-    year, month, day = date.split("-")
-    time, milis = time.split(".")
-    hour, minute, sec = time.split(":")
-    return f"{day}. {month}. {year}, {hour}:{minute}:{sec}"
-
-
 def insert_to_db(data: dict):
     file = get_user_database()
     file.append(data)
@@ -117,81 +109,7 @@ def get_singles_raw():
         return None
     else:
         return result
-
-
-def get_duplicates_raw():
-    file = get_user_database()
-    result = []
-    ceska_slova = []
-    anglicka_slova = []
-    nemecka_slova = []
-    duplicitni_vyrazy = []  # pro chytani trojitejch a vice
-
-    for word in file:  # jednou to projede a najde vyrazy, podruhy to nahazi ty slova
-        if word["czech"] != ["-"]:
-            for vyraz in word["czech"]:
-                if vyraz in ceska_slova:
-                    if vyraz not in duplicitni_vyrazy:
-                        duplicitni_vyrazy.append(vyraz)
-                        result.append(
-                            {
-                                "string": vyraz,
-                                "slova": []
-                            }
-                        )
-                else:
-                    ceska_slova.append(vyraz)
-
-        if word["german"] != ["-"]:
-            for vyraz in word["german"]:
-                if vyraz in nemecka_slova:
-                    if vyraz not in duplicitni_vyrazy:
-                        duplicitni_vyrazy.append(vyraz)
-                        result.append(
-                            {
-                                "string": vyraz,
-                                "slova": []
-                            }
-                        )
-                else:
-                    nemecka_slova.append(vyraz)
-
-        if word["english"] != ["-"]:
-            for vyraz in word["english"]:
-                if vyraz in anglicka_slova:
-                    if vyraz not in duplicitni_vyrazy:
-                        duplicitni_vyrazy.append(vyraz)
-                        result.append(
-                            {
-                                "string": vyraz,
-                                "slova": []
-                            }
-                        )
-                else:
-                    anglicka_slova.append(vyraz)
-    for word in file:
-        for vyraz in word["czech"]:
-            if vyraz in duplicitni_vyrazy:
-                for zaznam in result:
-                    if zaznam["string"] == vyraz:
-                        zaznam["slova"].append(word)
-        for vyraz in word["german"]:
-            if vyraz in duplicitni_vyrazy:
-                for zaznam in result:
-                    if zaznam["string"] == vyraz:
-                        zaznam["slova"].append(word)
-
-        for vyraz in word["english"]:
-
-            if vyraz in duplicitni_vyrazy:
-                for zaznam in result:
-                    if zaznam["string"] == vyraz:
-                        zaznam["slova"].append(word)
-    if len(result) == 0:
-        return None
-    else:
-        return result
-
+        
 
 def get_kategorie_od_piipa() -> List[str]:
     result = []

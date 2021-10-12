@@ -1,6 +1,8 @@
-from website.helpers import db_handling
+from website.helpers.pretty_date import pretty_date
+from website.json_handlers import db_handling
 from dateutil import parser
 from typing import List
+from datetime import datetime
 
 class Slovicko:
     def __init__(self,
@@ -28,11 +30,10 @@ class Slovicko:
         if czech is None:
             czech = ["-"]
         if datum is None:
-            self.datum = "-"
-            self.datum_pretty = "-"
+            self.datum = str(datetime.utcnow())
         else:
             self.datum = datum
-            self.datum_pretty = db_handling.pretty_date(datum)
+        self.datum_pretty = pretty_date(self.datum)
         self.czech = czech
         self.german = german
         self.english = english
@@ -45,10 +46,7 @@ class Slovicko:
         self.id = id
 
     def __repr__(self) -> str:
-        return f"CZ: {self.czech} D: {self.german} EN: {self.english}, id: {self.id}, \n," \
-               f"druh: {self.druh}, kategorie: {self.kategorie}, asociace: {self.asociace}, \n," \
-               f"datum: {self.datum}, tested/known: {self.times_tested}/{self.times_known}, " \
-               f"learned: {self.times_learned},"
+        return f"CZ: {self.czech} D: {self.german} EN: {self.english}, id: {self.id}, druh: {self.druh}, kategorie: {self.kategorie}, asociace: {self.asociace}, datum: {self.datum}, tested/known: {self.times_tested}/{self.times_known}, learned: {self.times_learned},"
 
     def json_format(self) -> dict:
         data = {
@@ -110,68 +108,3 @@ class Slovicko:
             for word in data:
                 result.append(Slovicko.load(word))
             return result
-
-    @staticmethod
-    def get_duplicates():
-        data = db_handling.get_duplicates_raw()
-        if data is None:
-            return None
-        else:
-            result = []
-            for zaznam in data:
-                new_zaznam = {
-                        "string": zaznam["string"],
-                        "slova": []
-                    }
-                for slovo in zaznam["slova"]:
-                    new_zaznam["slova"].append(Slovicko.load(slovo))
-                result.append(new_zaznam)
-            return result
-
-    @staticmethod
-    def sjednotit_dve(id1, id2):
-        obj1 = Slovicko.get_by_id(id1)
-        obj2 = Slovicko.get_by_id(id2)
-
-        new_datum = str(max(
-            parser.parse(obj1.datum, dayfirst=True),
-            parser.parse(obj2.datum, dayfirst=True)
-        ))
-
-        new_obj = Slovicko(
-            czech=obj1.czech,
-            german=obj1.german,
-            english=obj1.english,
-            druh=obj1.druh,
-            asociace=obj1.asociace,
-            kategorie=obj1.kategorie,
-            datum=new_datum
-        )
-
-        for vyraz in obj2.czech:
-            if vyraz not in new_obj.czech:
-                new_obj.czech.append(vyraz)
-        for vyraz in obj2.german:
-            if vyraz not in new_obj.german:
-                new_obj.german.append(vyraz)
-        for vyraz in obj2.english:
-            if vyraz not in new_obj.english:
-                new_obj.english.append(vyraz)
-        for vyraz in obj2.druh:
-            if vyraz not in new_obj.druh:
-                new_obj.druh.append(vyraz)
-        for vyraz in obj2.asociace:
-            if vyraz not in new_obj.asociace:
-                new_obj.asociace.append(vyraz)
-        for vyraz in obj2.kategorie:
-            if vyraz not in new_obj.kategorie:
-                new_obj.kategorie.append(vyraz)
-
-        new_obj.times_tested = obj1.times_tested + obj2.times_tested
-        new_obj.times_known = obj1.times_known + obj2.times_known
-        new_obj.times_learned =obj1.times_learned + obj2.times_learned
-
-        Slovicko.delete_by_id(id1)
-        Slovicko.delete_by_id(id2)
-        new_obj.insert_slovicko()
-
