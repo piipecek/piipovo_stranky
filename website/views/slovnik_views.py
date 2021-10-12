@@ -7,6 +7,7 @@ from website.models.uceni_manager import UceniManager
 from website.models.zkouseni_manager import ZkouseniManager
 from website.models.slovnik import Slovnik
 from website.json_handlers import db_handling
+from website.helpers.cleanup_slovnik import cleanup_slovnik
 
 
 
@@ -20,6 +21,7 @@ def restaurant_na_konci_slovniku():
 @slovnik_views.route("/slovnik_home")
 @login_required
 def slovnik_home():
+    cleanup_slovnik()
     return render_template("slovnik_home.html")
 
 
@@ -126,6 +128,7 @@ def duplicates():
             return redirect(url_for("slovnik_views.duplicates"))
         elif request.form.get("edit"):
             return redirect(url_for("slovnik_views.edit", id=request.form.get("edit")))
+
 
 
 @slovnik_views.route("/tvoreni_setu_podle/<string:jazyk>", methods=["GET", "POST"])
