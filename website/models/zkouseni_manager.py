@@ -1,10 +1,10 @@
-from website.helpers.db_handling import pretty_date
+from website.json_handlers.db_handling import pretty_date
 from website.helpers.pairser import vyhodnot
 from website.models.slovicko import Slovicko
 import random
 from datetime import datetime
-from website.helpers import set_handling
-from website.helpers import historie_handling
+from website.json_handlers import set_handling
+from website.json_handlers import historie_handling
 from typing import List, Tuple
 
 

@@ -1,6 +1,6 @@
 import json
 from dateutil import parser
-from website.helpers.db_handling import sort_slovnik, get_user_database
+from website.json_handlers.db_handling import sort_slovnik, get_user_database
 from website.helpers.pairser import smart_sample
 import website.paths.paths as p
 from typing import List

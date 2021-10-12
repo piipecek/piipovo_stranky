@@ -1,5 +1,4 @@
-import typing
-from website.helpers import set_handling
+from website.json_handlers import set_handling
 import random
 from website.models.slovicko import Slovicko
 from website.helpers.pairser import vyhodnot, smart_sample

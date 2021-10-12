@@ -6,7 +6,7 @@ from website.models.set_slovicek import SetSlovicek
 from website.models.uceni_manager import UceniManager
 from website.models.zkouseni_manager import ZkouseniManager
 from website.models.slovnik import Slovnik
-from website.helpers import db_handling
+from website.json_handlers import db_handling
 
 
 

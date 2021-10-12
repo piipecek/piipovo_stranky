@@ -1,6 +1,6 @@
 from typing import List
 from website.models.slovicko import Slovicko
-from website.helpers import db_handling
+from website.json_handlers import db_handling
 
 class Slovnik:
     def __init__(self) -> None:

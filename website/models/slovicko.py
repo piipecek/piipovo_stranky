@@ -1,4 +1,4 @@
-from website.helpers import db_handling
+from website.json_handlers import db_handling
 from dateutil import parser
 from typing import List
 

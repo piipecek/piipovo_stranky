@@ -2,7 +2,7 @@ import datetime
 from website.models.slovicko import Slovicko
 from website.models.slovnik import Slovnik
 from random import sample
-from typing import Tuple, Sequence, List
+from typing import Tuple, Sequence
 
 
 def pairse_cj_x_and_insert(data: str, jazyk: str, asociace: str, druh: str, kategorie: str, obratit: bool) -> Tuple[str]:
