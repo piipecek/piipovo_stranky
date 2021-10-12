@@ -1,4 +1,4 @@
-from website.json_handlers import db_handling
+from website.helpers.pairser import pretty_date
 from dateutil import parser
 from typing import List
 
@@ -32,7 +32,7 @@ class Slovicko:
             self.datum_pretty = "-"
         else:
             self.datum = datum
-            self.datum_pretty = db_handling.pretty_date(datum)
+            self.datum_pretty = pretty_date(datum)
         self.czech = czech
         self.german = german
         self.english = english

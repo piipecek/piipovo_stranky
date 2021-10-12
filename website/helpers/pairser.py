@@ -107,3 +107,11 @@ def smart_sample(iterable: Sequence, amount: int) -> list:
         return sample(iterable, len(iterable))
     else:
         return sample(iterable, amount)
+
+
+def pretty_date(date: str) -> str:
+    date, time = date.split(" ")
+    year, month, day = date.split("-")
+    time, milis = time.split(".")
+    hour, minute, sec = time.split(":")
+    return f"{day}. {month}. {year}, {hour}:{minute}:{sec}"
