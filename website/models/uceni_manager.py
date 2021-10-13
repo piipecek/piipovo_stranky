@@ -3,6 +3,7 @@ import random
 from website.models.slovicko import Slovicko
 from website.helpers.pairser import vyhodnot, smart_sample
 from typing import List, Tuple
+import math
 
 
 class UceniManager:
@@ -29,7 +30,6 @@ class UceniManager:
                 })
         else:
             self.data_o_uceni = data_o_uceni
-        pass
 
     def zapsat_do_souboru(self) -> None:
         set_handling.save_to_user_set_slovicek(

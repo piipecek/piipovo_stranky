@@ -32,6 +32,7 @@ class Slovnik:
         vyrazy = []
         duplicitni = {}
         for word in self.slovicka:
+            print(word.id, "cast 1")
             for kolekce in [word.czech, word.english, word.german]:
                 for vyraz in kolekce:
                     if vyraz in vyrazy:
@@ -48,6 +49,7 @@ class Slovnik:
         duplicitni_filtered = {}
 
         for string, ids in duplicitni.items():
+            print(string, "cast 2")
             if len(ids) < 2:
                 pass
             else:    
@@ -56,6 +58,7 @@ class Slovnik:
         result = []
 
         for string, ids in duplicitni_filtered.items():
+            print(string, "cast 3") #tady to trva moc dlouho. udelat jen jeden string at a time?
             result.append({
                 "string": string,
                 "words": [Slovicko.get_by_id(id) for id in ids]
