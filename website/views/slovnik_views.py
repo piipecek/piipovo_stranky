@@ -215,7 +215,7 @@ def zkouseni(index: int):
         if word is False:
             return redirect(url_for("slovnik_views.konec_zkouseni"))
         else:
-            return render_template("zkouseni.html", word=word)
+            return render_template("zkouseni.html", word=word, index=index, celkem = len(z.seznam_id_slovicek))
     elif request.method == "POST":
         if request.form.get("next"):
             odpoved = request.form.get("pokus")
