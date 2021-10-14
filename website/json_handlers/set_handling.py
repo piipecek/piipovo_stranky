@@ -46,7 +46,7 @@ def kategorie(katego: str, jazyk: str) -> List[dict]:
 
 
 def neuspesnych(kolik: int, jazyk: str) -> List[dict]:
-    sort_slovnik(key="neuspesne", sestupne="True")
+    sort_slovnik(key="neuspesne", sestupne=True)
     file = jazykovej_filtr(jazyk)
     result = []
 
@@ -67,7 +67,7 @@ def vse(kolik: int, jazyk: str) -> List[dict]:
 
 
 def least(kolik: int, jazyk: str) -> List[dict]:
-    sort_slovnik(sestupne="True", key="least")
+    sort_slovnik(sestupne=False, key="least")
     file = jazykovej_filtr(jazyk)
     result = []
     if len(file) <= kolik:
@@ -98,7 +98,7 @@ def skupina(string: str, jazyk: str) -> List[dict]:
     return result
 
 def nejmene_ucene(kolik: int, jazyk: str) -> List[dict]:
-    sort_slovnik(sestupne="False", key="nejmene_ucene")
+    sort_slovnik(sestupne=False, key="nejmene_ucene")
     file = jazykovej_filtr(jazyk)
     result = []
     if len(file) <= kolik:

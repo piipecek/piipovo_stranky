@@ -101,7 +101,11 @@ def sort():
         return render_template("sort.html")
     elif request.method == "POST":
         key = request.form.get("only_one_pls")
-        sestupne = request.form.get("sestupne")
+        sestupne = request.form.get("sestupne")  # Vraci "True" nebo None
+        if sestupne == "True":
+            sestupne = True
+        else:
+            sestupne = False
         db_handling.sort_slovnik(key=key, sestupne=sestupne)
         return redirect(url_for("slovnik_views.slovnik"))
 
@@ -365,10 +369,11 @@ def natahnout_od_pipa():
     if request.method == "GET":
         return render_template("natahnout_od_pipa.html", kategorie = db_handling.get_kategorie_od_piipa())
     else:
+        s = Slovnik()
         if request.form.get("all"):
-            db_handling.natahnout_od_pipa()
+            s.natahnout_od_pipa()
         else:
-            db_handling.natahnout_od_pipa(request.form.getlist("kategorie"))
+            s.natahnout_od_pipa(request.form.getlist("kategorie"))
         return redirect(url_for("slovnik_views.slovnik"))
 
 

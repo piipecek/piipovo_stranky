@@ -95,3 +95,22 @@ class Slovnik:
 
         self.slovicka.append(new)
         self.ulozit_do_db()
+
+    def natahnout_od_pipa(self, kategorie: list = None):
+        piipuv = db_handling.get_pipuv_omnislovnik()
+
+        if kategorie:
+            for word in piipuv:
+                for one_kat in word["kategorie"]:
+                    if one_kat in kategorie:
+                        new_slovicko = Slovicko(**word)
+                        new_slovicko.id = self.get_next_id()
+                        self.slovicka.append(new_slovicko)
+        else:
+            for word in piipuv:
+                new_slovicko = Slovicko(**word)
+                new_slovicko.id = self.get_next_id()
+                self.slovicka.append(new_slovicko)
+        self.ulozit_do_db()
+
+        
