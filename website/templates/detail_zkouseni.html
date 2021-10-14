@@ -10,6 +10,7 @@
             <div class="col-md-1 w1">česky</div>
             <div class="col-md-1 w1">moje odpověď</div>
             <div class="col-md-1 w1">správně v jazyce {{ zkouseni.jazyk }}</div>
+            <div class="col-md-1 w1">upravit</div>
         </div>
     <hr>
         {% for index in indexy %}
@@ -17,6 +18,11 @@
                 <div class="col-md-1 w1">{{ zkousena_slovicka[index].pretty("czech") }}</div>
                 <div class="col-md-1 w1">{{ zkouseni.seznam_odpovedi[index] }}</div>
                 <div class="col-md-1 w1">{{ zkousena_slovicka[index].pretty(zkouseni.jazyk) }}</div>
+                <div class="col-md-1 w1">
+                    <form method="post">
+                        <button type="submit" name="edit" value="{{zkousena_slovicka[index].id}}">Upravit</button>
+                    </form>
+                </div>
             </div>
         {% endfor %}
     </div>

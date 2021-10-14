@@ -339,6 +339,7 @@ def detail_zkouseni(id):
     elif request.method == "POST":
         retake = request.form.get("retake")
         delete = request.form.get("delete")
+        edit = request.form.get("edit")
         if retake:
             ZkouseniManager.znovu(int(retake))
             return redirect(url_for("slovnik_views.zkouseni", index=0))
@@ -346,6 +347,9 @@ def detail_zkouseni(id):
             ZkouseniManager.delete_by_id(int(delete))
             flash("Záznam o zkoušení smazán.", category="info")
             return redirect(url_for("slovnik_views.historie_zkouseni"))
+        elif edit:
+            return redirect(url_for("slovnik_views.edit", id = int(edit)))
+
 
 
 @slovnik_views.route("/about")
