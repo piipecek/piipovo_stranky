@@ -38,22 +38,18 @@ def delete_by_id(id: int) -> None:
     save_to_user_database(file)
 
 
-def sort_slovnik(key: str, sestupne):
+def sort_slovnik(key: str, sestupne: bool):
     file = get_user_database()
-    if sestupne == "True":
-        rev = True
-    else:
-        rev = False
     if key == "datum" or key == "druh":
-        file.sort(reverse=rev, key=lambda word: word[key])
+        file.sort(reverse=sestupne, key=lambda word: word[key])
     elif key == "czech" or key == "kategorie":
-        file.sort(reverse=rev, key=lambda word: word[key][0])
+        file.sort(reverse=sestupne, key=lambda word: word[key][0])
     elif key == "neuspesne":
-        file.sort(reverse=rev, key=lambda word: word["times_tested"]-word["times_known"])
+        file.sort(reverse=sestupne, key=lambda word: word["times_tested"]-word["times_known"])
     elif key == "least":
-        file.sort(reverse=rev, key=lambda word: word["times_tested"])
+        file.sort(reverse=sestupne, key=lambda word: word["times_tested"])
     elif key == "nejmene_ucene":
-        file.sort(reverse=rev, key=lambda word: word["times_learned"])
+        file.sort(reverse=sestupne, key=lambda word: word["times_learned"])
 
     save_to_user_database(file)
 
@@ -120,22 +116,3 @@ def get_kategorie_od_piipa() -> List[str]:
             else:
                 result.append(one_kat)
     return result
-
-def natahnout_od_pipa(kategorie: list = None) -> None:
-    piipuv_omnislovnik = get_pipuv_omnislovnik()
-    user_slovnik = get_user_database()
-    for word in piipuv_omnislovnik:
-        word["times_tested"] = 0
-        word["times_known"] = 0
-        word["times_learned"] = 0
-
-    if kategorie is None:
-        save_to_user_database(user_slovnik + piipuv_omnislovnik)
-    else:
-        result = []
-        for word in piipuv_omnislovnik:
-            for one_kat in word["kategorie"]:
-                if one_kat in kategorie:
-                    result.append(word)
-        save_to_user_database(user_slovnik + result)
-

@@ -28,7 +28,7 @@
         <div>
         <form method="post">
         <label for="neuspesne">sem</label>
-        <input type="text" name="neuspesne" id="neuspesne"/>
+        <input type="number" name="neuspesne" id="neuspesne"/>
             <button type="submit">Dál</button>
         </form>
         </div>
@@ -36,14 +36,14 @@
         <h2> Ze všech: Napiš, z kolika slovíček maximálně chceš vytvořit set</h2>
         <form method="post">
         <label for="vse">sem</label>
-        <input type="text" name="vse" id="vse"/>
+        <input type="number" name="vse" id="vse"/>
         <button type="submit">Dál</button>
         </form>
     {% elif typ== "least" %}
         <h2> Nejméně zkloušené: Napiš, z kolika slovíček maximálně chceš vytvořit set</h2>
         <form method="post">
         <label for="least">sem</label>
-        <input type="text" name="least" id="least"/>
+        <input type="number" name="least" id="least"/>
         <button type="submit">Dál</button>
         </form>
     {% elif typ == "druh" %}
@@ -67,7 +67,7 @@
         <h2>Nejméně učená slovíčka. Zadej, kolik maximálně jich chceš do setu zahrnout:</h2>
         <form method="post">
             <label for="nejmene_ucene">sem: </label>
-            <input type="text" name="nejmene_ucene" id="nejmene_ucene"/>
+            <input type="number" name="nejmene_ucene" id="nejmene_ucene"/>
             <button type="submit">Dál</button>
         </form>
     {% else %}
