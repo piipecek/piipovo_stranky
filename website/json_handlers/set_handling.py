@@ -50,14 +50,11 @@ def neuspesnych(kolik: int, jazyk: str) -> List[dict]:
     file = jazykovej_filtr(jazyk)
     result = []
 
-    for word in file:
-        if len(result) == kolik:
-            break
-        else:
-            if word["times_tested"] - word["times_known"] > 0:
-                result.append(word)
-            else:
-                break
+    if len(file)<=kolik:
+        result = file
+    else:
+        for i in range(kolik):
+            result.append(file[i])
     return result
 
 
@@ -75,7 +72,6 @@ def least(kolik: int, jazyk: str) -> List[dict]:
     else:
         for i in range(kolik):
             result.append(file[i])
-    result = smart_sample(result, kolik)
     return result
 
 
@@ -92,8 +88,8 @@ def skupina(string: str, jazyk: str) -> List[dict]:
     file = jazykovej_filtr(jazyk)
     result = []
     for w in file:
-        for german_w in w["german"]:
-            if string in german_w:
+        for single_word in w[jazyk]:
+            if string in single_word:
                 result.append(w)
     return result
 
