@@ -130,7 +130,7 @@ class ZkouseniManager:
         for id in obj.seznam_id_slovicek:
             slovicko = Slovicko.get_by_id(id)
             if slovicko is None:
-                obj.seznam_id_slovicek.pop(id)
+                obj.seznam_id_slovicek.remove(id)
                 message = "Některá slovíčka chybí, asi byla smazána z databáze."
 
         return obj, message
