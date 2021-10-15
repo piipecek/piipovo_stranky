@@ -30,6 +30,14 @@ def get_by_id(id: int) -> dict:
         if word["id"] == id:
             return word
 
+def get_by_ids_list(ids: List[int])  -> List[dict]:
+    file = get_user_database()
+    result = []
+    for word in file:
+        if word["id"] in ids:
+            result.append(word)
+    return result
+
 def delete_by_id(id: int) -> None:
     file = get_user_database()
     for i, word in enumerate(file):

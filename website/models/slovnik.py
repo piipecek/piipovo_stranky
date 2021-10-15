@@ -28,14 +28,14 @@ class Slovnik:
         db_handling.save_to_user_database(self.json_format())
 
     def get_duplicates(self) -> List[Dict[str,  List[Slovicko]]]:
-        pass
         vyrazy = []
         duplicitni = {}
         for word in self.slovicka:
+            print(word.id, "cast 1")
             for kolekce in [word.czech, word.english, word.german]:
                 for vyraz in kolekce:
                     if vyraz in vyrazy:
-                        
+
                         duplicitni[vyraz].append(word.id)
 
                     else:
@@ -49,6 +49,8 @@ class Slovnik:
         duplicitni_filtered = {}
 
         for string, ids in duplicitni.items():
+            print(string, "cast 2")
+
             if len(ids) < 2:
                 pass
             else:    
@@ -56,10 +58,24 @@ class Slovnik:
 
         result = []
 
+        # tahle cast je fakt mess
+    
+        all_potrebny_ids = []
+        for strinig, ids in duplicitni_filtered.items():
+            all_potrebny_ids += ids
+        all_potrebny_ids = list(set(all_potrebny_ids))
+        all_potrebny_slovicka = Slovicko.get_by_id_list(all_potrebny_ids)
+        dict_potrebnejch_slovicek = {}
+        for i, id in enumerate(all_potrebny_ids):
+            dict_potrebnejch_slovicek[str(id)] = all_potrebny_slovicka[i]
+            
+        #
+
         for string, ids in duplicitni_filtered.items():
+            print(string, "cast 3")
             result.append({
                 "string": string,
-                "words": [Slovicko.get_by_id(id) for id in ids]
+                "words": list(filter(lambda x: x.id in ids, all_potrebny_slovicka))
             })
 
         if len(result) == 0:
@@ -68,7 +84,7 @@ class Slovnik:
             return result
 
     def sjednotit(self, ids: List[str]) -> None:
-        matched_words = [Slovicko.get_by_id(int(id)) for id in ids]
+        matched_words = Slovicko.get_by_id_list([int(id) for id in ids])
         new = Slovicko(id=self.get_next_id())
         new.datum = matched_words[0].datum 
         for word in matched_words:

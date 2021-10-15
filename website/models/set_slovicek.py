@@ -32,7 +32,7 @@ class SetSlovicek:
         return SetSlovicek(**set_handling.get_user_set_slovicek())
 
     def objekty(self) -> List[Slovicko]:
-        return [Slovicko.get_by_id(id) for id in self.seznam_id_slovicek]
+        return Slovicko.get_by_id_list(self.seznam_id_slovicek)
 
     def pripravit_set_od_do(self, od: str, do: str) -> None:
         data = set_handling.od_do(od, do, jazyk=self.jazyk)

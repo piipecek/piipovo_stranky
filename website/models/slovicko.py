@@ -85,6 +85,10 @@ class Slovicko:
             return None
         else:
             return Slovicko(**w)
+    
+    @staticmethod
+    def get_by_id_list(ids: List[int])  -> List["Slovicko"]:
+        return [Slovicko(**data) for data in db_handling.get_by_ids_list(ids)]
 
     def insert_slovicko(self) -> None:
         db_handling.insert_to_db(self.json_format())
