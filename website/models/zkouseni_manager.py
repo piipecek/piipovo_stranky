@@ -61,7 +61,7 @@ class ZkouseniManager:
         return result
 
     def objekty(self) -> List[Slovicko]:
-        return [Slovicko.get_by_id(id) for id in self.seznam_id_slovicek]
+        return Slovicko.get_by_id_list(self.seznam_id_slovicek)
 
     def zamichat_slovicka(self) -> None:
         random.shuffle(self.seznam_id_slovicek)
@@ -123,21 +123,21 @@ class ZkouseniManager:
         return result
 
     @staticmethod
-    def get_by_id(id) -> Tuple["ZkouseniManager", str]:
+    def get_by_id(id) -> "ZkouseniManager":
         data = historie_handling.najit_podle_id(id)
-        message = ""
         obj = ZkouseniManager(**data)
+        seznam_ids_recovered_slovicek = [slovicko.id for slovicko in Slovicko.get_by_id_list(obj.seznam_id_slovicek)]  # pro to, kdyz je slovicko smazano a potom je potreba znovu zkpuset
         for id in obj.seznam_id_slovicek:
-            slovicko = Slovicko.get_by_id(id)
-            if slovicko is None:
+            if id in seznam_ids_recovered_slovicek:
+                pass
+            else:
                 obj.seznam_id_slovicek.remove(id)
-                message = "Některá slovíčka chybí, asi byla smazána z databáze."
-
-        return obj, message
+        obj.zapsat_do_souboru()
+        return obj
 
     @staticmethod
     def znovu(id: int) -> None:
-        z, message = ZkouseniManager.get_by_id(id)
+        z = ZkouseniManager.get_by_id(id)
         z.seznam_odpovedi = []
         z.id = ZkouseniManager.get_next_id()
         z.datum = str(datetime.utcnow())

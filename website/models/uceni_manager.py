@@ -72,7 +72,7 @@ class UceniManager:
                     random.shuffle(id_na_vyber)
 
                     vyvoleny = Slovicko.get_by_id(vyvoleny_id)
-                    slova_na_vyber = [Slovicko.get_by_id(id) for id in id_na_vyber]
+                    slova_na_vyber = Slovicko.get_by_id_list(id_na_vyber)
                     return vyvoleny, slova_na_vyber
 
             def get_write(data_o_uceni: List[dict]) -> int:
@@ -89,7 +89,7 @@ class UceniManager:
                 if id_vybranejch is None:
                     data_k_odeslani = None
                 else:
-                    data_k_odeslani = [Slovicko.get_by_id(id) for id in id_vybranejch]
+                    data_k_odeslani = Slovicko.get_by_id_list(id_vybranejch)
                     self.sign_as_showcased(id_vybranejch)
 
             elif self.varka % 9 in [1, 2, 3, 4]:

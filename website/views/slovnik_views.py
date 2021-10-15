@@ -328,15 +328,12 @@ def historie_zkouseni():
 @login_required
 def detail_zkouseni(id):
     if request.method == "GET":
-        z, message = ZkouseniManager.get_by_id(id)
-        if message == "":
-            pass
-        else:
-            flash(message, category="info")
+        z = ZkouseniManager.get_by_id(id)
+        objekty = z.objekty()
         return render_template("detail_zkouseni.html",
                                zkouseni=z,
-                               zkousena_slovicka=z.objekty(),
-                               indexy=range(len(z.seznam_id_slovicek)))
+                               zkousena_slovicka=objekty,
+                               indexy=range(len(objekty)))
     elif request.method == "POST":
         retake = request.form.get("retake")
         delete = request.form.get("delete")
