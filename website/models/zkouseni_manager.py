@@ -17,12 +17,14 @@ class ZkouseniManager:
                  datum: str=None,
                  jazyk: str=None,
                  poznamka: str=None,
-                 seznam_odpovedi: List[str]=None):
+                 seznam_odpovedi: List[str]=None,
+                 uspesnost: float = None):
         self.seznam_id_slovicek = seznam_id_slovicek
         self.jazyk = jazyk
         self.poznamka = poznamka
         self.podle = podle
         self.podle_meta = podle_meta
+        self.uspesnost = uspesnost
         if id is None:
             self.id = ZkouseniManager.get_next_id()
         else:
@@ -51,8 +53,7 @@ class ZkouseniManager:
         result = []
         for i in range(len(self.seznam_id_slovicek)):
             if vyhodnot(jazyk=self.jazyk,
-                        predloha=Slovicko.get_by_id(
-                            self.seznam_id_slovicek[i]),
+                        predloha=Slovicko.get_by_id(self.seznam_id_slovicek[i]),
                         string=self.seznam_odpovedi[i]):
                 result.append(1)
             else:
@@ -74,7 +75,8 @@ class ZkouseniManager:
             "podle_meta": self.podle_meta,
             "seznam_id_slovicek": self.seznam_id_slovicek,
             "seznam_odpovedi": self.seznam_odpovedi,
-            "poznamka": self.poznamka
+            "poznamka": self.poznamka,
+            "uspesnost": self.uspesnost
         }
         set_handling.save_to_user_set_slovicek(result)
 
@@ -107,7 +109,8 @@ class ZkouseniManager:
             "seznam_odpovedi": self.seznam_odpovedi,
             "poznamka": self.poznamka,
             "jazyk": self.jazyk,
-            "id": self.id
+            "id": self.id,
+            "uspesnost": self.get_uspesnost()
         }
         historie_handling.pridat_zkouseni_do_historie(data)
 
@@ -127,7 +130,7 @@ class ZkouseniManager:
         for id in obj.seznam_id_slovicek:
             slovicko = Slovicko.get_by_id(id)
             if slovicko is None:
-                obj.seznam_id_slovicek.pop(id)
+                obj.seznam_id_slovicek.remove(id)
                 message = "Některá slovíčka chybí, asi byla smazána z databáze."
 
         return obj, message
