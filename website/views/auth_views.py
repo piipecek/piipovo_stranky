@@ -39,7 +39,7 @@ def register():
 		user = User.query.filter_by(email=email).first()
 		if user:
 			flash("Tento email je už zaregistrovaný. Použij prosím jiný", category="error")
-			return redirect(url_for("auth.register"))
+			return redirect(url_for("auth_views.register"))
 		else:
 			new_user = User(email=email, password=generate_password_hash(password, method="sha256"))
 			db.session.add(new_user)
