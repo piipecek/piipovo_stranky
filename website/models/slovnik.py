@@ -31,7 +31,6 @@ class Slovnik:
         vyrazy = []
         duplicitni = {}
         for word in self.slovicka:
-            print(word.id, "cast 1")
             for kolekce in [word.czech, word.english, word.german]:
                 for vyraz in kolekce:
                     if vyraz in vyrazy:
@@ -49,7 +48,6 @@ class Slovnik:
         duplicitni_filtered = {}
 
         for string, ids in duplicitni.items():
-            print(string, "cast 2")
 
             if len(ids) < 2:
                 pass
@@ -72,7 +70,6 @@ class Slovnik:
         #
 
         for string, ids in duplicitni_filtered.items():
-            print(string, "cast 3")
             result.append({
                 "string": string,
                 "words": list(filter(lambda x: x.id in ids, all_potrebny_slovicka))
