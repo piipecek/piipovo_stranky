@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <h2> Detail zkoušení</h2>
-    datum: {{ zkouseni.pretty_date() }}, jazyk: {{ zkouseni.jazyk }}, úspěšnost: {{ zkouseni.get_uspesnost() }},
+    datum: {{ zkouseni.pretty_date() }}, jazyk: {{ zkouseni.jazyk }}, úspěšnost: {{ zkouseni.uspesnost }},
     podle: {{ zkouseni.podle }}, metadata: {{ zkouseni.podle_meta }}
     <br>
     poznámka: {{ zkouseni.poznamka }}
