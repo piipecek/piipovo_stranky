@@ -248,6 +248,7 @@ def zkouseni(index: int):
 @login_required
 def konec_zkouseni():
     z = ZkouseniManager.nacist_ze_souboru()
+    z.uspesnost = z.get_uspesnost()
     if request.method == "GET":
         return render_template("konec_zkouseni.html",
                                zkouseni=z,
