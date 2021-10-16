@@ -46,7 +46,7 @@ class Slovnik:
             pass
 
         duplicitni_filtered = {}
-
+        print(duplicitni)
         for string, ids in duplicitni.items():
 
             if len(ids) < 2:
