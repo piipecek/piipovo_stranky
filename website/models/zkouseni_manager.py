@@ -127,11 +127,12 @@ class ZkouseniManager:
         data = historie_handling.najit_podle_id(id)
         obj = ZkouseniManager(**data)
         seznam_ids_recovered_slovicek = [slovicko.id for slovicko in Slovicko.get_by_id_list(obj.seznam_id_slovicek)]  # pro to, kdyz je slovicko smazano a potom je potreba znovu zkpuset
-        for id in obj.seznam_id_slovicek:
+        for i, id in enumerate(obj.seznam_id_slovicek):
             if id in seznam_ids_recovered_slovicek:
                 pass
             else:
                 obj.seznam_id_slovicek.remove(id)
+                obj.seznam_odpovedi.pop(i)
         obj.zapsat_do_souboru()
         return obj
 

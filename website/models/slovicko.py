@@ -46,7 +46,7 @@ class Slovicko:
         self.id = id
 
     def __repr__(self) -> str:
-        return f"CZ: {self.czech} D: {self.german} EN: {self.english}, id: {self.id}, druh: {self.druh}, kategorie: {self.kategorie}, asociace: {self.asociace}, datum: {self.datum}, tested/known: {self.times_tested}/{self.times_known}, learned: {self.times_learned},"
+        return f"CZ: {self.czech} D: {self.german} EN: {self.english}, id: {self.id}, druh: {self.druh}, kategorie: {self.kategorie}, asociace: {self.asociace}, datum: {self.datum_pretty}, tested/known: {self.times_tested}/{self.times_known}, learned: {self.times_learned},"
 
     def json_format(self) -> dict:
         data = {

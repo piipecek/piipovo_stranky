@@ -22,7 +22,7 @@ class Slovnik:
         for i, word in enumerate(self.slovicka):
             if word.id == id:
                 self.slovicka.pop(i)
-        db_handling.save_to_user_database(self.json_format())
+        self.ulozit_do_db()
 
     def ulozit_do_db(self) -> None:
         db_handling.save_to_user_database(self.json_format())
