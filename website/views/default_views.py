@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
 from website.models.chyba import Chyba
 from website.models.slovnik import Slovnik
+from website.models.settings import Settings
 
 
 default_views = Blueprint("default_views",__name__)
@@ -48,8 +49,14 @@ def planovane_featury():
 @default_views.route("/account", methods=["GET","POST"])
 @login_required
 def account():
+	settings = Settings.get()
 	if request.method == "GET":
 		s = Slovnik()
-		return render_template("account.html", current_user=current_user, pocet_slovicek = len(s.slovicka))
+		return render_template("account.html", current_user=current_user, pocet_slovicek = len(s.slovicka), zkouseni_opakovani = settings.data["zkouseni_opakovani"])
 	else:
-		return "Not done yet" + request.form.get("uceni_choose")
+		if request.form.get("zkouseni_opakovani"):
+			settings.data["zkouseni_opakovani"] = not settings.data["zkouseni_opakovani"]
+			settings.save()
+			return redirect(url_for("default_views.account"))
+		elif request.form.get("vybirani"):
+			return "Not done yet" + request.form.get("uceni_choose")

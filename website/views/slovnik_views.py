@@ -270,7 +270,7 @@ def uceni():
         next_display_info = u.get_next_data()
         if next_display_info:
             typ, data = next_display_info
-            return render_template("uceni.html", display_info=data, typ=typ, jazyk=u.jazyk)
+            return render_template("uceni.html", display_info=data, typ=typ, jazyk=u.jazyk, pocet_written = u.get_pocet_written())
         else:
             return redirect(url_for("slovnik_views.konec_uceni"))
     elif request.method == "POST":

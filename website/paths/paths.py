@@ -27,3 +27,7 @@ def user_historie_path() -> Path:
 
 def user_set_slovicek_path() -> Path:
     return user_folder_path() / "set_slovicek.json"
+
+
+def user_settings_path() -> Path:
+    return user_folder_path() / "settings.json"

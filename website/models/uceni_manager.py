@@ -121,6 +121,13 @@ class UceniManager:
                 self.data_o_uceni[i]["showcase"] = True
         self.zapsat_do_souboru()
 
+    def get_pocet_written(self) -> Tuple[int, int]:
+        pocet_written = 0
+        for zaznam in self.data_o_uceni:
+            if zaznam["write"] == True:
+                pocet_written += 1
+        return pocet_written, len(self.data_o_uceni)
+
     def check_choose(self, id_puvodniho: int, id_vybraneho: int) -> Tuple[str, str]:
         for i, zaznam in enumerate(self.data_o_uceni):
             if zaznam["id"] == id_puvodniho:
