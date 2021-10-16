@@ -126,6 +126,14 @@ class ZkouseniManager:
     def get_by_id(id) -> "ZkouseniManager":
         data = historie_handling.najit_podle_id(id)
         obj = ZkouseniManager(**data)
+
+        for i, slovicko in enumerate(Slovicko.get_by_id_list(obj.seznam_id_slovicek)):
+            if slovicko is None:
+                obj.seznam_id_slovicek.pop(i)
+                obj.seznam_odpovedi.pop(i)
+        obj.zapsat_do_souboru()
+        return obj
+
         seznam_ids_recovered_slovicek = [slovicko.id for slovicko in Slovicko.get_by_id_list(obj.seznam_id_slovicek)]  # pro to, kdyz je slovicko smazano a potom je potreba znovu zkpuset
         for i, id in enumerate(obj.seznam_id_slovicek):
             if id in seznam_ids_recovered_slovicek:

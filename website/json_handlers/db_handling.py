@@ -36,7 +36,10 @@ def get_by_ids_list(ids: List[int])  -> List[dict]:
     for word in file:
         if word["id"] in ids:
             result.append(word)
-    return result
+    result_sorted =[]
+    for id in ids:
+        result_sorted.append(next(filter(lambda x: x["id"] == id,result), None)) # append jediny vysledek filteru, proto next()
+    return result_sorted
 
 def delete_by_id(id: int) -> None:
     file = get_user_database()
