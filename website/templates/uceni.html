@@ -1,7 +1,6 @@
 {% extends "base.html"%}
 {% block content %}
-    várka {{varka}} z {{predpoklad}} předpokládaných
-
+    Už jsi splnil psaní u {{ pocet_written[0] }} slovíček z {{ pocet_written[1] }}
     <form method="post" autocomplete="off">
 
     {% if typ=="showcase" %}

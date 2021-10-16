@@ -9,6 +9,7 @@ def check_files_or_create() -> None:
     db_path = p.user_database_path()
     historie_path = p.user_historie_path()
     set_slovicek_path = p.user_set_slovicek_path()
+    settings_path = p.user_settings_path()
     
     if user_folder_path.exists():
         print(str(user_folder_path) + "already exists")
@@ -18,7 +19,7 @@ def check_files_or_create() -> None:
         user_folder_path.mkdir()
     
 
-    for path in [bugs_path, db_path, historie_path, set_slovicek_path]:
+    for path in [bugs_path, db_path, historie_path, set_slovicek_path, settings_path]:
         if path.exists():
             print(str(path) + "already exists")
             pass
