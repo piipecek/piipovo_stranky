@@ -15,6 +15,10 @@
             <li><a href="{{url_for("default_views.dashboard")}}">Dashboard</a></li>
             <li><a href="{{url_for("slovnik_views.slovnik_home")}}">Slovník </a></li>
             <li><a href="{{url_for("default_views.account")}}">Účet</a></li>
+            <li><a href="{{url_for("default_views.nahlasit_bug")}}">Nahlásit bug, připomínku, nápad</a></li>
+            <li><a href="{{url_for("default_views.known_bugs")}}">seznam známých bugů</a></li>
+            <li><a href="{{url_for("default_views.planovane_featury")}}">Plánované featury</a></li>
+            <li><a href="https://github.com/piipecek/piipovo_stranky" target="_blank">Repo na githubu</a></li>
         </ul>    
 
         {% else %}
@@ -30,10 +34,6 @@
 {% for category, message in get_flashed_messages(with_categories=True) %}
     <div class="alert-{{category}}">{{ message }}</div>
 {% endfor %}
-
-
-<br>
-<br>
 
 {% block content %}
 

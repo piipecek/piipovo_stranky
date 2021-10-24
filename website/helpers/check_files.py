@@ -1,4 +1,3 @@
-from os import mkdir
 import website.paths.paths as p
 import json
 
