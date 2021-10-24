@@ -1,4 +1,4 @@
-# STL-TO-PRINT
+# piipovo stránky - Slovník
 
 už se to rozbíhá
 
