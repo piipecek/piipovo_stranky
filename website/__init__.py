@@ -22,10 +22,12 @@ def create_app() -> Flask:
 	from .views.default_views import default_views
 	from .views.auth_views import auth_views
 	from .views.slovnik_views import slovnik_views
+	from .views.visuals_views import visuals_views
 
 	app.register_blueprint(default_views, url_prefix="/")
 	app.register_blueprint(auth_views, url_prefix="/auth")
 	app.register_blueprint(slovnik_views, url_prefix="/slovnik")
+	app.register_blueprint(visuals_views, url_prefix="/visuals")
 
 	from .models.user import User
 

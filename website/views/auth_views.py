@@ -52,7 +52,7 @@ def register():
 def logout():
 	logout_user()
 	flash("You have been odhlášen.", category="info")
-	return redirect(url_for("default_views.home"))
+	return redirect(url_for("default_views.dashboard"))
 
 
 
