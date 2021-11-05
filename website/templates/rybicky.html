@@ -1,16 +1,58 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h3>Rybičky</h3>
+<p>
+    Toto je simulace chování hejna. Insiprací bylo <a href="https://youtu.be/4LWmRuB-uNU">tohle 13 minut dlouhé video</a>, které ukazuje autorovo nadšení nad hejnem ptáků a jeho kamaráda, jak tuhle vizualizaci vytvořil. Jsou tam dokonale vysvětlena pravidla, která vytváří tohle chování, doporučuju. Pokud si moc rozházíte parametry, stačí načíst stránku znovu :)
+</p>
 <div>
-    <label for="polomer">Poloměr: </label>
-    <input type="range" id="polomer" min="3" max="30" value="10" oninput="changed_polomer()"/>
+    <label for="velikost_ryby">Velikost ryby: </label>
+    <span id="velikost_ryby_display"></span>
+    <input type="range" id="velikost_ryby" min="1" max="100" value="20"/>
     <label for="rychlost">Rychlost: </label>
-    <input type="range" id="rychlost" min="0" max="20" value="6" oninput="changed_rychlost()"/>
-    <label for="pocet_ryb">Počet ryb</label>
-    <input type="number" id="pocet_ryb" value="10" onchange="changed_pocet_ryb()"/>
+    <span id="rychlost_display"></span>
+    <input type="range" id="rychlost" min="0" max="1000" value="400"/>
+    <label for="pocet_ryb">Počet ryb: </label>
+    <input type="number" id="pocet_ryb" value="80"/>
+    <button id="typ_startu">Začínat náhodně</button>
+    <button id="restart">Restart</button>
+    <br>
+    <label for="koef_od_kraju">Odpuzování od krajů: </label>
+    <span id="koef_od_kraju_display"></span>
+    <input type="range" id="koef_od_kraju" min="0" max="100" value="50"/>
+    <label for="sirka_zony">Šířka zóny: </label>
+    <span id="sirka_zony_display"></span>
+    <input type="range" id="sirka_zony" min="1" max="300" value="100"/>
+    <button id="sirka_zony_button">Ukázat šířku zóny</button>
+    <br>
+    <label for="koef_pritahovani">Přitahování: </label>
+    <span id="koef_pritahovani_display"></span>
+    <input type="range" id="koef_pritahovani" min="0" max="100" value="19"/>
+    <label for="polomer_dohledu">Poloměr dohledu: </label>
+    <span id="polomer_dohledu_display"></span>
+    <input type="range" id="polomer_dohledu" min="1" max="100" value="43"/>
+    <button id="polomer_dohledu_button">Ukázat poloměr dohledu</button>
+    <br>
+    <label for="koef_odpuzovaci">Odpuzování: </label>
+    <span id="koef_odpuzovaci_display"></span>
+    <input type="range" id="koef_odpuzovaci" min="0" max="100" value="40"/>
+    <label for="osobni_prostor">Prostor kolem ryby: </label>
+    <span id="osobni_prostor_display"></span>
+    <input type="range" id="osobni_prostor" min="0" max="100" value="23"/>
+    <button id="osobni_prostor_button">Ukázat prostor ryby</button>
+    <br>
+    <label for="koef_usmernovaci">Společné usměrňování</label>
+    <span id="koef_usmernovaci_display"></span>
+    <input type="range" id="koef_usmernovaci" min="0" max="100" value="32"/>
+    <label for="prostor_usmernovani">Prostor pro usměrňování: </label>
+    <span id="prostor_usmernovani_display"></span>
+    <input type="range" id="prostor_usmernovani" min="0" max="100" value="30"/>
+    <button id="prostor_usmernovani_button">Ukázat prostor pro usměrňování</button>
+
 </div>
 
 <canvas id="canvas"></canvas>
-<script type="text/javascript" src="../static/js/rybicky.js"></script>
+<script type="module" src="../static/js/rybicky_move.js"></script>
+<script type="module" src="../static/js/rybicky.js"></script>
 
 {% endblock %}
