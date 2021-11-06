@@ -1,15 +1,13 @@
 from website.helpers.pretty_date import pretty_date
 from website.json_handlers import db_handling
-from dateutil import parser
-from typing import List
+from typing import List, Dict
 from datetime import datetime
+from website.models.settings import Settings
 
 class Slovicko:
     def __init__(self,
                  id: int=None,
-                 czech: List[str]=None,
-                 german: List[str]=None,
-                 english: List[str]=None,
+                 v_jazyce: Dict["str",List["str"]] = None,
                  druh: List[str]=None,
                  datum=None,
                  asociace: List[str]=None,
@@ -23,20 +21,17 @@ class Slovicko:
             asociace = ["-"]
         if druh is None:
             druh = ["-"]
-        if english is None:
-            english = ["-"]
-        if german is None:
-            german = ["-"]
-        if czech is None:
-            czech = ["-"]
+        if v_jazyce is None:
+            self.v_jazyce = {}
+            for jazyk in Settings.get().data["jazyky"]:
+                self.v_jazyce[jazyk] = []
+        else:
+            self.v_jazyce = v_jazyce
         if datum is None:
             self.datum = str(datetime.utcnow())
         else:
             self.datum = datum
         self.datum_pretty = pretty_date(self.datum)
-        self.czech = czech
-        self.german = german
-        self.english = english
         self.druh = druh
         self.kategorie = kategorie
         self.asociace = asociace
@@ -46,14 +41,16 @@ class Slovicko:
         self.id = id
 
     def __repr__(self) -> str:
-        return f"CZ: {self.czech} D: {self.german} EN: {self.english}, id: {self.id}, druh: {self.druh}, kategorie: {self.kategorie}, asociace: {self.asociace}, datum: {self.datum_pretty}, tested/known: {self.times_tested}/{self.times_known}, learned: {self.times_learned},"
+        result = ""
+        for jazyk in Settings.get().data["jazyky"]:
+            result += jazyk + ": " + ", ".join(self.v_jazyce[jazyk]) + ", "
+        zbytek =  f"id: {self.id}, druh: {self.druh}, kategorie: {self.kategorie}, asociace: {self.asociace}, datum: {self.datum_pretty}, tested/known: {self.times_tested}/{self.times_known}, learned: {self.times_learned},"
+        return result + zbytek
 
     def json_format(self) -> dict:
         data = {
             "id": self.id,
-            "czech": self.czech,
-            "german": self.german,
-            "english": self.english,
+            "v_jazyce": self.v_jazyce,
             "druh": self.druh,
             "asociace": self.asociace,
             "times_tested": self.times_tested,
@@ -71,13 +68,9 @@ class Slovicko:
             return ", ".join(self.asociace)
         elif atribute == "kategorie":
             return ", ".join(self.kategorie)
-        elif atribute == "czech":
-            return ", ".join(self.czech)
-        elif atribute == "english":
-            return ", ".join(self.english)
-        elif atribute == "german":
-            return ", ".join(self.german)
-    
+        elif atribute in Settings.get().data["jazyky"]:
+            return ", ".join(self.v_jazyce[atribute])
+        
     @staticmethod
     def get_by_id(id: int) -> "Slovicko":
         w = db_handling.get_by_id(id)
@@ -117,5 +110,5 @@ class Slovicko:
         else:
             result = []
             for word in data:
-                result.append(Slovicko.load(word))
+                result.append(Slovicko(**word))
             return result

@@ -1,4 +1,5 @@
 import website.paths.paths as p
+from website.models.settings import Settings
 import json
 
 
@@ -27,3 +28,5 @@ def check_files_or_create() -> None:
             path.touch()
             with open(path, "w") as file:
                 file.write(json.dumps([]))
+    Settings.get().check_format()
+    

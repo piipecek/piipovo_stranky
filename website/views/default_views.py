@@ -45,9 +45,13 @@ def planovane_featury():
 @login_required
 def account():
 	settings = Settings.get()
+	settings.check_format()
 	if request.method == "GET":
-		s = Slovnik()
-		return render_template("account.html", current_user=current_user, pocet_slovicek = len(s.slovicka), zkouseni_opakovani = settings.data["zkouseni_opakovani"])
+		s = Slovnik.get()
+		return render_template("account.html", 
+							   current_user=current_user, 
+							   pocet_slovicek = len(s.slovicka), 
+							   settings = settings)
 	else:
 		if request.form.get("zkouseni_opakovani"):
 			settings.data["zkouseni_opakovani"] = not settings.data["zkouseni_opakovani"]
@@ -55,3 +59,6 @@ def account():
 			return redirect(url_for("default_views.account"))
 		elif request.form.get("vybirani"):
 			return "Not done yet" + request.form.get("uceni_choose")
+		elif request.form.get("new_jazyk_button"):
+			settings.add_jazyk(request.form.get("new_jazyk"))
+			return redirect(url_for("default_views.account"))

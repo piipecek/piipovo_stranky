@@ -1,13 +1,19 @@
 from typing import List, Dict
 from website.models.slovicko import Slovicko
+from website.models.settings import Settings
 from website.json_handlers import db_handling
 
 
 class Slovnik:
     def __init__(self) -> None:
-        self.slovicka = [Slovicko(**raw_word)
-                         for raw_word in db_handling.get_user_database()]
+        self.slovicka: List[Slovicko] = []
 
+    @staticmethod
+    def get() -> "Slovnik":
+        s = Slovnik()
+        s.slovicka = [Slovicko(**raw_word) for raw_word in db_handling.get_user_database()]
+        return s
+        
     def get_next_id(self) -> int:
         id = 0
         for word in self.slovicka:
@@ -31,12 +37,10 @@ class Slovnik:
         vyrazy = []
         duplicitni = {}
         for word in self.slovicka:
-            for kolekce in [word.czech, word.english, word.german]:
-                for vyraz in kolekce:
+            for jazyk in Settings.get().data["jazyky"]:
+                for vyraz in word.v_jazyce[jazyk]:
                     if vyraz in vyrazy:
-
                         duplicitni[vyraz].append(word.id)
-
                     else:
                         vyrazy.append(vyraz)
                         duplicitni[vyraz] = [word.id]
@@ -46,9 +50,7 @@ class Slovnik:
             pass
 
         duplicitni_filtered = {}
-        print(duplicitni)
         for string, ids in duplicitni.items():
-
             if len(ids) < 2:
                 pass
             else:    
@@ -65,7 +67,7 @@ class Slovnik:
         all_potrebny_slovicka = Slovicko.get_by_id_list(all_potrebny_ids)
         dict_potrebnejch_slovicek = {}
         for i, id in enumerate(all_potrebny_ids):
-            dict_potrebnejch_slovicek[str(id)] = all_potrebny_slovicka[i]
+            dict_potrebnejch_slovicek[id] = all_potrebny_slovicka[i]
             
         #
 
@@ -85,9 +87,8 @@ class Slovnik:
         new = Slovicko(id=self.get_next_id())
         new.datum = matched_words[0].datum 
         for word in matched_words:
-            new.czech += word.czech
-            new.german += word.german
-            new.english += word.english
+            for jazyk in Settings.get().data["jazyky"]:
+                new.v_jazyce[jazyk] += word.v_jazyce[jazyk]
             new.druh += word.druh
             new.asociace += word.asociace
             new.kategorie += word.kategorie
@@ -95,10 +96,9 @@ class Slovnik:
             new.times_learned += word.times_learned
             new.times_tested += word.times_tested
             self.delete_slovicko(word.id)
-        
-        new.czech = list(set(new.czech))
-        new.german = list(set(new.german))
-        new.english = list(set(new.english))
+
+        for jazyk in Settings.get().data["jazyky"]:
+            new.v_jazyce[jazyk] = list(set(new.v_jazyce[jazyk]))
         new.druh = list(set(new.druh))
         new.asociace = list(set(new.asociace))
         new.kategorie = list(set(new.kategorie))

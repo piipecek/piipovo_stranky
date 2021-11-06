@@ -1,6 +1,6 @@
 import json
 from dateutil import parser
-from website.json_handlers.db_handling import sort_slovnik, get_user_database
+from website.json_handlers.db_handling import sort_slovnik, jazykovej_filtr
 from website.helpers.pairser import smart_sample
 import website.paths.paths as p
 from typing import List
@@ -12,15 +12,6 @@ def get_user_set_slovicek() -> dict:
 def save_to_user_set_slovicek(data: dict) -> None:
     with open(p.user_set_slovicek_path(), "w") as file:
         file.write(json.dumps(data, indent=3))
-
-
-def jazykovej_filtr(jazyk: str) -> List[dict]:
-    file = get_user_database()
-    result = []
-    for word in file:
-        if (word["czech"] != ["-"]) and (word[jazyk] != ["-"]):
-            result.append(word)
-    return result
 
 
 def od_do(od: str, do:str, jazyk:str) -> List[dict]:

@@ -1,6 +1,6 @@
-import datetime
 from website.models.slovicko import Slovicko
 from website.models.slovnik import Slovnik
+from website.models.settings import Settings
 from random import sample
 from typing import Tuple, Sequence
 
@@ -47,7 +47,7 @@ def pairse_cj_x_and_insert(data: str, jazyk: str, asociace: str, druh: str, kate
             return line, data
 
 
-    slovnik = Slovnik()
+    slovnik = Slovnik.get()
 
     for line in lines:
         if obratit:
@@ -61,25 +61,13 @@ def pairse_cj_x_and_insert(data: str, jazyk: str, asociace: str, druh: str, kate
             cz.remove("")
         while "" in x:
             x.remove("")
-        if cz == []:
-            cz = ["-"]
-        if x == []:
-            x = ["-"]
 
-        if jazyk == "english":
-            new_word = Slovicko(id=slovnik.get_next_id(),
-                                czech=cz,
-                                english=x,
-                                kategorie=kategorie,
-                                druh=druh,
-                                asociace=asociace)
-        elif jazyk == "german":
-            new_word = Slovicko(id=slovnik.get_next_id(),
-                                czech=cz,
-                                german=x,
-                                kategorie=kategorie,
-                                druh=druh,
-                                asociace=asociace)
+        new_word = Slovicko(id=slovnik.get_next_id())
+        new_word.v_jazyce["czech"] = cz
+        new_word.v_jazyce[jazyk] = x
+        new_word.kategorie=kategorie
+        new_word.druh=druh
+        new_word.asociace=asociace
         slovnik.slovicka.append(new_word)
     slovnik.ulozit_do_db()
 
@@ -87,18 +75,12 @@ def pairse_cj_x_and_insert(data: str, jazyk: str, asociace: str, druh: str, kate
 
 
 def vyhodnot(jazyk: str, predloha: Slovicko, string: str) -> bool:
-    if jazyk == "german":
-        if string in [p.replace("zde:","") for p in predloha.german]:
-            return True
-        else:
-            return False
-    elif jazyk == "english":
-        for predloha in predloha.english:
-            if string == predloha.replace("zde:", ""):
+    for j in Settings.get().data["jazyky"]:
+        if j == jazyk:
+            if string in [p.replace("zde","") for p in predloha.v_jazyce[jazyk]]:
                 return True
             else:
                 return False
-
 
 def smart_sample(iterable: Sequence, amount: int) -> list:
     if len(iterable) <= amount:
