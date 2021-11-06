@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Vítej, {{current_user.email}}</h2>
+<h2>Vítej, {{current_user.email}}, id: {{current_user.id}}</h2>
 <h3> Nastavení a statistiky týkající se aplikace Slovník</h3>
 Počet slovíček: {{pocet_slovicek}}
 <br>
 <a href="{{url_for("slovnik_views.prejmenovat_kategorii")}}">Přejmenovat kategorii</a>
 <form method="post">
     <p>
+        /ještě nefunguje/
         Při vybírání ze čtyř překladů při učení použít 
         <input type="radio" name="uceni_choose" value="dropdown" id="1"/>
         <label for="1">Dropdown možností</label>
@@ -15,7 +16,19 @@ Počet slovíček: {{pocet_slovicek}}
         <input type="radio" name="uceni_choose" value="four_buttons" id="2"/>
         <label for="2">Čtyři tlačítka</label>
     
-        <button type="submit">Vybrat</button>
+        <button type="submit" name="vybirani" value="1">Vybrat</button>
+    </p>
+    <p>
+        /ještě nefunguje/
+        Při zkoušení opakovat slovíčko, dokud nebude napsáno správně: {{settings.data["zkouseni_opakovani"]}}
+        <button type="submit" name="zkouseni_opakovani" value="1">Změnit</button>
+    </p>
+    <p>
+        Jazyky: <b>{{settings.pretty_jazyky()}}</b>
+        <br>
+        Přidat jazyk:
+        <input type="text" name="new_jazyk"/>
+        <button type="submit" name="new_jazyk_button" value="1">Budiž</button>
     </p>
 </form>
 <br>

@@ -1,6 +1,63 @@
 {%extends "base.html"%}
 {%block content%}
+<h1>Pípovo stránky</h1>
+<p>
+    Jsou projekt, kam dávam různý vymoženosti, co vytvářim. Hlavním bodem je nyní aplikace Slovník, nebo právě-se-tvořící rybičky.
+</p>
 <h2>Novinky</h2>
+<p>
+    <h3>6. 11. a Support pro víc cizích jazyků ve slovníku</h3>
+    Velkej update přináší možnost přidat nový jazyk, ve kterém se poté přidávají slovíčka. Stačí ho přidat v nastavení účtu :)
+</p>
+<p>
+    <h3>5. 11. a Rybičky!</h3>
+    Chvíli to trvalo, ale s touhle verzí rybiček jsem fakt spoko.
+</p>
+<p>
+    <h3>25. 10. a začátek Rybiček</h3>
+    K dnešnímu datu se hodně věcí mění: Většina stránek už není chráněna loginem. Login je efekrivně potřeba jen k využívání slovníku, protože každý user má svůj. Dále přibyl odkaz na Rybičky, které mají první fázi vývoje za sebou.
+</p>
+<p>
+    <h3>16. 10. a velká změna v rychlosti slovníku</h3>
+    Při hledání duplikátů se muselo při velikosti slovníku 1800 slovíček (pípův slovník) čekat i 10 vteřin. Tento proces byl napsán chytřeji a je to nyní mnohem rychlejší.
+</p>
+<p>
+    <h3>15. 10. a bugfix</h3>
+    Historii zkoušení se nelíbilo, když jste smazali slovíčko a chtěli se nechat vyzkoušet ze setu, kde původně bylo. To je nyní opravené.
+</p>
+<p>
+    <h3>14. 10. a lepší tahání slovíček od Pípa</h3>
+    <ul>
+        <li>Byl opraven bug, kdy natahávání slovíček z Pípova slovníku mohlo ve vašem osobním vytvořit duplicitní ID.</li>
+        <li>Při zadávání "kolik" slovíček zahrnout do setu je nyní povoleno jen číslo jako input.</li>
+        <li>Tvoření setu podle nejméně zkoušenýchu už teď opravdu vybírá z nejméně zkoušených.</li>
+        <li>Opraven bug, kdy zkoušení podle charakteristické skupiny fungovalo jen v němčině.</li>
+        <li>Opraven bug, kdy zkoušení podle charakteristické skupiny fungovalo jen v němčině.</li>
+        <li>Z detailu historie zkoušení se nyní dá prokliknout na konkrétní slovíčko a upravit ho.</li>
+    </ul>
+</p>
+<p>
+    <h3>13. 10. a progress ukazatel při zkoušení</h3>
+    Při zkoušení je nyní vidět, na kolikátém slovíčku z kolika se nacházíte. Podobná featura pro učení je ale mnohem složitější a bude přidána až naprší a uschne.
+</p>
+<p>
+    <h3>12. 10. a hledání duplicitních slovíček</h3>
+    ve slovníku je tlačítko "najít duplicitní slovíčka", které teď dělá to, co má. Snad, moc jsem toho nevyzkoušel.
+</p>
+<p>
+    <h3>11. 10. a backend update</h3>
+    Byla vydána verze, která přidala Typehinting v kódu, upravila další nejasnosti a zajistila, že i zkoušení mají svoje unique ID.
+</p>
+<p>
+    <h3>8. 10. a přidávání maličkostí</h3>
+    <ul>
+        <li>Při opakování zkoušení z historie byla slovíčka ve stejném pořadí, jako v originálním zkoušení. To bylo změněno, nyní budou před přezkoušením promíchána.</li>
+    </ul>
+</p>
+<p>
+    <h3>7. 10. a  update vzhledu tabulky Slovníku</h3>
+    Díky nezávislému vývojáři Troloběžce máme možnost ukázat překrásnou tabulku slovíček na slovníku. Díky moc!
+</p>
 <p>
     <h3>7. 10. a update, který user vůbec nevidí</h3>
     Dnes vyšel Minecraft 1.18 snapshot 21w40a a taky update ke slovníku. Každo slovíčko má teď unique ID, narozdíl od předchozích verzí, kdy tuto funkci zastával čas vytvoření. 
@@ -23,15 +80,8 @@
         <li> <b>Opraveny některé pravopisné chyby a překlepy.</b></li>
         <li> <b>Účet</b> je nová položka v navbaru, ale ještě tam nic nefunguje. Příště!</li>
     </ul>
-    Pokud máte nějaký nápad na novou featuru nebo pokud jste nalezli chybu, prosím, dejte mi to vědět:
 </p>
-
-
-Vítej. Na týhle stránce by bylo nastavení účtu nebo třeba seznam dostupnejch aplikací. 
-<br>
-<a href="{{url_for("default_views.nahlasit_bug")}}">Nahlásit bug, připomínku, nápads</a>
-<br>
-<a href="{{url_for("default_views.known_bugs")}}">seznam známých bugů</a>
-<br>
-<a href="{{url_for("default_views.planovane_featury")}}">Plánované featury</a>
+<p>
+    <h3>26. 9. 2021 byl založen účet na Python anywhere.</h3>
+</p>
 {%endblock%}

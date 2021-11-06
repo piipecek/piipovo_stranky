@@ -1,19 +1,19 @@
-import typing
-from website.helpers import set_handling
+from website.json_handlers import set_handling
 import random
 from website.models.slovicko import Slovicko
 from website.helpers.pairser import vyhodnot, smart_sample
 from typing import List, Tuple
+import math
 
 
 class UceniManager:
     def __init__(self, 
-                 seznam_id_slovicek=None, 
-                 data_o_uceni=None, 
-                 varka=0, 
-                 jazyk=None,
-                 podle=None,
-                 podle_meta=None):
+                 seznam_id_slovicek: list=None, 
+                 data_o_uceni: List[dict]=None, 
+                 varka: int=0, 
+                 jazyk: str=None,
+                 podle: str=None,
+                 podle_meta: str=None):
         self.seznam_id_slovicek = seznam_id_slovicek
         self.varka = varka
         self.jazyk = jazyk
@@ -30,9 +30,8 @@ class UceniManager:
                 })
         else:
             self.data_o_uceni = data_o_uceni
-        pass
 
-    def zapsat_do_souboru(self):
+    def zapsat_do_souboru(self) -> None:
         set_handling.save_to_user_set_slovicek(
             {
                 "varka": self.varka,
@@ -44,14 +43,8 @@ class UceniManager:
         )
 
     @staticmethod
-    def nacist_ze_souboru():
-        data = set_handling.get_user_set_slovicek()
-        obj = UceniManager(data_o_uceni=data["data_o_uceni"],
-                           varka=data["varka"],
-                           jazyk=data["jazyk"],
-                           podle=data["podle"],
-                           podle_meta=data["podle_meta"])
-        return obj
+    def nacist_ze_souboru() -> "UceniManager":
+        return UceniManager(**set_handling.get_user_set_slovicek())
 
     def get_next_data(self):
         typ = None
@@ -79,7 +72,7 @@ class UceniManager:
                     random.shuffle(id_na_vyber)
 
                     vyvoleny = Slovicko.get_by_id(vyvoleny_id)
-                    slova_na_vyber = [Slovicko.get_by_id(id) for id in id_na_vyber]
+                    slova_na_vyber = Slovicko.get_by_id_list(id_na_vyber)
                     return vyvoleny, slova_na_vyber
 
             def get_write(data_o_uceni: List[dict]) -> int:
@@ -96,7 +89,7 @@ class UceniManager:
                 if id_vybranejch is None:
                     data_k_odeslani = None
                 else:
-                    data_k_odeslani = [Slovicko.get_by_id(id) for id in id_vybranejch]
+                    data_k_odeslani = Slovicko.get_by_id_list(id_vybranejch)
                     self.sign_as_showcased(id_vybranejch)
 
             elif self.varka % 9 in [1, 2, 3, 4]:
@@ -122,13 +115,20 @@ class UceniManager:
             else:
                 return typ, data_k_odeslani
 
-    def sign_as_showcased(self, ids):
+    def sign_as_showcased(self, ids: List[int]) -> None:
         for i, zaznam in enumerate(self.data_o_uceni):
             if zaznam["id"] in ids:
                 self.data_o_uceni[i]["showcase"] = True
         self.zapsat_do_souboru()
 
-    def check_choose(self, id_puvodniho: int, id_vybraneho: int):
+    def get_pocet_written(self) -> Tuple[int, int]:
+        pocet_written = 0
+        for zaznam in self.data_o_uceni:
+            if zaznam["write"] == True:
+                pocet_written += 1
+        return pocet_written, len(self.data_o_uceni)
+
+    def check_choose(self, id_puvodniho: int, id_vybraneho: int) -> Tuple[str, str]:
         for i, zaznam in enumerate(self.data_o_uceni):
             if zaznam["id"] == id_puvodniho:
                 if id_puvodniho == id_vybraneho:
@@ -142,7 +142,7 @@ class UceniManager:
         self.zapsat_do_souboru()
         return message, category
 
-    def check_write(self, id: int, string: str):
+    def check_write(self, id: int, string: str) -> Tuple[str, str]:
         result = vyhodnot(self.jazyk, Slovicko.get_by_id(id), string)
         for i, zaznam in enumerate(self.data_o_uceni):
             if zaznam["id"]  == id:
@@ -157,7 +157,7 @@ class UceniManager:
         self.zapsat_do_souboru()
         return message, category
     
-    def retake(self):
+    def retake(self) -> None:
         for zaznam in self.data_o_uceni:
             zaznam["showcase"] = False
             zaznam["choose"] = False

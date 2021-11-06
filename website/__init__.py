@@ -7,10 +7,11 @@ db = SQLAlchemy()
 DB_NAME = "database.db"
 
 
-def create_app():
+def create_app() -> Flask:
 	app = Flask(__name__)
 	app.config["SECRET_KEY"] = "r Schornstein"
 	app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{DB_NAME}"
+	app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
 
 	db.init_app(app)
 
@@ -19,13 +20,15 @@ def create_app():
 			db.create_all(app=app)
 			print("created_db")
 
-	from .routes.default_views import default_views
-	from .routes.auth_views import auth_views
-	from .routes.slovnik_views import slovnik_views
+	from .views.default_views import default_views
+	from .views.auth_views import auth_views
+	from .views.slovnik_views import slovnik_views
+	from .views.visuals_views import visuals_views
 
 	app.register_blueprint(default_views, url_prefix="/")
 	app.register_blueprint(auth_views, url_prefix="/auth")
 	app.register_blueprint(slovnik_views, url_prefix="/slovnik")
+	app.register_blueprint(visuals_views, url_prefix="/visuals")
 
 	from .models.user import User
 

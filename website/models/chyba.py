@@ -1,12 +1,14 @@
-from website.helpers import bugs_handling
+from website.json_handlers import bugs_handling
+from typing import List
+
 
 class Chyba:
-	def __init__(self, autor, popis, stav="Zatím neřešeno"):
+	def __init__(self, autor: str, popis: str, stav: str = "Zatím neřešeno"):
 		self.autor = autor
 		self.popis = popis
 		self.stav = stav
 
-	def pridat_do_chyb(self):
+	def pridat_do_chyb(self) -> None:
 		result = {
 		"autor": self.autor,
 		"popis": self.popis,
@@ -15,7 +17,7 @@ class Chyba:
 		bugs_handling.pridat_do_chyb(result)
 
 	@staticmethod
-	def  get_all():
+	def  get_all() -> List["Chyba"]:
 		result = []
 		chyby_raw = bugs_handling.get_chyby()
 		for chyba in chyby_raw:

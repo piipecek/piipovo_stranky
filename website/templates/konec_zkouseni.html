@@ -18,7 +18,7 @@
         </div>
     {% endfor %}
     </div>
-    <h2> Úspěšnost: {{ zkouseni.get_uspesnost() }}. Odešli záznam tlačítkem níže.</h2>
+    <h2> Úspěšnost: {{ zkouseni.uspesnost }}. Odešli záznam tlačítkem níže.</h2>
     <form method="post">
     <label for="poznamka">Přidat poznámku ke zkoušení: </label>
     <input type="text" name="poznamka" id="poznamka" value="{{ zkouseni.poznamka }}"/>

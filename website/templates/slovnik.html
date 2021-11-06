@@ -43,9 +43,9 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>Czech</th>
-                    <th>German</th>
-                    <th>English</th>
+                    {% for jazyk in jazyky %}
+                        <th>{{ jazyk }}</th>
+                    {% endfor %}
                     <th>Druh</th>
                     <th>Kategorie</th>
                     <th>Asociace</th>
@@ -60,9 +60,9 @@
                 {% for word in slovicka %}
                 <tr>
                     <td><input class="form-check-input" type="checkbox" value="{{word.id}}" name="checked"/></td>
-                    <td>{{word.pretty("czech")}}</td>
-                    <td>{{word.pretty("german")}}</td>
-                    <td>{{word.pretty("english")}}</td>
+                    {% for jazyk in jazyky %}
+                        <td>{{word.pretty(jazyk)}}</td>
+                    {% endfor %}
                     <td>{{word.pretty("druh")}}</td>
                     <td>{{word.pretty("kategorie")}}</td>
                     <td>{{word.pretty("asociace")}}</td>

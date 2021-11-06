@@ -3,27 +3,18 @@
     <h2> Úprava slovíček, co se zdá, že jsou dvakrát</h2>
     {% if duplicates %}
         {% for d in duplicates %}
-                {{ d["string"] }}
-                {{ [d["slova"][0]["id"],d["slova"][1]["id"]] }}
+            <hr>
+            <b>{{ d["string"] }}</b>
+            <br>
             <form method="post">
-                <input type="text" name="dat1" value="{{d["slova"][0]["id"]}}" hidden>
-                <input type="text" name="dat2" value="{{d["slova"][1]["id"]}}" hidden>
+                {% for word in d["words"] %}
+                    {{word}}
+                    <input type="text" name="id" value="{{word.id}}" hidden/>
+                    <button type="submit" name="edit" value="{{word.id}}">Edit</button>
+                    <br>
+                {% endfor %}
                 <button type="submit" name="sjednotit" value="1">Sjednotit</button>
             </form>
-            {% for slovo in d["slova"] %}
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-1 w2">
-                            {{ slovo }}
-                        </div>
-                        <div class="col-md-1">
-                            <form method="post">
-                                <button type="submit" name="edit" value="{{ slovo.id }}">Edit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
         {% endfor %}
     {% else %}
         žádné duplikáty!

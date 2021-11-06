@@ -3,6 +3,20 @@
     <h2>Navol si parametry setu:</h2>
     <form method="post">
     <div>
+        <p>
+            Chci zkoušet z češtiny do: 
+            <select id="target_jazyk" name="target_jazyk"></select>
+            <input id="jazyky" type="text" hidden value="{{jazyky}}"/>
+            <script>
+                let jazyky = JSON.parse(document.getElementById("jazyky").value)
+                for (i=0;i<jazyky.length;i++) {
+                    let opt = document.createElement("option")
+                    opt.innerHTML = jazyky[i]
+                    opt.value = jazyky[i]
+                    document.getElementById("target_jazyk").appendChild(opt)
+                }
+            </script>
+        </p>
         <label for="dropdown1">Podle čeho?</label>
         <select id="dropdown1" name="typ">
             <option value="kategorie">Podle kategorií</option>

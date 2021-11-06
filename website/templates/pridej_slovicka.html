@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Přidat čj - {{ jazyk }} slovíčka</h2>
+    <form method="post">
+
+        <label for="input">"definice - význam, druhý význam ".
+            Slovíčka oddělovat enterem.
+            možnost zapsat slovíčko s prefixem "zde:", při zkoušení to nedělá bordel.</label>
+        <p>
+            <textarea id="input" name="input" rows="10" cols="50"></textarea>
+        </p>
+        <p>
+            <input type="text" id="jazyky" hidden value="{{jazyky}}">
+            zadávám slovíčka z češtiny do 
+            <select name="target_jazyk" id="target_jazyk" required></select>
+        </p>
+        <script>
+            let jazyky = JSON.parse(document.getElementById("jazyky").value)
+            for (i=0;i<jazyky.length;i++) {
+                let opt = document.createElement("option")
+                opt.value = jazyky[i]
+                opt.innerHTML = jazyky[i]
+                document.getElementById("target_jazyk").appendChild(opt)
+            }
+        </script>
+        <p>
+            <input type="checkbox" name="jsem_hloupej" id="jsem_hloupej"/>
+            <label for="jsem_hloupej">Jsem hloupej a napsal jsem slovíčka ve formě "překlad - definice". Přeju si tedy, aby mi to program zapsal správně, tedy že část slovíčka za pomlčkou je česky</label>
+        </p>
+        <p>
+            <label for="asociace">pridat vsem stejnou asociaci?</label>
+            <input type="text" name="asociace" id="asociace"/>
+        </p>
+        <p>
+            <label for="druh">pridat vsem stejny druh?</label>
+            <input type="text" name="druh" id="druh"/>
+        </p>
+        <p>
+            <label for="kategorie">pridat vsem stejnou kategorii?</label>
+            <input type="text" name="kategorie" id="kategorie"/>
+        </p>
+
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

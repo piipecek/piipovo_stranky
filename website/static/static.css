@@ -29,5 +29,9 @@ hr {
     width: 1500px;
 }
 body {
+    background-color: whitesmoke ;
+    margin-left: 20px;
+}
+canvas {
     background-color: white;
 }
