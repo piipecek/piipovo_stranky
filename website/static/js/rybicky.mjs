@@ -49,12 +49,16 @@ const ctx = canvas.getContext("2d");
 
 // Konstantní šířka canvasu zaručí, že rybičky budou mít pořád stejně
 // velký prostor na plavání i na malých/úzkých obrazovkách.
-const aspect_ratio = 0.45;
-const width = 1000;
+const window_aspect_ratio = window.innerWidth / window.innerHeight;
+const aspect_threshold = 0.6;
+const width_threshold = 880;
+const is_small_device = (window_aspect_ratio < aspect_threshold || window.innerWidth < width_threshold);
+const aspect_ratio = is_small_device ? 1 : 0.45; // Mobily/tablety mají čtvercový canvas
+const width = is_small_device ? 500 : 1000; // Menší render width pro mobily/tablety
 const height = aspect_ratio * width;
 canvas.width = width;
 canvas.height = height;
-
+canvas.style.setProperty("--aspect-ratio", aspect_ratio);
 
 //event listeners
 velikost_ryby_element.oninput = changed_velikost_ryby
@@ -136,8 +140,8 @@ function ukazat_polomer_dohledu() {
     } else {
         ukazat_polomer_dohledu_bool = true
         polomer_dohledu_button.innerHTML = "Skrýt poloměr dohledu"
-
     }
+    polomer_dohledu_button.classList.toggle("active")
 }
 function ukazat_sirku_zony() {
     if (ukazat_sirku_zony_bool) {
@@ -147,15 +151,17 @@ function ukazat_sirku_zony() {
         ukazat_sirku_zony_bool = true
         sirka_zony_button.innerHTML = "Skrýt zónu"
     }
+    sirka_zony_button.classList.toggle("active")
 }
 function ukazat_osobni_polomer() {
     if (ukazat_osobni_polomer_bool) {
-        osobni_prostor_button.innerHTML = "Ukázat prostor kolem ryby"
+        osobni_prostor_button.innerHTML = "Ukázat prostor ryby"
         ukazat_osobni_polomer_bool = false
     } else {
-        osobni_prostor_button.innerHTML = "Skrýt prostor kolem ryby"
+        osobni_prostor_button.innerHTML = "Skrýt prostor ryby"
         ukazat_osobni_polomer_bool = true
     }
+    osobni_prostor_button.classList.toggle("active")
 }
 function ukazat_prostor_usmernovani() {
     if (ukazat_prostor_usmernovani_bool) {
@@ -165,6 +171,7 @@ function ukazat_prostor_usmernovani() {
         prostor_usmernovani_button.innerHTML = "Skrýt prostor usměrňování"
         ukazat_prostor_usmernovani_bool = true
     }
+    prostor_usmernovani_button.classList.toggle("active")
 }
 function changed_pocet_ryb() {
     n = parseInt(pocet_ryb_element.value);
