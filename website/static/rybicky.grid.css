@@ -1,0 +1,172 @@
+:root {
+    --margin-right: 20px;
+    --aspect-ratio: 0.45;
+
+    --border-thickness: 2px;
+    --border-radius: 5px;
+    --border-color: #0d6efd;
+    --border-color-a: #0d6dfd83;
+}
+
+.m-fix {
+    margin-left: 0;
+    margin-right: var(--margin-right);
+}
+
+canvas#canvas {
+    box-sizing: border-box;
+    width: calc(100% - var(--margin-right));
+    aspect-ratio: calc(1 / var(--aspect-ratio));
+
+    border: var(--border-thickness) solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+hr {
+    --m: 15px;
+    margin: var(--m) 0 var(--m) 0;
+}
+
+div#rybicky-controls {
+    margin-bottom: 5px;
+
+    display: grid;
+    column-gap: 5px;
+    row-gap: 5px;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1.2fr;
+    grid-template-areas:
+    "pocet      pocet-inp       restart-sett    restart-btn     ."
+    "velikost   velikost-ren    rychlost        rychlost-ren    ."
+    "okraj      okraj-ren       sirka           sirka-ren       sirka-show"
+    "pritah     pritah-ren      dohled          dohled-ren      dohled-show"
+    "odpuz      odpuz-ren       prostor         prostor-ren     prostor-show"
+    "usmer      usmer-ren       prostor2        prostor2-ren    prostor2-show";
+}
+
+div#rybicky-controls span {
+    font-weight: bold;
+}
+
+div#rybicky-controls .grid-item {
+    align-self: center;
+}
+
+div#rybicky-controls button {
+    border: var(--border-thickness) solid var(--border-color);
+    border-radius: var(--border-radius);
+
+    transition: box-shadow 0.2s;
+}
+div#rybicky-controls button.support-hover:hover {
+    background-color: var(--border-color);
+    color: white;
+}
+div#rybicky-controls button.active {
+    box-shadow: inset 0 0 10px var(--border-color-a);
+}
+
+div#rybicky-controls input[type="number"] {
+    border: var(--border-thickness) solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+input#pocet_ryb {
+    text-align: center;
+}
+
+button#restart {
+    color: white;
+    background-color: var(--border-color);
+}
+button#restart.support-hover:hover {
+    color: inherit !important;
+    background-color: inherit !important;
+}
+
+@media (max-width: 1170px) {
+    div#rybicky-controls {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+        "pocet          pocet-inp       restart-sett    restart-btn"
+        "velikost       velikost-ren    rychlost        rychlost-ren"
+        "okraj          okraj-ren       sirka           sirka-ren"
+        "pritah         pritah-ren      dohled          dohled-ren"
+        "odpuz          odpuz-ren       prostor         prostor-ren"
+        "usmer          usmer-ren       prostor2        prostor2-ren"
+        "sirka-show     sirka-show      dohled-show     dohled-show"
+        "prostor-show   prostor-show    prostor2-show   prostor2-show";
+    }
+}
+
+@media (max-width: 880px) {
+    :root {
+        --dynamic-font-size: 3.75vw;
+    }
+
+    section#rybicky-uvod {
+        font-size: var(--dynamic-font-size);
+    }
+
+    div#rybicky-controls {
+        font-size: var(--dynamic-font-size);
+    }
+
+    .dynamic-button {
+        width: 100%;
+        height: 100%;
+        font-size: 3.2vw;
+    }
+
+    .dynamic-label {
+        font-size: 3.4vw;
+    }
+
+    div#rybicky-controls {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        "pocet          pocet-inp"
+        "restart-sett   restart-btn"
+        "velikost       velikost-ren"
+        "rychlost       rychlost-ren"
+        "okraj          okraj-ren"
+        "sirka          sirka-ren"
+        "pritah         pritah-ren"
+        "dohled         dohled-ren"
+        "odpuz          odpuz-ren"
+        "prostor        prostor-ren"
+        "usmer          usmer-ren"
+        "prostor2       prostor2-ren"
+        "sirka-show     dohled-show"
+        "prostor-show   prostor2-show";
+    }
+}
+
+@media (max-width: 600px) {
+    .dynamic-label {
+        font-size: 3vw;
+    }
+}
+
+@media (max-width: 370px) {
+    .dynamic-button {
+        --p: 3px;
+        font-size: 3vw;
+        padding-top: var(--p);
+        padding-bottom: var(--p);
+    }
+
+    .dynamic-label, .dynamic-label-2 {
+        --p: 3px;
+        padding-top: var(--p);
+        padding-bottom: var(--p);
+    }
+
+    .dynamic-label {
+        font-size: 2.75vw;
+    }
+
+    .dynamic-label-2 {
+        font-size: 3.4vw;
+    }
+}
