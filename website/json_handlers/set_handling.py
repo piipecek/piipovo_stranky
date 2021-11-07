@@ -79,7 +79,7 @@ def skupina(string: str, jazyk: str) -> List[dict]:
     file = jazykovej_filtr(jazyk)
     result = []
     for w in file:
-        for single_word in w[jazyk]:
+        for single_word in w["v_jazyce"][jazyk]:
             if string in single_word:
                 result.append(w)
     return result
