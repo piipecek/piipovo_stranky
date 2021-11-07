@@ -1,5 +1,5 @@
 // imports
-import {move} from "./rybicky_move.js"
+import {move} from "./rybicky_move.mjs"
 
 // other declarations
 let debug_create = false
@@ -44,8 +44,14 @@ const startovni_pozice_button = document.getElementById("typ_startu");
 const restart_button = document.getElementById("restart")
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-const width = 0.9 * window.innerWidth;
-const height = 0.9 * window.innerHeight;
+// const width = 0.9 * window.innerWidth;
+// const height = 0.9 * window.innerHeight;
+
+// Konstantní šířka canvasu zaručí, že rybičky budou mít pořád stejně
+// velký prostor na plavání i na malých/úzkých obrazovkách.
+const aspect_ratio = 0.45;
+const width = 1000;
+const height = aspect_ratio * width;
 canvas.width = width;
 canvas.height = height;
 
@@ -117,7 +123,7 @@ function changed_prostor_usmernovani() {
 function zmenit_startovni_pozici() {
     if (start_je_kruh) {
         start_je_kruh = false
-        startovni_pozice_button.innerHTML = "začínat náhodně"
+        startovni_pozice_button.innerHTML = "Začínat náhodně"
     } else {
         start_je_kruh = true
         startovni_pozice_button.innerHTML = "Začínat z kruhu"
