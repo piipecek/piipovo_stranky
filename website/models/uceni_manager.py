@@ -11,12 +11,14 @@ class UceniManager:
                  seznam_id_slovicek: list=None, 
                  data_o_uceni: List[dict]=None, 
                  varka: int=0, 
-                 jazyk: str=None,
+                 target_jazyk: str=None,
+                 base_jazyk: str = None,
                  podle: str=None,
                  podle_meta: str=None):
         self.seznam_id_slovicek = seznam_id_slovicek
         self.varka = varka
-        self.jazyk = jazyk
+        self.target_jazyk = target_jazyk
+        self.base_jazyk = base_jazyk
         self.podle_meta = podle_meta
         self.podle = podle
         if data_o_uceni is None:
@@ -35,7 +37,8 @@ class UceniManager:
         set_handling.save_to_user_set_slovicek(
             {
                 "varka": self.varka,
-                "jazyk": self.jazyk,
+                "target_jazyk": self.target_jazyk,
+                "base_jazyk": self.base_jazyk,
                 "podle": self.podle,
                 "podle_meta": self.podle_meta,
                 "data_o_uceni": self.data_o_uceni
@@ -137,13 +140,13 @@ class UceniManager:
                     category = "correct"
                 else:
                     self.data_o_uceni[i]["showcase"] = False
-                    message = f"Špatně, správně by bylo {Slovicko.get_by_id(id_puvodniho).pretty(self.jazyk)}"
+                    message = f"Špatně, správně by bylo {Slovicko.get_by_id(id_puvodniho).pretty(self.target_jazyk)}"
                     category = "error"
         self.zapsat_do_souboru()
         return message, category
 
     def check_write(self, id: int, string: str) -> Tuple[str, str]:
-        result = vyhodnot(self.jazyk, Slovicko.get_by_id(id), string)
+        result = vyhodnot(self.target_jazyk, Slovicko.get_by_id(id), string)
         for i, zaznam in enumerate(self.data_o_uceni):
             if zaznam["id"]  == id:
                 if result:
@@ -152,7 +155,7 @@ class UceniManager:
                     category = "correct"
                 else:
                     self.data_o_uceni[i]["choose"] = False
-                    message = f"Špatně, správně by bylo {Slovicko.get_by_id(id).pretty(self.jazyk)}"
+                    message = f"Špatně, správně by bylo {Slovicko.get_by_id(id).pretty(self.target_jazyk)}"
                     category = "error"
         self.zapsat_do_souboru()
         return message, category

@@ -3,14 +3,14 @@
     <h2>Overview</h2>
     <div class="container">
         <div class="row">
-            <div class="col-md-1 w1">česky</div>
-            <div class="col-md-1 w1">{{ jazyk }}</div>
+            <div class="col-md-1 w1">{{ base_jazyk }}</div>
+            <div class="col-md-1 w1">{{ target_jazyk }}</div>
         </div>
         <hr>
         {% for word in setik %}
             <div class="row">
-                <div class="col-md-1 w1">{{ word.pretty("czech") }}</div>
-                <div class="col-md-1 w1">{{ word.pretty(jazyk) }}</div>
+                <div class="col-md-1 w1">{{ word.pretty(base_jazyk) }}</div>
+                <div class="col-md-1 w1">{{ word.pretty(target_jazyk) }}</div>
             </div>
         {% endfor %}
     </div>

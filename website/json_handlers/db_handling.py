@@ -65,18 +65,18 @@ def sort_slovnik(key: str, sestupne: bool):
 
     save_to_user_database(file)
 
-def jazykovej_filtr(jazyk: str) -> List[dict]:
+def jazykovej_filtr(target_jazyk: str, base_jazyk: str) -> List[dict]:
     file = get_user_database()
     result = []
     for word in file:
-        if (word["v_jazyce"]["czech"] != []) and (word["v_jazyce"][jazyk] != []):
+        if (word["v_jazyce"][base_jazyk] != []) and (word["v_jazyce"][target_jazyk] != []):
             result.append(word)
     return result
 
 
-def get_kategorie(jazyk: str=None) -> List[str]:
+def get_kategorie(target_jazyk: str=None, base_jazyk: str=None) -> List[str]:
     kat = []
-    if jazyk is None:
+    if target_jazyk is None:
         file = get_user_database()
         for word in file:
             for one_kat in word["kategorie"]:
@@ -85,7 +85,7 @@ def get_kategorie(jazyk: str=None) -> List[str]:
                 else:
                     kat.append(one_kat)
     else:
-        file = jazykovej_filtr(jazyk)
+        file = jazykovej_filtr(base_jazyk = base_jazyk, target_jazyk = target_jazyk)
         for word in file:
             for one_kat in word["kategorie"]:
                 if one_kat in kat:
@@ -95,16 +95,15 @@ def get_kategorie(jazyk: str=None) -> List[str]:
     return kat
 
 
-def get_druhy(jazyk: str) -> List[str]:
-    file = get_user_database()
+def get_druhy(target_jazyk: str=None, base_jazyk: str=None) -> List[str]:
+    file = jazykovej_filtr(base_jazyk = base_jazyk, target_jazyk = target_jazyk)
     dr = []
     for word in file:
-        if word["v_jazyce"][jazyk] != ["-"]:
-            for one_dr in word["druh"]:
-                if one_dr in dr:
-                    continue
-                else:
-                    dr.append(one_dr)
+        for one_dr in word["druh"]:
+            if one_dr in dr:
+                continue
+            else:
+                dr.append(one_dr)
     return dr
 
 

@@ -4,7 +4,9 @@
     <form method="post">
     <div>
         <p>
-            Chci zkoušet z češtiny do: 
+            Chci zkoušet z 
+            <select id="base_jazyk" name="base_jazyk"></select> 
+            do
             <select id="target_jazyk" name="target_jazyk"></select>
             <input id="jazyky" type="text" hidden value="{{jazyky}}"/>
             <script>
@@ -13,7 +15,8 @@
                     let opt = document.createElement("option")
                     opt.innerHTML = jazyky[i]
                     opt.value = jazyky[i]
-                    document.getElementById("target_jazyk").appendChild(opt)
+                    document.getElementById("target_jazyk").appendChild(opt.cloneNode(true))
+                    document.getElementById("base_jazyk").appendChild(opt.cloneNode(true))
                 }
             </script>
         </p>

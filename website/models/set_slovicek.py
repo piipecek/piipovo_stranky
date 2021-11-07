@@ -7,11 +7,13 @@ class SetSlovicek:
     def __init__(self,
                  podle: str=None,
                  podle_meta: str=None,
-                 jazyk: str=None,
+                 base_jazyk: str = None,
+                 target_jazyk: str=None,
                  seznam_id_slovicek: list = None):
         self.podle = podle
         self.podle_meta = podle_meta
-        self.jazyk = jazyk
+        self.target_jazyk = target_jazyk
+        self.base_jazyk = base_jazyk
         if seznam_id_slovicek is None:
             self.seznam_id_slovicek = []
         else:
@@ -21,7 +23,8 @@ class SetSlovicek:
         result = {
             "podle": self.podle,
             "podle_meta": self.podle_meta,
-            "jazyk": self.jazyk,
+            "base_jazyk": self.base_jazyk,
+            "target_jazyk": self.target_jazyk,
             "seznam_id_slovicek": self.seznam_id_slovicek,
             }
 
@@ -35,42 +38,42 @@ class SetSlovicek:
         return Slovicko.get_by_id_list(self.seznam_id_slovicek)
 
     def pripravit_set_od_do(self, od: str, do: str) -> None:
-        data = set_handling.od_do(od, do, jazyk=self.jazyk)
+        data = set_handling.od_do(od, do, base_jazyk = self.base_jazyk, target_jazyk = self.target_jazyk)
         self.podle_meta = (od, do)
         self.nacist_data(data)
 
     def pripravit_set_kategorie(self, cat: str) -> None:
-        data = set_handling.kategorie(cat, jazyk=self.jazyk)
+        data = set_handling.kategorie(cat, base_jazyk = self.base_jazyk, target_jazyk = self.target_jazyk)
         self.podle_meta = cat
         self.nacist_data(data)
 
     def pripravit_set_neuspesnych(self, kolik: int) -> None:
-        data = set_handling.neuspesnych(kolik, jazyk=self.jazyk)
+        data = set_handling.neuspesnych(kolik, base_jazyk = self.base_jazyk, target_jazyk = self.target_jazyk)
         self.podle_meta = kolik
         self.nacist_data(data)
 
     def pripravit_set_vse(self, kolik: int) -> None:
-        data = set_handling.vse(kolik, jazyk=self.jazyk)
+        data = set_handling.vse(kolik, base_jazyk = self.base_jazyk, target_jazyk = self.target_jazyk)
         self.podle_meta = kolik
         self.nacist_data(data)
 
     def pripravit_set_least(self, kolik: int) -> None:
-        data = set_handling.least(kolik, jazyk=self.jazyk)
+        data = set_handling.least(kolik, base_jazyk = self.base_jazyk, target_jazyk = self.target_jazyk)
         self.podle_meta = kolik
         self.nacist_data(data)
 
     def pripravit_set_druhy(self, dr: str) -> None:
-        data = set_handling.druhy(dr, jazyk=self.jazyk)
+        data = set_handling.druhy(dr, base_jazyk = self.base_jazyk, target_jazyk = self.target_jazyk)
         self.podle_meta = dr
         self.nacist_data(data)
 
     def pripravit_set_skupina(self, string: str) -> None:
-        data = set_handling.skupina(string, jazyk=self.jazyk)
+        data = set_handling.skupina(string, base_jazyk = self.base_jazyk, target_jazyk = self.target_jazyk)
         self.podle_meta = string
         self.nacist_data(data)
     
     def pripravit_set_nejmene_ucene(self, kolik: int) -> None:
-        data = set_handling.nejmene_ucene(kolik=kolik, jazyk=self.jazyk)
+        data = set_handling.nejmene_ucene(kolik=kolik, base_jazyk = self.base_jazyk, target_jazyk = self.target_jazyk)
         self.podle_meta = kolik
         self.nacist_data(data)
 

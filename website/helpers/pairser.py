@@ -5,7 +5,7 @@ from random import sample
 from typing import Tuple, Sequence
 
 
-def pairse_cj_x_and_insert(data: str, jazyk: str, asociace: str, druh: str, kategorie: str, obratit: bool) -> Tuple[str]:
+def pairse_cj_x_and_insert(data: str, target_jazyk: str, base_jazyk: str, asociace: str, druh: str, kategorie: str) -> Tuple[str]:
     asociace = asociace.replace(", ", ",")
     druh = druh.replace(", ", ",")
     kategorie = kategorie.replace(", ", ",")
@@ -50,21 +50,17 @@ def pairse_cj_x_and_insert(data: str, jazyk: str, asociace: str, druh: str, kate
     slovnik = Slovnik.get()
 
     for line in lines:
-        if obratit:
-            x, cz = line.split("-")
-        else:
-            cz, x = line.split("-")
-
-        cz = cz.split(",")
-        x = x.split(",")
-        while "" in cz:
-            cz.remove("")
-        while "" in x:
-            x.remove("")
+        base, target = line.split("-")
+        base = base.split(",")
+        target = target.split(",")
+        while "" in base:
+            base.remove("")
+        while "" in target:
+            target.remove("")
 
         new_word = Slovicko(id=slovnik.get_next_id())
-        new_word.v_jazyce["czech"] = cz
-        new_word.v_jazyce[jazyk] = x
+        new_word.v_jazyce[target_jazyk] = target
+        new_word.v_jazyce[base_jazyk] = base
         new_word.kategorie=kategorie
         new_word.druh=druh
         new_word.asociace=asociace

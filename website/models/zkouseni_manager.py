@@ -15,12 +15,14 @@ class ZkouseniManager:
                  podle: str=None,
                  podle_meta: str=None,
                  datum: str=None,
-                 jazyk: str=None,
+                 target_jazyk: str=None,
+                 base_jazyk: str = None,
                  poznamka: str=None,
                  seznam_odpovedi: List[str]=None,
                  uspesnost: float = None):
         self.seznam_id_slovicek = seznam_id_slovicek
-        self.jazyk = jazyk
+        self.target_jazyk = target_jazyk
+        self.base_jazyk = base_jazyk
         self.poznamka = poznamka
         self.podle = podle
         self.podle_meta = podle_meta
@@ -52,7 +54,7 @@ class ZkouseniManager:
     def get_seznam_yesno(self) -> List[int]:
         result = []
         for i in range(len(self.seznam_id_slovicek)):
-            if vyhodnot(jazyk=self.jazyk,
+            if vyhodnot(jazyk=self.target_jazyk,
                         predloha=Slovicko.get_by_id(self.seznam_id_slovicek[i]),
                         string=self.seznam_odpovedi[i]):
                 result.append(1)
@@ -69,7 +71,8 @@ class ZkouseniManager:
     def zapsat_do_souboru(self) -> None:
         result = {
             "id": self.id,
-            "jazyk": self.jazyk,
+            "target_jazyk": self.target_jazyk,
+            "base_jazyk": self.base_jazyk,
             "datum": self.datum,
             "podle": self.podle,
             "podle_meta": self.podle_meta,
@@ -108,7 +111,8 @@ class ZkouseniManager:
             "seznam_id_slovicek": self.seznam_id_slovicek,
             "seznam_odpovedi": self.seznam_odpovedi,
             "poznamka": self.poznamka,
-            "jazyk": self.jazyk,
+            "target_jazyk": self.target_jazyk,
+            "base_jazyk": self.base_jazyk,
             "id": self.id,
             "uspesnost": self.get_uspesnost()
         }

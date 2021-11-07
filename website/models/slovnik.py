@@ -122,6 +122,14 @@ class Slovnik:
                 new_slovicko = Slovicko(**word)
                 new_slovicko.id = self.get_next_id()
                 self.slovicka.append(new_slovicko)
+        
+        for slovicko in self.slovicka:
+            for j in Settings.get().data["jazyky"]:
+                try:
+                    x = slovicko.v_jazyce[j]
+                except KeyError:
+                    slovicko.v_jazyce[j] = []
+
         self.ulozit_do_db()
 
         

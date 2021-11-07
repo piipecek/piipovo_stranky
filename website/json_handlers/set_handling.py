@@ -14,11 +14,11 @@ def save_to_user_set_slovicek(data: dict) -> None:
         file.write(json.dumps(data, indent=3))
 
 
-def od_do(od: str, do:str, jazyk:str) -> List[dict]:
+def od_do(od: str, do:str, target_jazyk:str, base_jazyk: str) -> List[dict]:
     od = parser.parse(od, dayfirst=False)
     do = parser.parse(do, dayfirst=False)
 
-    file = jazykovej_filtr(jazyk)
+    file = jazykovej_filtr(base_jazyk = base_jazyk, target_jazyk = target_jazyk)
     result = []
     for word in file:
         date = parser.parse(word["datum"], dayfirst=True)
@@ -27,8 +27,8 @@ def od_do(od: str, do:str, jazyk:str) -> List[dict]:
     return result
 
 
-def kategorie(katego: str, jazyk: str) -> List[dict]:
-    file = jazykovej_filtr(jazyk)
+def kategorie(katego: str, target_jazyk: str, base_jazyk: str) -> List[dict]:
+    file = jazykovej_filtr(base_jazyk = base_jazyk, target_jazyk = target_jazyk)
     result = []
     for w in file:
         if katego in w["kategorie"]:
@@ -36,9 +36,9 @@ def kategorie(katego: str, jazyk: str) -> List[dict]:
     return result
 
 
-def neuspesnych(kolik: int, jazyk: str) -> List[dict]:
+def neuspesnych(kolik: int, target_jazyk: str, base_jazyk: str) -> List[dict]:
     sort_slovnik(key="neuspesne", sestupne=True)
-    file = jazykovej_filtr(jazyk)
+    file = jazykovej_filtr(base_jazyk = base_jazyk, target_jazyk = target_jazyk)
     result = []
 
     if len(file)<=kolik:
@@ -49,14 +49,14 @@ def neuspesnych(kolik: int, jazyk: str) -> List[dict]:
     return result
 
 
-def vse(kolik: int, jazyk: str) -> List[dict]:
-    file = jazykovej_filtr(jazyk)
+def vse(kolik: int, target_jazyk: str, base_jazyk: str) -> List[dict]:
+    file = jazykovej_filtr(base_jazyk = base_jazyk, target_jazyk = target_jazyk)
     return smart_sample(file, kolik)
 
 
-def least(kolik: int, jazyk: str) -> List[dict]:
+def least(kolik: int, target_jazyk: str, base_jazyk: str) -> List[dict]:
     sort_slovnik(sestupne=False, key="least")
-    file = jazykovej_filtr(jazyk)
+    file = jazykovej_filtr(base_jazyk = base_jazyk, target_jazyk = target_jazyk)
     result = []
     if len(file) <= kolik:
         result = file
@@ -66,8 +66,8 @@ def least(kolik: int, jazyk: str) -> List[dict]:
     return result
 
 
-def druhy(dr: str, jazyk: str) -> List[dict]:
-    file = jazykovej_filtr(jazyk)
+def druhy(dr: str, target_jazyk: str, base_jazyk: str) -> List[dict]:
+    file = jazykovej_filtr(base_jazyk = base_jazyk, target_jazyk = target_jazyk)
     result = []
     for w in file:
         if dr in w["druh"]:
@@ -75,18 +75,18 @@ def druhy(dr: str, jazyk: str) -> List[dict]:
     return result
 
 
-def skupina(string: str, jazyk: str) -> List[dict]:
-    file = jazykovej_filtr(jazyk)
+def skupina(string: str, target_jazyk: str, base_jazyk: str) -> List[dict]:
+    file = jazykovej_filtr(base_jazyk = base_jazyk, target_jazyk = target_jazyk)
     result = []
     for w in file:
-        for single_word in w["v_jazyce"][jazyk]:
+        for single_word in w["v_jazyce"][target_jazyk]:
             if string in single_word:
                 result.append(w)
     return result
 
-def nejmene_ucene(kolik: int, jazyk: str) -> List[dict]:
+def nejmene_ucene(kolik: int, target_jazyk: str, base_jazyk: str) -> List[dict]:
     sort_slovnik(sestupne=False, key="nejmene_ucene")
-    file = jazykovej_filtr(jazyk)
+    file = jazykovej_filtr(base_jazyk = base_jazyk, target_jazyk = target_jazyk)
     result = []
     if len(file) <= kolik:
         result = file

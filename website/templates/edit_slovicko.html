@@ -1,19 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2>editing {{ word.pretty("czech") }}, id = {{ word.id }}</h2>
+    <h2>editing id = {{ word.id }}</h2>
     <form method="post">
-    <div>
-        <label for="czech">česky:</label>
-        <input id = "czech" type="text" name="czech" value="{{ word.pretty("czech") }}">
-    </div>
-    <div>
-        <label for="german">německy:</label>
-        <input id="german" type="text" name="german" value="{{ word.pretty("german") }}">
-    </div>
-    <div>
-        <label for="english">anglicky:</label>
-        <input id="english" type="text" name="english" value="{{ word.pretty("english") }}">
-    </div>
+    {% for jazyk in jazyky %}
+    <p>
+        <label for="{{jazyk}}">{{jazyk}}: </label>
+        <input id="{{jazyk}}" type="text" name="{{jazyk}}" value="{{ word.pretty(jazyk) }}"/>
+    </p>
+    {% endfor %}
     <div>
         <label for="druh">slovní druh:</label>
         <input id="druh" type="text" name="druh" value="{{ word.pretty("druh") }}">

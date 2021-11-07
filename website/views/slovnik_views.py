@@ -41,11 +41,11 @@ def pridej_slovicka():
         else:
             print(request.form.get("target_jazyk"))
             output_pairseru = pairse_cj_x_and_insert(request.form.get("input"),
-                                                     jazyk=request.form.get("target_jazyk"),
+                                                     target_jazyk=request.form.get("target_jazyk"),
+                                                     base_jazyk=request.form.get("base_jazyk"),
                                                      asociace=request.form.get("asociace"),
                                                      druh=request.form.get("druh"),
-                                                     kategorie=request.form.get("kategorie"),
-                                                     obratit=request.form.get("jsem_hloupej"))
+                                                     kategorie=request.form.get("kategorie"))
             if output_pairseru:
                 return render_template("returned_text.html", line=output_pairseru[0], text=output_pairseru[1])
 
@@ -76,7 +76,7 @@ def slovnik():
 def edit(id: int):
     if request.method == "GET":
         obj = Slovicko.get_by_id(id=id)
-        return render_template("edit_slovicko.html", word=obj)
+        return render_template("edit_slovicko.html", word=obj, jazyky = Settings.get().data["jazyky"])
     elif request.method == "POST":
         if request.form.get("potvrdit"):
             slovicko = Slovicko.get_by_id(id=id)
@@ -144,7 +144,8 @@ def tvoreni_setu_podle():
     elif request.method == "POST":
         s = SetSlovicek.nacist_ze_souboru()
         s.podle = request.form.get("typ")
-        s.jazyk = request.form.get("target_jazyk")
+        s.base_jazyk = request.form.get("base_jazyk")
+        s.target_jazyk = request.form.get("target_jazyk")
         s.zapsat_do_souboru()
         return redirect(url_for("slovnik_views.tvoreni_setu_meta"))
 
@@ -156,8 +157,8 @@ def tvoreni_setu_meta():
     if request.method == "GET":
         return render_template("tvoreni_setu_meta.html",
                                typ=s.podle,
-                               kategorie=db_handling.get_kategorie(s.jazyk),
-                               druhy=db_handling.get_druhy(s.jazyk))
+                               kategorie=db_handling.get_kategorie(base_jazyk = s.base_jazyk, target_jazyk = s.target_jazyk),
+                               druhy=db_handling.get_druhy(base_jazyk = s.base_jazyk, target_jazyk = s.target_jazyk))
     elif request.method == "POST":
         if s.podle == "datum":
             s.pripravit_set_od_do(request.form.get("od"), request.form.get("do"))
@@ -189,11 +190,12 @@ def set_overview():
         return redirect(url_for("slovnik_views.slovnik_home"))
     else:
         if request.method == "GET":
-            return render_template("set_overview.html", setik=s.objekty(), jazyk=s.jazyk)
+            return render_template("set_overview.html", setik=s.objekty(), target_jazyk=s.target_jazyk, base_jazyk = s.base_jazyk)
         elif request.method == "POST":
             if request.form.get("zkouseni"):
                 z = ZkouseniManager(seznam_id_slovicek=s.seznam_id_slovicek,
-                                    jazyk=s.jazyk,
+                                    target_jazyk=s.target_jazyk,
+                                    base_jazyk=s.base_jazyk,
                                     podle=s.podle,
                                     podle_meta=s.podle_meta)
                 z.zamichat_slovicka()
@@ -201,7 +203,8 @@ def set_overview():
                 return redirect(url_for("slovnik_views.zkouseni", index=0))
             elif request.form.get("uceni"):
                 u = UceniManager(seznam_id_slovicek=s.seznam_id_slovicek, 
-                                 jazyk=s.jazyk,
+                                 target_jazyk=s.target_jazyk,
+                                 base_jazyk=s.base_jazyk,
                                  podle=s.podle,
                                  podle_meta=s.podle_meta)
                 u.zapsat_do_souboru()
@@ -217,12 +220,12 @@ def zkouseni(index: int):
         if word is False:
             return redirect(url_for("slovnik_views.konec_zkouseni"))
         else:
-            return render_template("zkouseni.html", word=word, index=index, celkem = len(z.seznam_id_slovicek), jazyk=z.jazyk)
+            return render_template("zkouseni.html", word=word, index=index, celkem = len(z.seznam_id_slovicek), target_jazyk=z.target_jazyk, base_jazyk = z.base_jazyk)
     elif request.method == "POST":
         if request.form.get("next"):
             odpoved = request.form.get("pokus")
             z.seznam_odpovedi.append(odpoved)
-            vysledek = vyhodnot(jazyk=z.jazyk, predloha=word, string=odpoved)
+            vysledek = vyhodnot(jazyk=z.target_jazyk, predloha=word, string=odpoved)
             if vysledek:
                 word.times_tested += 1
                 word.times_known += 1
@@ -231,7 +234,7 @@ def zkouseni(index: int):
             else:
                 word.times_tested += 1
                 word.put_in_db()
-                co_je_dobre = word.pretty(z.jazyk)
+                co_je_dobre = word.pretty(z.target_jazyk)
                 flash(f"spatne, spravne je {co_je_dobre}", category="error")
             z.zapsat_do_souboru()
             return redirect(url_for("slovnik_views.zkouseni", index=index+1))
@@ -268,7 +271,7 @@ def uceni():
         next_display_info = u.get_next_data()
         if next_display_info:
             typ, data = next_display_info
-            return render_template("uceni.html", display_info=data, typ=typ, jazyk=u.jazyk, pocet_written = u.get_pocet_written())
+            return render_template("uceni.html", display_info=data, typ=typ, target_jazyk=u.target_jazyk, base_jazyk = u.base_jazyk ,pocet_written = u.get_pocet_written())
         else:
             return redirect(url_for("slovnik_views.konec_uceni"))
     elif request.method == "POST":
@@ -305,7 +308,7 @@ def konec_uceni():
         elif request.form.get("nove"):
             return redirect(url_for("slovnik_views.slovnik_home"))
         elif request.form.get("vyzkouset"):
-            z = ZkouseniManager(jazyk=u.jazyk)
+            z = ZkouseniManager(target_jazyk=u.target_jazyk, base_jazyk=u.base_jazyk)
             z.nacist_z_dat_o_uceni(data_o_uceni=u.data_o_uceni, podle=u.podle, podle_meta=u.podle_meta)
             return redirect(url_for("slovnik_views.zkouseni", index=0))
 

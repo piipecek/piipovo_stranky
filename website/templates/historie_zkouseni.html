@@ -4,7 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-1 w1">datum</div>
-            <div class="col-md-1 w1">jazyk</div>
+            <div class="col-md-1 w1">base jazyk</div>
+            <div class="col-md-1 w1">target jazyk</div>
             <div class="col-md-1 w1">podle</div>
             <div class="col-md-1 w1">podle - meta</div>
             <div class="col-md-1 w1">uspesnost</div>
@@ -15,7 +16,8 @@
     {% for z in historie %}
         <div class="row">
             <div class="col-md-1 w1">{{ z.pretty_date() }}</div>
-            <div class="col-md-1 w1">{{ z.jazyk }}</div>
+            <div class="col-md-1 w1">{{ z.base_jazyk }}</div>
+            <div class="col-md-1 w1">{{ z.target_jazyk }}</div>
             <div class="col-md-1 w1">{{ z.podle }}</div>
             <div class="col-md-1 w1">{{ z.podle_meta }}</div>
             <div class="col-md-1 w1">{{ z.uspesnost }}</div>

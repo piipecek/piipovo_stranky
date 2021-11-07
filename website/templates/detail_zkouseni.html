@@ -1,23 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
     <h2> Detail zkoušení</h2>
-    datum: {{ zkouseni.pretty_date() }}, jazyk: {{ zkouseni.jazyk }}, úspěšnost: {{ zkouseni.uspesnost }},
+    datum: {{ zkouseni.pretty_date() }}, base_jazyk: {{zkouseni.base_jazyk}}, target_jazyk: {{ zkouseni.target_jazyk }}, úspěšnost: {{ zkouseni.uspesnost }},
     podle: {{ zkouseni.podle }}, metadata: {{ zkouseni.podle_meta }}, id: {{ zkouseni.id }}
     <br>
     poznámka: {{ zkouseni.poznamka }}
     <div class="container">
         <div class="row">
-            <div class="col-md-1 w1">česky</div>
+            <div class="col-md-1 w1">{{ zkouseni.base_jazyk }}</div>
             <div class="col-md-1 w1">moje odpověď</div>
-            <div class="col-md-1 w1">správně v jazyce {{ zkouseni.jazyk }}</div>
+            <div class="col-md-1 w1">správně v jazyce {{ zkouseni.target_jazyk }}</div>
             <div class="col-md-1 w1">upravit</div>
         </div>
     <hr>
         {% for index in indexy %}
             <div class="row">
-                <div class="col-md-1 w1">{{ zkousena_slovicka[index].pretty("czech") }}</div>
+                <div class="col-md-1 w1">{{ zkousena_slovicka[index].pretty(zkouseni.base_jazyk) }}</div>
                 <div class="col-md-1 w1">{{ zkouseni.seznam_odpovedi[index] }}</div>
-                <div class="col-md-1 w1">{{ zkousena_slovicka[index].pretty(zkouseni.jazyk) }}</div>
+                <div class="col-md-1 w1">{{ zkousena_slovicka[index].pretty(zkouseni.target_jazyk) }}</div>
                 <div class="col-md-1 w1">
                     <form method="post">
                         <button type="submit" name="edit" value="{{zkousena_slovicka[index].id}}">Upravit</button>

@@ -4,12 +4,12 @@ slovíčko {{index + 1}} z {{celkem}}
     <form method="post" autocomplete="off">
         <div class="container">
             <div class="row">
-                <div class="col-md-1">česky</div>
-                <div class="col-md-1">{{jazyk}}</div>
+                <div class="col-md-1">{{ base_jazyk }}</div>
+                <div class="col-md-1">{{ target_jazyk }}</div>
             </div>
             <hr>
             <div class="row">
-                <div class="col-md-1">{{ word.pretty("czech") }}</div>
+                <div class="col-md-1">{{ word.pretty(base_jazyk) }}</div>
                 <div class="col-md-1">
                     <input type="text" name="pokus" autofocus autocomplete="off"/>
                 </div>
