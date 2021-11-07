@@ -1,58 +1,197 @@
 {% extends "base.html" %}
 {% block content %}
 
+<style>
+    :root {
+        --margin-right: 20px;
+    }
+
+    canvas#canvas {
+        margin-right: var(--margin-right);
+        width: calc(100% - var(--margin-right));
+        aspect-ratio: calc(1 / 0.45);
+    }
+
+    div#rybicky-controls {
+        margin-right: var(--margin-right);
+        margin-bottom: 10px;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr 1fr) 1.2fr;
+        grid-template-rows: repeat(6, auto);
+        column-gap: 5px;
+        row-gap: 5px;
+        grid-auto-columns: 0;
+
+        grid-template-areas: 
+        "pocet      pocet-inp           restart-sett    restart-btn ."
+        "velikost   velikost-ren        rychlost        rychlost-ren ."
+        "okraj      okraj-ren sirka     sirka-ren       sirka-show"
+        "pritah     pritah-ren dohled   dohled-ren      dohled-show"
+        "odpuz      odpuz-ren prostor   prostor-ren     prostor-show"
+        "usmer      usmer-ren prostor2  prostor2-ren    prostor2-show";
+    }
+
+    div#rybicky-controls span {
+        font-weight: bold;
+    }
+
+    div#rybicky-controls .grid-item {
+        /* grid-column-start: var(--c);
+        grid-row-start: var(--r); */
+        /* justify-self: left; */
+        align-self: center;
+    }
+
+    div#rybicky-controls .remove {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+
+    div#rybicky-controls .row-1 {
+        grid-row-start: 1;
+    }
+    div#rybicky-controls .row-2 {
+        grid-row-start: 2;
+    }
+    div#rybicky-controls .row-3 {
+        grid-row-start: 3;
+    }
+    div#rybicky-controls .row-4 {
+        grid-row-start: 4;
+    }
+    div#rybicky-controls .row-5 {
+        grid-row-start: 5;
+    }
+    div#rybicky-controls .row-6 {
+        grid-row-start: 6;
+    }
+
+    /* BUTTONS */
+    div#rybicky-controls button#sirka_zony_button {
+        grid-column-start: 5;
+        grid-row-start: 3;
+    }
+    div#rybicky-controls button#polomer_dohledu_button {
+        grid-column-start: 5;
+        grid-row-start: 4;
+    }
+    div#rybicky-controls button#osobni_prostor_button {
+        grid-column-start: 5;
+        grid-row-start: 5;
+    }
+    div#rybicky-controls button#prostor_usmernovani_button {
+        grid-column-start: 5;
+        grid-row-start: 6;
+    }
+
+    @media (max-width: 1170px) {
+        * {
+            /* color: red; */
+        }
+
+        div#rybicky-controls {
+            grid-template-columns: repeat(2, minmax(0, 1fr) minmax(0, 1fr)) !important;
+            grid-template-rows: repeat(9, minmax(0, auto));
+        }
+
+        /* BUTTONS */
+        div#rybicky-controls button#sirka_zony_button {
+            grid-column: 1 / 3;
+            grid-row-start: 7;
+        }
+        div#rybicky-controls button#polomer_dohledu_button {
+            grid-column: 3 / 6;
+            grid-row-start: 7;
+        }
+        div#rybicky-controls button#osobni_prostor_button {
+            grid-column: 1 / 3;
+            grid-row-start: 8;
+        }
+        div#rybicky-controls button#prostor_usmernovani_button {
+            grid-column: 3 / 6;
+            grid-row-start: 8;
+        }
+        div#grid-fill-1, div#grid-fill-2 {
+            grid-row-start: 9;
+            display: hidden;
+            width: 0;
+            height: 0;
+        }
+        div#grid-fill-1 {
+            grid-column-start: 1;
+        }
+        div#grid-fill-2 {
+            grid-column-start: 2;
+        }
+    }
+
+    @media (max-width: 880px) {
+        * {
+            /* color: green; */
+        }
+
+        div#rybicky-controls {
+            font-size: 1.7vw;
+        }
+    }
+</style>
+
 <h3>Rybičky</h3>
-<p>
+<p style="margin-bottom: 10px;">
     Toto je simulace chování hejna. Insiprací bylo <a href="https://youtu.be/4LWmRuB-uNU">tohle 13 minut dlouhé video</a>, které ukazuje autorovo nadšení nad hejnem ptáků a jeho kamaráda, jak tuhle vizualizaci vytvořil. Jsou tam dokonale vysvětlena pravidla, která vytváří tohle chování, doporučuju. Pokud si moc rozházíte parametry, stačí načíst stránku znovu :)
 </p>
-<div>
-    <label for="velikost_ryby">Velikost ryby: </label>
-    <span id="velikost_ryby_display"></span>
-    <input type="range" id="velikost_ryby" min="1" max="100" value="20"/>
-    <label for="rychlost">Rychlost: </label>
-    <span id="rychlost_display"></span>
-    <input type="range" id="rychlost" min="0" max="1000" value="400"/>
-    <label for="pocet_ryb">Počet ryb: </label>
-    <input type="number" id="pocet_ryb" value="80"/>
-    <button id="typ_startu">Začínat náhodně</button>
-    <button id="restart">Restart</button>
-    <br>
-    <label for="koef_od_kraju">Odpuzování od krajů: </label>
-    <span id="koef_od_kraju_display"></span>
-    <input type="range" id="koef_od_kraju" min="0" max="100" value="50"/>
-    <label for="sirka_zony">Šířka zóny: </label>
-    <span id="sirka_zony_display"></span>
-    <input type="range" id="sirka_zony" min="1" max="300" value="100"/>
-    <button id="sirka_zony_button">Ukázat šířku zóny</button>
-    <br>
-    <label for="koef_pritahovani">Přitahování: </label>
-    <span id="koef_pritahovani_display"></span>
-    <input type="range" id="koef_pritahovani" min="0" max="100" value="19"/>
-    <label for="polomer_dohledu">Poloměr dohledu: </label>
-    <span id="polomer_dohledu_display"></span>
-    <input type="range" id="polomer_dohledu" min="1" max="100" value="43"/>
-    <button id="polomer_dohledu_button">Ukázat poloměr dohledu</button>
-    <br>
-    <label for="koef_odpuzovaci">Odpuzování: </label>
-    <span id="koef_odpuzovaci_display"></span>
-    <input type="range" id="koef_odpuzovaci" min="0" max="100" value="40"/>
-    <label for="osobni_prostor">Prostor kolem ryby: </label>
-    <span id="osobni_prostor_display"></span>
-    <input type="range" id="osobni_prostor" min="0" max="100" value="23"/>
-    <button id="osobni_prostor_button">Ukázat prostor ryby</button>
-    <br>
-    <label for="koef_usmernovaci">Společné usměrňování</label>
-    <span id="koef_usmernovaci_display"></span>
-    <input type="range" id="koef_usmernovaci" min="0" max="100" value="32"/>
-    <label for="prostor_usmernovani">Prostor pro usměrňování: </label>
-    <span id="prostor_usmernovani_display"></span>
-    <input type="range" id="prostor_usmernovani" min="0" max="100" value="30"/>
-    <button id="prostor_usmernovani_button">Ukázat prostor pro usměrňování</button>
+<div id="rybicky-controls">
+    <!-- Row 1 -->
+    <label  class="grid-item row-1" for="pocet_ryb">Počet ryb: </label>
+    <input  class="grid-item row-1" type="number" id="pocet_ryb" value="80"/>
+    <button class="grid-item row-1" id="typ_startu">Začínat náhodně</button>
+    <button class="grid-item row-1" id="restart">Restart</button>
+    <div id="grid-fill-1"></div>
+
+    <!-- Row 2 -->
+    <label  class="grid-item row-2" for="velikost_ryby">Velikost ryby: <span id="velikost_ryby_display"></span></label>
+    <input  class="grid-item row-2 form-range" type="range" id="velikost_ryby" min="1" max="100" value="20"/>
+    <label  class="grid-item row-2" for="rychlost">Rychlost: <span id="rychlost_display"></span></label>
+    <input  class="grid-item row-2 form-range" type="range" id="rychlost" min="0" max="1000" value="400"/>
+    <div id="grid-fill-2"></div>
+
+    <!-- Row 3 -->
+    <label  class="grid-item row-3" for="koef_od_kraju">Odpuzování od krajů: <span id="koef_od_kraju_display"></span></label>
+    <input  class="grid-item row-3 form-range" type="range" id="koef_od_kraju" min="0" max="100" value="50"/>
+    <label  class="grid-item row-3" for="sirka_zony">Šířka zóny: <span id="sirka_zony_display"></span></label>
+    <input  class="grid-item row-3 form-range" type="range" id="sirka_zony" min="1" max="300" value="100"/>
+    <button class="grid-item row-3" id="sirka_zony_button">Ukázat šířku zóny</button>
+    
+    <!-- Row 4 -->
+    <label  class="grid-item row-4" for="koef_pritahovani">Přitahování: <span id="koef_pritahovani_display"></span></label>
+    <input  class="grid-item row-4 form-range" type="range" id="koef_pritahovani" min="0" max="100" value="19"/>
+    <label  class="grid-item row-4" for="polomer_dohledu">Poloměr dohledu: <span id="polomer_dohledu_display"></span></label>
+    <input  class="grid-item row-4 form-range" type="range" id="polomer_dohledu" min="1" max="100" value="43"/>
+    <button class="grid-item row-4" id="polomer_dohledu_button">Ukázat poloměr dohledu</button>
+    
+    <!-- Row 5 -->
+    <label  class="grid-item row-5" for="koef_odpuzovaci">Odpuzování: <span id="koef_odpuzovaci_display"></span></label>
+    <input  class="grid-item row-5 form-range" type="range" id="koef_odpuzovaci" min="0" max="100" value="40"/>
+    <label  class="grid-item row-5" for="osobni_prostor">Prostor kolem ryby: <span id="osobni_prostor_display"></span></label>
+    <input  class="grid-item row-5 form-range" type="range" id="osobni_prostor" min="0" max="100" value="23"/>
+    <button class="grid-item row-5" id="osobni_prostor_button">Ukázat prostor ryby</button>
+    
+    <!-- Row 6 -->
+    <label  class="grid-item row-6" for="koef_usmernovaci">Společné usměrňování: <span id="koef_usmernovaci_display"></span></label>
+    <input  class="grid-item row-6 form-range" type="range" id="koef_usmernovaci" min="0" max="100" value="32"/>
+    <label  class="grid-item row-6" for="prostor_usmernovani">Prostor pro usměrňování: <span id="prostor_usmernovani_display"></span></label>
+    <input  class="grid-item row-6 form-range" type="range" id="prostor_usmernovani" min="0" max="100" value="30"/>
+    <button class="grid-item row-6" id="prostor_usmernovani_button">Ukázat prostor pro usměrňování</button>
 
 </div>
 
 <canvas id="canvas"></canvas>
-<script type="module" src="../static/js/rybicky_move.js"></script>
-<script type="module" src="../static/js/rybicky.js"></script>
+<!-- <script type="module" src="../static/js/rybicky_move.js"></script>
+<script type="module" src="../static/js/rybicky.js"></script> -->
+<!-- https://stackoverflow.com/a/68587672/9318084 -->
+<script type="module" src="{{url_for('static',filename='js/rybicky_move.mjs')}}"></script>
+<script type="module" src="{{url_for('static',filename='js/rybicky.mjs')}}"></script>
 
 {% endblock %}
