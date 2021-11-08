@@ -16,11 +16,11 @@ class Slovicko:
                  times_learned: int=0,
                  kategorie: List[str]=None):
         if kategorie is None:
-            kategorie = ["-"]
+            kategorie = []
         if asociace is None:
-            asociace = ["-"]
+            asociace = []
         if druh is None:
-            druh = ["-"]
+            druh = []
         if v_jazyce is None:
             self.v_jazyce = {}
             for jazyk in Settings.get().data["jazyky"]:

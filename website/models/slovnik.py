@@ -44,10 +44,6 @@ class Slovnik:
                     else:
                         vyrazy.append(vyraz)
                         duplicitni[vyraz] = [word.id]
-        try:
-            duplicitni.pop("-")
-        except KeyError:
-            pass
 
         duplicitni_filtered = {}
         for string, ids in duplicitni.items():
