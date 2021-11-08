@@ -10,6 +10,8 @@ for folder in user_data_folder.iterdir():
             f = json.load(f)
         try:
             x = f[0]["v_jazyce"]
+        except IndexError:
+            break
         except KeyError:
             for word in f:
                 v_jazyce = {
