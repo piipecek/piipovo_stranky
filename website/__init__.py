@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_login import LoginManager
+from .helpers.check_files import check_files_or_create
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
@@ -33,6 +34,7 @@ def create_app() -> Flask:
 	from .models.user import User
 
 	check_if_database_exists_else_create(app)
+	check_files_or_create()
 
 	login_manager = LoginManager()
 	login_manager.login_view = "auth_views.login"

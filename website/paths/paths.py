@@ -11,10 +11,13 @@ def piipuv_omnislovnik_path() -> Path:
     cwd = Path.cwd()
     return cwd / "piipuv_omnislovnik_k_3_10_2021.json"
 
+def user_data_folder_path() -> Path:
+    cwd = Path.cwd()
+    return cwd / "user_data"
+
 
 def user_folder_path() -> Path:
-    cwd = Path.cwd()
-    return cwd / "user_data" / str(current_user.id)
+    return user_data_folder_path() / str(current_user.id)
 
 
 def user_database_path() -> Path:
