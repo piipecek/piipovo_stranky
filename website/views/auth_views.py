@@ -3,8 +3,6 @@ from website.models.user import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_required, login_user, logout_user
 from website import db
-from website.helpers.check_updated_slovnik import check_if_slovnik_updated_or_update
-from website.helpers.check_updated_historie import check_if_historie_updated_or_update
 from website.helpers.create_user_files import create_user_files
 
 auth_views = Blueprint("auth_views",__name__, template_folder="auth")
@@ -19,9 +17,7 @@ def login():
 		user = User.query.filter_by(email=email).first()
 		if user and check_password_hash(user.password, password):
 			login_user(user, remember=True)
-			flash("úspěšné přihlášení", category="info")
-			check_if_slovnik_updated_or_update()
-			check_if_historie_updated_or_update()			
+			flash("úspěšné přihlášení", category="info")		
 			return redirect(url_for("default_views.dashboard"))
 		else:
 			flash("E-mail nebo heslo byly špatně", category="error")
