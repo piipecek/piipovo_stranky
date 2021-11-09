@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for("static",filename="static.css")}}">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{url_for("default_views.dashboard")}}">Zpět na Dashboard</a></li>
+            <li><a href="https://slovniky.lingea.cz/nemecko-cesky" target="_blank">D-CZ Lingea slovník</a></li>
+            <li><a href="{{ url_for("slovnik_views.pridej_slovicka")}}">Přidat slovíčka</a></li>
+            <li><a href="{{ url_for("slovnik_views.slovnik") }}">Slovník</a></li>
+            <li><a href="{{ url_for("slovnik_views.tvoreni_setu_podle")}}">Zkoušení/učení slovíček</a></li>
+            <li><a href="{{ url_for("slovnik_views.historie_zkouseni") }}">Historie Zkoušení</a></li>
+        </ul>    
+    </nav>
+
+
+{% for category, message in get_flashed_messages(with_categories=True) %}
+    <div class="alert-{{category}}">{{ message }}</div>
+{% endfor %}
+
+{% block content %}
+
+{% endblock %}
+
+
+</body>
+</html>

@@ -1,22 +1,4 @@
-{% extends "base.html" %}
+{% extends "slovnik_base.html" %}
 {% block content %}
     <h2>Aplikace Slovník. přečti si, <a href="{{url_for("slovnik_views.about")}}">jak to funguje</a>.</h2>
-
-    <a href="https://slovniky.lingea.cz/nemecko-cesky" target="_blank">D-CZ Lingea slovník</a>
-
-    <hr>
-    
-    <a href="{{ url_for("slovnik_views.pridej_slovicka")}}">Přidat slovíčka</a>
-
-    <hr>
-
-    <a href="{{ url_for("slovnik_views.slovnik") }}">Slovník</a>
-
-    <hr>
-
-    <a href="{{ url_for("slovnik_views.tvoreni_setu_podle")}}">Zkoušení/učení slovíček</a>
-
-    <hr>
-
-    <a href="{{ url_for("slovnik_views.historie_zkouseni") }}">Historie Zkoušení</a>
 {% endblock %}
