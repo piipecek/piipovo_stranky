@@ -11,15 +11,15 @@ def pairse_cj_x_and_insert(data: str, target_jazyk: str, base_jazyk: str, asocia
     kategorie = kategorie.replace(", ", ",")
 
     if asociace == "":
-        asociace = None
+        asociace = []
     else:
         asociace = asociace.split(",")
     if druh == "":
-        druh = None
+        druh = []
     else:
         druh = druh.split(",")
     if kategorie == "":
-        kategorie = None
+        kategorie = []
     else:
         kategorie = kategorie.split(",")
 

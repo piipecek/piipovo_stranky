@@ -8,13 +8,31 @@ let slovicko;
 
 document.getElementById("potvrdit").onclick = update_slovicko
 
+
 function update_slovicko() {
     for (let i=0; i<jazyky.length;i++) {
-        slovicko["v_jazyce"][jazyky[i]] = document.getElementById(jazyky[i]).value.split(", ")
+        if (document.getElementById(jazyky[i]).value == "") {
+            slovicko["v_jazyce"][jazyky[i]] = []
+        } else {
+            slovicko["v_jazyce"][jazyky[i]] = document.getElementById(jazyky[i]).value.split(", ")
+        }
     }
-    slovicko["druh"] = druh_element.value.split(", ")
-    slovicko["asociace"] = asociace_element.value.split(", ")
-    slovicko["kategorie"] = kategorie_element.value.split(", ")
+
+    if (druh_element.value == "") {
+        slovicko["druh"] = []
+    } else {
+        slovicko["druh"] = druh_element.value.split(", ")
+    }
+    if (kategorie_element.value == "") {
+        slovicko["kategorie"] = []
+    } else {
+        slovicko["kategorie"] = kategorie_element.value.split(", ")
+    }
+    if (asociace_element.value == "") {
+        slovicko["asociace"] = []
+    } else {
+        slovicko["asociace"] = asociace_element.value.split(", ")
+    }
     slovicko_element.value = JSON.stringify(slovicko)
 }
 

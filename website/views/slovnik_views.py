@@ -75,7 +75,6 @@ def edit(id: int):
     if request.method == "GET":
         slovicko = json.dumps(db_handling.get_by_id(id))
         jazyky = json.dumps(Settings.get().data["jazyky"])
-        print(jazyky)
         return render_template("edit_slovicko.html", slovicko=slovicko, jazyky=jazyky)
     elif request.method == "POST":
         if request.form.get("potvrdit"):
