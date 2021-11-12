@@ -1,29 +1,37 @@
 {% extends "slovnik_base.html" %}
 {% block content %}
-    <h2>editing id = {{ word.id }}</h2>
+    <h2>Úprava slovíček</h2>
+    Pro oddělení dat použijte ", " čárku a mezeru.
+
     <form method="post">
-    {% for jazyk in jazyky %}
-    <p>
-        <label for="{{jazyk}}">{{jazyk}}: </label>
-        <input id="{{jazyk}}" type="text" name="{{jazyk}}" value="{{ word.pretty(jazyk) }}"/>
-    </p>
-    {% endfor %}
+
+    <input type="text" hidden id="slovicko" name="slovicko" value="{{slovicko}}"/>
+    <input type="text" hidden id="jazyky" value="{{jazyky}}"/>
+
+    <!-- jazyky generuju dynamicky cuz kazdej muze mit jinej pocet -->
+    <div id="jazyky_inputs"></div> 
+
     <div>
         <label for="druh">slovní druh:</label>
-        <input id="druh" type="text" name="druh" value="{{ word.pretty("druh") }}">
+        <input id="druh" type="text"/>
     </div>
     <div>
         <label for="asociace">asociace:</label>
-        <input id="asociace" type="text" name="asociace" value="{{ word.pretty("asociace") }}">
+        <input id="asociace" type="text"/>
     </div>
     <div>
         <label for="kategorie">kategorie</label>
-        <input id="kategorie" type="text" name="kategorie" value="{{ word.pretty("kategorie") }}">
+        <input id="kategorie" type="text"/>
     </div>
     <div>
-        <button type="submit" value="potvrdit" name="potvrdit">Potvrdit</button>
+        <button type="submit" value="potvrdit" name="potvrdit" id="potvrdit">Potvrdit</button>
         <button type="submit" value="delete" name="delete">Smazat slovíčko</button>
     </div>
-
     </form>
+
+    <script type="module" src="{{url_for('static',filename='js/slovnik/edit.mjs')}}"></script>
+
+
+
+
 {% endblock %}

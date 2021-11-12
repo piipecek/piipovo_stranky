@@ -73,32 +73,17 @@ def slovnik():
 @login_required
 def edit(id: int):
     if request.method == "GET":
-        obj = Slovicko.get_by_id(id=id)
-        return render_template("edit_slovicko.html", word=obj, jazyky = Settings.get().data["jazyky"])
+        slovicko = json.dumps(db_handling.get_by_id(id))
+        jazyky = json.dumps(Settings.get().data["jazyky"])
+        print(jazyky)
+        return render_template("edit_slovicko.html", slovicko=slovicko, jazyky=jazyky)
     elif request.method == "POST":
         if request.form.get("potvrdit"):
-            slovicko = Slovicko.get_by_id(id=id)
-            for jazyk in Settings.get().data["jazyky"]:
-                out = request.form.get(jazyk)
-                if out == "":
-                    slovicko.v_jazyce[jazyk] = []
-                else:
-                    slovicko.v_jazyce[jazyk] = request.form.get(jazyk).replace(", ", "").split(",")
-            if request.form.get("druh") == "":
-                slovicko.druh = []
-            else:
-                slovicko.druh = request.form.get("druh").replace(", ", "").split(",")
-            if request.form.get("asociace") == "":
-                slovicko.asociace = []
-            else:
-                slovicko.asociace = request.form.get("asociace").replace(", ", "").split(",")
-            if request.form.get("kategorie") == "":
-                slovicko.kategorie = []
-            else:
-                slovicko.kategorie = request.form.get("kategorie").replace(", ", "").split(",")
-            slovicko.put_in_db()
+            new_data = json.loads(request.form.get("slovicko"))
+            db_handling.delete_by_id(int(new_data["id"]))
+            db_handling.insert_to_db(new_data)
         elif request.form.get("delete"):
-            Slovicko.delete_by_id(id=id)
+            db_handling.delete_by_id(id=id)
             flash("smazano slovicko!", category="correct")
         return redirect(url_for("slovnik_views.slovnik"))
 
