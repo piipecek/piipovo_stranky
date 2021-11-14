@@ -5,7 +5,7 @@ from random import sample
 from typing import Tuple, Sequence
 
 
-def pairse_cj_x_and_insert(data: str, target_jazyk: str, base_jazyk: str, asociace: str, druh: str, kategorie: str) -> Tuple[str]:
+def pairse_and_insert(data: str, jazyky: list, asociace: str, druh: str, kategorie: str) -> Tuple[str]:
     asociace = asociace.replace(", ", ",")
     druh = druh.replace(", ", ",")
     kategorie = kategorie.replace(", ", ",")
@@ -38,29 +38,37 @@ def pairse_cj_x_and_insert(data: str, target_jazyk: str, base_jazyk: str, asocia
         return text
 
     data = predpripravit(data)
+    
+
+    if jazyky.count("") == len(jazyky):
+        return "Nevybral jsi žádné jazyky. Zkopíruj si tady svůj vstup a zkus to znova.", data
+    while "" == jazyky[-1]:
+        jazyky.pop()
+    if "" in jazyky:
+        return "Nevybral jsi jazyk na pozici, na které jsi psal slovíčka. Zkopíruj si tady svůj vstup a zkus to znova.", data
+    if len(list(set(jazyky))) < len(jazyky):
+        return "Zvolil jsi některé jazyky 2x. Zkopíruj si tady svůj vstup a zkus to znova.", data
 
     lines = data.split("\n")
     for line in lines:
-        if list(line).count("-") == 1:
+        if list(line).count("-")+1 == len(jazyky):
             continue
         else:
+            line = "Na řádce " + line + " nesedí počet tebou zadaných jazyků a počet zvolených jazyků k přidávání. Tady si to zkopíruj a zkus to znova."
             return line, data
 
 
     slovnik = Slovnik.get()
 
     for line in lines:
-        base, target = line.split("-")
-        base = base.split(",")
-        target = target.split(",")
-        while "" in base:
-            base.remove("")
-        while "" in target:
-            target.remove("")
-
+        line = line.split("-")
+        for i, elem in enumerate(line):
+            line[i] = elem.split(",")
+            while "" in line[i]:
+                elem.remove("")
         new_word = Slovicko(id=slovnik.get_next_id())
-        new_word.v_jazyce[target_jazyk] = target
-        new_word.v_jazyce[base_jazyk] = base
+        for tup in zip(jazyky, line):
+            new_word.v_jazyce[tup[0]] = tup[1]
         new_word.kategorie=kategorie
         new_word.druh=druh
         new_word.asociace=asociace

@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_required
-from website.helpers.pairser import  pairse_cj_x_and_insert, vyhodnot
+from website.helpers.pairser import  pairse_and_insert, vyhodnot
 from website.models.slovicko import Slovicko
 from website.models.set_slovicek import SetSlovicek
 from website.models.uceni_manager import UceniManager
@@ -37,13 +37,11 @@ def pridej_slovicka():
         if inpt == "":
             flash("nic jste nezadali")
         else:
-            print(request.form.get("target_jazyk"))
-            output_pairseru = pairse_cj_x_and_insert(request.form.get("input"),
-                                                     target_jazyk=request.form.get("target_jazyk"),
-                                                     base_jazyk=request.form.get("base_jazyk"),
-                                                     asociace=request.form.get("asociace"),
-                                                     druh=request.form.get("druh"),
-                                                     kategorie=request.form.get("kategorie"))
+            output_pairseru = pairse_and_insert(request.form.get("input"),
+                                                jazyky = request.form.getlist("dropdown_jazyka"),
+                                                asociace=request.form.get("asociace"),
+                                                druh=request.form.get("druh"),
+                                                kategorie=request.form.get("kategorie"))
             if output_pairseru:
                 return render_template("returned_text.html", line=output_pairseru[0], text=output_pairseru[1])
 
@@ -85,6 +83,7 @@ def edit(id: int):
             db_handling.delete_by_id(id=id)
             flash("smazano slovicko!", category="correct")
         return redirect(url_for("slovnik_views.slovnik"))
+        
 
 
 @slovnik_views.route("/sort", methods=["GET", "POST"])
