@@ -9,34 +9,30 @@
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li><a href="{{url_for("default_views.dashboard")}}">Dashboard</a></li>
-            <li><a href="{{url_for("slovnik_views.slovnik_home")}}">Slovník </a></li>
-            <li><a href="{{url_for("visuals_views.rybicky")}}">Rybičky</a></li>
-            <li><a href="{{url_for("default_views.nahlasit_bug")}}">Nahlásit bug, připomínku, nápad</a></li>
-            <li><a href="{{url_for("default_views.known_bugs")}}">seznam známých bugů</a></li>
-            <li><a href="{{url_for("default_views.planovane_featury")}}">Plánované featury</a></li>
-            <li><a href="https://github.com/piipecek/piipovo_stranky" target="_blank">Repo se zdrojovým kódem na githubu (otevře novou kartu)</a></li>
-            {% if current_user.is_authenticated %}
-            <li><a href="{{url_for("default_views.account")}}">Účet</a></li>
-            <li><a href="{{url_for("auth_views.logout")}}">Logout</a></li>
-            {% else %}
-            <li><a href="{{url_for("auth_views.login")}}">Login</a></li>
-            <li><a href="{{url_for("auth_views.register")}}">Register</a></li>
-            {% endif %}
-        </ul>    
-    </nav>
-
-
-{% for category, message in get_flashed_messages(with_categories=True) %}
-    <div class="alert-{{category}}">{{ message }}</div>
-{% endfor %}
-
-{% block content %}
-
-{% endblock %}
-
-
+  <div class="sidenav">
+        <a href="{{url_for("default_views.dashboard")}}">Dashboard</a>
+        <a href="{{url_for("slovnik_views.slovnik_home")}}">Slovník </a>
+        <a href="{{url_for("visuals_views.rybicky")}}">Rybičky</a>
+        <a href="{{url_for("default_views.nahlasit_bug")}}">Nahlásit bug, připomínku, nápad</a>
+        <a href="{{url_for("default_views.known_bugs")}}">seznam známých bugů</a>
+        <a href="{{url_for("default_views.planovane_featury")}}">Plánované featury</a>
+        <a href="https://github.com/piipecek/piipovo_stranky" target="_blank">Repo se zdrojovým kódem na githubu (otevře novou kartu)</a>
+        {% if current_user.is_authenticated %}
+        <a href="{{url_for("default_views.account")}}">Účet</a>
+        <a href="{{url_for("auth_views.logout")}}">Logout</a>
+        {% else %}
+        <a href="{{url_for("auth_views.login")}}">Login</a>
+        <a href="{{url_for("auth_views.register")}}">Register</a>
+        {% endif %}
+  </div>
+  <div id="main">
+    {% for category, message in get_flashed_messages(with_categories=True) %}
+        <div class="alert-{{category}}">{{ message }}</div>
+    {% endfor %}
+    
+    {% block content %}
+    
+    {% endblock %}
+  </div>
 </body>
 </html>
