@@ -13,6 +13,7 @@ def check_files_or_create() -> None:
 
     if bugs_path.exists():
         pass
-    bugs_path.touch()
-    with open(bugs_path, "w") as file:
-        file.write(json.dumps([]))
+    else:
+        bugs_path.touch()
+        with open(bugs_path, "w") as file:
+            file.write(json.dumps([]))
