@@ -16,10 +16,6 @@
             <li class="nav-item"><a class="nav-link" href="{{url_for("slovnik_views.slovnik_home")}}">Slovník </a></li>
             <li class="nav-item"><a class="nav-link" href="{{url_for("visuals_views.rybicky")}}">Rybičky</a></li>
             <li class="nav-item"><a class="nav-link" href="{{url_for("visuals_views.hadej_slova")}}">Hádej slova</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{url_for("default_views.nahlasit_bug")}}">Nahlásit bug, připomínku, nápad</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{url_for("default_views.known_bugs")}}">seznam známých bugů</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{url_for("default_views.planovane_featury")}}">Plánované featury</a></li>
-            <li class="nav-item"><a class="nav-link" href="https://github.com/piipecek/piipovo_stranky" target="_blank">Repo se zdrojovým kódem na githubu (otevře novou kartu)</a></li>
             {% if current_user.is_authenticated %}
             <li class="nav-item"><a class="nav-link" href="{{url_for("default_views.account")}}">Účet</a></li>
             <li class="nav-item"><a class="nav-link" href="{{url_for("auth_views.logout")}}">Logout</a></li>
@@ -31,13 +27,34 @@
     </nav>
 
 
-{% for category, message in get_flashed_messages(with_categories=True) %}
-    <div class="alert-{{category}}">{{ message }}</div>
-{% endfor %}
+    {% for category, message in get_flashed_messages(with_categories=True) %}
+        <div class="alert-{{category}}">{{ message }}</div>
+    {% endfor %}
 
-{% block content %}
+    <section>
+    {% block content %}
 
-{% endblock %}
+    {% endblock %}
+    </section>
+
+
+    <footer class="row my-2">
+        <div class="col-auto">
+            <a class="btn btn-outline-primary" role="button" href="https://github.com/piipecek/piipovo_stranky" target="_blank">Repo se zdrojovým kódem na githubu (otevře novou kartu)</a>
+        </div>
+        <div class="col-auto">
+            <a class="btn btn-outline-primary" role="button" href="{{url_for("default_views.planovane_featury")}}">Plánované featury</a>
+        </div> 
+        <div class="col-auto">
+            <a class="btn btn-outline-primary" role="button" href="{{url_for("default_views.known_bugs")}}">seznam známých bugů</a>
+        </div>
+        <div class="col-auto">
+            <a class="btn btn-outline-primary" role="button" href="{{url_for("default_views.nahlasit_bug")}}">Nahlásit bug, připomínku, nápad</a>
+        </div>
+        <div class="col-auto">
+            <a class="btn btn-outline-primary" role="button" href="{{url_for("default_views.historie")}}">Historie verzí</a>
+        </div>
+    </footer>
 
 
 </body>

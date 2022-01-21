@@ -10,7 +10,7 @@ default_views = Blueprint("default_views",__name__)
 
 @default_views.route("/")
 def restaurant_na_konci_vesmiru():
-	return redirect(url_for("default_views.dashboard", current_user=current_user))
+	return redirect(url_for("default_views.dashboard"))
 
 @default_views.route("/dashboard")
 def dashboard():
@@ -20,6 +20,10 @@ def dashboard():
 def known_bugs():
 	chyby  = Chyba.get_all()
 	return render_template("zname_chyby.html", chyby=chyby)
+
+@default_views.route("/historie")
+def historie():
+	return render_template("historie_verzi.html")
 
 @default_views.route("/nahlasit_bug", methods=["GET","POST"])
 def nahlasit_bug():
