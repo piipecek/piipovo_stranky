@@ -34,3 +34,6 @@ def user_set_slovicek_path() -> Path:
 
 def user_settings_path() -> Path:
     return user_folder_path() / "settings.json"
+
+def hadej_slova_db_path() -> Path:
+    return Path.cwd() / "hadej_slova.json"

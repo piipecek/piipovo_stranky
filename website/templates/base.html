@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{url_for("static",filename="static.css")}}">
 </head>
 
@@ -14,6 +15,7 @@
             <li class="nav-item"><a class="nav-link" href="{{url_for("default_views.dashboard")}}">Dashboard</a></li>
             <li class="nav-item"><a class="nav-link" href="{{url_for("slovnik_views.slovnik_home")}}">Slovník </a></li>
             <li class="nav-item"><a class="nav-link" href="{{url_for("visuals_views.rybicky")}}">Rybičky</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{url_for("visuals_views.hadej_slova")}}">Hádej slova</a></li>
             <li class="nav-item"><a class="nav-link" href="{{url_for("default_views.nahlasit_bug")}}">Nahlásit bug, připomínku, nápad</a></li>
             <li class="nav-item"><a class="nav-link" href="{{url_for("default_views.known_bugs")}}">seznam známých bugů</a></li>
             <li class="nav-item"><a class="nav-link" href="{{url_for("default_views.planovane_featury")}}">Plánované featury</a></li>
