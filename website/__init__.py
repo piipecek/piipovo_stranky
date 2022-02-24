@@ -1,11 +1,13 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 import os
 from flask_login import LoginManager
 from .helpers.check_files import check_files_or_create
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
+cors = CORS()
 
 
 def create_app() -> Flask:
@@ -15,6 +17,7 @@ def create_app() -> Flask:
 	app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
 
 	db.init_app(app)
+	cors.init_app(app)
 
 	def check_if_database_exists_else_create(app):
 		if not os.path.exists("website/" + DB_NAME):

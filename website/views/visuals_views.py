@@ -20,6 +20,6 @@ def hadej_slova_getter():
 
 
 @visuals_views.route("/tomiem_ipsum/<int:words>")
-@cross_origin()
+#@cross_origin()
 def tomiem_ipsum(words):
     return get_tomiem(words=words)
