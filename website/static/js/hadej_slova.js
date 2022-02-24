@@ -5,7 +5,6 @@ function httpGet(theUrl)
     xmlHttp.send( null );
     return xmlHttp.responseText;
 }
-let db = JSON.parse(httpGet("/visuals/hadej_slova_getter"))
 let slova = [] //sem se ukládaj slova, která si uživatel vybral
 let dbs = [db] // sem se ukládaj databáze po jednotlivejch krocích
 let temp_db = [] //se mse ukládá jednotlivej krok

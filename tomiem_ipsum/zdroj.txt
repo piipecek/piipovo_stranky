@@ -1,0 +1,16 @@
+stahuju to z https://www.psp.cz/eknih/2021ps/tesnopis/index.htm
+poslanice jsem zkopíroval odtud: https://www.psp.cz/sqw/hp.sqw?k=192
+
+
+
+hlidac:
+
+https://www.hlidacstatu.cz/Data/Hledat/stenozaznamy-psp?
+
+ - query po schůzích
+datum:[2021-11-07 TO *] AND schuze:[1 TO 5]
+datum:[2021-11-07 TO 2022-01-16] AND schuze:6
+datum:[2022-01-16 TO *] AND schuze:6
+datum:[2021-11-07 TO *] AND schuze:[7 TO 8]
+datum:[2021-11-07 TO *] AND schuze:9
+datum:[2021-11-07 TO *] AND schuze:[10 TO 12]

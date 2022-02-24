@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, send_file
-import json
 from website.paths.paths import hadej_slova_db_path
+from tomiem_ipsum.generator import get_tomiem
 
 visuals_views = Blueprint("visuals_views", __name__)
 
@@ -16,3 +16,8 @@ def hadej_slova():
 @visuals_views.route("/hadej_slova_getter")
 def hadej_slova_getter():
     return send_file(hadej_slova_db_path(), attachment_filename="hadej_slova.json")
+
+
+@visuals_views.route("/tomiem_ipsum/<int:words>")
+def tomiem_ipsum(words):
+    return get_tomiem(words=words)

@@ -37,3 +37,6 @@ def user_settings_path() -> Path:
 
 def hadej_slova_db_path() -> Path:
     return Path.cwd() / "hadej_slova.json"
+
+def tomiem_result_path() -> Path:
+    return Path.cwd() / "tomiem_ipsum" / "result.txt"
