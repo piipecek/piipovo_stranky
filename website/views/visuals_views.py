@@ -23,3 +23,7 @@ def hadej_slova_getter():
 #@cross_origin()
 def tomiem_ipsum(words):
     return get_tomiem(words=words)
+
+@visuals_views.route("/numerika")
+def numerika():
+    return render_template("numerika.html")
