@@ -3,31 +3,11 @@
 {% block content %}
 
 <div>
-    <h1>Rovnice <code>ax=b</code></h1>
-    Tady jsem si chtěl zobrazit, jak se mění průběh iterace v závislosti na parametrech <code>a</code> a <code>b</code>. 
-    <div class="row">
-        <div class="col-auto">
-            <label for="a_range">Parametr a:</label>
-        </div>
-        <div class="col">
-            <input type="range" id="a_range" class="form-range" min = "-200" max="200"/>
-        </div>
-        <div class="col-auto">
-            <span><code id="a_value">0</code></span>
-        </div>
-        <div class="col-auto">
-            <label for="b_range">Parametr b:</label>
-        </div>
-        
-        <div class="col">
-            <input type="range" id="b_range" class="form-range" min = "-200" max="200"/>
-        </div>
-        <div class="col-auto">
-            <span><code id="b_value">0</code></span>
-        </div>
-    </div>
-    <canvas id="axb_rovnice", width="500", height="500"></canvas>
+    <h1>Způsoby popisu přímky v rovině</h1>
+    <canvas id="param_primka"></canvas>
 </div>
 
 <script type="module" src="{{url_for('static', filename='js/numerika.js')}}"></script>
+<script type="module" src="{{url_for('static', filename='js/cartesian_graph.js')}}"></script>
+
 {% endblock %}
