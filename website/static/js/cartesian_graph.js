@@ -1,12 +1,20 @@
 class Cartesian_graph {
     // id: id elementu v DOM
-    constructor(id, width, height) {
+    constructor(id, width, height, pxorigin, pxstep) {
         this.node = document.getElementById(id)
         this.ctx = this.node.getContext("2d")
         this.width = width
         this.height = height
         this.node.width = this.width
         this.node.height = this.height
+        this.pxorigin = pxorigin
+        this.px_step = pxstep
+        this.axes()
+    }
+
+    clear() {
+        this.ctx.clearRect(0,0,this.width, this.height)
+        this.axes()
     }
 
     rx(num) {
@@ -18,15 +26,16 @@ class Cartesian_graph {
         return this.originY- num * this.px_step
     }
 
-    axes(pxorigin, pxstep) {
-        //origin: tuple (x,y)
-        this.originX = pxorigin[0]
-        this.originY = pxorigin[1]
+    axes() {
+        this.originX = this.pxorigin[0]
+        this.originY = this.pxorigin[1]
+        console.log(this.pxorigin, this.width, this.height)
         this.axis_margin = 10
         this.label_offset = 10
-        this.px_step = pxstep
         this.tick_size = 5
         this.ctx.strokeStyle = "black"
+        this.ctx.lineWidth = 1
+        this.ctx.beginPath()
         this.ctx.moveTo(10, this.originY)
         this.ctx.lineTo(this.width-this.axis_margin, this.originY)
         this.ctx.moveTo(this.originX, this.axis_margin)
@@ -202,7 +211,7 @@ class Cartesian_graph {
 
     }
 
-    vector(point_tuple, direction_tuple, label, labelpos, multiplier = 1) {
+    vector(point_tuple, direction_tuple, label = "", labelpos = "SE", multiplier = 1) {
         // direction tuple je vektor, point tuple je jeho uvazani na misto
         //multiplier = 1 -> vektor je velkeej jako direction tuple
         let alpha
@@ -225,7 +234,6 @@ class Cartesian_graph {
         this.ctx.moveTo(this.rx(endx), this.ry(endy))
         this.ctx.lineTo(this.rx(endx) + arrow_size*Math.cos(alpha + Math.PI + arrow_angle), this.ry(endy) - arrow_size*Math.sin(alpha+Math.PI+arrow_angle))
         this.ctx.stroke()
-
         this.point([point_tuple[0] + direction_tuple[0]*multiplier/2, point_tuple[1] + direction_tuple[1]*multiplier/2], label, labelpos, false)
     }
 }

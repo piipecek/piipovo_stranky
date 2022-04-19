@@ -24,6 +24,6 @@ def hadej_slova_getter():
 def tomiem_ipsum(words):
     return get_tomiem(words=words)
 
-@visuals_views.route("/numerika")
-def numerika():
-    return render_template("numerika.html")
+@visuals_views.route("/matematika")
+def matematika():
+    return render_template("matematika.html")
