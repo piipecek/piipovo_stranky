@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, send_file
+from flask import Blueprint, render_template, send_file, request
 from website.paths.paths import hadej_slova_db_path
 from tomiem_ipsum.generator import get_tomiem
 from flask_cors import cross_origin
@@ -27,3 +27,11 @@ def tomiem_ipsum(words):
 @visuals_views.route("/matematika")
 def matematika():
     return render_template("matematika.html")
+
+@visuals_views.route("/catan",  methods=["GET","POST"])
+def catan():
+    if request.method == "GET":
+        return render_template("catan.html")
+    else:
+        got = request.form.to_dict()
+        return got

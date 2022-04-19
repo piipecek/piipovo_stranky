@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Generátor mapy pro Osadníky z Katanu</h1>
+<div class="container">
+    <div class="row my-2">
+        <div class="col-auto">
+            Vynutit poušť uprostřed
+        </div>
+        <div class="col-auto">
+            <button class="cudlitka btn btn-outline-success" type="button" id="force_desert_yes">Ano</button>
+        </div>
+        <div class="col-auto">
+            <button class="cudlitka btn btn-success" type="button" id="force_desert_no">Ne</button>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-auto">
+            Sousední dílky krajiny můžou být stejná surovina
+        </div>
+        <div class="col-auto">
+            <button class="cudlitka btn btn-outline-success" type="button" id="adjacent_land_yes">Povolit</button>
+        </div>
+        <div class="col-auto">
+            <button class="cudlitka btn btn-success" type="button" id="adjacent_land_no">Zakázat</button>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-auto">
+            2:1 Port může být vedle kartičky se zdrojem jeho suroviny
+        </div>
+        <div class="col-auto">
+            <button class="cudlitka btn btn-outline-success" type="button" id="ports_yes">Povolit</button>
+        </div>
+        <div class="col-auto">
+            <button class="cudlitka btn btn-success" type="button" id="ports_no">Zakázat</button>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-auto">
+            Sousední políčka můžou mít stejnou hodnotu čísla
+        </div>
+        <div class="col-auto">
+            <button class="cudlitka btn btn-outline-success" type="button" id="adjacent_values_yes">Povolit</button>
+        </div>
+        <div class="col-auto">
+            <button class="cudlitka btn btn-success" type="button" id="adjacent_values_no">Zakázat</button>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-auto">
+            Vynutit, aby hodnoty 6 a 8 byly na unikátních surovinách
+        </div>
+        <div class="col-auto">
+            <button class="cudlitka btn btn-success" type="button" id="unique_68_yes">Ano</button>
+        </div>
+        <div class="col-auto">
+            <button class="cudlitka btn btn-outline-success" type="button" id="unique_68_no">Ne</button>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-auto">
+            Hodnoty 6 a 8 můžou sousedit
+        </div>
+        <div class="col-auto">
+            <button class="cudlitka btn btn-outline-success" type="button" id="adjacent_68_yes">Povolit</button>
+        </div>
+        <div class="col-auto">
+            <button class="cudlitka btn btn-success" type="button" id="adjacent_68_no">Zakázat</button>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-warning" id="generate">Generovat</button>
+<p>pretty printed ajax forms with jquerry and flask</p>
+<script src="{{url_for('static', filename='js/catan.js')}}"></script>
+{% endblock %}

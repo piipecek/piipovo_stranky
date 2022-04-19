@@ -29,7 +29,6 @@ class Cartesian_graph {
     axes() {
         this.originX = this.pxorigin[0]
         this.originY = this.pxorigin[1]
-        console.log(this.pxorigin, this.width, this.height)
         this.axis_margin = 10
         this.label_offset = 10
         this.tick_size = 5
