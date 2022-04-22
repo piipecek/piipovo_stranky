@@ -6,6 +6,8 @@
     <title>{{ title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" type="text/css" href="{{url_for("static",filename="static.css")}}">
 </head>
 
@@ -18,6 +20,8 @@
             <li class="nav-item"><a class="nav-link" href="{{url_for("visuals_views.matematika")}}">Matematika</a></li>
             <li class="nav-item"><a class="nav-link" href="{{url_for("visuals_views.hadej_slova")}}">Hádej slova</a></li>
             <li class="nav-item"><a class="nav-link" href="{{url_for("visuals_views.catan")}}">Katan</a></li> 
+            <li class="nav-item"><a class="nav-link" href="https://piipecek.github.io/tomio.html">Tomiem Ipsum</a></li> 
+            <li class="nav-item"><a class="nav-link" href="{{url_for('visuals_views.matlab')}}">Matlab</a></li>
             {% if current_user.is_authenticated %}
             <li class="nav-item"><a class="nav-link" href="{{url_for("default_views.account")}}">Účet</a></li>
             <li class="nav-item"><a class="nav-link" href="{{url_for("auth_views.logout")}}">Logout</a></li>

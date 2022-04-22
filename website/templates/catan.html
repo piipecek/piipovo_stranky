@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>Generátor mapy pro Osadníky z Katanu</h1>
+<h1>Generátor mapy pro Osadníky z Katanu WORK IN PROGRESS</h1>
 <div class="container">
     <div class="row my-2">
         <div class="col-auto">
@@ -73,5 +73,8 @@
 </div>
 <button type="button" class="btn btn-warning" id="generate">Generovat</button>
 <p>pretty printed ajax forms with jquerry and flask</p>
-<script src="{{url_for('static', filename='js/catan.js')}}"></script>
+<canvas id="map" hidden></canvas>
+<script type="module" src="{{url_for('static', filename='js/catan.js')}}"></script>
+<script type="module" src="{{url_for('static', filename='js/cartesian_graph.js')}}"></script>
+
 {% endblock %}

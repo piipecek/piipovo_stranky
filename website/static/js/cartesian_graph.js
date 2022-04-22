@@ -1,6 +1,6 @@
 class Cartesian_graph {
     // id: id elementu v DOM
-    constructor(id, width, height, pxorigin, pxstep) {
+    constructor(id, width, height, pxorigin, pxstep, blank=false) {
         this.node = document.getElementById(id)
         this.ctx = this.node.getContext("2d")
         this.width = width
@@ -8,8 +8,16 @@ class Cartesian_graph {
         this.node.width = this.width
         this.node.height = this.height
         this.pxorigin = pxorigin
+        this.originX = this.pxorigin[0]
+        this.originY = this.pxorigin[1]
         this.px_step = pxstep
-        this.axes()
+        this.axis_margin = 10
+
+        if (blank) {
+
+        } else {
+            this.axes()
+        }
     }
 
     clear() {
@@ -27,9 +35,6 @@ class Cartesian_graph {
     }
 
     axes() {
-        this.originX = this.pxorigin[0]
-        this.originY = this.pxorigin[1]
-        this.axis_margin = 10
         this.label_offset = 10
         this.tick_size = 5
         this.ctx.strokeStyle = "black"
@@ -157,32 +162,19 @@ class Cartesian_graph {
 
     }
 
-    two_point_line(A, B, label, labelpos) {
+    two_point_line(A, B, label="", labelpos="") {
         let edge_x_plus = (this.width-this.originX-this.axis_margin)/this.px_step //jaká hodnta x v mém systému je na kraji render distance
         let edge_x_minus = (-this.originX+this.axis_margin)/this.px_step
         let edge_y_plus = (this.originY-this.axis_margin)/this.px_step
         let edge_y_minus = ( -this.height + this.originY + this.axis_margin)/this.px_step
         let a = (A[1]-B[1])
         let b = (B[0]-A[0])
-        let c = A[0]*B[1] - B[0]*A[1]
-        let Nprusecik
-        let Eprusecik
-        let Sprusecik
-        let Wprusecik
-        if (b==0) {
-            Nprusecik = null
-            Sprusecik = null
-        } else {
-            Nprusecik = (-c-b*edge_y_plus)/a
-            Sprusecik = (-c-b*edge_y_minus)/a
-        }
-        if (a==0) {
-            Wprusecik = null
-            Eprusecik = null
-        } else {
-            Wprusecik = (-c-a*edge_x_minus)/b
-            Eprusecik = (-c-a*edge_x_plus)/b
-        }
+        let c = A[0]*B[1] - B[0]*A[1] // ax+by+c=0
+
+        let Nprusecik = (-c-b*edge_y_plus)/a //hodnota [Nprusecik, edge_y_plus]
+        let Sprusecik = (-c-b*edge_y_minus)/a
+        let Wprusecik = (-c-a*edge_x_minus)/b
+        let Eprusecik = (-c-a*edge_x_plus)/b
 
         //zjistim, zda kazdej z tech 4 pruseciku je na platne nebo daleko. podle toho vyberu ty dva body
         // ruzny <= a < jsu kvuli tomu, kdyz by to prochazelo presne rohem
@@ -234,6 +226,21 @@ class Cartesian_graph {
         this.ctx.lineTo(this.rx(endx) + arrow_size*Math.cos(alpha + Math.PI + arrow_angle), this.ry(endy) - arrow_size*Math.sin(alpha+Math.PI+arrow_angle))
         this.ctx.stroke()
         this.point([point_tuple[0] + direction_tuple[0]*multiplier/2, point_tuple[1] + direction_tuple[1]*multiplier/2], label, labelpos, false)
+    }
+
+    n_gon(points_array, color, border_color) {
+        this.ctx.strokeStyle=border_color
+        this.ctx.lineWidth = "2"
+        this.ctx.fillStyle = color
+        this.ctx.beginPath()
+        this.ctx.moveTo(this.rx(points_array[0][0]), this.ry(points_array[0][1]))
+        for (let i=1;i<points_array.length; i++) {
+            this.ctx.lineTo(this.rx(points_array[i][0]), this.ry(points_array[i][1]))
+        }
+        this.ctx.closePath()
+        this.ctx.stroke()
+        this.ctx.fill()
+
     }
 }
 

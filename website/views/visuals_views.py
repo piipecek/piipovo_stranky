@@ -35,3 +35,7 @@ def catan():
     else:
         got = request.form.to_dict()
         return got
+
+@visuals_views.route("/matlab")
+def matlab():
+    return render_template("matlab.html")
