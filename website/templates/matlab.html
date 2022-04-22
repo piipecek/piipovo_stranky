@@ -8,7 +8,7 @@
     <h2>Input</h2>
     <textarea class="form-control" id="in">úhlová rychlost</textarea>
     <h2>Výsledek</h2>
-    <textarea class="form-control" id="out" disabled>\'uhov\'a rychlost</textarea>
+    <textarea class="form-control" id="out" disabled></textarea>
 </div>
 
 Při vykreslování grafů v Matlabu lze použít \(\LaTeX\) vzhled písma. Stačí kdekoli nad příkazem <code>plot()</code> použít 
@@ -17,7 +17,7 @@ Při vykreslování grafů v Matlabu lze použít \(\LaTeX\) vzhled písma. Sta�
         set(0,'defaulttextInterpreter','latex')
     </code>
 </div>
-Matlab ale má problém s háčky a čárkami, vyžaduje speciální syntax: např. <code>\v z</code> znamená ž. Tenhle converter to zařídí.    
+Matlab ale má problém s háčky a čárkami, vyžaduje speciální syntax: např. <code>\v{z}</code> znamená ž. Tenhle converter to zařídí.    
 
 
 <script src="{{url_for('static', filename='js/matlab.js')}}"></script>
