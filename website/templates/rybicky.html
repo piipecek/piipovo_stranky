@@ -64,7 +64,6 @@
     const hasTouchScreen = (!!("ontouchstart" in window) || window.navigator.msMaxTouchPoints > 0);
     if (!hasTouchScreen) {
         document.querySelectorAll("div#rybicky-controls button").forEach(button => {
-            console.log(button);
             button.classList.add("support-hover");
         });
     }

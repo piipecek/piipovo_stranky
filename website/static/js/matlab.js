@@ -1,12 +1,9 @@
-console.log("here")
-
 let in_field = document.getElementById("in")
 let out_field = document.getElementById("out")
 in_field.addEventListener("input", update)
 
 
 function update() {
-    console.log(in_field.value)
     out_field.value = convert(in_field.value)
 }
 
@@ -45,7 +42,6 @@ function convert(text) {
     }
     let result = ""
     for (let i=0;i<text.length;i++){
-        console.log("here", text[i], text[i] in chars)
         if (text[i] in chars) {
             result += chars[text[i]]
         } else {

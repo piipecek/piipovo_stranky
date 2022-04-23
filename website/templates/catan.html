@@ -72,8 +72,10 @@
     </div>
 </div>
 <button type="button" class="btn btn-warning" id="generate">Generovat</button>
-<p>pretty printed ajax forms with jquerry and flask</p>
-<canvas id="map" hidden></canvas>
+<div id="can" class="my-2" hidden>
+    <canvas id="map"></canvas>
+</div>
+<div id="preloader" class="m-5 p-5 border border-primary rounded" hidden>Generuju mapu...</div>
 <script type="module" src="{{url_for('static', filename='js/catan.js')}}"></script>
 <script type="module" src="{{url_for('static', filename='js/cartesian_graph.js')}}"></script>
 

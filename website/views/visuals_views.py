@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template, send_file, request
 from website.paths.paths import hadej_slova_db_path
 from tomiem_ipsum.generator import get_tomiem
-from flask_cors import cross_origin
+from catan.catan import generate
+import json
 
 visuals_views = Blueprint("visuals_views", __name__)
 
@@ -20,7 +21,6 @@ def hadej_slova_getter():
 
 
 @visuals_views.route("/tomiem_ipsum/<int:words>")
-#@cross_origin()
 def tomiem_ipsum(words):
     return get_tomiem(words=words)
 
@@ -33,8 +33,9 @@ def catan():
     if request.method == "GET":
         return render_template("catan.html")
     else:
-        got = request.form.to_dict()
-        return got
+        got = json.loads(request.form["result"])
+        return json.dumps(generate(got))
+    
 
 @visuals_views.route("/matlab")
 def matlab():

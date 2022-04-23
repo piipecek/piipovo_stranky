@@ -36,13 +36,25 @@ function button_pressed(id_name) {
 }
 
 function send() {
-    console.log(result)
-    draw_map("lol")
+    document.getElementById("preloader").hidden = false
+    $.ajax({
+        data : {
+            result: JSON.stringify(result)
+        },
+        type: "POST",
+        url: "/visuals/catan"
+    })
+    .done(function(data) {
+        document.getElementById("preloader").hidden = true
+        draw_map(data)
+    })
 }
 
 function draw_map(data) {
+    data = JSON.parse(data)
+    console.log(data)
     let c = new Cartesian_graph("map",1000,800,[500.5,400.5],70, true)
-    c.node.hidden = false
+    document.getElementById("can").hidden = false
     let s = 0.866
     let A = [0,1]
     let B = [s, 0.5]

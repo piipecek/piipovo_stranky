@@ -5,6 +5,8 @@ function httpGet(theUrl)
     xmlHttp.send( null );
     return xmlHttp.responseText;
 }
+
+let db = JSON.parse(httpGet("/visuals/hadej_slova_getter"))
 let slova = [] //sem se ukládaj slova, která si uživatel vybral
 let dbs = [db] // sem se ukládaj databáze po jednotlivejch krocích
 let temp_db = [] //se mse ukládá jednotlivej krok
@@ -155,8 +157,6 @@ function orezat_databazi(index) {
     } else {
         alert("Musíš něco napsat.")
     }
-    console.log(temp_db, Object.keys(new_db).length, "from orezavani")
-
     if (dbs.length-1==index) { //prepise nebo pushne novou
         dbs.push(temp_db)
     } else {
@@ -169,7 +169,6 @@ function orezat_databazi(index) {
 
 function best_word(index) {
     let ohodnocena_db = []
-    console.log(dbs, index, "at bestword")
     for (let i=0;i<dbs[index].length;i++) {
         let relevantni_pismenka = new Set(dbs[index][i])
         let value = 0
