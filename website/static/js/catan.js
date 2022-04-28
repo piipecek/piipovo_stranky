@@ -2,11 +2,14 @@ import {Cartesian_graph} from "./cartesian_graph.js"
 
 let buttons = document.getElementsByClassName("cudlitka")
 let generate_button = document.getElementById("generate")
+let zmena_button = document.getElementById("zmena")
+let buttons_div = document.getElementById("buttons")
 
 for (let i=0;i<buttons.length;i++) {
     buttons[i].addEventListener("click", function() {button_pressed(buttons[i].id)})
 }
 generate_button.addEventListener("click", send)
+zmena_button.addEventListener("click", display_parameters)
 
 let result = {
     "force_desert": false,
@@ -15,6 +18,16 @@ let result = {
     "adjacent_values": false,
     "unique_68": true,
     "adjacent_68": false
+}
+
+function display_parameters() {
+    if (buttons_div.hidden) {
+        buttons_div.hidden = false
+        zmena_button.innerHTML = "Skrýt parametry"
+    } else {
+        buttons_div.hidden = true
+        zmena_button.innerHTML = "Ukázat parametry"
+    }
 }
 
 function button_pressed(id_name) {
@@ -37,6 +50,11 @@ function button_pressed(id_name) {
 
 function send() {
     document.getElementById("preloader").hidden = false
+    document.getElementById("can").hidden = true
+    buttons_div.hidden = true
+    zmena_button.hidden = false
+    zmena_button.innerHTML = "Ukázat parametry"
+    generate_button.innerHTML = "Znovu generovat"
     $.ajax({
         data : {
             result: JSON.stringify(result)
@@ -46,15 +64,17 @@ function send() {
     })
     .done(function(data) {
         document.getElementById("preloader").hidden = true
+        document.getElementById("can").hidden = false
         draw_map(data)
     })
 }
 
 function draw_map(data) {
+    // Ma nekolik casti: definice bodu, definice bodu pro jednotlivy dilky, kresleni dilku, kresleni okraju
+
+    // Definice bodu
     data = JSON.parse(data)
-    console.log(data)
     let c = new Cartesian_graph("map",1000,800,[500.5,400.5],70, true)
-    document.getElementById("can").hidden = false
     let s = 0.866
     let A = [0,1]
     let B = [s, 0.5]
@@ -129,25 +149,147 @@ function draw_map(data) {
     let OK = [-(4*s-s/1.5),5]
     let OL = [2*s,5]
 
-
-
-
-    let small_ring = [A,B,C,D,E,F]
-    let middle_ring =[G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X]
-    let outer_ring = [AA,AB,AC,AD,AE,AF,AG,AH,AI,AJ,AK,AL,AM,AN,AO,AP,AQ,AR,AS,AT,AU,AV,AW,AX,AY,AZ,BA,BB,BC,BD]
-    let edge = [OA,OB,OC,OD,OE,OF,OG,OH,OI,OJ,OK,OL]
-
-
-    for (let i=0;i<small_ring.length; i++)  {
-        c.point(small_ring[i],"")
+    // Definice potrebnejch skupin bodu
+    let id_to_point = {
+        0: [BA, BB, BC, BD, X, W],
+        1: [BD, AA, AB, H, G, X],
+        2: [AB, AC, AD, AE, I, H],
+        3: [BA, W, V, U, AY, AZ],
+        4: [W, X, G, A, F, V],
+        5: [G, H, I, J, B, A],
+        6: [I, AE, AF, AG, K, J],
+        7: [U, T, AV, AW, AX, AY],
+        8: [U,V,F,E,S,T],
+        9: [A,B,C,D,E,F],
+        10: [J,K,L,M,C,B],
+        11: [AG, AH, AI, AJ, L, K],
+        12: [T,S,R,AT,AU,AV],
+        13: [E,D,P,Q,R,S],
+        14: [D,C,M,N,O,P],
+        15: [AJ, AK, AL, N,M,L],
+        16: [R,Q,AQ,AR,AS,AT],
+        17: [Q,P,O,AO,AP,AQ],
+        18: [O,N,AL,AM,AN,AO]
     }
-    for (let i=0;i<middle_ring.length; i++)  {
-        c.point(middle_ring[i],"")
+
+    let id_to_edge = {
+        0: [OJ,OK,OL,AC,AB,AA,BD,BC,BB],
+        1: [OL,OA,OB,AH,AG,AF,AE,AD,AC,],
+        2: [OB,OC,OD,AM,AL,AK,AJ,AI,AH],
+        3: [OD,OE,OF,AR,AQ,AP,AO,AN,AM],
+        4: [OF,OG,OH,AW,AV,AU,AT,AS,AR],
+        5: [OH,OI,OJ,BB,BA,AZ,AY,AX,AW]
     }
-    for (let i=0;i<outer_ring.length; i++)  {
-        c.point(outer_ring[i],"")
+
+    // vykresovani dilku
+    for (let i=0;i<data["tiles"].length;i++) {
+        let barva
+        let body = id_to_point[data["tiles"][i]["id"]]
+        if (data["tiles"][i]["type"] == "ovce") {
+            barva = "limegreen"
+        } else if (data["tiles"][i]["type"] == "obili") {
+            barva = "gold"
+        } else if (data["tiles"][i]["type"] == "drevo") {
+            barva = "forestgreen"
+        } else if (data["tiles"][i]["type"] == "kamen") {
+            barva = "grey"
+        } else if (data["tiles"][i]["type"] == "cihly") {
+            barva = "#C65D3A"
+        } else if (data["tiles"][i]["type"] == "zlodej") {
+            barva = "orange"
+        }
+        c.n_gon(body, barva, "black")
+
+        //vykreslovani cisla uprostred
+        let center = [0,0]
+        for (let i=0;i<body.length;i++) {
+            center[0]+=body[i][0]/6
+            center[1]+=body[i][1]/6
+        }
+        if (data["tiles"][i]["type"] == "zlodej") {
+            
+        } else {
+            c.circle(center, 0.3, true, "white", "white")
+        }
+        
+        let value = data["tiles"][i]["value"]
+
+        if ([2,12].includes(value)) {
+            c.ctx.font = '20px arial';
+            c.ctx.fillStyle = "black"
+        } else if ([3,11].includes(value)) {
+            c.ctx.font = '22px arial';
+            c.ctx.fillStyle = "black"    
+        } else if ([4,10].includes(value)) {
+            c.ctx.font = '27px arial';
+            c.ctx.fillStyle = "black"    
+        } else if ([5,9].includes(value)) {
+            c.ctx.font = '30px arial';
+            c.ctx.fillStyle = "black"    
+        } else if ([6,8].includes(value)) {
+            c.ctx.font = '35px arial';
+            c.ctx.fillStyle = "red"    
+        } else {
+            continue
+        }
+
+        c.ctx.textAlign = "center"
+        c.ctx.textBaseline = "middle"
+        c.ctx.fillText(String(value), c.rx(center[0]), c.ry(center[1]))
+
     }
-    for (let i=0;i<edge.length; i++)  {
-        c.point(edge[i],"")
+
+     // kreslim porty jako kolecka, jejichz stred se pocita takhle
+     function stred_portu_jako_fce_dvou_bodu_nejbliz(bod1, bod2) {
+        let vec12 = [bod2[0]-bod1[0], bod2[1]-bod1[1]]
+        let a = vec12[0]
+        let b = vec12[1]
+        let velikost_vec12 = Math.sqrt(a**2+b**2)
+        let dst = velikost_vec12*(2/3)
+        let alpha = Math.acos(a/velikost_vec12)
+        if (bod2[1] < bod1[1]) {
+            alpha = Math.PI*2-alpha
+        }
+        let ceix = bod1[0] + dst*Math.cos(alpha+Math.PI/6)
+        let ceypsilon = bod1[1] + dst*Math.sin(alpha+Math.PI/6)
+        console.log(bod1)
+        console.log([ceix, ceypsilon])
+        console.log(bod2)
+        return [ceix, ceypsilon]
+    }
+
+    // vykreslovani kraju
+    for (let i=0;i<data["edges"].length; i++) {
+        c.n_gon(id_to_edge[i], "dodgerblue", "black")
+
+        let barva
+        if (data["edges"][i] == "ovce") {
+            barva = "limegreen"
+        } else if (data["edges"][i] == "obili") {
+            barva = "gold"
+        } else if (data["edges"][i] == "drevo") {
+            barva = "forestgreen"
+        } else if (data["edges"][i] == "kamen") {
+            barva = "grey"
+        } else if (data["edges"][i] == "cihly") {
+            barva = "#C65D3A"
+        } else if (data["edges"][i] == null) {
+            continue
+        }    
+        
+        let id_to_related_points = {
+            0: [[BD,AA], [AA,AB]],
+            1: [[AE,AF], [AF,AG]],
+            2: [[AJ,AK], [AK,AL]],
+            3: [[AO,AP], [AP,AQ]],
+            4: [[AT,AU], [AU,AV]],
+            5: [[AY,AZ], [AZ,BA]]
+        }
+        
+        if (["drevo", "kamen"].includes(data["edges"][i])) {
+            c.circle(stred_portu_jako_fce_dvou_bodu_nejbliz(id_to_related_points[i][0][0],id_to_related_points[i][0][1]),0.25,true, barva, true, "black")
+        } else if (["obili", "ovce", "cihly"].includes(data["edges"][i])) {
+            c.circle(stred_portu_jako_fce_dvou_bodu_nejbliz(id_to_related_points[i][1][0],id_to_related_points[i][1][1]),0.25,true, barva, true, "black")
+        }
     }
 }

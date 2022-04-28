@@ -70,7 +70,6 @@ class Board:
             None:None
         }
         
-    
     def __repr__(self) -> str:
         return str(self.tiles)
 

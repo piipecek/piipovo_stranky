@@ -240,7 +240,20 @@ class Cartesian_graph {
         this.ctx.closePath()
         this.ctx.stroke()
         this.ctx.fill()
+    }
 
+    circle(tuple, r, dofill, color, doborder, border_color) {
+        this.ctx.strokeStyle=border_color
+        this.ctx.lineWidth = "1"
+        this.ctx.fillStyle = color
+        this.ctx.beginPath()
+        this.ctx.arc(this.rx(tuple[0]),this.ry(tuple[1]), r*this.px_step, 0, Math.PI*2)
+        if (dofill) {
+            this.ctx.fill()
+        }
+        if (doborder) {
+            this.ctx.stroke()
+        }
     }
 }
 
