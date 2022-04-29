@@ -14,7 +14,9 @@
 Při vykreslování grafů v Matlabu lze použít \(\LaTeX\) vzhled písma. Stačí kdekoli nad příkazem <code>plot()</code> použít 
 <div class="m-2 p-2 border border-primary rounded" >
     <code>
-        set(0,'defaulttextInterpreter','latex')
+        set(0,'defaulttextInterpreter','latex'); <br>
+        set(groot, 'defaultAxesTickLabelInterpreter','latex'); <br>
+        set(groot, 'defaultLegendInterpreter','latex');
     </code>
 </div>
 Matlab ale má problém s háčky a čárkami, vyžaduje speciální syntax: např. <code>\v{z}</code> znamená ž. Tenhle converter to zařídí.    
