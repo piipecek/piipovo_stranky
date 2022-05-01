@@ -5,19 +5,19 @@
 <div>
     <h1>Způsoby popisu přímky v rovině</h1>
     <div class="row">
-        <div class="col">
+        <div class="col-auto">
             <button id="vektor" class="btn btn-outline-primary">Co je vektor?</button>
         </div>
-        <div class="col">
+        <div class="col-auto">
             <button id="vazany_vektor" class="btn btn-outline-primary">Vázaný vektor</button>
         </div>
-        <div class="col">
+        <div class="col-auto">
             <button id="param" class="btn btn-outline-primary">Parametrické vyjádření přímky</button>
         </div>
-        <div class="col">
+        <div class="col-auto">
             <button id="general" class="btn btn-outline-primary">Obecná rovnice přímky</button>
         </div>
-        <div class="col">
+        <div class="col-auto">
             <button id="slope" class="btn btn-outline-primary">Směrnicový tvar rovnice přímky</button>
         </div>
     </div>
@@ -106,7 +106,7 @@
     <canvas id="param_primka"></canvas>
 </div>
 
-<script type="module" src="{{url_for('static', filename='js/matematika.js')}}"></script>
+<script type="module" src="{{url_for('static', filename='js/popis_primky.js')}}"></script>
 <script type="module" src="{{url_for('static', filename='js/cartesian_graph.js')}}"></script>
 
 

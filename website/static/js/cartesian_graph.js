@@ -3,6 +3,8 @@ class Cartesian_graph {
     constructor(id, width, height, pxorigin, pxstep, blank=false) {
         this.node = document.getElementById(id)
         this.ctx = this.node.getContext("2d")
+        this.ctx.textAlign = "center"
+        this.ctx.textBaseline = "middle"
         this.width = width
         this.height = height
         this.node.width = this.width
@@ -32,6 +34,18 @@ class Cartesian_graph {
 
     ry (num) {
         return this.originY- num * this.px_step
+    }
+
+    odchylka_vektoru_od_osy_x(tuple) {
+        let alpha
+        if (tuple[1] >= 0) {
+            alpha = Math.acos( tuple[0] / Math.sqrt(  Math.pow(tuple[0],2) + Math.pow(tuple[1],2)  ) )
+        } else {
+            alpha = -Math.acos( tuple[0] / Math.sqrt(  Math.pow(tuple[0],2) + Math.pow(tuple[1],2)  ) )
+            alpha = Math.PI*2-Math.acos( tuple[0] / Math.sqrt(  Math.pow(tuple[0],2) + Math.pow(tuple[1],2)  ) )
+
+        }
+        return alpha
     }
 
     axes() {
@@ -202,15 +216,21 @@ class Cartesian_graph {
 
     }
 
+    two_point_line_segment(A,B,label="",labelpos="") {
+        this.ctx.strokeStyle = "black"
+        this.ctx.lineWidth = "1"
+        this.ctx.beginPath()
+        this.ctx.moveTo(this.rx(A[0]),this.ry(A[1]))
+        this.ctx.lineTo(this.rx(B[0]),this.ry(B[1]))
+        this.ctx.stroke()
+        this.point(B, label, labelpos, false)
+
+    }
+
     vector(point_tuple, direction_tuple, label = "", labelpos = "SE", multiplier = 1) {
         // direction tuple je vektor, point tuple je jeho uvazani na misto
         //multiplier = 1 -> vektor je velkeej jako direction tuple
-        let alpha
-        if (direction_tuple[1] > 0) {
-            alpha = Math.acos( direction_tuple[0] / Math.sqrt(  Math.pow(direction_tuple[0],2) + Math.pow(direction_tuple[1],2)  ) )
-        } else {
-            alpha = -Math.acos( direction_tuple[0] / Math.sqrt(  Math.pow(direction_tuple[0],2) + Math.pow(direction_tuple[1],2)  ) )
-        }
+        let alpha = this.odchylka_vektoru_od_osy_x(direction_tuple)
         let arrow_size = 10
         let arrow_angle = Math.PI/6
         let endx = point_tuple[0] + direction_tuple[0]*multiplier
@@ -254,6 +274,18 @@ class Cartesian_graph {
         if (doborder) {
             this.ctx.stroke()
         }
+    }
+
+    angle(startPoint, center, endPoint, label) {
+        let start_rad = this.odchylka_vektoru_od_osy_x([startPoint[0]-center[0], startPoint[1]-center[1]])
+        let end_rad = this.odchylka_vektoru_od_osy_x([endPoint[0]-center[0], endPoint[1]-center[1]])
+        
+        this.ctx.strokeStyle = "red"
+        this.ctx.lineWidth = "1"
+        this.ctx.beginPath()
+        console.log(end_rad)
+        this.ctx.arc(this.rx(center[0]), this.ry(center[1]), 0.7*this.px_step, start_rad, end_rad, true)
+        this.ctx.stroke()
     }
 }
 

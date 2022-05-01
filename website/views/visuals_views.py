@@ -24,9 +24,13 @@ def hadej_slova_getter():
 def tomiem_ipsum(words):
     return get_tomiem(words=words)
 
-@visuals_views.route("/matematika")
-def matematika():
-    return render_template("matematika.html")
+@visuals_views.route("/matematika/popis_primky")
+def popis_primky():
+    return render_template("popis_primky.html")
+
+@visuals_views.route("/matematika/trig")
+def trig():
+    return render_template("trig.html")
 
 @visuals_views.route("/catan",  methods=["GET","POST"])
 def catan():

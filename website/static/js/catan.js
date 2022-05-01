@@ -252,9 +252,6 @@ function draw_map(data) {
         }
         let ceix = bod1[0] + dst*Math.cos(alpha+Math.PI/6)
         let ceypsilon = bod1[1] + dst*Math.sin(alpha+Math.PI/6)
-        console.log(bod1)
-        console.log([ceix, ceypsilon])
-        console.log(bod2)
         return [ceix, ceypsilon]
     }
 
