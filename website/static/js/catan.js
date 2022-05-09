@@ -55,6 +55,7 @@ function send() {
     zmena_button.hidden = false
     zmena_button.innerHTML = "Ukázat parametry"
     generate_button.innerHTML = "Znovu generovat"
+    console.log(result)
     $.ajax({
         data : {
             result: JSON.stringify(result)
