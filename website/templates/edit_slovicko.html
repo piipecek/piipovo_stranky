@@ -1,0 +1,37 @@
+{% extends "slovnik_base.html" %}
+{% block content %}
+    <h2>Úprava slovíček</h2>
+    Pro oddělení dat použijte ", " čárku a mezeru.
+
+    <form method="post">
+
+    <input type="text" hidden id="slovicko" name="slovicko" value="{{slovicko}}"/>
+    <input type="text" hidden id="jazyky" value="{{jazyky}}"/>
+
+    <!-- jazyky generuju dynamicky cuz kazdej muze mit jinej pocet -->
+    <div id="jazyky_inputs"></div> 
+
+    <div>
+        <label for="druh">slovní druh:</label>
+        <input id="druh" type="text"/>
+    </div>
+    <div>
+        <label for="asociace">asociace:</label>
+        <input id="asociace" type="text"/>
+    </div>
+    <div>
+        <label for="kategorie">kategorie</label>
+        <input id="kategorie" type="text"/>
+    </div>
+    <div>
+        <button type="potvrdit" value="potvrdit" name="potvrdit" id="potvrdit">Potvrdit</button>
+        <button type="submit" value="delete" name="delete">Smazat slovíčko</button>
+    </div>
+    </form>
+
+    <script type="module" src="{{url_for('static',filename='js/slovnik/edit.mjs')}}"></script>
+
+
+
+
+{% endblock %}

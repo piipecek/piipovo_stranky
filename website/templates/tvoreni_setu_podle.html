@@ -1,0 +1,37 @@
+{% extends "slovnik_base.html" %}
+{% block content %}
+    <h2>Navol si parametry setu:</h2>
+    <form method="post">
+    <div>
+        <p>
+            Chci zkoušet z 
+            <select id="base_jazyk" name="base_jazyk"></select> 
+            do
+            <select id="target_jazyk" name="target_jazyk"></select>
+            <input id="jazyky" type="text" hidden value="{{jazyky}}"/>
+            <script>
+                let jazyky = JSON.parse(document.getElementById("jazyky").value)
+                for (i=0;i<jazyky.length;i++) {
+                    let opt = document.createElement("option")
+                    opt.innerHTML = jazyky[i]
+                    opt.value = jazyky[i]
+                    document.getElementById("target_jazyk").appendChild(opt.cloneNode(true))
+                    document.getElementById("base_jazyk").appendChild(opt.cloneNode(true))
+                }
+            </script>
+        </p>
+        <label for="dropdown1">Podle čeho?</label>
+        <select id="dropdown1" name="typ">
+            <option value="kategorie">Podle kategorií</option>
+            <option value="neuspesne">Neúspěšné slovíčka</option>
+            <option value="vse">ze všeho</option>
+            <option value="least">Nejméně zkoušená slovíčka</option>
+            <option value="nejmene_ucene">Nejméně učená slovíčka</option>
+            <option value="datum">Mezi dvěma daty</option>
+            <option value="druh">Podle slovního druhu</option>
+            <option value="skupina">Podle char. skupiny písmen</option>
+        </select>
+    </div>
+    <button type="submit">Dál</button>
+    </form>
+{% endblock %}

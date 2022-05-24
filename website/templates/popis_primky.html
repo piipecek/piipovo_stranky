@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+    <h1>Způsoby popisu přímky v rovině</h1>
+    <div class="row">
+        <div class="col-auto">
+            <button id="vektor" class="btn btn-outline-primary">Co je vektor?</button>
+        </div>
+        <div class="col-auto">
+            <button id="vazany_vektor" class="btn btn-outline-primary">Vázaný vektor</button>
+        </div>
+        <div class="col-auto">
+            <button id="param" class="btn btn-outline-primary">Parametrické vyjádření přímky</button>
+        </div>
+        <div class="col-auto">
+            <button id="general" class="btn btn-outline-primary">Obecná rovnice přímky</button>
+        </div>
+        <div class="col-auto">
+            <button id="slope" class="btn btn-outline-primary">Směrnicový tvar rovnice přímky</button>
+        </div>
+    </div>
+    <div id="param_primka_content">
+        <div id="vektor_text">
+            <h2>Vektor</h2>
+            <p>
+                Pro matematika je vektor uspořádaná n-tice čísel. Pro náš případ se omezíme na uspořádané dvojice, třeba
+                \[ \begin{pmatrix} 2 \\ 1 \end{pmatrix} \]
+                <i>Uspořádaná</i> dvojice znamená, že záleží na pořadí jednotlivých čísel: \(\begin{pmatrix} 1 \\ 2 \end{pmatrix}\) je jiný vektor. N-tice znamená, že nemusíme mít ve vektoru jen dvě čísla, ale i více. Jestli vektor zapíšeme jako sloupeček, nebo jako řádek \((2,1)\), je zatím jedno. Zde budu používat zápis do sloupečků, protože rovnice s ním vypadají pěkněji.
+            </p>
+            <p>
+                Vybral jsem si vektor jako dvojici, protože se dá jednoduše zobrazit. První číslo chápejme jako vzálenost, kterou ujít ve směru osy \(x\). Druhé číslo udává vzdálenost, kterou vektor urazí ve směru osy \(y\). Jak je vidět na obrázku, každá z červených šipek udělá přesně to: od začátku do konce urazí dvě jednotky po ose \(x\) a pouze jednu po ose \(y\). Také proto je u každé šipky stejný název: \(v_{1}\). To proto, že to je stále jeden a ten samý vektor - nezáleží na tom, kde začíá.
+            </p>
+        </div>
+        <div id="vazany_vektor_text">
+            <h2>Vázaný vektor</h2>
+            <p>
+                Vázaný vektor řeší to, kde vektor začíná. Na minulém obrázku bylo vidět, že vektor může být znázorněn šipkou a není jasné, kde začíná. Takovému vektoru bychom říkali <b>volný vektor.</b> Oproti tomu <b>vázaný vektor</b> má jasný počátek: tento vektor \(v_{1} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}\) začíná v bodě \(A = \begin{bmatrix} -1 \\ 1 \end{bmatrix}\). Tím, že jsme tento fakt napsali, jsme vytvořili vázaný vektor. Vektor je <i>vázaný</i>  na jeden pevný bod.
+            </p>
+        </div>
+        <div id="param_text">
+            <h2>Parametrické vyjádření přímky</h2>
+           <p>
+               Všimněme si, co se děje, když k bodu \(A = \begin{bmatrix} -1 \\ 1 \end{bmatrix}\) z minulého obrázku připojím několik vázaných vektorů, které mají stejný směr. Když například připojím vektor \( v_{1} = \begin{pmatrix} 2 \\ 1 \end{pmatrix} \), dostanu se do bodu \( T = \begin{bmatrix} 1 \\ 2 \end{bmatrix} \). Můžete se na to podívat na obrázku níže. Zapsáno čistěji: 
+               \[ A + v_{1} = T \]
+               \[ \begin{bmatrix} -1 \\ 1 \end{bmatrix} + \begin{pmatrix} 2 \\ 1 \end{pmatrix} = \begin{bmatrix} 1 \\ 2 \end{bmatrix} \] <br>
+               Dále připojím do stejného bodu vektor, který je delší a dostane nás až do bodu \(U\). Konkrétně, přičetli jsme 1,5-násobek vektoru \(v_{1}\):
+               \[v_{1} \cdot 1,5 = \begin{pmatrix} 3 \\ 1,5 \end{pmatrix}\]
+               \[A + 1,5 \cdot v_{1} = U\]
+               \[ \begin{bmatrix} -1 \\ 1 \end{bmatrix} + \begin{pmatrix} 3 \\ 1,5 \end{pmatrix} = \begin{bmatrix} 2 \\ 2.5 \end{bmatrix} \] <br>
+               Stejně bych mohl připojit -1-násobek vektoru \(v_{1}\) a dostat se tak do bodu \(S\):
+               \[ A - v_{1} = S \]
+               \[ \begin{bmatrix} -1 \\ 1 \end{bmatrix} - \begin{pmatrix} 2 \\ 1 \end{pmatrix} = \begin{bmatrix} -3 \\ 0 \end{bmatrix} \] <br>
+               Jak je vidět, všechny tyto body \(A,S,T,U\) leží na jedné přímce. V tom spočívá parametrické vyjádření přímky. Kdybychom totiž přičetli jakýkoli  násobek vektoru \(v_{1}\) k bodu \(A\), budeme stále na stejné přímce. Takovýto libovolný násobek označíme písmenkem \(t\) a uvedeme, že \(t \in \mathbb{R}\). \(t\) je tedy jakékoli reálné číslo. Zápis takové přímky tedy vypadá takto:
+               \[ p_{1} = A + t \cdot v_{1}, \quad t \in \mathbb{R}\]
+               s dosazenými čísly potom
+               \[ p_{1} = \begin{bmatrix} -1 + 2t \\ 1 + t \end{bmatrix}, \quad t \in \mathbb{R} \]
+               A je to! Dosazením libovolného čísla \(t\) do rovnice vyjde bod, který vždy bude na přímce \(p_{1}\). Kdybychom mohli dosadit všechny hodnoty \(t\) naráz, dostaneme všechny body přímky, tedy celou přímku \(p_{1}\). POZOR: Mohl jsem vybrat jiný bod a jiný vektor a zápis přímky by vypadal na první pohled jinak. Po vykreslení by ale šlo o stejnou přímku.
+
+           </p> 
+        </div>
+        <div id="general_text">
+            <h2>Obecná rovnice přímky</h2>
+            <p>
+                V minulém oddíle jsme vyjádřili přímku \(p_{1}\) jako bod + \(t\)-krát vektor. Jde to ale i jinak. Obecná rovnice přímky bude vždy mít tvar 
+                \[ax + by + c = 0 \]
+                kde \(a,b,c\) jsou nějaká reálná čísla. Cílem je, aby tato rovnice fungovala tak, že ať za čísla \(x,y\) dosadíme souřadnice jakéhokoli bodu na přímce \(p_{1}\), rovnice bude platit (tedy vyjde = 0). K jejich získání čísel \(a,b,c\) je třeba vědět pár dalších věcí:
+                <ol>
+                    <li>Směrový vektor je takový vektor, který udává směr přímky. Můžeme použít náš \( v_{1}  =  \begin{pmatrix} 2\\1\end{pmatrix} \), nebo nějaký jeho (nenulový) násobek.</li>
+                    <li>Normálový vektor je takový vektor,  který je na přímku kolmý. Získáme ho ze směrového tak, že ve vektoru \(v_{1}\) prohodíme složky a u jedné z nich změníme znaménko: \( n_{1} = \begin{pmatrix} -1\\2\end{pmatrix} \)</li>
+                    <li>Složky tohoto vektoru jsou čísla \(a\) a \(b\) z obecné rovnice.</li> 
+                </ol>
+                Tím je kus práce hotov. Už víme, že \(a = -1\) a \(b = 2\),  tedy
+                \[-1 \cdot x + 2 \cdot y + c = 0 \]
+                Zbývá zjistit číslo \(c\). Připomeňme si náš cíl: Chceme do rovnice dosadit jakýkoli bod na přímce a měla by vyjít nula. Vybereme tedy nějaký bod, třeba  \(B = \begin{bmatrix}3\\3 \end{bmatrix}\), dosadíme ho do rozpracované rovnice přímky a vyřešíme rovnici pro neznámou \(c\).
+                \begin{align*}-1 \cdot 3 + 2 \cdot 3 + c &= 0  \\ -3 + 6 + c &= 0 \\ c &= -3\end{align*}
+                A je hotovo. rovnice
+                \[-x + 2y -3 = 0 \]
+                je obecnou rovnicí přímky \(p_{1}\). Pro zkoušku se podívejme, co se stane, když dosadíme bod, který na \(p_{1}\) určitě neleží, třeba bod \(N = \begin{bmatrix}2\\-1 \end{bmatrix}\).
+                \begin{align*} -2 + 2 \cdot (-1) -3 &= 0 \\ -7 &= 0 \end{align*}
+                což určitě neplatí. To jsme ale čekali, protože bod \(N\) neleží na \(p_{1}\). POZOR: Mohl jsem zvolit jiný násobek normálového vektoru, jiný bod k dosazení a vyšla by mi obecná rovnice, která by vypadala jinak. Po vykreslení by ale znázorňovala stejnou přímku.
+
+            </p>
+        </div>
+        <div id="slope_text">
+            <h2>Směrniový tvar</h2>
+            <p>
+                Poslední možností, jak určit přímku, je tzv. směrnicový tvar. Pokud již máme obecnou rovnici přímky, pouze z ní osamostatníme \(y\):
+                \begin{align*} -x+ 2y -3 &= 0\\ 2y &= x+3\\ y &= \frac{x}{2} + \frac{3}{2} \end{align*}
+                a je hotovo. Tento tvar má skvělou výhodu: je jednoduché si díky němu představit, jak bude přímka vypadat. Číslo u \(x\) totiž značí směrnici, tedy jak bude přímka stoupat. Číslo na konci potom značí, kde přímka protne osu \(y\).
+            </p>
+            <h2>Jiná cesta, jak zjistit tento směrnicový tvar:</h2>
+            <p>
+                <ol>
+                    <li>Vědět, že cílíme na tvar \(y=ax+b\), kde \(a,b \in \mathbb{R}\).</li>
+                    <li>Vybrat si bod na přímce, dosadit jeho souřadnice za \(x,y\) do tohoto obecného tvaru.</li>
+                    <li>Vybrat si jiný bod na téže přímce a udělat s ním totéž.</li>
+                    <li>Vyřešit soustavu dvou rovnic o dvou neznámých \(a,b\). </li>
+                    <li>Tyto koeficienty poté dosadit do  \(y=ax+b\).</li>
+                </ol>
+
+            </p>
+        </div>
+    </div>
+    <canvas id="param_primka"></canvas>
+</div>
+
+<script type="module" src="{{url_for('static', filename='js/popis_primky.js')}}"></script>
+<script type="module" src="{{url_for('static', filename='js/cartesian_graph.js')}}"></script>
+
+
+{% endblock %}

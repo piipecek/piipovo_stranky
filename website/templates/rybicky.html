@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicooon.ico') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <title>Pípovo stránky</title>
+</head>
+
+<body class="mx-3">
+    <!-- OVERALL STYLING -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='rybicky.grid.css')}}">
+
+    <!-- ÚVOD -->
+    <hr class="m-fix" />
+    <section id="rybicky-uvod">
+        <h3>Rybičky</h3> <a href="{{url_for('default_views.dashboard')}}">Zpět domů</a>
+        <p style="margin-bottom: 10px;">
+            Toto je simulace chování hejna. Insiprací bylo <a href="https://youtu.be/4LWmRuB-uNU">tohle 13 minut dlouhé video</a>, které ukazuje autorovo nadšení nad hejnem ptáků a jeho kamaráda, jak tuhle vizualizaci vytvořil. Jsou tam dokonale vysvětlena pravidla, která vytváří tohle chování, doporučuju. Pokud si moc rozházíte parametry, stačí načíst stránku znovu :)
+        </p>
+    </section>
+    <hr class="m-fix" />
+
+    <!-- GUI / CONTROLS -->
+    <div id="rybicky-controls" class="m-fix">
+        <!-- Row 1 -->
+        <label  style="grid-area: pocet;" class="grid-item" for="pocet_ryb">Počet ryb: </label>
+        <input  style="grid-area: pocet-inp;" class="grid-item" type="number" id="pocet_ryb" value="80"/>
+        <button style="grid-area: restart-sett;" class="grid-item" id="typ_startu">Začínat náhodně</button>
+        <button style="grid-area: restart-btn;" class="grid-item" id="restart">Restart</button>
+
+        <!-- Row 2 -->
+        <label  style="grid-area: velikost;" class="grid-item" for="velikost_ryby">Velikost ryby: <span id="velikost_ryby_display"></span></label>
+        <input  style="grid-area: velikost-ren;" class="grid-item form-range" type="range" id="velikost_ryby" min="1" max="100" value="15"/>
+        <label  style="grid-area: rychlost;" class="grid-item" for="rychlost">Rychlost: <span id="rychlost_display"></span></label>
+        <input  style="grid-area: rychlost-ren;" class="grid-item form-range" type="range" id="rychlost" min="0" max="1000" value="400"/>
+
+        <!-- Row 3 -->
+        <label  style="grid-area: okraj;" class="grid-item dynamic-label" for="koef_od_kraju">Odpuzování od krajů: <span id="koef_od_kraju_display"></span></label>
+        <input  style="grid-area: okraj-ren;" class="grid-item form-range" type="range" id="koef_od_kraju" min="0" max="100" value="50"/>
+        <label  style="grid-area: sirka;" class="grid-item" for="sirka_zony">Šířka zóny: <span id="sirka_zony_display"></span></label>
+        <input  style="grid-area: sirka-ren;" class="grid-item form-range" type="range" id="sirka_zony" min="1" max="300" value="100"/>
+        <button style="grid-area: sirka-show;" class="grid-item dynamic-button" id="sirka_zony_button">Ukázat šířku zóny</button>
+        
+        <!-- Row 4 -->
+        <label  style="grid-area: pritah;" class="grid-item" for="koef_pritahovani">Přitahování: <span id="koef_pritahovani_display"></span></label>
+        <input  style="grid-area: pritah-ren;" class="grid-item form-range" type="range" id="koef_pritahovani" min="0" max="100" value="19"/>
+        <label  style="grid-area: dohled;" class="grid-item dynamic-label-2" for="polomer_dohledu">Poloměr dohledu: <span id="polomer_dohledu_display"></span></label>
+        <input  style="grid-area: dohled-ren;" class="grid-item form-range" type="range" id="polomer_dohledu" min="1" max="100" value="43"/>
+        <button style="grid-area: dohled-show;" class="grid-item dynamic-button" id="polomer_dohledu_button">Ukázat poloměr dohledu</button>
+        
+        <!-- Row 5 -->
+        <label  style="grid-area: odpuz;" class="grid-item" for="koef_odpuzovaci">Odpuzování: <span id="koef_odpuzovaci_display"></span></label>
+        <input  style="grid-area: odpuz-ren;" class="grid-item form-range" type="range" id="koef_odpuzovaci" min="0" max="100" value="40"/>
+        <label  style="grid-area: prostor;" class="grid-item dynamic-label-2" for="osobni_prostor">Prostor kolem ryby: <span id="osobni_prostor_display"></span></label>
+        <input  style="grid-area: prostor-ren;" class="grid-item form-range" type="range" id="osobni_prostor" min="0" max="100" value="23"/>
+        <button style="grid-area: prostor-show;" class="grid-item dynamic-button" id="osobni_prostor_button">Ukázat prostor ryby</button>
+        
+        <!-- Row 6 -->
+        <label  style="grid-area: usmer;" class="grid-item dynamic-label" for="koef_usmernovaci">Společné usměrňování: <span id="koef_usmernovaci_display"></span></label>
+        <input  style="grid-area: usmer-ren;" class="grid-item form-range" type="range" id="koef_usmernovaci" min="0" max="100" value="32"/>
+        <label  style="grid-area: prostor2;" class="grid-item dynamic-label" for="prostor_usmernovani">Prostor pro usměrňování: <span id="prostor_usmernovani_display"></span></label>
+        <input  style="grid-area: prostor2-ren;" class="grid-item form-range" type="range" id="prostor_usmernovani" min="0" max="100" value="30"/>
+        <button style="grid-area: prostor2-show;" class="grid-item dynamic-button" id="prostor_usmernovani_button">Ukázat prostor usměrňování</button>
+
+    </div>
+    <script>
+        // Touch screen zařízení mají problém se zasekávacím hover efektem.
+        // Solution: zařízení má touch screen => nedostane classu, která povoluje hover efekt
+        // https://stackoverflow.com/a/19715406/9318084
+        const hasTouchScreen = (!!("ontouchstart" in window) || window.navigator.msMaxTouchPoints > 0);
+        if (!hasTouchScreen) {
+            document.querySelectorAll("div#rybicky-controls button").forEach(button => {
+                button.classList.add("support-hover");
+            });
+        }
+    </script>
+
+    <!-- CANVAS + RYBÍ SKRIPTY -->
+    <canvas id="canvas" class="m-fix"></canvas>
+
+    <!-- <script type="module" src="../static/js/rybicky_move.js"></script>
+    <script type="module" src="../static/js/rybicky.js"></script> -->
+
+    <!-- https://stackoverflow.com/a/68587672/9318084 -->
+    <script type="module" src="{{url_for('static',filename='js/rybicky_move.mjs')}}"></script>
+    <script type="module" src="{{url_for('static',filename='js/rybicky.mjs')}}"></script>
+
+</body>

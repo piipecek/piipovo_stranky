@@ -1,0 +1,35 @@
+{% extends "slovnik_base.html" %}
+{% block content %}
+    <h2> Detail zkoušení</h2>
+    datum: {{ zkouseni.pretty_date() }}, base_jazyk: {{zkouseni.base_jazyk}}, target_jazyk: {{ zkouseni.target_jazyk }}, úspěšnost: {{ zkouseni.uspesnost }},
+    podle: {{ zkouseni.podle }}, metadata: {{ zkouseni.podle_meta }}, id: {{ zkouseni.id }}
+    <br>
+    poznámka: {{ zkouseni.poznamka }}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1 w1">{{ zkouseni.base_jazyk }}</div>
+            <div class="col-md-1 w1">moje odpověď</div>
+            <div class="col-md-1 w1">správně v jazyce {{ zkouseni.target_jazyk }}</div>
+            <div class="col-md-1 w1">upravit</div>
+        </div>
+    <hr>
+        {% for index in indexy %}
+            <div class="row">
+                <div class="col-md-1 w1">{{ zkousena_slovicka[index].pretty(zkouseni.base_jazyk) }}</div>
+                <div class="col-md-1 w1">{{ zkouseni.seznam_odpovedi[index] }}</div>
+                <div class="col-md-1 w1">{{ zkousena_slovicka[index].pretty(zkouseni.target_jazyk) }}</div>
+                <div class="col-md-1 w1">
+                    <form method="post">
+                        <button type="submit" name="edit" value="{{zkousena_slovicka[index].id}}">Upravit</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <form method="post">
+    <button type="submit" name="retake" value="{{ zkouseni.id }}">Znovu</button>
+    <button type="submit" name="delete" value="{{ zkouseni.id }}">Smazat záznam</button>
+    </form>
+    <br>
+    <a href="{{ url_for("slovnik_views.historie_zkouseni") }}">Zpět na seznam minulých zkoušení</a>
+{% endblock %}

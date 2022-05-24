@@ -1,0 +1,22 @@
+{% extends "slovnik_base.html" %}
+{% block content %}
+    <h2> Úprava slovíček, co se zdá, že jsou dvakrát</h2>
+    {% if duplicates %}
+        {% for d in duplicates %}
+            <hr>
+            <b>{{ d["string"] }}</b>
+            <br>
+            <form method="post">
+                {% for word in d["words"] %}
+                    {{word}}
+                    <input type="text" name="id" value="{{word.id}}" hidden/>
+                    <button type="submit" name="edit" value="{{word.id}}">Edit</button>
+                    <br>
+                {% endfor %}
+                <button type="submit" name="sjednotit" value="1">Sjednotit</button>
+            </form>
+        {% endfor %}
+    {% else %}
+        žádné duplikáty!
+    {% endif %}
+{% endblock %}

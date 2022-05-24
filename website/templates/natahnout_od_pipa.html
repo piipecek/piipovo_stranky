@@ -1,0 +1,18 @@
+{% extends "slovnik_base.html" %}
+{% block content %}
+<h2>Natáhnout slovíčka od pípa</h2>
+Píp má slovník, kde má slovíčka z němčiny z hodin a ze strojárny. Vyber si, jaký kategorie chceš natáhnout, nebo dole vyber celý slovník.
+<form method="post">
+    {% for kat in kategorie %}
+    <input type="checkbox" name="kategorie" id="{{kat}}" value="{{kat}}"/>
+    <label for="{{kat}}">{{kat}}</label>
+    <br>
+    {% endfor %}
+    <br>
+    <input type="checkbox" name="all" id="all" value="all"/>
+    <label for="all">Všechny kategorie</label>
+    <br>
+    <button type="submit">Vybrat a přidat do mého slovníku</button>
+</form>
+
+{% endblock %}

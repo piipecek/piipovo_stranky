@@ -1,0 +1,37 @@
+.datecolumn {
+    width: auto;
+}
+
+.container {
+    margin: 20px;
+}
+hr {
+    margin: 5px;
+}
+
+.alertcolor-info {
+    background-color: rgb(253, 235, 138  );
+}
+.alertcolor-error  {
+    background-color: rgb(255, 121, 121);
+}
+.alertcolor-success {
+    background-color: rgb(138, 253, 138  );
+}
+
+.col-md-1 {
+    width: 130px;
+}
+.w1 {
+    width: 220px;
+}
+.w2 {
+    width: 1500px;
+}
+body {
+    background-color: whitesmoke ;
+    margin-left: 20px;
+}
+canvas {
+    background-color: white;
+}

@@ -1,0 +1,81 @@
+{% extends "slovnik_base.html" %}
+{% block content %}
+
+<!-- STYLING PRO TABULKU -->
+<!-- Formulář by měl být definovanej třídama z bootstrapu a inline opravnýma stylama -->
+<link rel="stylesheet" type="text/css" href="{{url_for("static",filename="slovnik.table.css")}}">
+
+<div style="margin: 1em;">
+
+    <!-- NADPIS -->
+    <h2>Slovník</h2>
+
+    <!-- MENU -->
+    <div class="mb-2">
+        <a class="btn btn-outline-primary" href="{{ url_for("slovnik_views.sort")}}">Setřídit slovník</a>
+        <a class="btn btn-outline-primary" href="{{ url_for("slovnik_views.singles")}}">Najít slovíčka jen s jedním záznamem</a>
+        <a class="btn btn-outline-primary" href="{{ url_for("slovnik_views.duplicates")}}">Najít duplicitní slovíčka</a>
+        <a class="btn btn-outline-primary" href="{{ url_for("slovnik_views.natahnout_od_pipa") }}">Natáhnout si pár kategorií nebo celý slovník od Pípa</a>
+    </div>
+
+    <form method="post">
+
+        <!-- PRVKY FORMULÁŘE PRO MANUPULACI S VYBRANÝMI SLOVÍČKY -->
+        <!-- Využití bootstrap tříd pro styling prvků formuláře => problémy (nutno opravit vlastním css): -->
+        <!-- 1) inputy musí mít definovanej width, jinak se roztáhnou na celou stránku -->
+        <!-- 2) shitty layout (možná to špatně používám, idk)  -->
+        <!-- Opraveno pomocí (width: ...), (display: inline) a (vertical-align: baseline) -->
+        <!-- Hlavně nepoužívat (float: left)! -->
+        <div class="mb-2">
+            <h5>Manipulace s vybranými slovíčky</h5>
+            <!-- <label class="form-label" for="dropdown">S vybranými slovíčky: </label> -->
+            <select class="form-select" style="width: 200px; display: inline;" id="dropdown" name="dropdown">
+                <option value="smazat">Smazat</option>
+                <option value="add_category">Přidat kategorii</option>
+                <option value="delete_category">Odebrat kategorii</option>
+            </select>
+            <input class="form-control" style="width: 400px; display: inline;" type="text" name="dropdown_meta" placeholder="Pokud mažeš, je jedno co sem napíšeš" value=""/>
+            <button class="btn btn-outline-primary" style="vertical-align: baseline;" type="submit" name="dropdown_trigger" value="some_value">Budiž</button>
+        </div>
+
+        <!-- TABULKA SLOVÍČEK -->
+        <table class="slovnik-wrapper">
+            <thead>
+                <tr>
+                    <th></th>
+                    {% for jazyk in jazyky %}
+                        <th>{{ jazyk }}</th>
+                    {% endfor %}
+                    <th>Druh</th>
+                    <th>Kategorie</th>
+                    <th>Asociace</th>
+                    <th>Tested</th>
+                    <th>Known</th>
+                    <th>Learned</th>
+                    <th>Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for word in slovicka %}
+                <tr>
+                    <td><input class="form-check-input" type="checkbox" value="{{word.id}}" name="checked"/></td>
+                    {% for jazyk in jazyky %}
+                        <td>{{word.pretty(jazyk)}}</td>
+                    {% endfor %}
+                    <td>{{word.pretty("druh")}}</td>
+                    <td>{{word.pretty("kategorie")}}</td>
+                    <td>{{word.pretty("asociace")}}</td>
+                    <td>{{word.times_tested}}</td>
+                    <td>{{word.times_known}}</td>
+                    <td>{{word.times_learned}}</td>
+                    <td>{{word.datum_pretty}}</td>
+                    <td><button class="btn-link" type="submit" name="edit" value="{{word.id}}">Upravit</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "slovnik_base.html" %}
+{% block content %}
+    {% if typ=="datum" %}
+        <h2>zadej datum ve tvaru DD.MM.YYYY</h2>
+        <form method="post" xmlns="http://www.w3.org/1999/html">
+        <div>
+            <label for="od">Počáteční datum</label>
+            <input type="text" name="od" id="od" autocomplete="off" autofocus/>
+        </div>
+        <div>
+            <label for="do">koncové datum včetně</label>
+            <input type="text" name="do" id="do" autocomplete="off"/>
+        </div>
+        <button type="submit">Dál</button>
+        </form>
+    {% elif typ=="kategorie" %}
+        <h2>Vyber si, ze které kategorie chceš vytvořit set:</h2>
+        <form method="post">
+        <select name="kategorie">
+        {% for kat in kategorie %}
+            <option value="{{ kat }}">{{ kat }}</option>
+        {% endfor %}
+        </select>
+        <button type="submit">Dál</button>
+        </form>
+    {% elif typ=="neuspesne"%}
+        <h2>Podle neúspěšných: Napiš, z kolika slovíček maximálně chceš vytvořit set</h2>
+        <div>
+        <form method="post">
+        <label for="neuspesne">sem</label>
+        <input type="number" name="neuspesne" id="neuspesne"/>
+            <button type="submit">Dál</button>
+        </form>
+        </div>
+    {% elif typ== "vse" %}
+        <h2> Ze všech: Napiš, z kolika slovíček maximálně chceš vytvořit set</h2>
+        <form method="post">
+        <label for="vse">sem</label>
+        <input type="number" name="vse" id="vse"/>
+        <button type="submit">Dál</button>
+        </form>
+    {% elif typ== "least" %}
+        <h2> Nejméně zkloušené: Napiš, z kolika slovíček maximálně chceš vytvořit set</h2>
+        <form method="post">
+        <label for="least">sem</label>
+        <input type="number" name="least" id="least"/>
+        <button type="submit">Dál</button>
+        </form>
+    {% elif typ == "druh" %}
+        <h2>Podle slovního druhu: Vyber kterej chceš</h2>
+        <form method="post">
+        <select name="druhy">
+            {% for dr in druhy %}
+                <option value="{{ dr }}">{{ dr }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Dál</button>
+        </form>
+    {% elif typ == "skupina" %}
+        <h2>Podle skupiny písmen. Zadej jí přesně:</h2>
+        <form method="post">
+            <label for="skupina">sem: </label>
+            <input type="text" name="skupina" id="skupina"/>
+            <button type="submit">Dál</button>
+        </form>
+    {% elif typ == "nejmene_ucene" %}
+        <h2>Nejméně učená slovíčka. Zadej, kolik maximálně jich chceš do setu zahrnout:</h2>
+        <form method="post">
+            <label for="nejmene_ucene">sem: </label>
+            <input type="number" name="nejmene_ucene" id="nejmene_ucene"/>
+            <button type="submit">Dál</button>
+        </form>
+    {% else %}
+        Not implemented yet
+    {% endif %}
+{% endblock %}

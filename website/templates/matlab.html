@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Převod českého textu pro Matlab \(\LaTeX\) interpreter</h1>
+
+<div class="m-2 p-2 border border-primary rounded">
+    <h2>Input</h2>
+    <textarea class="form-control" id="in">úhlová rychlost</textarea>
+    <h2>Výsledek</h2>
+    <textarea class="form-control" id="out" disabled></textarea>
+</div>
+
+Při vykreslování grafů v Matlabu lze použít \(\LaTeX\) vzhled písma. Stačí kdekoli nad příkazem <code>plot()</code> použít 
+<div class="m-2 p-2 border border-primary rounded" >
+    <code>
+        set(0,'defaulttextInterpreter','latex'); <br>
+        set(groot, 'defaultAxesTickLabelInterpreter','latex'); <br>
+        set(groot, 'defaultLegendInterpreter','latex');
+    </code>
+</div>
+Matlab ale má problém s háčky a čárkami, vyžaduje speciální syntax: např. <code>\v{z}</code> znamená ž. Tenhle converter to zařídí. <br>   
+Poznámka pro Pípa, kterej sem leze často: po příkazu plot můžeš změnit velikost písma pomocí <code>set(gca,'FontSize',20)</code>
+
+
+<script src="{{url_for('static', filename='js/matlab.js')}}"></script>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "slovnik_base.html" %}
+{% block content %}
+   <h2>Setřídit slovník:</h2>
+    abecedně, podle data, podle druhu, podle kategorie
+    <form method="post">
+    <div>
+        <input id="abecedne" type="radio" name="only_one_pls" value="czech"/>
+        <label for="abecedne">abecedne</label>
+        <br>
+
+        <input id="podle data" type="radio" name="only_one_pls" value="datum"/>
+        <label for="podle data">podle data</label>
+        <br>
+        <input id="podle druhu" type="radio" name="only_one_pls" value="druh"/>
+        <label for="podle druhu">podle druhu</label>
+    <br>
+        <input id="podle kategorie" type="radio" name="only_one_pls" value="kategorie"/>
+        <label for="podle kategorie">podle kategorie</label>
+        <br>
+        <input id="podle neuspesnych" type="radio" name="only_one_pls" value="neuspesne">
+        <label for="podle neuspesnych">Podle neuspesnych</label>
+        <br>
+        <input id="least" type="radio" name="only_one_pls" value="least">
+        <label for="least">Podle nejmene zkousenych</label>
+        <br>
+        <input id="nejmene_ucene" type="radio" name="only_one_pls" value="nejmene_ucene"/>
+        <label for="nejmene_ucene">Podle nejméně učených</label>
+    </div>
+    <div>
+        <input id="sestupne" type="checkbox" name="sestupne"  value="True"/>
+        <label for="sestupne">zaskrtni pro srovnani typu z->a nebo "od nejnovějšího"</label>
+    </div>
+    <button type="submit">Srovnej!</button>
+    </form>
+    <br>
+{% endblock %}

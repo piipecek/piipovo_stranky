@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for chyba in chyby %}
+	<p>
+		autor záznamu: {{chyba.autor}} 
+		<br>
+		popis: {{chyba.popis}} 
+		<br>
+		stav řešení: {{chyba.reseni}}
+	</p>
+{% endfor %}
+
+<p>
+	Napadla vás nějaká připomínka? <a href="{{url_for("default_views.nahlasit_bug")}}">Přidejte ji sem</a>
+</p>
+
+{% endblock %}

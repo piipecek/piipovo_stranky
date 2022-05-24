@@ -1,0 +1,13 @@
+v jeden okamžik udělám "fotku" stavu -> všech ryb a jejich x,y,dx,dy
+tu odešlu a upravuju -> každé rybě vytvářim nové x,y,dx,dy
+před odesláním u každé ryby udělám x = novéx
+done
+
+
+přitahování - lokální těžiště -> jednotkový vektor do něj, ovlivněn koef.
+odpuzování - homogenní pole
+usměrňování - lokální vektor rychlosti -> ???
+odpuzování od krajů - homogenní pole
+
+síla homogenních polí ovlivněna koeficienty
+

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+    <h1>Jak přemýšlet o goniometrických funkcích</h1>
+    <div class="row">
+        <div class="col-auto">
+            <button id="uvod" class="btn btn-outline-primary">Úvod</button>
+        </div>
+        <div class="col-auto">
+            <button id="trojuhelnik" class="btn btn-outline-primary">Pravoúhlý trojúhelník</button>
+        </div>
+        <div class="col-auto">
+            <button id="vlna" class="btn btn-outline-primary">Vlnovka</button>
+        </div>
+        <div class="col-auto">
+            <button id="funkce" class="btn btn-outline-primary">Funkce</button>
+        </div>
+        <div class="col-auto">
+            <button id="kartez" class="btn btn-outline-primary">Alternativa ke kartézským souřadnicím</button>
+        </div>
+    </div>
+    <div id="trig_content">
+        <div id="uvod_text">
+            <h2>Úvod</h2>
+            <p>
+                Goniometrické funkce sinus a cosinus jsou často neoblíbenou kapitolou ve středoškolské matematice. Přitom ale málokterá jiná část je v navazujícím vzdělání tolikrát používána a omílána dokola, že nepochopení goniometrických funkcí je zábranou pro pochopení dalších problémů.
+            </p>
+            <p>
+                Goniometrie je výjimečná tím, že ukazuje propojenost různých koutů matematiky a (mnozí by řekli) tím i její krásu. V dalších oddílech se tedy pokusím nahlížet na siny a cosiny z různých, zdánlivě zcela nesouvisejících úhlů pohledu. Tyto oddíly spolu ale souvisí právě tím, že v nich vystupují goniometrické funkce.
+            </p>
+        </div>
+        <div id="trojuhelnik_text">
+            <h2>Sinus a cosinus v pravoúhlém trojúhelníku</h2>
+            <p>
+                Mějme pravoúhlý trojúhelník \(ABC\), ve kterém známe stranu \(c\) a \(a\). Funkce sinus nám dává možnost, jak vypočítat úhel \(\alpha\):
+            </p>
+            <canvas id="trojuhelnik1"></canvas>
+            <p></p>
+
+        </div>
+        <div id="vlna_text">
+            <h2>Sinus a cosinus jako vlnovka</h2>
+           <p>
+               houp
+           </p> 
+           <canvas id="vlna_canvas"></canvas>
+
+        </div>
+        <div id="funkce_text">
+            <h2>Sinus a cosinus jako funkce</h2>
+            <p>
+               funguj
+            </p>
+            <canvas id="funkce_canvas"></canvas>
+
+        </div>
+        <div id="kartez_text">
+            <h2>Polární souřadnice jako alternativa ke kartézským</h2>
+            <p>
+                i
+            </p>
+            <canvas id="kartez_canvas"></canvas>
+
+        </div>
+    </div>
+</div>
+
+<script type="module" src="{{url_for('static', filename='js/trig.js')}}"></script>
+<script type="module" src="{{url_for('static', filename='js/cartesian_graph.js')}}"></script>
+
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "slovnik_base.html"%}
+{% block content %}
+    Už jsi splnil psaní u {{ pocet_written[0] }} slovíček z {{ pocet_written[1] }}
+    <form method="post" autocomplete="off">
+
+    {% if typ=="showcase" %}
+        Na tyhle slovíčka se podívej a zkus si je zapamatovat.
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1">definice</div>
+                <div class="col-md-1">překlad</div>
+            </div>
+            <hr>
+            {% for word in display_info %}
+                <div class="row">
+                    <div class="col-md-1">{{ word.pretty(base_jazyk) }}</div>
+                    <div class="col-md-1">{{ word.pretty(target_jazyk) }}</div>
+                </div>
+            {% endfor %}
+        </div>
+        <button type="submit" name="dalsi" value="1">Dál</button>
+    {% elif typ =="choose" %}
+        vyber správný překlad pro <b>{{ display_info[0].pretty(base_jazyk) }}</b>
+        <select name="id_vybraneho">
+            {% for slovicko in display_info[1] %}
+                <option value="{{ slovicko.id }}">{{ slovicko.pretty(target_jazyk) }}</option>
+            {% endfor %}
+        </select>
+        <input type="text" hidden name="id_puvodniho" value="{{ display_info[0].id }}"/>
+        <button type="submit" name="vybrat" value="1">Vybrat tuhle možnost</button>
+    {% elif typ =="write" %}
+        napiš překlad ke slovíčku <b>{{ display_info.pretty(base_jazyk) }}</b>
+        <input type="text" name="string" autofocus autocomplete="off"/>
+        <input type="text" hidden name="id_puvodniho" value="{{ display_info.id }}"/>
+        <button type="submit" name="zkontrolovat" value="1">Zkontrolovat</button>
+    {% else %}
+        {{ typ }}, nevim jak jsem se sem dostal
+    {% endif %}
+
+    <button type="submit" name="ukoncit"  value="1">Ukončit učení teď</button>
+
+    </form>
+
+{% endblock %}
