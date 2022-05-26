@@ -10,7 +10,7 @@ auth_views = Blueprint("auth_views",__name__, template_folder="auth")
 @auth_views.route("/login", methods=["GET","POST"])
 def login():
 	if request.method == "GET":
-		return render_template("login.html")
+		return render_template("auth_login.html")
 	else:
 		email = request.form.get("email")
 		password = request.form.get("password")
@@ -26,7 +26,7 @@ def login():
 @auth_views.route("/register", methods=["GET","POST"])
 def register():
 	if request.method == "GET":
-		return render_template("register.html")
+		return render_template("auth_register.html")
 	else:
 		email = request.form.get("email")
 		password = request.form.get("password")

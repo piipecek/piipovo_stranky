@@ -137,7 +137,7 @@ class UceniManager:
                 if id_puvodniho == id_vybraneho:
                     self.data_o_uceni[i]["choose"] = True
                     message = "Správně!"
-                    category = "correct"
+                    category = "success"
                 else:
                     self.data_o_uceni[i]["showcase"] = False
                     message = f"Špatně, správně by bylo {Slovicko.get_by_id(id_puvodniho).pretty(self.target_jazyk)}"
@@ -152,7 +152,7 @@ class UceniManager:
                 if result:
                     self.data_o_uceni[i]["write"] = True
                     message = "Správně!"
-                    category = "correct"
+                    category = "success"
                 else:
                     self.data_o_uceni[i]["choose"] = False
                     message = f"Špatně, správně by bylo {Slovicko.get_by_id(id).pretty(self.target_jazyk)}"

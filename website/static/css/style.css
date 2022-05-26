@@ -9,14 +9,14 @@ hr {
     margin: 5px;
 }
 
-.alert-info {
-    background-color: burlywood;
+.alertcolor-info {
+    background-color: rgb(253, 235, 138  );
 }
-.alert-error  {
-    background-color: red;
+.alertcolor-error  {
+    background-color: rgb(255, 121, 121);
 }
-.alert-correct {
-    background-color: limegreen;
+.alertcolor-success {
+    background-color: rgb(138, 253, 138  );
 }
 
 .col-md-1 {
@@ -29,7 +29,7 @@ hr {
     width: 1500px;
 }
 body {
-    background-color: whitesmoke ;
+    background-color: whitesmoke !important ;
     margin-left: 20px;
 }
 canvas {

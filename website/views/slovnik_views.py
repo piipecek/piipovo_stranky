@@ -31,11 +31,11 @@ def slovnik_home():
 def pridej_slovicka():
     settings = Settings.get()
     if request.method == "GET":
-        return render_template("pridej_slovicka.html", jazyky = json.dumps(settings.data["jazyky"]))
+        return render_template("slovnik_pridej_slovicka.html", jazyky = json.dumps(settings.data["jazyky"]))
     if request.method == "POST":
         inpt = request.form.get("input")
         if inpt == "":
-            flash("nic jste nezadali")
+            flash("nic jste nezadali", category="info")
         else:
             output_pairseru = pairse_and_insert(request.form.get("input"),
                                                 jazyky = request.form.getlist("dropdown_jazyka"),
@@ -43,7 +43,7 @@ def pridej_slovicka():
                                                 druh=request.form.get("druh"),
                                                 kategorie=request.form.get("kategorie"))
             if output_pairseru:
-                return render_template("returned_text.html", line=output_pairseru[0], text=output_pairseru[1])
+                return render_template("slovnik_returned_text.html", line=output_pairseru[0], text=output_pairseru[1])
 
             flash("pridano!", category="info")
         return redirect(url_for("slovnik_views.slovnik_home"))
@@ -73,7 +73,7 @@ def edit(id: int):
     if request.method == "GET":
         slovicko = json.dumps(db_handling.get_by_id(id))
         jazyky = json.dumps(Settings.get().data["jazyky"])
-        return render_template("edit_slovicko.html", slovicko=slovicko, jazyky=jazyky)
+        return render_template("slovnik_edit_slovicko.html", slovicko=slovicko, jazyky=jazyky)
     elif request.method == "POST":
         if request.form.get("potvrdit"):
             new_data = json.loads(request.form.get("slovicko"))
@@ -81,7 +81,7 @@ def edit(id: int):
             db_handling.insert_to_db(new_data)
         elif request.form.get("delete"):
             db_handling.delete_by_id(id=id)
-            flash("smazano slovicko!", category="correct")
+            flash("smazano slovicko!", category="success")
         return redirect(url_for("slovnik_views.slovnik"))
         
 
@@ -90,7 +90,7 @@ def edit(id: int):
 @login_required
 def sort():
     if request.method == "GET":
-        return render_template("sort.html")
+        return render_template("slovnik_sort.html")
     elif request.method == "POST":
         key = request.form.get("only_one_pls")
         sestupne = request.form.get("sestupne")  # Vraci "True" nebo None
@@ -106,7 +106,7 @@ def sort():
 @login_required
 def singles():
     if request.method == "GET":
-        return render_template("singles.html", singles=Slovicko.get_singles())
+        return render_template("slovnik_singles.html", singles=Slovicko.get_singles())
     elif request.method == "POST":
         return redirect(url_for("slovnik_views.edit", id=request.form.get("edit")))
 
@@ -117,7 +117,7 @@ def duplicates():
     s = Slovnik.get()
     if request.method == "GET":
         duplicates = s.get_duplicates()
-        return render_template("duplicates.html", duplicates=duplicates)
+        return render_template("slovnik_duplicates.html", duplicates=duplicates)
     elif request.method == "POST":
         if request.form.get("sjednotit"):
             s.sjednotit(request.form.getlist("id"))
@@ -134,7 +134,7 @@ def tvoreni_setu_podle():
         s = SetSlovicek()
         s.zapsat_do_souboru()
         jazyky = Settings.get().data["jazyky"]
-        return render_template("tvoreni_setu_podle.html", jazyky = json.dumps(jazyky))
+        return render_template("slovnik_tvoreni_setu_podle.html", jazyky = json.dumps(jazyky))
     elif request.method == "POST":
         s = SetSlovicek.nacist_ze_souboru()
         s.podle = request.form.get("typ")
@@ -149,7 +149,7 @@ def tvoreni_setu_podle():
 def tvoreni_setu_meta():
     s = SetSlovicek.nacist_ze_souboru()
     if request.method == "GET":
-        return render_template("tvoreni_setu_meta.html",
+        return render_template("slovnik_tvoreni_setu_meta.html",
                                typ=s.podle,
                                kategorie=db_handling.get_kategorie(base_jazyk = s.base_jazyk, target_jazyk = s.target_jazyk),
                                druhy=db_handling.get_druhy(base_jazyk = s.base_jazyk, target_jazyk = s.target_jazyk))
@@ -184,7 +184,7 @@ def set_overview():
         return redirect(url_for("slovnik_views.slovnik_home"))
     else:
         if request.method == "GET":
-            return render_template("set_overview.html", setik=s.objekty(), target_jazyk=s.target_jazyk, base_jazyk = s.base_jazyk)
+            return render_template("slovnik_set_overview.html", setik=s.objekty(), target_jazyk=s.target_jazyk, base_jazyk = s.base_jazyk)
         elif request.method == "POST":
             if request.form.get("zkouseni"):
                 z = ZkouseniManager(seznam_id_slovicek=s.seznam_id_slovicek,
@@ -214,7 +214,7 @@ def zkouseni(index: int):
         if word is False:
             return redirect(url_for("slovnik_views.konec_zkouseni"))
         else:
-            return render_template("zkouseni.html", word=word, index=index, celkem = len(z.seznam_id_slovicek), target_jazyk=z.target_jazyk, base_jazyk = z.base_jazyk)
+            return render_template("slovnik_zkouseni.html", word=word, index=index, celkem = len(z.seznam_id_slovicek), target_jazyk=z.target_jazyk, base_jazyk = z.base_jazyk)
     elif request.method == "POST":
         if request.form.get("next"):
             odpoved = request.form.get("pokus")
@@ -245,7 +245,7 @@ def konec_zkouseni():
     z = ZkouseniManager.nacist_ze_souboru()
     z.uspesnost = z.get_uspesnost()
     if request.method == "GET":
-        return render_template("konec_zkouseni.html",
+        return render_template("slovnik_konec_zkouseni.html",
                                zkouseni=z,
                                indexes=range(len(z.seznam_id_slovicek)),
                                zkousena_slovicka=z.objekty(),
@@ -265,7 +265,7 @@ def uceni():
         next_display_info = u.get_next_data()
         if next_display_info:
             typ, data = next_display_info
-            return render_template("uceni.html", display_info=data, typ=typ, target_jazyk=u.target_jazyk, base_jazyk = u.base_jazyk ,pocet_written = u.get_pocet_written())
+            return render_template("slovnik_uceni.html", display_info=data, typ=typ, target_jazyk=u.target_jazyk, base_jazyk = u.base_jazyk ,pocet_written = u.get_pocet_written())
         else:
             return redirect(url_for("slovnik_views.konec_uceni"))
     elif request.method == "POST":
@@ -294,7 +294,7 @@ def konec_uceni():
             s = Slovicko.get_by_id(zaznam["id"])
             s.times_learned += 1
             s.put_in_db()
-        return render_template("konec_uceni.html")
+        return render_template("slovnik_konec_uceni.html")
     elif request.method == "POST":
         if request.form.get("retake"):
             u.retake()
@@ -311,7 +311,7 @@ def konec_uceni():
 @login_required
 def historie_zkouseni():
     if request.method == "GET":
-        return render_template("historie_zkouseni.html", historie=ZkouseniManager.get_all_from_history())
+        return render_template("slovnik_historie_zkouseni.html", historie=ZkouseniManager.get_all_from_history())
     elif request.method == "POST":
         detail = request.form.get("detail")
         if detail:
@@ -325,7 +325,7 @@ def detail_zkouseni(id):
     if request.method == "GET":
         z = ZkouseniManager.get_by_id(id)
         objekty = z.objekty()
-        return render_template("detail_zkouseni.html",
+        return render_template("slovnik_detail_zkouseni.html",
                                zkouseni=z,
                                zkousena_slovicka=objekty,
                                indexy=range(len(objekty)))
@@ -348,14 +348,14 @@ def detail_zkouseni(id):
 @slovnik_views.route("/about")
 @login_required
 def about():
-    return render_template("about.html")
+    return render_template("slovnik_about.html")
 
 
 @slovnik_views.route("/prejmenovat_kategorii", methods=["GET","POST"])
 @login_required
 def prejmenovat_kategorii():
     if request.method == "GET":
-        return render_template("prejmenovat_kategorii.html", kategorie = db_handling.get_kategorie())
+        return render_template("slovnik_prejmenovat_kategorii.html", kategorie = db_handling.get_kategorie())
     else:
         return "Not implemented yet"
 
@@ -364,7 +364,7 @@ def prejmenovat_kategorii():
 @login_required
 def natahnout_od_pipa():
     if request.method == "GET":
-        return render_template("natahnout_od_pipa.html", kategorie = db_handling.get_kategorie_od_piipa())
+        return render_template("slovnik_natahnout_od_pipa.html", kategorie = db_handling.get_kategorie_od_piipa())
     else:
         s = Slovnik.get()
         if request.form.get("all"):
