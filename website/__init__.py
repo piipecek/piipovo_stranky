@@ -1,13 +1,16 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 import os
 from flask_login import LoginManager
+from flask_mail import Mail
 from .helpers.check_files import check_files_or_create
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
 cors = CORS()
+mail = Mail()
+
 
 
 def create_app() -> Flask:
@@ -15,9 +18,15 @@ def create_app() -> Flask:
 	app.config["SECRET_KEY"] = "r Schornstein"
 	app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{DB_NAME}"
 	app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
+	app.config["MAIL_SERVER"] = "smtp.googlemail.com"
+	app.config["MAIL_PORT"] = "587"
+	app.config["MAIL_USE_TLS"] = True
+	app.config["MAIL_USERNAME"] = "josef.latj@gmail.com"
+	app.config["MAIL_PASSWORD"] = "gewfrzvyateqfoya"
 
 	db.init_app(app)
 	cors.init_app(app)
+	mail.init_app(app)
 
 	def check_if_database_exists_else_create(app):
 		if not os.path.exists("website/" + DB_NAME):
@@ -49,5 +58,8 @@ def create_app() -> Flask:
 	def load_user(id):
 		return User.query.get(int(id))  # get rovou kouka na primary key, nemusim delat filter_by(id=id)
 
+	@app.errorhandler(404)
+	def not_found(e):
+		return render_template("not_found.html"), 404
 
 	return app

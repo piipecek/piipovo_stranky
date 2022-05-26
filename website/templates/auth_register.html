@@ -1,13 +1,35 @@
 {%extends "base.html"%}
 {%block content%}
 
-<form method="post">
+<form method="post" id="form">
 	<h2>Zaregistruj se:</h2>
-	<label for="email">Jméno: </label>
-	<input type="text" name="email" id="email"/>
-	<br>
-	<label for="password">Heslo: </label>
-	<input type="password" name="password" id="password"/>
-	<button type="submit">Register</button>
+	<div class="container">
+		<div class="row my-1">
+			<div class="col-2">
+				Email:
+			</div>
+			<div class="col-3">
+				<input type="email" name="email" id="email" required maxlength="100" class="form-control"/>
+			</div>
+		</div>
+		<div class="row my-1">
+			<div class="col-2">
+				Heso
+			</div>
+			<div class="col-3">
+				<input type="password" name="password" id="password" maxlength="300" class="form-control"/>
+			</div>
+		</div>
+		<div class="row my-1">
+			<div class="col-2">
+				Heslo pro kontrolu:
+			</div>
+			<div class="col-3">
+				<input type="password" name="password_confirm" id="password_confirm" maxlength="300" class="form-control"/>
+			</div>
+		</div>
+	</div>
+	<button type="button" id="btn" class="btn btn-primary">Register</button>
 </form>
+<script type="module" src="{{url_for('static',filename='js/register_form_validation.js')}}"></script>
 {%endblock%}

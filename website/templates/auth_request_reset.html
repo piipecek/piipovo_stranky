@@ -1,0 +1,19 @@
+{%extends "base.html"%}
+{%block content%}
+
+<form method="post">
+	<h2> Obnova hesla </h2>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				Zadejte email, na který Vám máme odeslat další informace:
+			</div>
+			<div class="col">
+				<input type="text" name="email" id="email" class="form-control"/>
+			</div>
+		</div>
+	</div>
+    <button type="submit" class="btn btn-primary">Odeslat</button>
+
+</form>
+{%endblock%}
