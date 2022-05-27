@@ -1,25 +1,28 @@
 {% extends "index.html" %}
 {% block nav %}
-    <li class="nav-item"><a class="nav-link" href="{{url_for("default_views.dashboard")}}">Dashboard</a></li>
-    <li class="nav-item"><a class="nav-link" href="{{url_for("slovnik_views.slovnik_home")}}">Slovník </a></li>
-    <li class="nav-item"><a class="nav-link" href="{{url_for("visuals_views.rybicky")}}">Rybičky</a></li>
+    <li class="nav-item"><a class="nav-link active" href="{{url_for("default_views.dashboard")}}">Dashboard</a></li>
+    <li class="nav-item"><a class="nav-link active" href="{{url_for("slovnik_views.slovnik_home")}}">Slovník </a></li>
+    <li class="nav-item"><a class="nav-link active" href="{{url_for("visuals_views.rybicky")}}">Rybičky</a></li>
     <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Matematika</a>
+    <a class="nav-link active dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Matematika</a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li class="nav-item"><a class="nav-link" href="{{url_for("visuals_views.popis_primky")}}">Způsoby popisu přímky</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{url_for("visuals_views.trig")}}">Jak přemýšlet o goniometrických funkcích</a></li>
+            <li class="nav-item"><a class="nav-link active" href="{{url_for("visuals_views.popis_primky")}}">Způsoby popisu přímky</a></li>
+            <li class="nav-item"><a class="nav-link active" href="{{url_for("visuals_views.trig")}}">Jak přemýšlet o goniometrických funkcích</a></li>
         </ul>
     </li>
-    <li class="nav-item"><a class="nav-link" href="{{url_for("visuals_views.hadej_slova")}}">Hádej slova</a></li>
-    <li class="nav-item"><a class="nav-link" href="{{url_for("visuals_views.catan")}}">Katan</a></li> 
-    <li class="nav-item"><a class="nav-link" href="https://piipecek.github.io/tomio.html">Tomiem Ipsum</a></li> 
-    <li class="nav-item"><a class="nav-link" href="{{url_for('visuals_views.matlab')}}">Matlab</a></li>
+    <li class="nav-item"><a class="nav-link active" href="{{url_for("visuals_views.hadej_slova")}}">Hádej slova</a></li>
+    <li class="nav-item"><a class="nav-link active" href="{{url_for("visuals_views.catan")}}">Katan</a></li> 
+    <li class="nav-item"><a class="nav-link active" href="https://piipecek.github.io/tomio.html">Tomiem Ipsum</a></li> 
+    <li class="nav-item"><a class="nav-link active" href="{{url_for('visuals_views.matlab')}}">Matlab</a></li>
     {% if current_user.is_authenticated %}
-    <li class="nav-item"><a class="nav-link" href="{{url_for("default_views.account")}}">Účet</a></li>
-    <li class="nav-item"><a class="nav-link" href="{{url_for("auth_views.logout")}}">Logout</a></li>
+    <li class="nav-item"><a class="nav-link active" href="{{url_for("default_views.account")}}">Účet</a></li>
+    <li class="nav-item"><a class="nav-link active" href="{{url_for("auth_views.logout")}}">Logout</a></li>
+    {% if admin %}
+    <li  class="nav-item"><a class="nav-link active" href="{{url_for('admin_views.admin_dashboard')}}">Admin sekce</a></li>
+    {% endif %}
     {% else %}
-    <li class="nav-item"><a class="nav-link" href="{{url_for("auth_views.login")}}">Login</a></li>
-    <li class="nav-item"><a class="nav-link" href="{{url_for("auth_views.register")}}">Register</a></li>
+    <li class="nav-item"><a class="nav-link active" href="{{url_for("auth_views.login")}}">Login</a></li>
+    <li class="nav-item"><a class="nav-link active" href="{{url_for("auth_views.register")}}">Register</a></li>
     {% endif %}
 {% endblock %}
 

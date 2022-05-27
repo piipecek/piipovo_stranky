@@ -1,0 +1,12 @@
+{% extends "admin_base.html" %}
+
+{% block content %}
+<h2>Úprava Logů</h2>
+<form method="post">
+    <button type="submit" class="btn btn-danger">Smazat Logs file</button>
+</form>
+<code><pre id="logs"></pre></code>
+
+<script type="module" src="{{url_for('static', filename='js/admin_logs_file.js')}}"></script>
+
+{% endblock %}

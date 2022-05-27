@@ -46,6 +46,8 @@ def create_app() -> Flask:
 	from .views.visuals_views import visuals_views
 	from .views.richard_views import richard_views
 	from .views.sender_endpoints import sender
+	from .views.admin_views import admin_views
+
 
 	app.register_blueprint(default_views, url_prefix="/")
 	app.register_blueprint(auth_views, url_prefix="/auth")
@@ -53,6 +55,8 @@ def create_app() -> Flask:
 	app.register_blueprint(visuals_views, url_prefix="/visuals")
 	app.register_blueprint(richard_views, url_prefix="/api")
 	app.register_blueprint(sender, url_prefix="/")
+	app.register_blueprint(admin_views, url_prefix = "/admin")
+
 
 
 	from .models.user import User

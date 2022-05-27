@@ -1,0 +1,17 @@
+{% extends "admin_base.html" %}
+{% block content %}
+
+<h2>Úprava známých bugů</h2>
+Tady bude seznam nahlášených chyb a možnost na ně odpovědět.
+
+<button type="button" class="btn btn-success" id ="save_button">Uložit</button>
+
+<form method="post" id="form">
+    <div id="content">
+
+    </div>
+    <input hidden id="result" name="result"/>
+</form>
+
+<script type="module" src="{{url_for('static', filename='js/uprava_znamych_chyb.js')}}"></script>
+{% endblock %}

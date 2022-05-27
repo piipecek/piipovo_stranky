@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
+from website.json_handlers.admin_handling import is_admin
 from website.models.chyba import Chyba
 from website.models.slovnik import Slovnik
 from website.models.settings import Settings
@@ -9,12 +10,16 @@ default_views = Blueprint("default_views",__name__)
 
 
 @default_views.route("/")
-def restaurant_na_konci_vesmiru():
-	return redirect(url_for("default_views.dashboard"))
-
 @default_views.route("/dashboard")
 def dashboard():
-	return render_template("dashboard.html")
+    if current_user.is_authenticated:
+        if is_admin(current_user.email):
+            admin = True
+        else:
+            admin = False
+    else:
+        admin = False
+    return render_template("dashboard.html", admin = admin)
 
 @default_views.route("/known_bugs")
 def known_bugs():
