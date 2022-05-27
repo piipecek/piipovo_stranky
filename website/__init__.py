@@ -1,10 +1,13 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-import os
 from flask_login import LoginManager
 from flask_mail import Mail
-from .helpers.check_files import check_files_or_create
+from .helpers.check_files import check_files_or_create, check_logs_file
+from .json_handlers.logs_handling import log
+from .paths.paths import user_sql_db_path
+
+
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
@@ -14,6 +17,8 @@ mail = Mail()
 
 
 def create_app() -> Flask:
+	check_logs_file()
+	log("=== START appky ===")
 	app = Flask(__name__)
 	app.config["SECRET_KEY"] = "r Schornstein"
 	app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{DB_NAME}"
@@ -29,21 +34,26 @@ def create_app() -> Flask:
 	mail.init_app(app)
 
 	def check_if_database_exists_else_create(app):
-		if not os.path.exists("website/" + DB_NAME):
+		if not user_sql_db_path().exists():
 			db.create_all(app=app)
-			print("created_db")
+			log("created db at " + str(user_sql_db_path))
+		else:
+			log("user database already exists")
 
 	from .views.default_views import default_views
 	from .views.auth_views import auth_views
 	from .views.slovnik_views import slovnik_views
 	from .views.visuals_views import visuals_views
 	from .views.richard_views import richard_views
+	from .views.sender_endpoints import sender
 
 	app.register_blueprint(default_views, url_prefix="/")
 	app.register_blueprint(auth_views, url_prefix="/auth")
 	app.register_blueprint(slovnik_views, url_prefix="/slovnik")
 	app.register_blueprint(visuals_views, url_prefix="/visuals")
 	app.register_blueprint(richard_views, url_prefix="/api")
+	app.register_blueprint(sender, url_prefix="/")
+
 
 	from .models.user import User
 

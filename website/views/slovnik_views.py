@@ -49,6 +49,29 @@ def pridej_slovicka():
         return redirect(url_for("slovnik_views.slovnik_home"))
 
 
+@slovnik_views.route("/pridej_slovicka_new", methods=["GET", "POST"])
+@login_required
+def pridej_slovicka_new():
+    settings = Settings.get()
+    if request.method == "GET":
+        return render_template("slovnik_pridej_slovicka_new.html", jazyky = json.dumps(settings.data["jazyky"]))
+    if request.method == "POST":
+        inpt = request.form.get("input")
+        if inpt == "":
+            flash("nic jste nezadali", category="info")
+        else:
+            output_pairseru = pairse_and_insert(request.form.get("input"),
+                                                jazyky = request.form.getlist("dropdown_jazyka"),
+                                                asociace=request.form.get("asociace"),
+                                                druh=request.form.get("druh"),
+                                                kategorie=request.form.get("kategorie"))
+            if output_pairseru:
+                return render_template("slovnik_returned_text.html", line=output_pairseru[0], text=output_pairseru[1])
+
+            flash("pridano!", category="info")
+        return redirect(url_for("slovnik_views.slovnik_home"))
+
+
 
 @slovnik_views.route("/slovnik", methods=["GET", "POST"])
 @login_required

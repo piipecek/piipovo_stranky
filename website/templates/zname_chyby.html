@@ -1,18 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-
-{% for chyba in chyby %}
-	<p>
-		autor záznamu: {{chyba.autor}} 
-		<br>
-		popis: {{chyba.popis}} 
-		<br>
-		stav řešení: {{chyba.reseni}}
-	</p>
-{% endfor %}
+<h2>Známé chyby</h2>
+<div id="content">
+</div>
 
 <p>
 	Napadla vás nějaká připomínka? <a href="{{url_for("default_views.nahlasit_bug")}}">Přidejte ji sem</a>
 </p>
+<script type="module" src="{{url_for('static', filename='js/zname_chyby.js')}}"></script>
 
 {% endblock %}

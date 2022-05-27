@@ -3,10 +3,19 @@
 
 <h2> Tady můžeš napsat, co je rozbitý:</h2>
 <form method="post">
-<textarea name="popis" rows=5 cols=50></textarea>
-<label for="include_name">Zveřejnit i s vašim username?</label>
-<input type="checkbox" id="include_name" name="include_name"/>
-<button type="submit">Odeslat</button>
+<textarea name="popis" rows=5 cols=50 maxlength="1000" class="form-control my-2"></textarea>
+<div class="row">
+    <div class="col">
+        {% if current_user.is_authenticated %}
+            <label for="include_name">Zveřejnit i s vašim username?</label>
+            <input type="checkbox" id="include_name" name="include_name" class="form-check-input"/>
+        {% endif %}
+        </div>
+    <div class="col d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary">Odeslat</button>
+    </div>
+</div>
+
 </form>
 
 {% endblock %}

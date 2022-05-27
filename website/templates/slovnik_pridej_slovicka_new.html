@@ -1,0 +1,33 @@
+{% extends "slovnik_base.html" %}
+{% block content %}
+    <h2>Přidat slovíčka - nový design</h2>
+    <form method="post">
+
+        <label for="input">"definice - význam, druhý význam ".
+            Slovíčka oddělovat enterem.
+            možnost zapsat slovíčko s prefixem "zde:", při zkoušení to nedělá bordel.</label>
+        <p>
+            <textarea id="input" name="input" rows="10" cols="50"></textarea>
+        </p>
+        <p>
+            <input type="text" id="jazyky" hidden value="{{jazyky}}">
+            zadávám slovíčka ve formátu:
+            <div id="jazyky_dropdowns"></div>
+            <button type="button" id="new_jazyk_dropdown">Přidat další dropdown jazyků</button>
+        <p>
+            <label for="asociace">Přidat všem stejnou asociaci?</label>
+            <input type="text" name="asociace" id="asociace"/>
+        </p>
+        <p>
+            <label for="druh">Přidat všem stejný druh?</label>
+            <input type="text" name="druh" id="druh"/>
+        </p>
+        <p>
+            <label for="kategorie">Přidat všem stejnou kategorii?</label>
+            <input type="text" name="kategorie" id="kategorie"/>
+        </p>
+
+        <button type="button">Submit</button>
+    </form>
+    <script type="module" src="{{url_for("static", filename="js/slovnik/pridavani_slovicek.js")}}"></script>
+{% endblock %}

@@ -19,6 +19,9 @@ def user_data_folder_path() -> Path:
 def user_folder_path() -> Path:
     return user_data_folder_path() / str(current_user.id)
 
+def user_sql_db_path() -> Path:
+    return Path.cwd() / "website" / "database.db"
+
 
 def user_database_path() -> Path:
     return user_folder_path() / "database.json"
@@ -40,3 +43,6 @@ def hadej_slova_db_path() -> Path:
 
 def tomiem_result_path() -> Path:
     return Path.cwd() / "tomiem_ipsum" / "result.txt"
+
+def log_file_path() -> Path:
+    return Path.cwd() / "data" / "logs.txt"
