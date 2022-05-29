@@ -1,0 +1,42 @@
+{% extends "admin_base.html" %}
+
+{% block content %}
+<h2>Úprava uživatelů</h2>
+<hr>
+Tady jsou data posbíraná z <code>user_data</code> složky. Je jich tu <span id="folder_count"></span>.
+<div id="from_data_folder" class="container">
+    <div class="row">
+        <div class="col-auto">
+            <b>id</b>
+        </div>
+        <div class="col">
+            <b>Jazyky</b>
+        </div>
+        <div class="col-auto">
+            <b>Počet slovíček</b>
+        </div>
+        <div class="col-auto">
+            <b>Smazat</b>
+        </div>
+    </div>
+</div>
+<hr>
+Tady jsou data posbíraná z databáze. Zatím nejde mazat usery odtud, protože čekam, že jsou in sync s tim vejš. Pokud to tak nebude, tak je potřeba to řešit. Je jich tu <span id="db_count"></span>.
+<div id="from_db" class="container">
+    <div class="row">
+        <div class="col-auto">
+            <b>id</b>
+        </div>
+        <div class="col">
+            <b>email</b>
+        </div>
+    </div>
+</div>
+
+<form method="post" id="form">
+    <input hidden name="result" id="result"/>
+</form>
+
+<script type="module" src="{{url_for('static', filename='js/admin_edit_users.js')}}"></script>
+
+{% endblock %}

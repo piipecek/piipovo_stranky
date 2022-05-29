@@ -45,7 +45,7 @@ def pridej_slovicka():
             if output_pairseru:
                 return render_template("slovnik_returned_text.html", line=output_pairseru[0], text=output_pairseru[1])
 
-            flash("pridano!", category="info")
+            flash("Přidáno!", category="info")
         return redirect(url_for("slovnik_views.slovnik_home"))
 
 

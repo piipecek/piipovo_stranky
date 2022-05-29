@@ -21,7 +21,7 @@
                 <li class="nav-item"><a class="nav-link active" href="{{url_for("default_views.dashboard")}}">Zpět na Dashboard</a></li>
                 <li class="nav-item"><a class="nav-link active" href="https://slovniky.lingea.cz/nemecko-cesky" target="_blank">D-CZ Lingea slovník</a></li>
                 <li class="nav-item"><a class="nav-link active" href="{{ url_for("slovnik_views.pridej_slovicka")}}">Přidat slovíčka</a></li>
-                <li class="nav-item"><a class="nav-link active" href="{{ url_for("slovnik_views.pridej_slovicka_new")}}">Přidat slovíčka</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{{ url_for("slovnik_views.pridej_slovicka_new")}}">Přidat slovíčka NEW</a></li>
                 <li class="nav-item"><a class="nav-link active" href="{{ url_for("slovnik_views.slovnik") }}">Slovník</a></li>
                 <li class="nav-item"><a class="nav-link active" href="{{ url_for("slovnik_views.tvoreni_setu_podle")}}">Zkoušení/učení slovíček</a></li>
                 <li class="nav-item"><a class="nav-link active" href="{{ url_for("slovnik_views.historie_zkouseni") }}">Historie Zkoušení</a></li>
@@ -30,9 +30,11 @@
     </nav>
 
 
-{% for category, message in get_flashed_messages(with_categories=True) %}
-    <div class="alertcolor-{{category}}">{{ message }}</div>
-{% endfor %}
+    {% for category, message in get_flashed_messages(with_categories=True) %}
+    <div class="container-sm border border-primary border-2 rounded-3 p-2 my-2 alertcolor-{{category}}">
+        {{message}}
+    </div>
+    {% endfor %}
 
 <section class="container-sm border border-primary border-2 rounded-3 p-2 my-2">
 {% block content %}

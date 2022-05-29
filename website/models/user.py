@@ -26,9 +26,6 @@ class User(db.Model, UserMixin):
 		return {
 			"id": self.id,
 			"email":self.email,
-			"confirmed": self.confirmed,
-			"pocet_odhadu": self.pocet_odhadu,
-			"last_login": str(self.last_login)
 		}
 
 	def odstranit(self):
