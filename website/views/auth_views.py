@@ -52,6 +52,7 @@ def register():
 			db.session.commit()
 			login_user(new_user, remember=True)
 			create_user_files()
+			flash("Úspěšná registrace. Nyní můžeš používat slovník.")
 			return redirect(url_for("default_views.dashboard"))
 
 @auth_views.route("/logout")

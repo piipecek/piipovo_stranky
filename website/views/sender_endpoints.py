@@ -33,6 +33,7 @@ def send_admin(query):
                 result.append({"id": folder.name,
                                "settings": settings,
                                "pocet_slovicek": slovicka_count})
+        result.sort(key=lambda x: x["id"])
         return json.dumps(result)
     elif query == "users_from_db":
         return json.dumps([user.get_basic_info() for user in User.query.all()])

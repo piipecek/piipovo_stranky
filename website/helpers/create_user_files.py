@@ -11,7 +11,7 @@ def create_user_files()-> None:
 
     p.user_settings_path().touch()
     default = {
-        "jazyky": ["czech", "english", "german"],
+        "jazyky": [],
         "zkouseni_opakovani": False
     }
     with open(p.user_settings_path(), "w") as file:
