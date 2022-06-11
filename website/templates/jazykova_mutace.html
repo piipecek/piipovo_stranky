@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 id="nadpis"></h2>
+
+<button class="btn btn-info" id="cs">CS</button>
+<button class="btn btn-info" id="en">EN</button>
+
+<p id="myslenka_o_multilang"></p>
+<p>Tady je text, kterej nemá překlad, je natvrdo napsanej v html. Následující dva textíky jsou demonstrace chování, když překald chybí. Maj vysvětlující hover text.</p>
+<p title= "Tady se stalo, že js loopoval přes příchozí záznamy ze serveru a nenašel tam id tohohle p-tagu." id="name_neprislo"></p>
+<p title="Tady se stalo, že python nenašel překad pro tenhle jazyk." id="nenasel_jazyk"></p>
+
+
+
+<script type="module" src="{{url_for('static', filename='js/js.cookie.mjs')}}"></script>
+<script type="module" src="{{url_for('static', filename='js/httpGet.js')}}"></script>
+<script type="module" src="{{url_for('static', filename='js/jazykova_mutace.js')}}"></script>
+{% endblock %}

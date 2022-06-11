@@ -1,0 +1,25 @@
+[
+    {
+        "name": "nadpis",
+        "location": "jazykova_mutace",
+        "translations": {
+            "cs": "Na téhle stránce vyzkouším, jak funguje můj systém na jazykové mutace",
+            "en": "Here i will be testing my solution for multilang sites"
+        }
+    },
+    {
+        "name": "myslenka_o_multilang",
+        "location": "jazykova_mutace",
+        "translations": {
+            "cs": "Chtělo by to umět nahrávat už stažený jazyky do local storage clienta, aby to při opakovanejch requestech bylo rychlejší.",
+            "en": "It would be better to learn how to use browsers' local storage. I would load translations there and the page could be faster."
+        }
+    },
+    {
+        "name": "nenasel_jazyk",
+        "location": "jazykova_mutace",
+        "translations": {
+            "cs": "Česká verze tu je, anglická chybí."
+        }
+    }
+]

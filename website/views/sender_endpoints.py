@@ -4,6 +4,7 @@ from website.models.chyba import Chyba
 from website.json_handlers.logs_handling import get_logs
 import website.paths.paths as p
 from website.models.user import User
+from website.paths.paths import multilang_path
 
 
 sender = Blueprint("sender", __name__)
@@ -16,7 +17,7 @@ def send_noauth(query):
     else:
         return f"Query {query} not found."
 
-@sender.route("send_admin/<string:query>")
+@sender.route("/send_admin/<string:query>")
 def send_admin(query):
     if query == "logs":
         return json.dumps(get_logs())
@@ -39,3 +40,25 @@ def send_admin(query):
         return json.dumps([user.get_basic_info() for user in User.query.all()])
     else:
         return "tahle query je nejaka divna."
+
+
+@sender.route("send_multilang/<string:lang>/<string:location>")
+def send_multilang(lang, location) -> str:
+    with open(multilang_path()) as file:
+        file = json.load(file)
+
+    result = []
+    for zaznam in file:
+        if zaznam["location"] == location:
+            novy_zaznam = {
+                "name": zaznam["name"],
+            }
+            if lang in zaznam["translations"]:
+                novy_zaznam["preklad"] = zaznam["translations"][lang]
+            else:
+                name = zaznam["name"]
+                novy_zaznam["preklad"] = f"Tahle kombinace jména a lokace ({name}, {location}) nemá překald pro {lang}."
+            result.append(novy_zaznam)
+
+    return json.dumps(result)
+    

@@ -14,6 +14,7 @@
     <li class="nav-item"><a class="nav-link active" href="{{url_for("visuals_views.catan")}}">Katan</a></li> 
     <li class="nav-item"><a class="nav-link active" href="https://piipecek.github.io/tomio.html">Tomiem Ipsum</a></li> 
     <li class="nav-item"><a class="nav-link active" href="{{url_for('visuals_views.matlab')}}">Matlab</a></li>
+    <li class="nav-item"><a class="nav-link active" href="{{url_for('default_views.mutace')}}">Jazykové mutace</a></li>    
     {% if current_user.is_authenticated %}
     <li class="nav-item"><a class="nav-link active" href="{{url_for("default_views.account")}}">Účet</a></li>
     <li class="nav-item"><a class="nav-link active" href="{{url_for("auth_views.logout")}}">Logout</a></li>
