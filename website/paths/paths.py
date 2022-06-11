@@ -47,6 +47,8 @@ def tomiem_result_path() -> Path:
 def log_file_path() -> Path:
     return Path.cwd() / "data" / "logs.txt"
 
-
 def admins_path() -> Path:
     return Path.cwd() / "data" / "admins.txt"
+
+def multilang_path() -> Path:
+    return Path.cwd() / "data" / "multilang.json"

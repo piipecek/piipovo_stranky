@@ -71,3 +71,8 @@ def account():
 		elif request.form.get("new_jazyk_button"):
 			settings.add_jazyk(request.form.get("new_jazyk"))
 			return redirect(url_for("default_views.account"))
+
+
+@default_views.route("/mutace")
+def mutace():
+	return render_template("jazykova_mutace.html")
