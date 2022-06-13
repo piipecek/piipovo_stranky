@@ -117,6 +117,7 @@ function generate(raw_text) {
     if (soubor_je_vporadku) {
         pridat_button.hidden = false
         generate_button.hidden = false
+        document.getElementById("content").innerHTML = "" // clearne cokoli predchoziho
         for (zaznam of data) {
             document.getElementById("content").appendChild(nove_pole(zaznam["name"], zaznam["location"], zaznam["translations"]["cs"],zaznam["translations"]["en"]))
         }
@@ -126,12 +127,28 @@ function generate(raw_text) {
 }
 
 function generate_json() {
+    let res = []
     for (let pole of document.getElementById("content").childNodes) {
         let name = pole.childNodes[0].childNodes[1].childNodes[0].value
         let location = pole.childNodes[0].childNodes[3].childNodes[0].value
         let cs = pole.childNodes[1].childNodes[1].childNodes[0].value
         let en = pole.childNodes[2].childNodes[1].childNodes[0].value
 
-        console.log(name, location, cs, en)
+        res.push({
+            "name": name,
+            "location": location,
+            "translations": {
+                "cs": cs,
+                "en": en
+            }
+        })
     }
+    
+
+    // stažení json objektu
+    let a = document.createElement("a")
+    let file = new Blob([JSON.stringify(res, null, 4)], {type: "text/plain"})
+    a.href = URL.createObjectURL(file)
+    a.download = "multilang.json"
+    a.click()
 }
