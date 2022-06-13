@@ -13,8 +13,37 @@
 <p title="Tady se stalo, že python nenašel překad pro tenhle jazyk." id="nenasel_jazyk"></p>
 
 
+<h2>Vytváření mulilang.json souboru</h2>
+Vyberte soubor, který budete upravovat. Pokud chcete založit nový, musíte dodržet následující strukturu:
+<code><pre>
+    [
+        {
+            "name": "",
+            "location": "",
+            "translations": {
+                "cs": "",
+                "en": ""
+            }
+        },
+        {
+            "name": "",
+            "location": "",
+            "translations": {
+                "cs": "",
+                "en": ""
+            }
+        }
+    ]
+</pre></code>
+<input class="form-control" type="file" id="formFile", accept=".json">
+<div id="content"></div>
+
+
+
 
 <script type="module" src="{{url_for('static', filename='js/js.cookie.mjs')}}"></script>
 <script type="module" src="{{url_for('static', filename='js/httpGet.js')}}"></script>
 <script type="module" src="{{url_for('static', filename='js/jazykova_mutace.js')}}"></script>
+
+<script type="text/javascript" src="{{url_for('static', filename='js/uprava_multilang.json.js')}}"></script>
 {% endblock %}
