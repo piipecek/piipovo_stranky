@@ -1,10 +1,4 @@
-function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
+import httpGet from "./httpGet.js"
 
 let users_from_data_folder = JSON.parse(httpGet("/send_admin/users_from_data_folder"))
 let users_from_db = JSON.parse(httpGet("/send_admin/users_from_db"))

@@ -1,9 +1,3 @@
-function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
+import httpGet from "./httpGet.js"
 
 document.getElementById("logs").innerHTML = JSON.parse(httpGet("/send_admin/logs"))
