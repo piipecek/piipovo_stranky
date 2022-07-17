@@ -1,10 +1,4 @@
-function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
+import httpGet from "./httpGet.js"
 
 let db = JSON.parse(httpGet("/visuals/hadej_slova_getter"))
 let slova = [] //sem se ukládaj slova, která si uživatel vybral

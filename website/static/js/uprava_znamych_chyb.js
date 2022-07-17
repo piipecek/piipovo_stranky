@@ -1,10 +1,4 @@
-function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
+import httpGet from "./httpGet.js"
 
 let chyby = JSON.parse(httpGet("/send_noauth/chyby"))
 let content_div = document.getElementById("content")
