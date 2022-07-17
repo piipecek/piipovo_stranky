@@ -44,3 +44,8 @@ def catan():
 @visuals_views.route("/matlab")
 def matlab():
     return render_template("matlab.html")
+
+
+@visuals_views.route("/semihra")
+def semihra():
+    return render_template("semihra.html")
