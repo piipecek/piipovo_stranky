@@ -151,4 +151,22 @@ function generate_json() {
     a.href = URL.createObjectURL(file)
     a.download = "multilang.json"
     a.click()
+
+    // generování names_to_translate
+    let names_to_translate = {}
+    for (let zaznam of res) {
+        if (zaznam["location"] in names_to_translate) {
+            names_to_translate[zaznam["location"]].push(zaznam["name"])
+        } else {
+            names_to_translate[zaznam["location"]] = []
+        }
+    }
+    console.log(names_to_translate)
+
+    // stažení names_to_translate texťáku
+
+    let file2 = new Blob([JSON.stringify(names_to_translate, null, 4)], {type: "text/plain"})
+    a.href = URL.createObjectURL(file2)
+    a.download = "names_to_translate.json"
+    a.click()
 }
