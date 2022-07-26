@@ -161,12 +161,7 @@ function generate_json() {
             names_to_translate[zaznam["location"]] = []
         }
     }
-    console.log(names_to_translate)
 
-    // stažení names_to_translate texťáku
-
-    let file2 = new Blob([JSON.stringify(names_to_translate, null, 4)], {type: "text/plain"})
-    a.href = URL.createObjectURL(file2)
-    a.download = "names_to_translate.json"
-    a.click()
+    document.getElementById("names_to_translate").hidden = false
+    document.getElementById("names_to_translate_content").innerHTML = JSON.stringify(names_to_translate, null, 4)
 }
