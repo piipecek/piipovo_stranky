@@ -155,11 +155,15 @@ function generate_json() {
     // generování names_to_translate
     let names_to_translate = {}
     for (let zaznam of res) {
+        console.log(zaznam)
         if (zaznam["location"] in names_to_translate) {
             names_to_translate[zaznam["location"]].push(zaznam["name"])
         } else {
             names_to_translate[zaznam["location"]] = []
+            names_to_translate[zaznam["location"]].push(zaznam["name"])
+
         }
+        console.log(names_to_translate)
     }
 
     document.getElementById("names_to_translate").hidden = false
