@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, send_file, request
 from website.paths.paths import hadej_slova_db_path
 from tomiem_ipsum.generator import get_tomiem
 from catan.catan import generate
+from semihra.semihra import generate
 import json
 
 visuals_views = Blueprint("visuals_views", __name__)
@@ -46,6 +47,11 @@ def matlab():
     return render_template("matlab.html")
 
 
-@visuals_views.route("/semihra")
+@visuals_views.route("/semihra", methods=["GET","POST"])
 def semihra():
-    return render_template("semihra.html")
+    if request.method == "GET":
+        return render_template("semihra.html")
+    else:
+        jmena = request.form["jmena"]
+        indicie =  request.form["indicie"]
+        return json.dumps(generate(string_jmen = jmena, string_indicii = indicie))

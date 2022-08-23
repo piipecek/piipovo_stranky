@@ -3,6 +3,30 @@
 {% block content %}
 
     <h2>Hra na semi</h2>
-    Tady bude příprava tý hry, která byla vymyšlena Kubou, Kubou a mnou na letnim výjezdku 2022.
+    Je to hra na spolupráci pro minimálně 6 dětí, kdy všichni zúčastnění hledají svůj dílek něčeho, cílem je společně získat všechny dílky a něco s nima udělat (idk dostat se k pokladu). Je potřeba si připravit:
+    <ul>
+        <li>Seznam jmen dětí</li>
+        <li>Seznam indicií, které budou na kartičkách.</li>
+    </ul>
+    Příklady k oběma seznamům níže.
+    <hr>
+    <h2>Jména dětí</h2>
+    Odděluj je <code>", "</code>, tj čárkou a mezerou, nebo jen čárkou.
+    <button id="jmena_priklad_button" class="btn btn-primary" type="button">Předvyplnit příklad</button>
+    <textarea id="jmena" class="form-control my-2" rows="3"></textarea>
+
+    <h2>Indicie</h2>
+    Jednotlivé indicie odděluj <code>". "</code>, nebo jen tečkou. Řádky indicií odděluj enterem.
+    <button id="indicie_priklad_button" class="btn btn-primary" type="button">Předvyplnit příklad</button>
+    <textarea id="indicie" class="form-control my-2" rows="5"></textarea>
+    Kliknutí na Budiž vytvoří vztahy mezi dětmi - kdo s kým bude moct mluvit. Taky jim to přiřadí každýmu jeden dílek a rozdá zbytky indicií tak, aby to byla akorát složitá hra (aby ti nestačilo jen mluvit s těmi, s kterými můžeš.)
+    <button type="button" class="btn btn-success" id="budiz">Budiž</button>
+    <hr>
+    <div id="karty" hidden>
+        <h2>Výsledek:</h2>
+        Výsledek je pokaždý jiný, i se stejným zadáním. Proto jde <button id="download" type="button" class="btn btn-primary">Stáhnout jako json</button>.
+    </div>
+
+    <script src="{{url_for('static', filename='js/semihra.js')}}"></script>
 
 {% endblock %}
