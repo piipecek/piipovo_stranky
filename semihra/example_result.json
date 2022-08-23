@@ -1,0 +1,94 @@
+[
+    {
+        "jmeno": "Alice",
+        "mluvis_s": [
+            "Dominik",
+            "Filip",
+            "Eva"
+        ],
+        "uvodni_veta": "Tv\u016fj d\u00edlek je nalepen\u00fd zespoda.",
+        "dale_vis": [
+            "Hrn\u00ed\u010dek je punt\u00edkovanej.",
+            "Tal\u00ed\u0159 je v botn\u00edku."
+        ]
+    },
+    {
+        "jmeno": "Bob",
+        "mluvis_s": [
+            "Cyril",
+            "Gray",
+            "Dominik"
+        ],
+        "uvodni_veta": "Tv\u016fj d\u00edlek je v hrn\u00ed\u010dku.",
+        "dale_vis": [
+            "\u0160pendl\u00edk je na futru dve\u0159\u00ed na z\u00e1chod.",
+            "Ba\u0165oh je u dve\u0159\u00ed ven."
+        ]
+    },
+    {
+        "jmeno": "Cyril",
+        "mluvis_s": [
+            "Bob",
+            "Eva",
+            "Filip",
+            "Gray"
+        ],
+        "uvodni_veta": "Tv\u016fj d\u00edlek je v tal\u00ed\u0159i.",
+        "dale_vis": [
+            "Nalepen\u00e1 v\u011bc je zespoda stolu.",
+            "Poli\u010dka je v spole\u010densk\u00e9 m\u00edstnosti."
+        ]
+    },
+    {
+        "jmeno": "Dominik",
+        "mluvis_s": [
+            "Alice",
+            "Filip",
+            "Bob"
+        ],
+        "uvodni_veta": "Tv\u016fj d\u00edlek je mezi  kn\u00ed\u017ekami.",
+        "dale_vis": [
+            "Spor\u00e1k je v \u0161atn\u011b.",
+            "Botn\u00edk je na st\u0159e\u0161e."
+        ]
+    },
+    {
+        "jmeno": "Eva",
+        "mluvis_s": [
+            "Cyril",
+            "Gray",
+            "Alice"
+        ],
+        "uvodni_veta": "Tv\u016fj d\u00edlek je v klobouku.",
+        "dale_vis": [
+            "Punt\u00edkovan\u00e1 v\u011bc je ve sk\u0159\u00edni v j\u00eddeln\u011b.",
+            "Kn\u00ed\u017eky jsou na poli\u010dce."
+        ]
+    },
+    {
+        "jmeno": "Filip",
+        "mluvis_s": [
+            "Alice",
+            "Dominik",
+            "Cyril"
+        ],
+        "uvodni_veta": "Tv\u016fj d\u00edlek je za pap\u00edrem.",
+        "dale_vis": [
+            "Hrnec je na spor\u00e1ku.",
+            "Klobouk je v ba\u0165ohu."
+        ]
+    },
+    {
+        "jmeno": "Gray",
+        "mluvis_s": [
+            "Bob",
+            "Eva",
+            "Cyril"
+        ],
+        "uvodni_veta": "Tv\u016fj d\u00edlek je pod hrncem.",
+        "dale_vis": [
+            "St\u016fl je v zaseda\u010dce.",
+            "Pap\u00edr je p\u0159i\u0161pendlen\u00fd \u0161pendl\u00edkem."
+        ]
+    }
+]
