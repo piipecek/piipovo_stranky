@@ -4,6 +4,7 @@ let jmena_priklad_button = document.getElementById("jmena_priklad_button")
 let indicie_priklad_button = document.getElementById("indicie_priklad_button")
 let budiz = document.getElementById("budiz")
 let karty_div = document.getElementById("karty")
+let vysledek_div = document.getElementById("vysledek")
 let download_button = document.getElementById("download")
 
 let jmena_priklad = "Alice, Bob, Cyril, Dominik, Eva, Filip, Gray"
@@ -58,7 +59,8 @@ download_button.addEventListener("click", function() {
 
 function vysledek_handle(data) {
     data = JSON.parse(data)
-    karty_div.hidden = false
+    vysledek_div.hidden = false
+    karty_div.replaceChildren()
     if (data.length == 1) {
         alert(data[0])
     } else {
