@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, send_file, request
 from website.paths.paths import hadej_slova_db_path
 from tomiem_ipsum.generator import get_tomiem
-from catan.catan import generate
+from catan.catan import generate_catan
 from semihra.semihra import generate
 import json
 
@@ -39,7 +39,7 @@ def catan():
         return render_template("catan.html")
     else:
         got = json.loads(request.form["result"])
-        return json.dumps(generate(got))
+        return json.dumps(generate_catan(got))
     
 
 @visuals_views.route("/matlab")
