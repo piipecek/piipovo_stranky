@@ -2,7 +2,7 @@ from catan.board import Board
 
 #class Tile - docela self explanatory
 #class Board - generuje tiles se spravnejma sousedama podle id a umi je tisknout
-def generate(data) -> dict:
+def generate_catan(data) -> dict:
 
     force_middle_desert = data["force_desert"]
     allow_same_neighbours = data["adjacent_land"]
