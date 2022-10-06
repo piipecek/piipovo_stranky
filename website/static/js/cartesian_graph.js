@@ -1,6 +1,6 @@
 class Cartesian_graph {
     // id: id elementu v DOM
-    constructor(id, width, height, pxorigin, pxstep, blank=false) {
+    constructor(id, width, height, pxorigin, pxstep) {
         this.node = document.getElementById(id)
         this.ctx = this.node.getContext("2d")
         this.ctx.textAlign = "center"
@@ -14,17 +14,10 @@ class Cartesian_graph {
         this.originY = this.pxorigin[1]
         this.px_step = pxstep
         this.axis_margin = 10
-
-        if (blank) {
-
-        } else {
-            this.axes()
-        }
     }
 
     clear() {
         this.ctx.clearRect(0,0,this.width, this.height)
-        this.axes()
     }
 
     rx(num) {
@@ -48,101 +41,125 @@ class Cartesian_graph {
         return alpha
     }
 
-    axes() {
-        this.label_offset = 10
-        this.tick_size = 5
-        this.ctx.strokeStyle = "black"
-        this.ctx.lineWidth = 1
-        this.ctx.beginPath()
-        this.ctx.moveTo(10, this.originY)
-        this.ctx.lineTo(this.width-this.axis_margin, this.originY)
-        this.ctx.moveTo(this.originX, this.axis_margin)
-        this.ctx.lineTo(this.originX, this.height-this.axis_margin)
-        this.ctx.stroke()
 
-        this.ctx.font = "10px Arial"
-        this.ctx.fillText("0", this.rx(0)-this.label_offset, this.ry(0)+this.label_offset)
-        //prichazi hodne duplicate codu, protoze se mi nepovedlo udelat draw axisline funkci.
-        //x+
+    axes(axes, ticks, labels, grid) {
+        // axes, ticks, labels i grid jsou booleany
+        // vykresluje se to v poradi grid, ticks, labels, axes
+        this.label_offset = 13
+        this.tick_size = 5
+        // zjistim, jake se renderujou xvalues a yvalues
+        let xvalues = [0]
+        let yvalues = [0]
         let pos = 0
         while (true) {
             pos += 1
             if (this.rx(pos) > this.width-this.axis_margin) {
                 break
+            } else {
+                xvalues.push(pos)
             }
-            this.ctx.strokeStyle = "silver"
-            this.ctx.beginPath()
-            this.ctx.moveTo(this.rx(pos), this.axis_margin)
-            this.ctx.lineTo(this.rx(pos), this.height-this.axis_margin)
-            this.ctx.stroke()
-            this.ctx.strokeStyle = "black"
-            this.ctx.beginPath()
-            this.ctx.moveTo(this.rx(pos), this.ry(0)+this.tick_size)
-            this.ctx.lineTo(this.rx(pos), this.ry(0)-this.tick_size)
-            this.ctx.stroke()
-            this.ctx.fillText(String(pos), this.rx(pos)-this.label_offset, this.ry(0)+this.label_offset)
-
         }
-        //x-
         pos = 0
         while (true) {
             pos -= 1
             if (this.rx(pos) < this.axis_margin) {
                 break
+            } else {
+                xvalues.push(pos)
             }
-            this.ctx.strokeStyle = "silver"
-            this.ctx.beginPath()
-            this.ctx.moveTo(this.rx(pos), this.axis_margin)
-            this.ctx.lineTo(this.rx(pos), this.height-this.axis_margin)
-            this.ctx.stroke()
-            this.ctx.strokeStyle = "black"
-            this.ctx.beginPath()
-            this.ctx.moveTo(this.rx(pos), this.ry(0)+this.tick_size)
-            this.ctx.lineTo(this.rx(pos), this.ry(0)-this.tick_size)
-            this.ctx.stroke()
-            this.ctx.fillText(String(pos), this.rx(pos)-this.label_offset, this.ry(0)+this.label_offset)
-
         }
-        //y+
         pos = 0
         while (true) {
             pos += 1
             if (this.ry(pos) < this.axis_margin) {
                 break
+            } else {
+                yvalues.push(pos)
             }
-            this.ctx.strokeStyle = "silver"
-            this.ctx.beginPath()
-            this.ctx.moveTo(this.axis_margin, this.ry(pos))
-            this.ctx.lineTo(this.width-this.axis_margin, this.ry(pos))
-            this.ctx.stroke()
-            this.ctx.strokeStyle = "black"
-            this.ctx.beginPath()
-            this.ctx.moveTo(this.rx(0)+this.tick_size, this.ry(pos))
-            this.ctx.lineTo(this.rx(0)-this.tick_size, this.ry(pos))
-            this.ctx.stroke()
-            this.ctx.fillText(String(pos), this.rx(0)-this.label_offset, this.ry(pos)+this.label_offset)
-
         }
-        //y-
         pos = 0
         while (true) {
             pos -= 1
-            if (this.ry(pos) > this.width - this.axis_margin) {
+            if (this.ry(pos) > this.height - this.axis_margin) {
                 break
+            } else {
+                yvalues.push(pos)
             }
-            this.ctx.strokeStyle = "silver"
-            this.ctx.beginPath()
-            this.ctx.moveTo(this.axis_margin, this.ry(pos))
-            this.ctx.lineTo(this.width-this.axis_margin, this.ry(pos))
-            this.ctx.stroke()
-            this.ctx.strokeStyle = "black"
-            this.ctx.beginPath()
-            this.ctx.moveTo(this.rx(0)+this.tick_size, this.ry(pos))
-            this.ctx.lineTo(this.rx(0)-this.tick_size, this.ry(pos))
-            this.ctx.stroke()
-            this.ctx.fillText(String(pos), this.rx(0)-this.label_offset, this.ry(pos)+this.label_offset)
-
         }
+
+        //grid:
+        if (grid) {
+            this.ctx.strokeStyle = "silver"
+            this.ctx.lineWidth = 1
+            for (let x of xvalues) {
+                if (x == 0) {
+                } else {
+                    this.ctx.beginPath()
+                    this.ctx.moveTo(this.rx(x), this.axis_margin)
+                    this.ctx.lineTo(this.rx(x), this.height-this.axis_margin)
+                    this.ctx.stroke()
+                }
+            }
+            for (let y of yvalues) {
+                if (y == 0) {
+                } else {
+                    this.ctx.beginPath()
+                    this.ctx.moveTo(this.axis_margin, this.ry(y))
+                    this.ctx.lineTo(this.width-this.axis_margin,this.ry(y))
+                    this.ctx.stroke()
+                }
+            }
+        }
+
+        // ticks
+        if (ticks) {
+            this.ctx.strokeStyle = "black"
+            this.ctx.lineWidth = 1
+            for (let x of xvalues) {
+                if (x == 0) {
+                } else {
+                    this.ctx.beginPath()
+                    this.ctx.moveTo(this.rx(x), this.ry(0)-this.tick_size)
+                    this.ctx.lineTo(this.rx(x), this.ry(0)+this.tick_size)
+                    this.ctx.stroke()
+                }
+            }
+            for (let y of yvalues) {
+                if (y == 0) {
+                } else {
+                    this.ctx.beginPath()
+                    this.ctx.moveTo(this.rx(0)-this.tick_size, this.ry(y))
+                    this.ctx.lineTo(this.rx(0)+this.tick_size,this.ry(y))
+                    this.ctx.stroke()
+                }
+            }
+        }
+        // labels
+        if (labels) {
+            this.ctx.font = "12px Arial"
+            this.ctx.strokeStyle = "black"
+            for (let x of xvalues) {
+                this.ctx.fillText(String(x), this.rx(x)-this.label_offset, this.ry(0)+this.label_offset)
+            }
+            for (let y of yvalues) {
+                if (y==0) {
+
+                } else {
+                    this.ctx.fillText(String(y), this.rx(0)-this.label_offset, this.ry(y)+this.label_offset)
+                }
+            }
+        }
+        // axes
+        if (axes) {
+            this.ctx.strokeStyle = "navy" //lol prostě black nefunguje
+            this.ctx.lineWidth = 1
+            this.ctx.beginPath()
+            this.ctx.moveTo(this.axis_margin, this.ry(0))
+            this.ctx.lineTo(this.width-this.axis_margin, this.ry(0))
+            this.ctx.moveTo(this.rx(0), this.axis_margin)
+            this.ctx.lineTo(this.rx(0), this.height-this.axis_margin)
+            this.ctx.stroke()
+        }   
     }
 
     point(tuple,label, labelpos = "SE", draw_mark  = true) {
@@ -205,7 +222,6 @@ class Cartesian_graph {
         if (edge_y_minus < Wprusecik && Wprusecik < edge_y_plus) {
             result.push([edge_x_minus, Wprusecik])
         }
-
         this.ctx.strokeStyle = "blue"
         this.ctx.lineWidth = "1"
         this.ctx.beginPath()

@@ -20,7 +20,21 @@ Při vykreslování grafů v Matlabu lze použít \(\LaTeX\) vzhled písma. Sta�
     </code>
 </div>
 Matlab ale má problém s háčky a čárkami, vyžaduje speciální syntax: např. <code>\v{z}</code> znamená ž. Tenhle converter to zařídí. <br>   
-Poznámka pro Pípa, kterej sem leze často: po příkazu plot můžeš změnit velikost písma pomocí <code>set(gca,'FontSize',20)</code>
+Poznámka pro Pípa, kterej sem leze často: další užitečný věci ke grafu:
+<code><pre>
+    set(gca,'FontSize',20)
+    p = plot()
+    p.Marker = "+"
+    p.Color = "red"
+    p.MarkerSize = 6
+    p.LineWidth = 2
+    set(gca,'FontSize',20)
+    xlabel("")
+    ylabel("")
+    title("")
+    % xlim([])
+    % ylim([])
+</pre></code>
 
 
 <script src="{{url_for('static', filename='js/matlab.js')}}"></script>

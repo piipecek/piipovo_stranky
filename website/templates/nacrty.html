@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Moje náčrty</h1>
+A hraní si s tim vykreslovačem
+<hr>
+
+<canvas id="ppr0_1"></canvas>
+
+
+<script type="module" src="{{url_for('static', filename='js/nacrty.js')}}"></script>
+<script type="module" src="{{url_for('static', filename='js/cartesian_graph.js')}}"></script>
+
+{% endblock %}

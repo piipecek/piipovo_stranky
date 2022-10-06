@@ -33,6 +33,10 @@ def popis_primky():
 def trig():
     return render_template("trig.html")
 
+@visuals_views.route("/matematika/nacrty")
+def nacrty():
+    return render_template("nacrty.html")
+
 @visuals_views.route("/catan",  methods=["GET","POST"])
 def catan():
     if request.method == "GET":

@@ -11,7 +11,7 @@ function primka() {
     let t3 = document.getElementById("param_text")
     let t4 = document.getElementById("general_text")
     let t5 = document.getElementById("slope_text")
-    let c = new Cartesian_graph("param_primka", 1000, 800, [500.5, 400.5], 100)
+    let c = new Cartesian_graph("param_primka", 1000, 800, [500.5, 400.5], 90)
     b1.addEventListener("click", vektor)
     b2.addEventListener("click", vazany_vektor)
     b3.addEventListener("click", param)
@@ -27,11 +27,11 @@ function primka() {
         t5.hidden = true
 
         c.clear()
+        c.axes(true, false, false, true)
         c.vector([1.5, 2.3],[2,1], "v1")
         c.vector([-3,1],[2,1], "v1")
         c.vector([0,0],[2,1], "v1")
         c.vector([-3,-3],[2,1], "v1")
-
     }
 
     function vazany_vektor() {
@@ -42,6 +42,7 @@ function primka() {
         t5.hidden = true
 
         c.clear()
+        c.axes(true, true, true, true)
         let A = [-1,1]
         c.point(A, "A")
         c.vector(A, [2,1], "v1")
@@ -56,6 +57,7 @@ function primka() {
         t5.hidden = true
 
         c.clear()
+        c.axes(true, true, true, true)
         let A = [-1,1]
         c.two_point_line(A, [-3,0], "p1", "SW")
         c.point(A, "A")
@@ -70,6 +72,7 @@ function primka() {
 
     function general() {
         c.clear()
+        c.axes(true, true, true, true)
         let A = [-1,1]
         let B = [3,3]
         let N = [2,-1]
