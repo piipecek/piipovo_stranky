@@ -22,18 +22,20 @@ Při vykreslování grafů v Matlabu lze použít \(\LaTeX\) vzhled písma. Sta�
 Matlab ale má problém s háčky a čárkami, vyžaduje speciální syntax: např. <code>\v{z}</code> znamená ž. Tenhle converter to zařídí. <br>   
 Poznámka pro Pípa, kterej sem leze často: další užitečný věci ke grafu:
 <code><pre>
-    set(gca,'FontSize',20)
-    p = plot()
-    p.Marker = "+"
-    p.Color = "red"
-    p.MarkerSize = 6
-    p.LineWidth = 2
-    set(gca,'FontSize',20)
-    xlabel("")
-    ylabel("")
-    title("")
-    % xlim([])
-    % ylim([])
+    figure(1);
+    p = plot(U,I);
+    p.Marker = "+";
+    p.LineStyle = "none";
+    p.Color = "red";
+    p.MarkerSize = 6;
+    p.LineWidth = 2;
+    set(gca,'FontSize',20);
+    xlabel("");
+    ylabel("");
+    title("");
+    %xlim([]);
+    %ylim([]);
+    grid on;
 </pre></code>
 
 
