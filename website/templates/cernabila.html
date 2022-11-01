@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Černá bílá</h2>
+Tady si můžeš zahrát hru černá bílá. Spočívá v tom, že počítač si myslí slovo a tvým cílem je uhodnout ho. Vždy, když napíšeš slovo, počítač zhodnotí, kolik písmenek se shoduje s cílovým slovem a jak moc:
+<ul>
+    <li>Za každé písmenko na správném místě odpoví "černá"</li>
+    <li>Za každé písmenko, které se v cílovém slově vyskytuje jinde, odpoví "bílá"</li>
+</ul>
+Slova mají vždy právě pět písmen. Písmena s čárkou se počítají jako shodná s těmi bez čárky, ale písmena s háčkem a bez něj jsou odlišná.
+Vždy, když načteš tuhle stránku znovu, začne nová hra s novým slovem.
+<hr>
+
+
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <input class="form-control" type="text" id="input"/>
+            </div>
+            <div class="col-auto">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center"><h3 id="slovo"></h3></div>
+            <div class="col text-center"><h3 id="vysledek"></h3></div>
+        </div>
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-success" type="button" id="button">Zkusit</button>
+    </div>
+</div>
+
+
+<script type="module" src="{{url_for('static', filename='js/cernabila.js')}}"></script>
+
+{% endblock %}

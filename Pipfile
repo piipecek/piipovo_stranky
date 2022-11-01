@@ -21,6 +21,7 @@ flask-cors = "*"
 flask-mail = "*"
 
 [dev-packages]
+ipykernel = "*"
 
 [requires]
 python_version = "3.9"

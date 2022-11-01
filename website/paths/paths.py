@@ -52,3 +52,6 @@ def admins_path() -> Path:
 
 def multilang_path() -> Path:
     return Path.cwd() / "data" / "multilang.json"
+
+def cernabila_getword_path() -> Path:
+    return Path.cwd() / "cernabila" / "db.json"

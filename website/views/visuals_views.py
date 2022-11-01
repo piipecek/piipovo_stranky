@@ -3,6 +3,7 @@ from website.paths.paths import hadej_slova_db_path
 from tomiem_ipsum.generator import get_tomiem
 from catan.catan import generate_catan
 from semihra.semihra import generate
+from cernabila.cernabila import get_word
 import json
 
 visuals_views = Blueprint("visuals_views", __name__)
@@ -59,3 +60,24 @@ def semihra():
         jmena = request.form["jmena"]
         indicie =  request.form["indicie"]
         return json.dumps(generate(string_jmen = jmena, string_indicii = indicie))
+
+
+
+@visuals_views.route("/frekvence", methods=["GET","POST"])
+def frekvence():
+    if request.method == "GET":
+        return render_template("frekvence.html")
+    else:
+        return "jeste neumim post"
+
+
+@visuals_views.route("/cernabila", methods=["GET","POST"])
+def cernabila():
+    if request.method == "GET":
+        return render_template("cernabila.html")
+    else:
+        return "jeste neumim post"
+
+@visuals_views.route("/cerna_bila_get_word")
+def cerna_bila_get_word():
+    return json.dumps({"slovo": get_word()})

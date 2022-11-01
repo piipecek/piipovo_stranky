@@ -43,7 +43,7 @@ function trig() {
         c1.two_point_line_segment(A,B,"")
         c1.two_point_line_segment(B,C,"")
         c1.two_point_line_segment(C,A,"")
-        c1.angle(A,B,[3,-3],"")
+        c1.angle(A,B,C,"", false)
 
     }
 
