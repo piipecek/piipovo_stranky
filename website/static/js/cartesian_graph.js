@@ -292,15 +292,19 @@ class Cartesian_graph {
         }
     }
 
-    angle(startPoint, center, endPoint, label) {
+    angle(startPoint, center, endPoint, label, direction) {
+        // direction - clockwise = true
         let start_rad = this.odchylka_vektoru_od_osy_x([startPoint[0]-center[0], startPoint[1]-center[1]])
         let end_rad = this.odchylka_vektoru_od_osy_x([endPoint[0]-center[0], endPoint[1]-center[1]])
-        
+        console.log(start_rad, end_rad)
+        let counterclockwise = start_rad > end_rad
+        console.log(counterclockwise)
+        let rand_length = end_rad-start_rad
         this.ctx.strokeStyle = "red"
         this.ctx.lineWidth = "1"
         this.ctx.beginPath()
-        console.log(end_rad)
-        this.ctx.arc(this.rx(center[0]), this.ry(center[1]), 0.7*this.px_step, start_rad, end_rad, true)
+        
+        this.ctx.arc(this.rx(center[0]), this.ry(center[1]), 0.7*this.px_step, start_rad, rand_length, direction)
         this.ctx.stroke()
     }
 }

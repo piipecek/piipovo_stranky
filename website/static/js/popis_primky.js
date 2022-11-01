@@ -91,6 +91,7 @@ function primka() {
 
     function slope() {
         c.clear()
+        c.axes(true, true, true, true)
         c.two_point_line([-1,1],[3,3],"p1", "SW")
         t1.hidden = true
         t2.hidden = true
