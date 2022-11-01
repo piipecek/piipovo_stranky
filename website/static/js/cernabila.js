@@ -8,6 +8,7 @@ input.addEventListener("keypress", function() {
     }
 })
 document.getElementById("button").addEventListener("click",function() {handler(input.value)})
+document.getElementById("podat").addEventListener("click", function() {document.getElementById("reseni").innerHTML = slovo})
 
 
 function zbavit_se_carek(str) {
