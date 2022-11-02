@@ -1,7 +1,6 @@
 import httpGet from "./httpGet.js"
 
-// let slovo = JSON.parse(httpGet("/visuals/cerna_bila_get_word"))["slovo"]
-let slovo = "praxe"
+let slovo = JSON.parse(httpGet("/visuals/cerna_bila_get_word"))["slovo"]
 let input = document.getElementById("input")
 input.addEventListener("keypress", function() {
     if (event.key == "Enter") {
