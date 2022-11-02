@@ -1,6 +1,7 @@
 import httpGet from "./httpGet.js"
 
-let slovo = JSON.parse(httpGet("/visuals/cerna_bila_get_word"))["slovo"]
+// let slovo = JSON.parse(httpGet("/visuals/cerna_bila_get_word"))["slovo"]
+let slovo = "praxe"
 let input = document.getElementById("input")
 input.addEventListener("keypress", function() {
     if (event.key == "Enter") {
@@ -50,7 +51,7 @@ function vyhodnot(origo_slovo, origo_navrh) {
         for (let podezrely of nove_slovo_arr) {
             if (char == podezrely) {
                 vysledek.push("bílá")
-                break
+                continue
             } else {
                 nove_slovo_novy_arr.push(podezrely)
             }
