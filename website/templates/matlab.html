@@ -4,6 +4,16 @@
 
 <h1>Převod českého textu pro Matlab \(\LaTeX\) interpreter</h1>
 
+Při vykreslování grafů v Matlabu lze použít \(\LaTeX\) vzhled písma. Stačí kdekoli nad příkazem <code>plot()</code> použít 
+<div class="m-2 p-2 border border-primary rounded" ><code><pre>
+set(0,'defaulttextInterpreter','latex');
+set(groot, 'defaultAxesTickLabelInterpreter','latex');
+set(groot, 'defaultLegendInterpreter','latex');
+set(groot,'defaultfigureposition',[0 0 1500 1000])
+</pre></code></div>
+
+Matlab ale má problém s háčky a čárkami, vyžaduje speciální syntax: např. <code>\v{z}</code> znamená ž. Tenhle converter to zařídí. <br>   
+
 <div class="m-2 p-2 border border-primary rounded">
     <h2>Input</h2>
     <textarea class="form-control" id="in">úhlová rychlost</textarea>
@@ -11,33 +21,34 @@
     <textarea class="form-control" id="out" disabled></textarea>
 </div>
 
-Při vykreslování grafů v Matlabu lze použít \(\LaTeX\) vzhled písma. Stačí kdekoli nad příkazem <code>plot()</code> použít 
-<div class="m-2 p-2 border border-primary rounded" >
-    <code>
-        set(0,'defaulttextInterpreter','latex'); <br>
-        set(groot, 'defaultAxesTickLabelInterpreter','latex'); <br>
-        set(groot, 'defaultLegendInterpreter','latex');
-    </code>
-</div>
-Matlab ale má problém s háčky a čárkami, vyžaduje speciální syntax: např. <code>\v{z}</code> znamená ž. Tenhle converter to zařídí. <br>   
 Poznámka pro Pípa, kterej sem leze často: další užitečný věci ke grafu:
 
-<code><pre>
-    figure(1);
-    p = plot(U,I);
-    p.Marker = "+";
-    p.LineStyle = "none";
-    p.Color = "red";
-    p.MarkerSize = 6;
-    p.LineWidth = 2;
-    set(gca,'FontSize',20);
-    xlabel("");
-    ylabel("");
-    title("");
-    %xlim([]);
-    %ylim([]);
-    grid on;
-</pre></code>
+<div class="m-2 p-2 border border-primary rounded" ><code><pre>
+figure(1);
+p = plot(x,y);
+p.Marker = "+";
+p.LineStyle = "none";
+p.Color = "red";
+p.MarkerSize = 6;
+p.LineWidth = 2;
+set(gca,'FontSize',20);
+xlabel("");
+ylabel("");
+title("");
+%xlim([]);
+%ylim([]);
+grid on;</pre></code></div>
+
+Pro subplot:
+
+<div class="m-2 p-2 border border-primary rounded" ><code><pre>
+subplot(1,2,1);
+figure(1);
+...
+figure(2);
+...
+sgtitle("Celej nadpis", "fontsize", 30)
+grid on;</pre></code></div>
 
 
 <script src="{{url_for('static', filename='js/matlab.js')}}"></script>
