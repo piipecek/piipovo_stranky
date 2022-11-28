@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Tabulky pro Matlab a \(\LaTeX\)</h2>
+Tahle stránka pomáhá se zapisováním malých tabulek, typicky z laboratorních měření, a s jejich exportem pro Matlab zpracování a \(\LaTeX\) vypsání. Jako společný formát souboru je zvolen JSON. První verze cílí na tabulky následujícího typu, třeba to pak někdy rozšířim:
+<div class="m-2 p-2 border border-primary rounded" ><code><pre>{
+    "U1": [200, 400, 600, 800],
+    "I1": [19.5, 19.3, 19, 18.9]
+}</pre></code></div>
+V Matlabu jde json nahrát třeba takto:
+<div class="m-2 p-2 border border-primary rounded" ><code><pre>
+data = jsondecode(fileread("data.json"))
+</pre></code></div>
+
+Dá se vytvořít nová tabulka, nebo nahrát stará:
+
+<div class="row">
+    <div class="col-auto">
+        <button type="button" class="btn btn-primary" id="nova">Nový řádek tabulky</button>
+    </div>
+    <div class="col">
+        <input type="file" accept=".json" class="form-control" id="nahrat" placeholder="Upravit stávající tabulku">
+    </div>
+    <div class="col-auto">
+        <button type="button" class="btn btn-primary" id="nacist">Načíst tabulku</button>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-auto">
+        <input class="form-control" disabled value="Název řádku">
+    </div>
+    <div class="col">
+        <input class="form-control" disabled value="Data oddělená čárkou, desetinná tečka">
+    </div>
+</div>
+<div id="tabulka">
+</div>
+<hr>
+<button id="stahnout" class="btn btn-success">Stáhnout tabulku</button>
+<button id="vygenerovat" class="btn btn-success">Vygenerovat \(\LaTeX\)</button>
+<textarea class="form-control my-2" disabled id="latex" rows="4"></textarea>
+
+
+<script type="module" src="{{url_for('static', filename='js/tabulky.js')}}"></script>
+
+
+{% endblock %}

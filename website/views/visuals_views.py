@@ -81,3 +81,10 @@ def cernabila():
 @visuals_views.route("/cerna_bila_get_word")
 def cerna_bila_get_word():
     return json.dumps({"slovo": get_word()})
+
+@visuals_views.route("/tabulky", methods=["GET","POST"])
+def tabulky():
+    if request.method == "GET":
+        return render_template("tabulky.html")
+    else:
+        return "jeste neumim post"
